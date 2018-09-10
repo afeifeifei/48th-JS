@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:420px;
+                height:180px;
+                margin: 30px auto;
+                border-radius:15px;
+                background-color:lightblue;
+                cursor:pointer;
+            }
+            p{
+                line-height:180px;
+                font-size:28px;
+                color:white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p>点我试试看呀！</p>
+        </div>
+        <script>
+            let oWrap =document.getElementById("wrap");
+            let txt =document.getElementsByTagName("p")[0];
+            oWrap.mark =false;
+            let bool = oWrap.mark;
+            oWrap.onclick =function () {
+                if(bool){
+                    txt.innerHTML ="我是最帅的~意不意外";
+                    oWrap.style.backgroundColor='pink';
+                }else{
+                    txt.innerHTML ="点我试试看呀！";
+                    oWrap.style.backgroundColor='lightblue';
+                }
+                bool=!bool;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

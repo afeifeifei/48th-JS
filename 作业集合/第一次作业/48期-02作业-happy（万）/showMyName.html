@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Name</title>
+    <style>
+       #my-first-js{
+            width:200px;
+            height:150px;
+            margin:100px auto;
+            background-color: black;
+           text-align:center;
+           line-height:150px;
+           color:lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-first-js" >
+    </div>
+    <script>
+        var omyJs = document.getElementById("my-first-js");
+        omyJs.onclick = function (ev) {
+          omyJs.innerHTML = "我叫Happy（万）";
+       }
+    </script>
+</body>
+</html>

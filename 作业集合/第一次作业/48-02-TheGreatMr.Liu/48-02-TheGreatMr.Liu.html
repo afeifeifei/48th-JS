@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="The Great LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 200px;
+                height: 200px;
+                background-color: aquamarine;
+                border-radius: 10px;
+                box-shadow: 0 0 10px #000;
+                line-height: 200px;
+                text-align: center;
+                text-shadow: 0 0 10px #ff0036;
+                margin:100px auto;
+                font-size: 25px;
+                font-weight:600;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            document.getElementById("wrap").onclick=function(){
+                document.getElementById("wrap").innerHTML="The Great LY";
+            }
+        </script>
+    </body>
+</html>

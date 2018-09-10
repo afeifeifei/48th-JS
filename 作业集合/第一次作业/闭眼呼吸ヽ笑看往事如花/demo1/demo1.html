@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>认识JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            margin: 20px auto;
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            font-size: 18px;
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        box.onclick = function(){
+            box.innerHTML = "Hello World!";
+        }
+    </script>
+</body>
+</html>

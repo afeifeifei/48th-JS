@@ -1,0 +1,15 @@
+option2 :
+1.js加载的方式js
+* js 的位置在浏览器实际加载的时候只会存在两个地方，(1)body标签内部 (2) head标签内部
+* <script>写在body里的时候归为第一类，否则在body外的都会被当做在head标签内部被加载归为第二类
+* 浏览器加载时会从上至下依次加载，若出现js报错如 cannot set *** of null 一般就是js在元素加载前被加载导致无法识别相关dom操作。
+若想避免这种错误需要在js外加上window.onload(){}使js在标签元素加载后再加载。
+2.js点击事件绑定方式
+* 写在标签元素中<div onclick = "open()"></div>
+* 写在js中，document.getElementById("warp").onclick = function(){};
+* 在js中添加监听事件 document.getElementById("warp").addEventListener("click", function () {},false);
+* 使用后两种方式时也可在事件绑定时传入具体方法名而非上述匿名函数
+option3 :
+1.ES6 声明特性 使用 变量let  常量const  函数function 
+2.数据类型：number 10 、string ""/'' 、boolean true/false 、undefined(未定义但不为空) 、null(空) 、symbol(ES6新增数据类型用于获取唯一值)
+3.对象：let x = [](数组对象) 、object {}(js对象) 、json "{}"

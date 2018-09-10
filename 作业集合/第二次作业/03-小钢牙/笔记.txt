@@ -1,0 +1,37 @@
+一·
+	数据类型:
+		1.基础类：undefined;number;string;boolean;null
+			undefined:数据默认为未定义;
+			number:如 1;5.1; 0.5;
+			string:如 '蓝色'，'绿色'，'红色'；"蓝色"，"绿色"，"红色";
+			boolean:true false两个值;
+			null:一个空指针对象;
+		2.symbol：独一无二（se6新增）
+		3.复杂类：object
+			数组：二维数组
+			如：	let x = [
+					10,
+					[ 
+						"红色",
+						"绿色"
+					]
+				
+				]
+			
+			对象：let  x  ={
+
+						name:"牙",
+
+						age:"20",
+
+					};
+二·
+	规则:
+		1.let  var选一个		
+		2.严格区分大小写
+       		3.不能包含关键字 保留字 或已有的api
+        	4.见名知意
+        	5.驼峰命名法	
+
+
+	

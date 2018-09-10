@@ -1,0 +1,9 @@
+alert(); 弹窗事件
+console.log(); 控制体打印
+confirm(); 点击确认按钮
+prompt(); 输入框
+document 文档对象
+getElementById 通过ID来获取元素
+onclick 单击点击
+function 函数/方法
+innerHTML 获取括号里面的内容
