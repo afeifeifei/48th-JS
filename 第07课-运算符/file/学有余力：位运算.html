@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+
+            /*
+                二进制
+             */
+
+            //let a = 15;
+
+            //15的二进制
+            //00000000 00000000 00000000 00001111
+
+            //-15的二进制
+            //00000000 00000000 00000000 00001111   //求15的二进制
+            //11111111 11111111 11111111 11110000   //取反码
+            //11111111 11111111 11111111 11110001   //反码+1
+
+            let a = 7;
+            let b = ~a;
+
+            console.log(b);
+
+            //00000000 00000000 00000000 00000111 //a的二进制
+            //11111111 11111111 11111111 11111000 //~按位去非，这就是b的二进制表示
+
+            //得到b的十进制数
+            //11111111 11111111 11111111 11110111 // -1
+            //00000000 00000000 00000000 00001000 // 取反码 8
+            // b = -8;
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
