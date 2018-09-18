@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width: 658px;
+                height: 500px;
+                margin: 50px auto;
+                user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+            #wrap .img{
+                position: relative;
+                width: 100%;
+                height: 411px;
+            }
+            #wrap .img ul.list{
+
+                width: 100%;
+                height: 411px;
+            }
+            #wrap .img ul.list li{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .img ul.list li.show{
+                display: block;
+            }
+            #wrap .img .dec{
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 20px;
+                color: #fff;
+                line-height: 20px;
+                text-align: center;
+                font-size: 12px;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .img .dec1{
+                top: 0;
+            }
+            #wrap .img .dec2{
+                bottom: 0;
+            }
+            #btn div{
+                position: absolute;
+                top: 50%;
+                width: 40px;
+                height: 40px;
+                margin-top: -20px;
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                line-height: 40px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bolder;
+                cursor: pointer;
+            }
+            #btn div.left{
+                left: 0;
+            }
+            #btn div.right{
+                right: 0;
+            }
+
+            #wrap .tab{
+                width: 100%;
+                height: 30px;
+                margin-top: 20px;
+                text-align: center;
+            }
+            #wrap .tab p{
+                display: inline-block;
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: #fff;
+                background-color: #999;
+                font-size: 12px;
+                cursor: pointer;
+            }
+            #wrap .tab p.active{
+                background-color: #f60;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+
+            <!-- 上部分显示图片的模块 -->
+            <div class="img">
+
+                <!--显示图片的区块-->
+                <ul class="list">
+                    <li class="show"><img src="img/1.jpg" alt=""></li>
+                    <li><img src="img/2.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                    <li><img src="img/5.jpg" alt=""></li>
+                </ul>
+
+                <!--描述的俩个p标签-->
+                <p class="dec1 dec"><span>1</span>/5</p>
+                <p class="dec2 dec">描述：这是第一张图片</p>
+
+                <!--按钮区块-->
+                <div id="btn">
+                    <div class="left"> < </div>
+                    <div class="right"> > </div>
+                </div>
+
+            </div>
+
+            <!-- 下部分显示切换按钮的模块 -->
+            <div class="tab">
+                <p class="active">单边切换</p>
+                <p>循环切换</p>
+            </div>
+
+        </div>
+        
+        <script>
+
+            //获取元素
+            let aBtn = document.getElementById("btn").getElementsByTagName("div"),
+                aImg = document.querySelectorAll("#wrap .img .list li"),
+                aDec = document.querySelectorAll("#wrap .img .dec"),
+                aTab = document.querySelectorAll("#wrap .tab p"),
+                oDec1 = aDec[0].getElementsByTagName("span")[0],
+                oDec2 = aDec[1],
+                length = aImg.length, //长度 总的img个数
+                index = 0,//定义一个变量名，让js知道我们当前是显示的哪一张
+                arrText = [
+                    "描述：第一张图片的描述",
+                    "喵喵喵？？？",
+                    "汪汪汪？？？",
+                    "咩咩咩？？？",
+                    "叽叽叽？？？"
+                ] //每个图片对应的文本描述
+            ;
+
+
+            //console.log(aBtn);
+
+            //左按钮的点击事件
+            aBtn[0].onclick = function(){
+                //当前显示的li隐藏
+                /*let nowImg = aImg[index]; //这个变量表示当前显示是哪个li
+                nowImg.className = ""; //讲当前的li名字去掉，以使它不显示*/
+                aImg[index].className = "";
+
+                index --; //因为是右边的按钮，所以每次点击都要切换到下一个图片，对应的序号自增 1
+                //单边切换-让index的值不超过4
+                if( index < 0 ){
+                    index = 0;
+                }
+
+                //下一个li显示
+                /*let nextImg = aImg[index]; //这个变量表示下一个 li
+                nextImg.className = "show";*/
+                aImg[index].className = "show";
+
+                //对应的dec描述的变化
+                oDec1.innerHTML = index+1;
+                oDec2.innerHTML = arrText[index];
+            };
+
+
+            //右按钮的点击事件
+            aBtn[1].onclick = function(){
+                //当前显示的li隐藏
+                /*let nowImg = aImg[index]; //这个变量表示当前显示是哪个li
+                nowImg.className = ""; //讲当前的li名字去掉，以使它不显示*/
+                aImg[index].className = "";
+
+                index ++; //因为是右边的按钮，所以每次点击都要切换到下一个图片，对应的序号自增 1
+                //单边切换-让index的值不超过4
+                if( index > length-1 ){
+                    index = length-1;
+                }
+
+                //下一个li显示
+                /*let nextImg = aImg[index]; //这个变量表示下一个 li
+                nextImg.className = "show";*/
+                aImg[index].className = "show";
+
+                //对应的dec描述的变化
+                oDec1.innerHTML = index+1;
+                oDec2.innerHTML = arrText[index];
+            };
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

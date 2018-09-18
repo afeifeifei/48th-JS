@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 800px;
+                margin:100px  auto 0;
+                user-select: none;
+                font-size: 14px;
+            }
+            #wrap span{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color: rgb(0,0,0);
+                color: #fff;
+                font-size: 12px;
+                cursor: pointer;
+                margin: 0 5px;
+            }
+
+            #wrap p{
+                text-indent: 2em;
+                line-height: 30px;
+                margin: 20px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span>+</span><span>-</span>
+            <p>2016年5月12日上午9点，央视二套（CCTV-2）“财经资讯”栏目组到访潭州。此次“来自改革创新一线的报道”的主题采访在全国各地收集创新创业一线企业和团队典型，而潭州教育是湖南地区的第一家企业也是重要一站。</p>
+
+            <p>潭州教育成立于2007年，于2015年10月正式入驻长沙国家高新技术产业开发区麓谷芯城信息产业园区，是一家典型性的创新创业的“互联网+教育”企业。在市委市政府及长沙高新区的大力支持下，潭州教育得到了飞速的发展，已经成为一家具有一定影响力的跨品类的综合性直播在线教育企业。</p>
+            <p>栏目组拍摄潭州讲师上课情况</p>
+
+            <p>潭州教育董事长周有贵（Moon老师）与央视记者会谈</p>
+
+            <p>在采访过程中，董事长周有贵多次提到，潭州是一家文化教育企业，我们在给广大学员提供技术教学的同时也在传播我们的教学理念，唤醒学员学习的兴趣。周有贵还提及，在今年4月份，潭州已经开始筹备对外融资，通过吸引投资来开发潭州自己的产品平台，这将为潭州未来的发展奠定更加坚实的基础。</p>
+        </div>
+        
+        <script>
+
+            let oWrap = document.getElementById("wrap");
+            let aSpan = oWrap.getElementsByTagName("span");
+
+            let font = 14;
+
+
+            aSpan[0].onclick = function(){
+                font ++;
+                if( font > 30 ){
+                    font = 30;
+                }
+                oWrap.style.fontSize = font + 'px';
+            };
+
+            aSpan[1].onclick = function(){
+                font --;
+                if( font < 12 ){
+                    font = 12;
+                }
+                oWrap.style.fontSize = font + 'px';
+            };
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
