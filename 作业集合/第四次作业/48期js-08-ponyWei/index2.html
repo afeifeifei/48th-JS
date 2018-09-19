@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>九九乘法表</title>
+        <style>
+            body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+                margin: 0;
+                padding: 0
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0
+            }
+
+            fieldset, img {
+                border: 0
+            }
+
+            address, caption, cite, code, dfn, em, strong, th, var {
+                font-style: normal;
+                font-weight: normal
+            }
+
+            ol, ul {
+                list-style: none
+            }
+
+            caption, th {
+                text-align: left
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 100%;
+                font-weight: normal
+            }
+
+            q:before, q:after {
+                content: ''
+            }
+
+            abbr, acronym {
+                border: 0;
+                font-variant: normal
+            }
+
+            sup {
+                vertical-align: text-top
+            }
+
+            sub {
+                vertical-align: text-bottom
+            }
+
+            input, textarea, select {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit
+            }
+
+            input, textarea, select {
+                *font-size: 100%
+            }
+            button{
+                display: block;
+                width: 120px;
+                height: 50px;
+                margin:30px auto;
+                border:1px solid #ff0;
+                background-color: green;
+                color:#ff0;
+                font-size: 20px;
+                line-height: 50px;
+                outline: none;
+            }
+            #box{
+                width: 1000px;
+                margin:20px auto;
+                border:1px solid pink;
+            }
+            #box span{
+                display: inline-block;
+                width: 90px;
+                height: 40px;
+                margin:4px;
+                border:1px solid red;
+                background-color: pink;
+                color:rebeccapurple;
+                line-height: 40px;
+                text-align: center;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <button class="btn" >Click Me</button>
+        <div id="box" style="display: none;"></div>
+        <script>
+            let oBox=document.getElementById("box"),
+                oBtn=document.getElementsByClassName("btn")[0];
+            oBtn.onclick=function() {
+                oBox.style.display = "block";
+                // 第一个
+                // 第一个for确定行数
+                for (let i = 1; i < 10; i++) {
+                    // 第二个for确定列数
+                    for (let j = 1; j <=i; j++) {
+                            oBox.innerHTML += `<span>${i}*${j}=${i * j}</span>`;
+                    }
+                    oBox.innerHTML += "<br>";
+                }
+                oBox.innerHTML += "<hr>";
+
+                // 第二个
+                for (let i = 1; i < 10; i++) {
+                    for (let j = i; j < 10; j++) {
+                        oBox.innerHTML += `<span>${i}*${j}=${i * j}</span>`;
+
+                    }
+                    oBox.innerHTML += "<br>";
+                }
+                oBox.innerHTML += "<hr>";
+                // 第三个
+                for (let i = 9; i > 0; i--) {
+                    for (let j = 1; j <=i; j++) {
+                            oBox.innerHTML += `<span>${i}*${j}=${i * j}</span>`;
+
+                    }
+                    oBox.innerHTML += "<br>";
+                }
+                oBox.innerHTML += "<hr>";
+                // 第四个
+                for (let i = 9; i > 0; i--) {
+                    for (let j = i; j < 10; j++) {
+                            oBox.innerHTML += `<span>${i}*${j}=${i * j}</span>`;
+
+                    }
+                    oBox.innerHTML += "<br>";
+                }
+            }
+
+        </script>
+    </body>
+</html>

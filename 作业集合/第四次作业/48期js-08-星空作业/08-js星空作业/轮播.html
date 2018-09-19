@@ -1,0 +1,185 @@
+<!doctype html>
+<!--文档类型:html文档(html5标准模式)-->
+<!--注释:是给开发人员看的-->
+<html lang='en'>
+<!--html跟标签 lang意思是翻译成英文-->
+
+<head>
+    <!--网页的头部-->
+    <meta charset='utf-8' />
+    <!--meta是单标签,单标签在后面括号前加/,以表示闭合,charset是设置字符编码的,utf-8是国际编译代码-->
+    <meta name='generator' content='EditPlus®' />
+    <!--generator意思是使用的编译软件,content后面是编译软件名字-->
+    <meta name='author' content='星空' />
+    <!--author这是网站作者的意思-->
+    <meta name='keywords' content='潭州教育48期,阿飞老师,00作业' />
+    <!--网页三要素之一,这是网页的关键词,给搜索引擎搜索你的网页用的,-->
+    <meta name='description' content='梗概,简介,' />
+    <!--网页三要素之一,这是对自己的网页的一些简介.-->
+    <title>Document</title>
+    <!--网页三要素之一,标题,这是在网页最上面的名词-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bigbox{
+            position: relative;
+            width: 225px;
+            height:250px;
+            margin:10px auto;
+            border:1px solid red;
+        }
+        p{
+            position: absolute;
+            width:100%;
+            text-align: center;
+            background-color: rgba(0,0,0,.5);
+        }
+        p.title{
+            top:-13px;
+        }
+        p.content{
+            bottom: -13px;
+        }
+        li{
+            display: none;
+            position: relative; 
+            top:50%;
+            margin-top:12px;   
+            width: 225px;
+            height:225px;
+        }
+        .on{
+            display: block;
+        }
+        button{
+            position: absolute;
+            width:20px;
+            height: 60px;
+            top:50%;
+            margin-top:-30px;   
+        }
+        .right{
+            right:0;
+        }
+        .box{
+            margin:50px 0;
+            text-align: center;
+        }
+        .box span{
+            display: inline-block;
+            width: 90px;
+            border:1px solid #000;
+            background-color: #bbb;
+            cursor: pointer;
+        }
+        span.on{
+            background-color: red;
+        }
+    </style>
+</head>
+    <div class="bigbox">
+        <ul>
+            <li class='on'>
+                <p class='title'>1/4</p>
+                <p class='content'>我一世英名,你奈我何?</p>
+                <img src="./images/1.JPG" alt="">
+            </li>
+            <li>
+                <p class='title'>2/4</p>
+                <p class='content'>我这么真实的眼神,会是变态吗?</p>
+                <img src="./images/2.JPG" alt="">
+            </li>
+            <li>
+                <p class='title'>3/4</p>
+                <p class='content'>进入委屈模式</p>
+                <img src="./images/3.JPG" alt="">
+            </li>
+            <li>
+                <p class='title'>4/4</p>
+                <p class='content'>欺负人!欺负人!</p>
+                <img src="./images/4.JPG" alt="">
+            </li>
+
+        </ul>
+        <button class='left'> < </button>
+        <button class='right'> > </button>
+        <div class='box'>
+            <span>单边模式</span>
+            <span>循环模式</span>
+        </div>
+    </div>
+    <script>
+        let oLi = document.getElementsByTagName('li'),
+            oSpan = document.getElementsByTagName('span'),
+            btn = document.getElementsByTagName('button'),
+            idx = 0,
+            mark = false;
+        // 单边
+        oSpan[0].onclick = function() {
+            oSpan[0].className = 'on'
+            oSpan[1].className = ''
+            btn[0].onclick = function() {
+                // if(idx > 0){
+                //     idx--
+                // }else{
+                //     idx = 0;
+                // }
+                idx > 0 ? idx-- : 0
+                for(let j = 0, len = oLi.length; j < len;j++){
+                    oLi[j].className = ''
+                }
+                oLi[idx].className = 'on'
+            }
+            btn[1].onclick = function() {
+                // if(idx < oLi.length - 1){
+                //     idx++
+                // }else{
+                //     idx = oLi.length - 1
+                // }
+                idx < oLi.length - 1 ? idx++ : oLi.length - 1
+                for (let j = 0, len = oLi.length; j < len; j++) {
+                    oLi[j].className = ''
+                }
+                oLi[idx].className = 'on'
+            }
+
+        }
+        // 循环
+        oSpan[1].onclick = function () {
+                oSpan[1].className = 'on'
+                oSpan[0].className = ''
+                btn[0].onclick = function () {
+                    // if (idx > 0) {
+                    //     idx--
+                    // } else {
+                    //     idx = oLi.length - 1;
+                    // }
+                    idx > 0 ? idx-- : oLi.length - 1
+                    for (let j = 0, len = oLi.length; j < len; j++) {
+                        oLi[j].className = ''
+                    }
+                    oLi[idx].className = 'on'
+                }
+                btn[1].onclick = function () {
+                    if (idx < oLi.length - 1) {
+                        idx++
+                    } else {
+                        idx = 0
+                    }
+                    // idx < oLi.length - 1 ? idx++ : 0 ;
+                    for (let j = 0, len = oLi.length; j < len; j++) {
+                        oLi[j].className = ''
+                    }
+                    oLi[idx].className = 'on'
+                }
+
+            }
+    </script>
+<body>
+    <!--网页的身体,里面的内容是给浏览者观看得到的东西-->
+    
+</body>
+</html>
+<!--这就是网页的基本样式-->

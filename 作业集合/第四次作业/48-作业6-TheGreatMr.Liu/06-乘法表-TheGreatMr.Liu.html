@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            div.box{
+                display:inline-block;
+                text-align:center;
+                width:70px;
+                height:35px;
+                margin-right:5px;
+                margin-bottom:5px;
+                background-color: #999999;
+                line-height: 35px;
+                color:#fff;
+            }
+            #wrap{
+                border-bottom: 1px solid #999;
+                margin-bottom:2px;
+            }
+            #wrap1{
+                border-top:1px solid #999;
+                padding-top:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <div id="wrap1"></div>
+        <script>
+            let oWrap= document.getElementById("wrap");
+                oWrap1= document.getElementById("wrap1");
+            for (let i=1;i<=9;i++){
+                for (let j=1,k=i;j<=i||k<=9;){
+                    if (j<=i) {
+                        oWrap.innerHTML += "<div class='box'>" + i + "*" + j + "=" + i * j + "</div>";
+                    }
+                    if (k<=9) {
+                        oWrap1.innerHTML += "<div class='box'>" + i + "*" + k + "=" + i * k + "</div>";
+                    }
+                    if(i===j){
+                        oWrap.innerHTML+="<br>";
+                    }
+                    j++;
+                    k++;
+                }
+                oWrap1.innerHTML+="<br>";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #wrap{
+            width: 400px;
+            margin: 50px auto;
+        }
+        span{
+            display: inline-block;
+            width:35px;
+            /* height: 50px; */
+            text-align: center;
+            line-height: 35px;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <span>+</span><span>-</span>
+            
+        <p> 幸运是一条人人都希望找到的捷径，但不是每个人都能配得上这份幸运。对于成功，幸运往往只是锦上添花，并不能雪中送炭。我们依然要努力地坚持自己的选择，即使身处低谷也不能轻易放弃。走出低谷之后，我们已经比之前强大了许多，即使没有幸运加持，成功之日也是指日可待的。       
+        成功没有偶然，也没有理所当然。能够成功的人不是因为他们幸运，而是因为他们没有放弃努力。能够一直成功的人不是因为他们曾经的辉煌，而是因为他们一直在充实自己，拓宽自己的路，尝试更多不同的可能性。</p>       
+    </div>    
+    <script>
+        let oSpan=document.getElementsByTagName("span"),
+            oP=document.getElementsByTagName("p")[0],
+            i=16;
+
+            oSpan[0].onclick=function(){
+                i+=2;
+                if(i>=26){
+                    i=26
+                }
+                oP.style.fontSize=i+'px';
+            }
+            oSpan[1].onclick=function(){
+                i-=2;
+                if(i<12){
+                    i=12
+                }
+                oP.style.fontSize=i+'px';
+            }
+
+           
+    </script> 
+</body>
+</html>

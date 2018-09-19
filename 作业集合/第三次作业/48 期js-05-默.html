@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang"en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#wawa{ 
+			width: 1333px;
+		
+			position: absolute;
+
+			}
+		.div2{  
+			width: 500px;
+			position: relative;
+			
+			margin-top: 100px;
+			left: 400px;
+		}
+		textarea{ 
+				width: 500px;
+				height: 200px;
+
+		}
+		input{
+			position: relative;
+			display: block;
+		}
+		p{ 
+			border-bottom: 1px solid green;
+		}
+   </style>
+     
+</head>
+    <body>
+ 		<div id="wawa">
+ 			<div class="div2" id="tex">
+ 				<textarea  id="text">
+ 				</textarea></br>
+ 				<input type="submit" id="btn" value="提交" >
+ 				
+ 			</div>
+ 		</div>
+
+    </body>
+    <script type="text/javascript">
+    	   var  tex=document.getElementById("tex");
+           var text= document.getElementById("text");
+           var btn= document.getElementById("btn")
+          				btn.onclick=function(){ 
+           					var pBiao=document.createElement('p');
+ 							pBiao.innerHTML=text.value;
+ 							tex.appendChild(pBiao);
+ 							text.value=""
+         				};
+
+    </script>
+      
+
+ </html>

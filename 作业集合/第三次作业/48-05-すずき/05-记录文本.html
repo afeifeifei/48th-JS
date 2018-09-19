@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="潭州教育-阿飞老师">
+    <style>
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;}
+        li{list-style:none;}
+        a{text-decoration:none;}
+        #wrap{
+            width: 230px;
+            margin:30px auto;
+        }
+        textarea{
+            outline: none;
+            resize: none;
+        }
+        li{
+            text-indent: 1em;
+            line-height: 30px;
+            border-bottom: 1px dashed #5aaefe;
+
+        }
+        .btn{
+            margin-left: 168px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button class="btn">提交</button>
+    <ul ></ul>
+</div>
+
+<script type="text/javascript">
+    let aBtn = document.querySelector('.btn');
+         oUl =document.getElementsByTagName("ul")[0];
+         oText=document.getElementById("text");
+
+        aBtn.onclick = function(){
+                if(oText.value==""){
+                    alert("信息不能为空！！！");
+                }
+               else {oUl.innerHTML+="<li>"+oText.value+"</li>";
+                oText.value="";}
+        }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

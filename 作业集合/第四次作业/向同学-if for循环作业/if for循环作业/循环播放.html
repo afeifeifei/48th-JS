@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	li{
+		list-style: none;
+	}
+	#banner{
+		position: relative;
+		width: 800px;
+		height: 500px;
+		margin: 200px auto 100px;
+	}
+	#banner .pic{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	#banner .active{
+		display: block;
+	}
+	#banner li{
+		display: none;
+		width: 100%;
+		height: 100%;
+		float: left;
+
+	}
+	#banner li img{
+		width: 100%;
+		height: 100%;
+	}
+	#banner p{
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 40px;
+		color: #fff;
+		text-align: center;
+		line-height: 40px;
+		background: rgba(0,0,0,.5);
+	}
+	#banner .b-topbar{
+		top: 0;
+	}
+	#banner .b-btmbar{
+		bottom: 0;
+	}
+	#banner div{
+		position: absolute;
+		top: 50%;
+		margin-top: -20px;
+		width: 40px;
+		height: 40px;
+		font-size: 28px;
+		text-align: center;
+		line-height: 40px;
+		background-color: #fff;
+		cursor: pointer;
+	}
+	#banner .prev{
+		left: 0;
+	}
+	#banner .next{
+		right: 0;
+	}
+	#btn{
+		width: 800px;
+		margin: auto;
+	}
+	#btn .active{
+		background-color: #f33;
+	}
+	#btn button{
+		width: 200px;
+		height: 70px;
+		margin-left: 100px;
+		font-size: 24px;
+		color: #fff;
+		background-color: #000;
+	}
+</style>
+</head>
+<body>
+	<div id="banner">
+		<ul class="pic">
+			<li class="active"><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+			<li><img src="images/5.jpg"></li>
+		</ul>
+		<p class="b-topbar">1/5</p>
+		<p class="b-btmbar">图片切换</p>
+		<div class="prev"><</div>
+		<div class="next">></div>
+	</div>
+	<div id="btn">
+		<button class="active">单边模式</button>
+		<button>循环模式</button>
+	</div>
+   <script>
+   		(function(){
+   			let oBanner = document.getElementById("banner"),
+   				aP = oBanner.getElementsByTagName("P")[0],
+   				aLi = oBanner.getElementsByTagName("li"),
+   				oPrev = oBanner.getElementsByClassName("prev")[0],
+   				oNext = oBanner.getElementsByClassName("next")[0],
+   				aBtn = document.getElementsByTagName("button"),
+   				prevIndex = 0,//上一张图片下标
+   				newIndex = 0,//当前图片下标
+   				bool = true; //控制模式 true为单边
+   			oPrev.onclick = function(){//左按钮
+   				prevIndex = newIndex;//获取当前图片的下标，用于清除上一张图片的class
+   				newIndex --;
+   				if(newIndex < 0){//左按钮第一张图片下标为0，--小于0就进入循环
+   					newIndex = bool?0:aLi.length - 1;
+   					/*if(bool){
+   						newIndex = 0;
+   						
+   					}else{
+   						newIndex = aLi.length - 1;
+   					}*/
+   				}
+   				change();
+   			}
+
+   			oNext.onclick = function(){//右按钮
+   				prevIndex = newIndex;//获取当前图片的下标，用于清除上一张图片的class
+   				newIndex ++;
+   				if(newIndex > aLi.length - 1){//0++后下标大于aLi.length - 1，进入循环
+   					newIndex = bool?aLi.length - 1:0;
+   					/*if(bool){
+   						
+   						newIndex = aLi.length - 1;
+   					}else{
+   						newIndex = 0;
+   					}*/
+   				}
+   				change();
+   			}
+   			function change(){
+   					aLi[prevIndex].className="";//清除上一张类名
+   				aLi[newIndex].className="active";//给当前添加类名
+   				aP.innerHTML = newIndex + 1 +"/5";
+   				}
+
+   			aBtn[0].onclick = function(){//单边模式
+   				bool = true;
+   				aBtn[0].className = "active";
+   				aBtn[1].className = ""
+
+   			}
+   			aBtn[1].onclick = function(){//循环模式
+   				bool = false;//改变循环模式
+   				aBtn[1].className = "active";
+   				aBtn[0].className = ""
+
+   			}
+   		})()
+   </script>
+</body>
+</html>

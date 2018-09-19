@@ -1,0 +1,69 @@
+<!doctype html><!--声明文档类型  -->
+<html lang="en"><!--网页根标签 lang= “语言类型” -->
+ <head><!-- 网页头部.不可视化区域 -->
+  <meta charset="UTF-8"><!--编码格式  ) gbk（简体） gb2312（繁体）-->
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="当时我就火了"><!-- 作者 -->
+  <meta name="Keywords" content=""><!-- 关键字及词 -->
+  <meta name="Description" content=""><!--网站描述，简介  -->
+  <title>document</title><!-- 标题 -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+  <style type="text/css">
+	body,ul,ol,li,dl,dt,p{margin:0;padding:0;}
+	li{list-style:none;}
+	a{text-decoration:none;}
+	#wrap{
+	    width:100%;
+		margin-top:60px;
+	}
+	#wrap div{
+	    margin-bottom:20px;
+		text-align:center;
+	}
+	#wrap span{ 
+		display:inline-block;
+		padding:0 5px;
+		background-color:#000;
+		color:#fff; 
+		font-size:18px;
+		cursor:pointer;
+		user-select:none;
+	}
+	#wrap p{
+		padding:0 30%;
+		text-indent:2em;
+		line-height:30px;
+	}
+  </style>
+ </head>
+ <body><!-- 网页的身体部分 可视化区域 内容区-->
+	<div id="wrap">
+		<div>
+			<span>字体放大+</span>
+			<span>字体缩小-</span>
+		</div>
+		<div class="content">
+			<p>9月12日，互联网域名系统北京市工程研究中心（简称域名工程中心，英文缩写ZDNS）在中国科学院软件园发布了自主开发的域名系统基础软件“红枫”系统及首台国产化域名服务器。中国工程院院士胡启恒、中国科学院研究员钱华林、中国科学院计算机网络信息中心主任廖方宇、曙光公司副总裁吴宗友等专家出席仪式。</p>
+			<p>域名工程中心主任毛伟表示：当前RPKI正在全球开展部署，这是一次触及互联网“互联互通根基”的安全升级，将对网络安全保障工作和互联网治理工作产生重大影响。中国专家起草的标准被接纳为核心标准，将有助于推动我国互联网社群对全球互联网治理工作的深度参与。</p>
+			<p>胡启恒说，这让中国互联网不仅是受益者，也开始成为全球基础网络安全升级、从可用走向可信的积极贡献者，更重要的是，这次的技术贡献深入到了核心底层互联网标准领域。</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let oSpan = document.querySelectorAll("#wrap span"),
+			oCont = document.querySelector("#wrap .content"),
+			i = 16;
+		oSpan[0].onclick = function(){
+			if(i < 22){
+				i += 1;
+				oCont.style.fontSize = i+"px";
+			}	
+		}
+		oSpan[1].onclick = function(){
+			if(i > 12){
+				i -= 1;
+				oCont.style.fontSize = i+"px";
+			}	
+		}
+	</script>
+ </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>48js-小王子</title>
+<style>
+    .box{
+        width: 500px;
+        height: 500px;
+        margin: 50px auto;
+    }
+    #text{
+        width: 500px;
+        height: 200px;
+        font-size: 20px;
+        text-indent: 10px;
+        border:5px solid pink;
+    }
+    #btn{
+        width: 150px;
+        height: 50px;
+        margin-left:363px;
+        background-color: red;
+    }
+    p{
+        padding-bottom: 10px;
+        text-indent: 20px;
+        font-size: 20px;
+        border-bottom: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+    <div class="box">
+        <textarea id="text"></textarea>
+        <button id="btn" >提交留言</button>
+       <div id="box" >
+
+       </div>
+    </div>
+   <script>
+        let oWrap = document.getElementById("text"),
+            oBtn = document.getElementById("btn");
+            oBox = document.getElementById("box");
+
+           oBtn.onclick = function(){
+                oBox.innerHTML += '<p>'+oWrap.value+"</p>";
+                oWrap.value="";
+           }
+
+   </script>
+</body>
+</html>

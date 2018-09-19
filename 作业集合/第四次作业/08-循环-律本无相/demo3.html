@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="KeyWords" content="轮播图,律本无相~">
+	<style>
+		.box{
+			text-align: center;
+		}
+		.box>span{
+			display:block;
+			width:100px;
+			height:20px;
+			line-height:20px;
+			margin-left:5px;
+			border:1px solid #ccc;
+			border-radius:4px;
+			font-size:14px;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+
+	<script>
+		let obox = document.getElementsByClassName('box')[0];
+		let str = "";
+
+		for(let i=1 ; i<10 ; i++){
+			for(let j=1; j<=i ; j++){
+				str +=`<span>${j} * ${i} = ${i*j}</span>`;
+			}
+			str +=`<br>`;
+		}
+		str +=`<br>`;
+		for(let i=1 ; i<10 ; i++){
+			for(let j=i ; j<10 ; j++){
+				str +=`<span>${i} * ${j} = ${i*j}</span>`;
+			}
+			str +=`<br>`;
+		}
+		str +=`<br>`;
+		for(let i=9 ; i>0 ; i--){
+			for(let j=9 ; j>=i ; j--){
+				str +=`<span>${i} * ${j} = ${i*j}</span>`;
+			}
+			str +=`<br>`;
+		}
+		str +=`<br>`;
+		for(let i=9 ; i>0 ; i--){
+			for(let j=i ; j>0 ; j--){
+				str +=`<span>${j} * ${i} = ${i*j}</span>`;
+			}
+			str +=`<br>`;
+		}
+		obox.innerHTML = str;
+	</script>
+</body>
+</html>

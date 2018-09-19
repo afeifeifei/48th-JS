@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #box {
+                width: 300px;
+                margin: 100px auto 0;
+                background-color: pink;
+                text-align: center;
+            }
+            #box ul li{
+                height: 20px;
+                border-bottom:1px solid #ccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <input type="text" id="inpt" >
+            <input type="button" value="提交" id="btn">
+            <ul id="list"></ul>
+        </div>
+        
+        <script>
+            let oInpt=document.getElementById('inpt');
+            let oList=document.getElementById('list');
+
+            document.getElementById('btn').onclick = function () {
+                oList.innerHTML += '<li>'+ oInpt.value + '</li>';
+                oInpt.value='';
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

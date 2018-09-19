@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol,ul,li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+        div{
+            position: relative;
+            width: 685px;
+            height: 338px;
+            margin: 10px auto;
+            border: 1px solid red;
+        }
+        div ul{
+            display: inline-block;
+            width: 75px;
+        }
+        div ul li{
+            display: block;
+            width: 70px;
+            height: 30px;
+            margin: 5px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <script>
+        let oD1 = document.getElementById("d1");
+        let oD2 = document.getElementById("d2");
+        for (let i =1 ;i <= 9 ; i++){
+            let sum = "";
+            for ( let j = i ; j <= 9;j++){
+                sum += `<li>${j}*${i}=${j*i}</li>`;
+            }
+            let ul1 = `<ul>${sum}</ul>`;
+            oD1.innerHTML += ul1;
+        }
+        for (let i =1 ;i <= 9 ; i++){
+            let sum = "";
+            for ( let j = i ; j <= 9;j++){
+                sum += `<li>${i}*${j}=${i*j}</li>`;
+            }
+            let ul2 = `<ul style="float: left">${sum}</ul>`;
+            oD2.innerHTML += ul2;
+        }
+    </script>
+</body>
+</html>

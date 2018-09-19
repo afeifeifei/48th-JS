@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:500px;
+                margin:auto;
+            }
+            #ta{
+                display:block;
+                margin:auto;
+                width:400px;
+                height:150px;
+                border:1px solid #ff0036;
+                border-radius:10px;
+                outline:none;
+                font-size:18px;
+            }
+            #btn{
+                background:#43c052;
+                width:100px;
+                height:30px;
+                outline: none;
+                border:none;
+                margin-top:20px;
+                margin-left:350px;
+            }
+            #wrap div{
+                border-bottom:1px solid #ccc;
+                width:390px;
+                line-height:30px;
+                margin:auto;
+                color:#999;
+                padding-left:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea id="ta"></textarea>
+            <button id="btn">提交</button>
+        </div>
+        <script>
+            let oWrap = document.getElementById("wrap");
+            document.getElementById("btn").onclick = function () {
+                let val = document.getElementById("ta").value;
+                console.log(val);
+                if( val&&val!="" ){
+                    let oBox = document.createElement("div");
+                    oBox.innerHTML = val;
+                    oWrap.appendChild(oBox);
+                } else{
+                    alert("请输入内容");//提示信息
+                    document.getElementById("ta").focus();//如果没输入内容就将光标移到文本域内
+                }
+                document.getElementById("ta").value = "";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

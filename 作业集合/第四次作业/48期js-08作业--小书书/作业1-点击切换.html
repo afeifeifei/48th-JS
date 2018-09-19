@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>小书书</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="小书书">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position:relative;
+                width: 255px;
+                margin: 50px auto;
+                text-align:center;
+            }
+            #wrap h2{
+                color:red;
+            }
+            #wrap ul li img{
+                width: 255px;
+                height: 340px;
+            }
+            #wrap div{
+                position:absolute;
+                top:50%;
+                margin-top:-25px;
+                width: 30px;
+                height: 50px;
+                background:url("images/btn.png") no-repeat;
+            }
+            #wrap span{
+                position:relative;
+                left: 0;
+                display:block;
+                width: 100%;
+                height: 30px;
+                color:#fff;
+                background-color:rgba(0,0,0,.3);
+            }
+            #wrap .t-top{
+                top:30px;
+            }
+            #wrap .t-bottom{
+                top:-34px;
+            }
+            #wrap .left{
+                left:0;
+                background-position: -85px -8px;
+            }
+            #wrap .right{
+                right:0;
+                background-position: -132px -8px;
+            }
+            #wrap .left:hover{
+                background-position: -3px -8px;
+            }
+            #wrap .right:hover{
+                background-position: -50px -8px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <h2>韩国十大感人催泪电影</h2>
+            <span class="span t-top"></span>
+            <ul>
+                <li><img></li>
+            </ul>
+            <span class="span t-bottom"></span>
+            <div class="btn left"></div>
+            <div class="btn right"></div>
+
+            <button class="contro">正常模式</button>
+            <button class="contro">循环模式</button>
+        </div>
+
+        <script>
+            let oSrc = ["images/1.jpg",
+                        "images/2.jpg",
+                        "images/3.jpg",
+                        "images/4.jpg",
+                        "images/5.jpg",
+                        "images/6.jpg",
+                        "images/7.jpg",
+                        "images/8.jpg",
+                        "images/9.jpg",
+                        "images/10.jpg"];
+            let oAlt = ["我脑海里的橡皮擦",
+                        "比悲伤更悲伤的故事",
+                        "雏菊",
+                        "只有你",
+                        "婚纱",
+                        "悲伤电影",
+                        "哼唱",
+                        "触不到的爱恋",
+                        "七号房的礼物",
+                        "假如爱有天意"];
+            let oImg    = document.querySelector("#wrap ul li img");
+            let oSpan   = document.getElementsByClassName("span");
+            let oBtn    = document.getElementsByClassName("btn");
+            let oContro = document.getElementsByClassName("contro");
+
+            let i = 0;
+            let length = oSrc.length;
+
+            //初始情况
+            getImg();
+            oBtn[0].onclick = function(){
+                alert("不可切换,请选择模式");
+            };
+            oBtn[1].onclick = function(){
+                alert("不可切换,请选择模式");
+            };
+
+            // 模式选择
+            oContro[0].onclick = function(){
+                this.style.backgroundColor = "#6cc";
+                oContro[1].style.backgroundColor = "";
+                normalModel();
+            };
+            oContro[1].onclick = function(){
+                this.style.backgroundColor = "#6cc";
+                oContro[0].style.backgroundColor = "";
+                scollModel();
+            };
+
+            //正常模式
+            function normalModel(){
+                oBtn[1].onclick = function(){
+                    changeBg();
+                };
+
+                oBtn[0].onclick = function(){
+                    if(i>1){
+                        i--;
+                        oImg.src = oSrc[i-1];
+                        oImg.alt = oAlt[i-1];
+                        changeSpan();
+                    };
+                };
+            };
+
+            //循环模式
+            function scollModel(){
+                oBtn[1].onclick = function a(){
+                    if (i<length){
+                        getImg();
+                        i++;
+                        changeSpan();
+                    }
+                    else if(i=length){
+                        i = 0;
+                        a();
+                    };
+                };
+
+                oBtn[0].onclick = function b(){
+                    if(i>1){
+                        i--;
+                        oImg.src = oSrc[i-1];
+                        oImg.alt = oAlt[i-1];
+                        changeSpan();
+                    }
+                    else if( i = 1){
+                        i = length+1;
+                        b();
+                    };
+                };
+            };
+
+            function changeBg(){
+                if (i<length) {
+                    getImg();
+                    i++;
+                    changeSpan();
+                }
+            };
+
+            function getImg(){
+                oImg.src = oSrc[i];
+                oImg.alt = oAlt[i];
+            };
+
+            function changeSpan(){
+                oSpan[0].innerHTML = i + "/" + length;
+                oSpan[1].innerHTML = oImg.alt;
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

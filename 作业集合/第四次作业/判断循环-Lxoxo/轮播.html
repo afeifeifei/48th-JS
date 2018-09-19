@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-Lxoxo">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width:500px;
+                height:400px;
+                background-color:pink;
+                margin:50px auto;
+                border:1px dashed blue;
+            }
+            #wrap img{
+                position: absolute;
+                top:0;
+                left:0;
+                width:500px;
+                height:400px;
+            }
+            #wrap p{
+                position: absolute;
+                left:250px;
+                z-index: 1;
+            }
+            #left-btn{
+                position: absolute;
+                left:0;
+                top:0;
+                bottom:0;
+                height:20px;
+                margin:auto;
+            }
+            #right-btn{
+                position: absolute;
+                right:0;
+                top:0;
+                bottom:0;
+                height:20px;
+                margin:auto;
+            }
+            #btn{
+                width:150px;
+                margin:50px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p id="index">1/5</p>
+            <img id="image" src="images/1.jpg">
+            <button id="left-btn"><</button>
+            <button id="right-btn">></button>
+        </div>
+        <div id="btn">
+            <button id="normal-btn">正常播放</button>
+            <button id="loop-btn">循环播放</button>
+        </div>
+        
+        <script>
+            let bMarkMode=true
+            let bPicIndex=1;
+            let oIndex=document.getElementById("index");
+            let oImag=document.getElementById("image");
+            let oNormalbtn=document.getElementById("normal-btn");
+            let oLoopbtn=document.getElementById("loop-btn");
+            let oLeftbtn=document.getElementById("left-btn");
+            let oRightbtn=document.getElementById("right-btn");
+            oNormalbtn.style.backgroundColor="red";
+
+            oNormalbtn.onclick=function () {
+                bMarkMode=true;
+                oNormalbtn.style.backgroundColor="red";
+                oLoopbtn.style.backgroundColor="white";
+            }
+            oLoopbtn.onclick=function () {
+                bMarkMode=false;
+                oNormalbtn.style.backgroundColor="white";
+                oLoopbtn.style.backgroundColor="red";
+            }
+
+            oLeftbtn.onclick=function () {
+                if(!bMarkMode) {
+                    if(bPicIndex===1)bPicIndex=6;
+                }
+                if(bPicIndex>1) {
+                    bPicIndex-=1;
+                    oImag.src="images/"+bPicIndex+".jpg";
+                    oIndex.innerHTML=bPicIndex+"/5";
+                }
+            }
+            oRightbtn.onclick=function () {
+                if(!bMarkMode) {
+                    if(bPicIndex===5)bPicIndex=0;
+                }
+                if(bPicIndex<5){
+                    bPicIndex+=1;
+                    oImag.src="images/"+bPicIndex+".jpg";
+                    oIndex.innerHTML=bPicIndex+"/5";
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

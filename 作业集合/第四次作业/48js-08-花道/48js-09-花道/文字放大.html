@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 665px;
+                padding: 20px;
+                margin:10px auto;
+                background: #fff;
+                border: 1px solid;
+            }
+            #wrap span{
+                display: inline-block;
+                width: 40px;
+                background: #000;
+                color: #fff;
+                font-size: 20px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap p{
+                background: #eee;
+                text-align: justify;
+                line-height: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span id="up">+</span>
+            <span id="down">-</span>
+            <p>不提以往，只说在这个除夕夜，好像都忘了北凉，从不是离阳</p>
+            <p>所以接下来那一幕，让晋宝室毕生难忘。</p>
+            <p>王祭酒更是目瞪口呆。</p>
+            <p>只见褚禄山向前踏出一步，转身面朝主位，抱拳低头朗声道：“北凉王领万余抽调出来的骑军南下也好，单枪匹马赶赴广陵道也罢，我褚禄山第二个不答应”</p>
+            <p>袁左宗也踏出一步，动作与褚禄山如出一辙，“王爷身边没有我袁左宗，我袁左宗当然不答应”</p>
+            <p>燕文鸾冷哼一声，大步踏出，依然如此，冷笑道：“没有大雪龙骑踏入中原，如何能彰显我北凉军威，我燕文鸾如何能够点头答应”</p>
+            <p>徐北枳懒洋洋道：“堂堂北凉王，手握三十万铁骑，就领着从各地抽调出来的狗屁精锐去中原我北凉丢不起这个脸，徐北枳如何能答应”</p>
+            <p>宋洞明随即出列抱拳大笑道：“世人皆言我宋洞明这个副经略使名不副实，这也就罢了，难道战力冠绝天下的北凉铁骑，也要给人小瞧了宋洞明便是文人，也不答应啊”</p>
+            <p>李翰林扯嗓子道：“年哥儿，你要迎娶小嫂子，嫁妆少了如何能行，我做兄弟的，不答应”</p>
+            <p>白煜在等一声声不答应之后，最后由他来收官，笑道：“中原容不下一个在徐家长大的女子，我北凉铁骑自然不答应我相信刘寄奴王灵宝他们这帮大老爷们，也都不会答应”</p>
+            <p>白煜伸出一根手指，指了指年轻藩王身边的那张空椅子，“哪怕你徐凤年能答应，但是大将军，第一个不答应”</p>
+            <p>徐凤年一脸茫然。</p>
+            <p>所有人心有灵犀地轰然大笑开来。</p>
+            <p>大伙儿串通一气，演戏到现在，真他娘憋得辛苦唉</p>
+            <p>徐北枳笑脸灿烂，与褚禄山相视一笑，这场戏，他们两个算是始作俑者。</p>
+            <p>北凉，关外三十万铁骑，关内参差百万户，都欠他们北凉王一个惊喜！</p>
+            <p>徐凤年在众目睽睽之下，抬起手臂，擦拭眼睛，小声骂了一句王八蛋。</p>
+            <p>这一刻，所有人异口同声道：“大将军，请坐”</p>
+            <p>王祭酒看着满堂文武，老人一屁股坐在门槛上，激动得浑身颤抖，想起了某个年轻的口头禅，喃喃道：“技术活儿，没法赏诶”</p>
+            <p>徐凤年那一刻，不论是与拓跋菩萨转战千里，还是下马嵬一人战两人，或者是钦天监杀人，这一生从未如此豪气，只见年轻藩王大袖一挥，率先坐在那张椅子上，朗声道：坐！</p>
+        </div>
+
+        <script>
+            let oUp = document.getElementById("up");
+            let oDown = document.getElementById("down");
+            let oText = document.querySelectorAll("#wrap p");
+            let i = 1;
+            console.log(oText);
+            oUp.onclick = function () {
+                i++;
+                for (let j = 0; j < oText.length; j++) {
+                    oText[j].style.fontSize = i + "em";
+                }
+            }
+            oDown.onclick = function () {
+                i--;
+                for (let j = 0; j < oText.length; j++) {
+                    oText[j].style.fontSize = i + "em";
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

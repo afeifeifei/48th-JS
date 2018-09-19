@@ -1,0 +1,27 @@
+@charset 'utf-8';
+body,ul,li,ol,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,div,p{margin:0;padding:0;}
+body{
+	border:1px solid #caeace;
+	background-color: #caeace;
+	font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+a{
+	color:#B6B6B6;
+	text-decoration:none;
+}
+a:hover{
+	color:#CA151D;
+}
+li{
+	list-style:none;
+}
+img{vertical-align: middle;
+	border: none;
+}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{
+	content:'';
+	display: block;
+	clear:both;
+}

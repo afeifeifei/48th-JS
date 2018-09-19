@@ -1,0 +1,82 @@
+<!doctype html>
+<!--文档类型:html文档(html5标准模式)-->
+<!--注释:是给开发人员看的-->
+<html lang='en'>
+<!--html跟标签 lang意思是翻译成英文-->
+
+<head>
+    <!--网页的头部-->
+    <meta charset='utf-8' />
+    <!--meta是单标签,单标签在后面括号前加/,以表示闭合,charset是设置字符编码的,utf-8是国际编译代码-->
+    <meta name='generator' content='EditPlus®' />
+    <!--generator意思是使用的编译软件,content后面是编译软件名字-->
+    <meta name='author' content='星空' />
+    <!--author这是网站作者的意思-->
+    <meta name='keywords' content='潭州教育48期,阿飞老师,00作业' />
+    <!--网页三要素之一,这是网页的关键词,给搜索引擎搜索你的网页用的,-->
+    <meta name='description' content='梗概,简介,' />
+    <!--网页三要素之一,这是对自己的网页的一些简介.-->
+    <title>Document</title>
+    <!--网页三要素之一,标题,这是在网页最上面的名词-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #warp{
+            width:800px;
+            margin:10px auto;
+        }
+        p{
+            font-size: 16px;
+        }
+        button{
+            width: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!--网页的身体,里面的内容是给浏览者观看得到的东西-->
+    <button>+</button>
+    <button>-</button>
+    <div id='warp'>
+        <p>
+            JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+            在1995年时，由Netscape公司的Brendan
+            Eich，在网景导航者浏览器上首次设计实现而成。因为Netscape与Sun合作，Netscape管理层希望它外观看起来像Java，因此取名为JavaScript。但实际上它的语法风格与Self及Scheme较为接近。
+            为了取得技术优势，微软推出了JScript，CEnvi推出ScriptEase，与JavaScript同样可在浏览器上运行。为了统一规格，因为JavaScript兼容于ECMA标准，因此也称为ECMAScript。
+        </p>
+    </div>
+    <script>
+        let oP = document.getElementsByTagName('p')[0],
+            btn = document.getElementsByTagName('button'),
+            idx = 0;
+            
+            btn[0].onclick = function() {
+                if(idx < 4){
+                    idx++
+                }else{
+                    idx = 4
+                }
+                
+                oP.style.fontSize = 16 + idx + 'px'
+            }
+        
+            btn[1].onclick = function () {
+                    if (idx > 0) {
+                        idx--
+                    } else {
+                        idx = 0
+                    }
+
+                    oP.style.fontSize = 16 + idx + 'px'
+                }
+            
+    </script>
+</body>
+
+</html>
+<!--这就是网页的基本样式-->

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        *{ padding: 0; margin: 0;}
+        p{ font-size: 15px;}
+        .box{position: relative; width: 400px; height: 300px;overflow: hidden; margin: 100px auto;}
+        ul{  overflow: scroll;position: absolute; left:-400px;}
+        ul li{width: 400px; float: left;}
+        ul li img{display: block; width: 400px;height: 300px ;float: left;}
+        .leftBtn{ width: 50px;height: 50px;z-index: 1000;background: blue; -background: url("r.jpeg");transform: rotateX(180deg); position: absolute; top: 47%; left: 10px;}
+        .rightBtn{width: 50px;height: 50px; z-index: 1000;background: blue; -background: url("r.jpeg"); position: absolute; top: 47%; right: 10px;}
+    </style>
+    <script type="application/javascript">
+        window.onload = function (ev) {
+            var aInput = document.querySelectorAll("input");
+            var oP = document.querySelector("p");
+            var big = aInput[0];
+            var small = aInput[1];
+            var f = parseInt(window.getComputedStyle(oP,false).fontSize);
+           // var s= 15;
+            console.log( f);
+            var open = true;
+            var open1 = true;
+
+            big.onclick = function(){
+                if(open){
+                    oP.style.fontSize = f +"px";
+                    f++;
+                }
+
+                if(f==20) {
+                    open = false;
+                }
+            }
+            small.onclick = function(){
+                if(open1){
+                    oP.style.fontSize = f +"px";
+                    f--;
+
+
+                }
+                if(f==10) {
+                    open1 = false;
+                }
+
+
+
+
+            }
+
+
+
+           /* var oLeftBtn = document.querySelector(".leftBtn");
+            var oRightBtn = document.querySelector(".rightBtn");
+            var oUl = document.querySelector("ul");
+            var aLi = document.querySelectorAll("li");
+            var l = aLi.length;
+            var n = 0;
+            var m = l-1
+
+            oLeftBtn.onclick = function(){
+                var aLi = document.querySelectorAll("li");
+                var l = aLi.length;
+                //console.log(typeof oLi.offsetWidth );
+                n++;
+
+                oUl.style.left = -n * aLi[0].offsetWidth + "px";
+                if (n == l-1) n = 0;
+
+
+            }
+            oRightBtn.onclick = function(){
+
+                //console.log(typeof oLi.offsetWidth );
+                 m--
+
+
+                oUl.style.left = -m * aLi[0].offsetWidth + "px";
+
+               if (m == 0) m = l-1;
+
+
+            }*/
+
+
+
+
+            //alert(oLeftBtn)
+            /*var  oMultiplication = document.getElementById("multiplication");
+            var  oMultiplication1 = document.getElementById("multiplication1");
+
+            //alert(oMultiplication);
+            for(var i = 1;i<10; i ++){
+                for (var j=1; j<=i; j++){
+                    oMultiplication.innerHTML+= "<span>"+j+"*"+i+"="+ i*j+"</span>&nbsp"
+
+
+                }
+                oMultiplication.innerHTML+="<br>"
+
+            }
+            for ( var m = 1; m<10; m++){
+                for(var n=m; n<10;n++){
+                    oMultiplication1.innerHTML+= "<span>"+m+"*"+n+"="+ n*m+"</span>&nbsp"
+
+                }
+                oMultiplication1.innerHTML+="<br>"
+
+            }*/
+        }
+        function getStyle(obj, key){
+            if(obj.currentStyle){
+                return obj.currentStyle[key];
+            }else{
+                return obj.getComputedStyle(obj,false)[key];
+            }
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <!----<div id="multiplication"></div><br>
+    <div id="multiplication1"></div>-->
+   <!-- <div class="box">
+        <ul>
+        <li><img src="1.jpeg"/></li>
+        <li><img src="2.jpeg"/></li>
+        <li><img src="3.jpeg"/></li>
+        <li><img src="4.jpeg"/></li>
+        <li><img src="5.jpeg"/></li>
+        <li><img src="6.jpeg"/></li>
+            <li><img src="7.jpeg"/></li>
+
+    </ul>
+        <div class="leftBtn"></div>
+        <div class="rightBtn"></div>
+    </div>-->
+<input type="button" value="放大"/>
+    <input type="button" value="缩小"/>
+<p>
+    《致橡树》<br/>
+    　　我如果爱你——<br/>
+    　　绝不像攀援的凌霄花，<br/>
+    　　借你的高枝炫耀自己：<br/>
+    　　我如果爱你——<br/>
+    　　绝不学痴情的鸟儿，<br/>
+    　　为绿荫重复单调的歌曲；<br/>
+    　　也不止像泉源，<br/>
+    　　常年送来清凉的慰籍；<br/>
+    　　也不止像险峰，增加你的高度，衬托你的威仪。<br/>
+    　　甚至日光。<br/>
+    　　甚至春雨。<br/>
+    　　不，这些都还不够！<br/>
+    　　我必须是你近旁的一株木棉，<br/>
+    　　做为树的形象和你站在一起。<br/>
+    　　根，紧握在地下，<br/>
+    　　叶，相触在云里。<br/>
+    　　每一阵风过，<br/>
+    　　我们都互相致意，<br/>
+    　　但没有人<br/>
+    　　听懂我们的言语。<br/>
+    　　你有你的铜枝铁干，<br/>
+    　　像刀，像剑，<br/>
+    　　也像戟，<br/>
+    　　我有我的红硕花朵，<br/>
+    　　像沉重的叹息，<br/>
+    　　又像英勇的火炬，<br/>
+    　　我们分担寒潮、风雷、霹雳；<br/>
+    　　我们共享雾霭流岚、虹霓，<br/>
+    　　仿佛永远分离，<br/>
+    　　却又终身相依，<br/>
+    　　这才是伟大的爱情，<br/>
+    　　坚贞就在这里：<br/>
+    　　不仅爱你伟岸的身躯，<br/>
+    　　也爱你坚持的位置，脚下的土地。<br/></p>
+    　<p style="text-indent: 2em">　舒婷长于自我情感律动的内省、在把捉复杂细致的情感体验方面特别表现出女性独有的敏感。情感的复杂、丰富性常常通过假设、让步等特殊句式表现得曲折尽致。舒婷又能在一些常常被人们漠视的常规现象中发现尖锐深刻的诗化哲理（《神女峰》、《惠安女子》），并把这种发现写得既富有思辩力量，又楚楚动人。
+    　　舒婷的诗，有明丽隽美的意象，缜密流畅的思维逻辑，从这方面说，她的诗并不“朦胧”。只是多数诗的手法采用隐喻、局部或整体象征，很少以直抒告白的方式，表达的意象有一定的多义性。把握了这一点，舒婷的朦胧诗是不难解读的。
+    　　《致橡树》热情而坦城地歌唱了诗人的人格理想，比肩而立，各自以独立的姿态深情相对的橡树和木棉，可以说是我国爱情诗中一组品格崭新的象征形象。这组形象的树立，不仅否定了老旧的“青藤缠树”、“夫贵妻荣”式的以人身依附为根基的两性关系，同时，也超越了牺牲自我、只注重于相互给予的互爱原则，它完美地体现了富于人文精神的现代性爱品格：真诚、高尚的互爱应以不舍弃各自独立的位置与人格为前提。这是新时代的人格在性爱观念上对前辈的大跨度的超越。这种超越出自向来处于仰视、攀附地位的女性更为难能可贵。诗歌对爱情理想的歌唱、高扬，树立在极有思想含量、极有力度的否定之上。全诗共36行。1至13行借用一系列自然物进行象征类比，对攀附（“凌霄花”）和单方面奉献（“险峰”）这两种以一方的压抑、萎缩和牺牲为爱的前提的爱情观作了深刻的否定，这正是以对立的价值面对现代爱情理想构成的深刻有力的反衬。14至31行正面抒写理想的爱情观：爱情的双方在人格上完全平等，既保持各自的独立个性，又互相支持，携手并进。32至36行写真正的爱情就应该既爱双方的人品，也爱他的理想——忠于祖国。
+    　　“橡树”的形象象征着刚硬的男性之美，而有着“红硕的花朵”的木棉显然体现着具有新的审美气质的女性人格，她脱弃了旧式女性纤柔、抚媚的秉性，而充溢着丰盈、刚健的生命气息，这正与诗人所歌咏的女性独立自重的人格理想互为表里。
+    　　在艺术表现上，诗歌采用了内心独白的抒情方式，便于坦诚、开朗地直抒诗人的心灵世界：同时，以整体象征的手法构造意象（全诗以橡树、木棉的整体形象对应地象征爱情双方的独立人格和真挚爱情），使得哲理性很强的思想、意念得以在亲切可感的形象中生发、诗化，因而这首富于理性气质的诗却使人感觉不到任何说教意味，而只是被其中丰美动人的形象所征服。
+    　　诗歌之所以采用整体象征，也由于诗人的构思意图不一定把作品题旨局限于爱情的视野。从橡树与木棉的意象构成中同样可以合理地引申出对人与人之间相互同情、相互理解、相互信任，同时又以平等的地位各自独立这种道德理想。
+</p>
+
+
+</body>
+</html>

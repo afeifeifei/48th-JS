@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>文字放大缩小功能 千纪凌</title>
+      <meta name="Keywords" content="关键词,关键词">
+      <meta name="description" content="">
+      <!--css/js-->
+      <style type="text/css">
+      span.btn {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 4px;
+        background:#000;
+        font-size: 20px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+      }
+      span.btn:first-child {
+        margin-right: 10px;
+      }
+      .title {
+        display: flex;
+        justify-content: space-between;
+      }
+      #wrap {
+        width: 1000px;
+        margin: 50px auto 0px;
+        font-size: 14px;
+        font-family: "微软雅黑";
+      }
+      p {
+        line-height: 24px;
+        text-indent: 2em;
+      }
+      </style>
+    </head>
+<body>
+  <div id="wrap">
+    <div class="title">
+      <h1>半生落花，一世流水</h1>
+      <span><span id="enlarge" class="btn">+</span><span id="minish" class="btn">-</span></span>
+    </div>
+    <p>
+      窗外的花落了，轻轻地走过了无声的岁月，桌上的茶凉了，淡淡地飘过了清浅的时光，流浪的风已经厌倦，好想不再漂泊，停在婆娑下做一缕尘埃，
+      随着光影起伏，闪烁的星已经困乏，好想不再眨眼，关上窗棂做一场清梦，静卧明月闲云。
+    </p>
+    <p>
+      花落知时光的无声，茶凉知岁月的无情。曾经的岁月不复返，我没有什么可挽回的，一缕清风吹散了云烟，寻不见黄昏的夕阳，岁月在逝水中流淌，
+      留下了什么?带走了什么?我能看到的繁华早已变淡，我所追寻的清风亦然跑远，我想拥有的日子恍然不见，我追求的，我所梦的，都将成为落花的影子，淡化在夜里。
+    </p>
+    <p>
+        “无可奈何花落去，似曾相识燕归来。”时间走得真快，我带不走路上的你，路上的他，轻轻地拂过娇花，庆幸能染上芳香，悄悄地吻过夕阳，幸运能沾上落霞;
+        时间走得真轻，没有一点声音，我回不到昨天的梦，也留不住今天的雨，更追不上明天的星，悄悄的匆匆，悄悄的痕迹，岁月的颜色深了，是我涂抹了记忆深处的烟火，
+        时光的脚步缓了，是我静看着风雨人生。
+    </p>
+    <p>
+      我随逝水而沉浮，我同时光而深淡。梦中的花，梦中的影，都是风吹烟云的过往，梦破当醒;路上的人，路上的景，都是匆匆忙忙的岁月，转眼而逝。
+      花的落去，叶的飘零，小楼明月又圆满，今夜度过几个秋?时间啊，慢一慢吧，我想珍惜落去的繁花，留住锦瑟的岁月，不再失去，不再遗憾，
+      想要和风去到远方，有着诗歌，想要和月大醉一场，有着故事;时间啊，歇一歇吧，我想牵住所爱人的手，在夕阳中坐拥朝霞，在清风里闲品悲欢，
+      打打闹闹，嬉嬉笑笑，彼此都有最美的微笑，永远的依偎，永远的相靠;我想要留住那些遗憾，挽回那些悔恨，弥补那些过错，我喜欢花，
+      所以我不想让它凋零，就让清雅的岁月静静地绽放;时间啊，退一退吧，我想趁着月色去携一缕幽兰，撑着伞外的雨天，捧住云的泪，在无声的岁月里静默，
+      在平淡的日子里沉眠，什么的忧愁，不想，什么的悲欢，不念，什么的痛苦，不梦;当月满琴弦，弹一曲高歌，如此最好，当星压清梦，唱一首岁月，这样才妙。
+    </p>
+  </div>
+
+  <script>
+    (function() {
+      let oLarge = document.getElementById("enlarge"),
+          oMin = document.getElementById("minish"),
+          oWrap = document.getElementById("wrap"),
+          num = 13;
+      oLarge.onclick = function() {
+        num++;
+        if (num > 24) { num = 24; }
+        oWrap.style.fontSize = num + "px";
+      }
+
+
+      oMin.onclick = function() {
+        num--;
+        if (num < 12) { num = 12; }
+        oWrap.style.fontSize = num + "px";
+      }
+    })();
+  </script>
+</body>
+</html>

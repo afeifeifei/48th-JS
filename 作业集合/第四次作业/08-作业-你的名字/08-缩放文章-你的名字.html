@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期js-你的名字">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            button#small{
+                width: 80px;
+                height: 30px;
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+                background-color: #000;
+            }
+            button#big{
+                width: 80px;
+                height: 30px;
+                font-size: 20px;
+                font-weight: 600;
+                color: white;
+                background-color: #000;
+            }
+            p>img{
+                width: 400px;
+                height: 250px;
+            }
+            p{
+                font-size: 15px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <button id="big">+</button>
+                <button id="small">-</button>
+            </div>
+            <div id="content">
+                <p><img src="images/台风.jpg" height="501" width="884"/></p>
+                <p>
+                    9月15日，广东省湛江市，超强台风“山竹”即将来袭，市民前往超市抢购水和食物。预计，“山竹”将以每小时30公里左右的速度向西
+                    偏北方向移动，将于16日下午到晚上在广东珠海到湛江一带沿海登陆（14-16级，45-52米/秒，强台风级或超强台风级），登陆后将
+                    继续向西偏北方向移动，强度逐渐减弱。视觉中国
+                </p>
+                <p><img src="images/台风2.png" height="628" width="937"/></p>
+                <p>图为9月15日，广州部分超市蔬菜、冰鲜肉被抢购一空。视觉中国</p>
+                <p><img src="images/台风1.jpg" height="631" width="931"/></p>
+                <p>9月15日。台风“山竹”即将来袭，晚上7时许，深圳平安大厦幕墙上滚动出台风预警信息。视觉中国</p>
+            </div>
+        </div>
+        
+        <script>
+            let big =document.getElementById('big')
+            let small =document.getElementById('small')
+            let p =document.querySelectorAll('#content>p')
+
+            let inx = 15;
+            big.onclick = function () {
+                    inx++;
+                    if ( inx === 26 ){
+                        inx=25;
+                    }
+                    console.log(inx)
+                    p[1].style.fontSize = inx + 'px';
+                    p[3].style.fontSize = inx + 'px';
+                    p[5].style.fontSize = inx + 'px';
+            }
+            small.onclick = function () {
+                    inx--;
+                    if ( inx === 12 ){
+                        inx=13;
+                    }
+                    console.log(inx)
+                    p[1].style.fontSize = inx + 'px';
+                    p[3].style.fontSize = inx + 'px';
+                    p[5].style.fontSize = inx + 'px';
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

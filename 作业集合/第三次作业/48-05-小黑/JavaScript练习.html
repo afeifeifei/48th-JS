@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            .title{
+                width: 700px;
+                margin: 100px auto 0;
+            }
+            #wrap{
+                width: 700px;
+                height: 200px;
+                border: 2px solid #d1d0c5;
+                font-size: 25px;
+                border-radius: 15px;
+                line-height: 35px;
+
+            }
+             input[type='submit']{
+                margin-left: 630px;
+                margin-top: 20px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            <textarea id="wrap">
+            </textarea>
+            <input type="submit" value="点我下试试">
+           <div class="content">
+
+           </div>
+        </div>
+        <script>
+            let oWrap=document.getElementById('wrap');
+            let oBtn=document.querySelector('input');
+            let oContent=document.querySelector('.content');
+            oBtn.onclick=function(){
+                oWrap.style.border="2px solid pink";
+                oContent.innerHTML+='<p style="border-bottom: 1px solid grey;">'+oWrap.value+'</p>';
+            };
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

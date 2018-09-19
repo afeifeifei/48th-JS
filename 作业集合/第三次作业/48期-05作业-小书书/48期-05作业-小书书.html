@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>小书书</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="小书书">
+        <style>
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            .content{
+                width: 210px;
+                height: 450px;
+                margin:200px auto;
+            }
+            .wrap p{
+                text-indent: 10px;
+                padding-bottom:3px;
+                border-bottom:2px dashed #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <textarea id="txt" cols="20" rows="10" placeholder="请输入入内容"></textarea>
+            <button id="btn" type="submit">提交</button>
+            <div class="wrap"></div>
+        </div>
+        <script>
+            let oWrap = document.getElementsByClassName("wrap");
+            let oTxt = document.getElementById("txt")
+            let oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function(){
+                if(!oTxt.value){
+                    alert("未输入内容,不可提交!!!");
+                } else{
+                    oWrap[0].innerHTML += "<p>" + oTxt.value + "</p>";
+                    oTxt.value = "";
+                };
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

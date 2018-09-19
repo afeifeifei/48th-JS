@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>housework</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+	</head>
+	<body>
+		<div id="banner">
+			<ul>
+				<li class="show"><img src="images/1.jpg" alt="第一张图片"/></li>
+				<li><img src="images/2.jpg" alt="第二张图片"/></li>
+				<li><img src="images/3.jpg" alt="第三张图片"/></li>
+				<li><img src="images/4.jpg" alt="第四张图片"/></li>
+				<li><img src="images/5.jpg" alt="第五张图片"/></li>
+				<li><img src="images/6.jpg" alt="第六张图片"/></li>
+			</ul>
+			<div id="title">1/6</div>
+			<div id="foot">第一张图片</div>
+			<div id="left"><img src="images/left.png" class="img"></div>
+			<div id="right"><img src="images/right.png" class="img"></div>
+		</div>
+        <div id="footer"><div id="btn1" class="checked">循环切换</div><div id="btn2">单边切换</div></div>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			let oBanner = document.getElementById("banner"),
+				aLi = oBanner.querySelectorAll("ul li"),
+				aImg = oBanner.querySelectorAll("ul img"),
+				oLeft = document.getElementById("left"),
+				oRight = document.getElementById("right"),
+				oBtn1 = document.getElementById("btn1"),
+				oBtn2 = document.getElementById("btn2"),
+				oFoot = document.getElementById("foot"),
+				oTitle = document.getElementById("title"),
+				oNum = 0,
+				onOff = true;
+				oBtn1.onclick = function(){
+					oBtn1.className = "checked";
+					oBtn2.className = "";
+					onOff = true;
+				}
+				oBtn2.onclick = function(){
+					oBtn1.className = "";
+					oBtn2.className = "checked";
+					onOff = false;
+				}
+				oLeft.onclick = function(){
+					picChange(true);
+				}
+				oRight.onclick = function(){
+					picChange(false);
+				};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>循环播放 千纪凌</title>
+      <meta name="Keywords" content="关键词,关键词">
+      <meta name="description" content="">
+      <!--css/js-->
+      <style type="text/css">
+      * {margin: 0; padding: 0; font-family: Microsoft yahei,serif;}
+      ul,li {
+        list-style: none;
+      }
+      button {
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+      }
+      #banner {
+        position: relative;
+        width: 940px;
+        height: 528px;
+        margin: 20px auto;
+      }
+      #banner ul li {
+        position: absolute;
+      }
+      #banner ul li img {
+        display: block;
+        width: 100%;
+        display: none;
+      }
+      #banner ul li.active img {
+        display: block;
+      }
+      #banner p {
+        position: absolute;
+        width: 100%;
+        line-height: 30px;
+        text-align: center;
+      }
+      #banner p.top {
+        top: 0;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      #banner p.bottom {
+        bottom: 0;
+        height: 50px;
+        line-height: 50px;
+        color:  turquoise;
+        background: rgba(255,255,255,.8);
+      }
+      #banner a {
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        font-size:26px;
+        text-decoration: none;
+        text-align: center;
+        color: #21028B;
+        background: rgba(255,255,255,.8);
+        transition: all .3s;
+      }
+      #banner a:hover {
+        background: rgba(255,255,255,.5);
+      }
+      #banner a.prev {
+        left: 0;
+      }
+      #banner a.next {
+        right: 0;
+      }
+      .btnBar {
+        display: flex;
+        justify-content: space-around;
+        width: 400px;
+        margin: 20px auto;
+      }
+      .btnBar button {
+        padding: 10px 26px;
+        border-radius: 4px;
+        color: #7d7d7d;
+        background: #dedede;
+      }
+      .btnBar button.active {
+        background: coral;
+        color: #fff;
+      }
+      </style>
+    </head>
+<body>
+  <div id="banner">
+    <ul>
+      <li class="active"><img src="./images/01.jpg" /></li>
+      <li><img src="./images/02.jpg" /></li>
+      <li><img src="./images/03.jpg" /></li>
+      <li><img src="./images/04.jpg" /></li>
+    </ul>
+    <p class="top">1/4</p>
+    <p class="bottom">插画图</p>
+    <a class="prev" href="javascript: void(0);"><</a>
+    <a class="next" href="javascript: void(0);">></a>
+  </div>
+  <div class="btnBar">
+    <button class="active">正常模式</button>
+    <button>循环模式</button>
+  </div>
+
+  <script>
+    (function () {
+      let oLi = document.getElementsByTagName('li'),
+          topNum = document.getElementsByClassName('top')[0],
+          oPrev = document.getElementsByClassName('prev')[0],
+          oNext = document.getElementsByClassName('next')[0],
+          btn = document.getElementsByTagName('button'),
+          isLoop = false, // 是否循环切换图片
+          imgL = oLi.length, // 存储图片总数
+          num = 0,
+          lastImg = oLi[num];
+
+      oPrev.onclick = function () {
+        num--;
+        if (num < 0) {
+          num = isLoop ? imgL - 1 : 0;
+        }
+
+        changeNo();
+      }
+
+      oNext.onclick = function () {
+        num++;
+        if (num > imgL - 1) {
+          num = isLoop ? 0 : imgL - 1;
+        }
+        changeNo();
+      }
+
+      function changeNo () {
+        lastImg.className = '';
+        oLi[num].className = 'active';
+
+        // 记录上一张图DOM节点
+        lastImg = oLi[num];
+
+        // 变更当前图的序号
+        topNum.innerHTML = num + 1 + '/' + imgL;
+      }
+
+      btn[0].onclick = function () {
+        isLoop = false;
+        btn[1].className = '';
+        this.className = 'active';
+      }
+      btn[1].onclick = function () {
+        isLoop = true;
+        btn[0].className = '';
+        this.className = 'active';
+      }
+
+    })();
+  </script>
+</body>
+</html>

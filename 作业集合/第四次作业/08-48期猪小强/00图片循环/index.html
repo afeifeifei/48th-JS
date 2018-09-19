@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>图片循环</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="猪小强">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 800px;
+                height: 500px;
+                margin: 50px auto 0;
+            }
+            #wrap img{
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+            #wrap img.on{
+                display: block;
+            }
+            #wrap p{
+                position: absolute;
+                width: 100%;
+                height: 30px;
+                background: rgba(0,0,0,.3);
+                line-height: 30px;
+                text-align: center;
+                font-size: 18px;
+                color: #fff;
+            }
+            #wrap p.top{
+                top:0;
+                left: 0;
+            }
+            #wrap p.btm{
+                bottom: 0;
+                left: 0;
+            }
+            #wrap i{
+                position: absolute;
+                font-style: normal;
+                width: 100px;
+                height: 35px;
+                background: rgba(0,0,0,.3);
+                line-height: 35px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap i.left{
+                top: 50%;
+                left: 0;
+                margin-top: -17.5px;
+            }
+            #wrap i.rig{
+                top: 50%;
+                right: 0;
+                margin-top: -17.5px;
+            }
+            #btn{
+                width: 350px;
+                height: 50px;
+                margin: 20px auto 0;
+            }
+            #btn button{
+                width: 150px;
+                height: 100%;
+                background: #ccc;
+                margin-right: 20px;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid #ddd;
+            }
+            #btn button.on{
+                background: deeppink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <img src="images/1.png" alt="" class="on">
+            <img src="images/2.jpg" alt="">
+            <img src="images/3.jpg" alt="">
+            <img src="images/4.jpg" alt="">
+            <img src="images/5.jpg" alt="">
+            <img src="images/6.jpg" alt="">
+            <P class="top"><span>1</span>/6</P>
+            <P class="btm">第<span>一</span>张图片</P>
+            <i class="left">上一张</i>
+            <i class="rig">下一张</i>
+        </div>
+        <div id="btn">
+            <button class="on">普通模式</button>
+            <button>循环模式</button>
+        </div>
+
+
+
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                oImg = oWrap.getElementsByTagName("img"),
+                oSpan = oWrap.getElementsByTagName("span"),
+                oI = oWrap.getElementsByTagName("i"),
+                oBtn = document.getElementsByTagName("button"),
+                arr = ["一","二","三","四","五","六"],
+                length = oImg.length,
+                goudan = false,
+                index = 0;
+
+                //切换模式
+            oBtn[0].onclick = function(){//普通模式
+                this.className = "on";
+                oBtn[1].className = "";
+                goudan = false;
+            }
+
+            oBtn[1].onclick = function(){//循环模式
+                this.className = "on";
+                oBtn[0].className = "";
+                goudan = true;
+            }
+
+            oI[0].onclick = function(){//点击上一张
+                oImg[index].className = "";
+                index--;
+                if(index < 0){
+                    if(goudan){
+                        index = length-1;
+                        // oImg[index].className = "on";
+                    }else{
+                        index = 0;
+                        alert("再点就要被你点坏了");
+                        // oImg[index].className = "on";
+                    }
+                }
+
+
+                oImg[index].className = "on";
+                oSpan[0].innerHTML = index+1;
+                oSpan[1].innerHTML = arr[index];
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            oI[1].onclick = function(){//点击下一张
+                oImg[index].className = "";
+                index++;
+                if(index > length-1){
+                    if(goudan){
+                        index = 0;
+                        // oImg[index].className = "on";
+                    }else{
+                        index = length-1;
+                        alert("已经是最后一张了喔")
+                        // oImg[index].className = "on";
+                    }
+                }
+                oImg[index].className = "on";
+                oSpan[0].innerHTML = index+1;
+                oSpan[1].innerHTML = arr[index];
+            }
+
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

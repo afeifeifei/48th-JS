@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>48-05-留言板块作业</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 50px auto;
+            width: 498px;
+            overflow: hidden;
+        }
+        #bot{
+            float: right;
+            width: 80px;
+            height: 40px;
+            border: none;
+            background-color: red;
+            color: #fff;
+        }
+        #txtA{
+            border: 2px solid red;
+            width: 494px;
+            height: 200px;
+        }
+        .content-box{
+            padding-top: 40px;
+        }
+        .content{
+            padding: 10px;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <textarea id="txtA" name="a"></textarea>
+    <button id="bot" value="">提交留言</button>
+    <div class="content-box"></div>
+</div>
+<script>
+    let oTxtA = document.getElementById("txtA"),
+        oBot = document.getElementById("bot"),
+        oContent = document.getElementsByClassName("content-box")[0];
+    oBot.onclick = function(){
+        //let oTxtB = oTxtA.innerText;
+        //console.log(oTxtA.value);
+        if(oTxtA.value){
+            oContent.innerHTML+="<p class='content'>"+oTxtA.value+"</p>";
+            oTxtA.value ="";
+        }else{
+            alert("请输入留言内容再提交~！");
+        }
+    };
+</script>
+</body>
+</html>

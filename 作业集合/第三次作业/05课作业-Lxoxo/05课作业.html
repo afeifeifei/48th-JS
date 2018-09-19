@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-Lxoxo">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            input[type=text]{
+                display:block;
+                width:500px;
+                height:200px;
+                margin:0 auto;
+            }
+            #btn{
+                margin-left: 61%;
+                margin-top:5px;
+            }
+            #wrap{
+                width:500px;
+                margin-left:37%;
+            }
+            #wrap p{
+                line-height:50px;
+                border-bottom:1px dashed #000;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="inp" type="text" value=""/>
+        <button id="btn">提交</button>
+        <div id="wrap"></div>
+        <script>
+            let oInp=document.getElementById("inp");
+            let oWrap=document.getElementById("wrap");
+            document.getElementById("btn").onclick=function () {
+                let val=oInp.value;
+                document.getElementById("wrap").innerHTML+=`<p>${val}</p>`;
+                oInp.value=null;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

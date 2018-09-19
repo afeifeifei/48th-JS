@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:650px;
+                margin: 50px 0 0 100px;
+            }
+            #wrap>ul>li{
+                display:inline-block;
+                width:70px;
+                height: 30px;
+                border:1px solid #66d9ef;
+                border-radius:3px;
+                line-height:30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="main"></ul>
+            <hr>
+            <ul class="main"></ul>
+        </div>
+        
+        <script>
+            let oWrap=document.getElementsByClassName('main');
+            for (var i = 1; i< 10; i++){
+                for (var j = 1;j<=i;j++){
+                    oWrap[0].innerHTML +='<li>'+j+"*"+i+'='+j*i+'</li>';
+                }
+                oWrap[0].innerHTML +='<br>';
+            }
+
+            for (var i = 9; i > 0; i--) {
+                for (var j = i; j > 0; j--) {
+                    oWrap[1].innerHTML +='<li>'+i+"*"+j+'='+j*i+'</li>';
+                }
+                oWrap[1].innerHTML +='<br>';
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

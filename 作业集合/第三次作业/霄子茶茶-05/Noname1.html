@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <textarea name="" id="list" cols="30" rows="10"></textarea>
+ <input type="button" onclick="getVal()" value="提交" />
+ <div id="txtVal"></div>
+ <script type="text/javascript">
+ function getVal(){ 
+ var list=document.getElementById('list').value;
+ document.getElementById('txtVal').innerHTML=list;
+ textVal.style.cssText += 'border-bottom: 1px dotted #000';
+ }
+ document.getElementById("txtVal").style["textDecoration"] = "underline";
+ </script>
+ </body>
+</html>

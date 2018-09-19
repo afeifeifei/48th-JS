@@ -1,0 +1,97 @@
+<!doctype html><!--声明文档类型为html-->
+<html><!--根标签 超文本标记语言-->
+	<head><!--头部 不可视化标签-->
+		<meta charset="UTF-8"><!--utf-8 :国际编码-->
+		<!--网页三要素-->
+		<title>28号-HAHA</title>
+	    <meta name="Keywords" content="认真上课"><!--关键词-->
+		<meta name="Description" content="描述">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<base target='_blank' />
+		<style type="text/css">
+			body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,code,form,fieldset,legend,input,p,th,td{margin:0; padding:0;}
+			img{border:0;vertical-align:middle;}
+			li{list-style:none;}
+			a:active, a:focus { outline:none;}
+			a{text-decoration:none; color:#000;}
+			.clearfix:after{ content:''; display:inline-block;clear:both;}
+			.fl{ float:left;}
+			.fr{ float:right;}
+			#wrap{
+				width: 1400px;
+				padding: 0px 200px;
+				margin: 50px auto 0;
+			}
+			#wrap button{
+				width: 50px;
+				height: 30px;
+				font-size: 20px;
+			}
+			#wrap img{
+				margin: 50px;
+			}
+			#wrap p{
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body> <!--身体:网页的内容.可视化标签-->
+		<div id="wrap">
+			<button class="plus">+</button>
+			<button class="Reduce">-</button>
+				<p>
+					程序员都有哪些健康问题:<br>这里我们罗列了 9 大程序员职业病，你也可以对号入座，如果你找不到座位，那么恭喜你，你是一个合格的程序员。
+
+				　　1.腕部疼痛（重复性劳损）
+				　　2.盯着看移动的打印进度以及其后的句点造成的眼部问题
+				　　3.姿势不当造成的背部不适，尤其是背下侧，肩上侧。
+				　　4.肠道和尿道的问题（不能正常大小便）
+				　　5.摄入太多咖啡因，而且喝水少造成的脱水
+				　　6.坐姿保持太久，造成男性的痔疮或前列腺问题（我一会再细说）
+				　　7.光照不足造成维生素D缺乏
+				　　8.熬夜或者喝咖啡过多导致的睡眠失序
+				　　9.缺乏伸展导致普遍的僵硬和疼痛
+			</p>
+			<img src="images/01.jpg" alt="">
+			<p>
+				下面这些步骤是你坐下来码字时必须要做的，将会事半功倍:
+           首先要热身，将手伸向前方在空中尽可能快速地抓 20 次。然后甩手，再做手腕单侧弯曲 10 次，然后换方向弯曲 10 次。
+           用你最擅长的，以中速做 5 至 10 次。
+           继续做各项动作，但甩手和甩胳膊，弯曲手腕后到要归位。这些动作会移动手腕中的骨头，甩的时候它们就会归位。
+           千万不要做过头，让你手腕感到损伤。要适度恰好，并放松。那个“没有付出就没有收获”只会伤害你。
+	　　    			每次敲代码前做这系列动作，每天要做，而且停下来的时候也做一次。用不了多长时间，一段时间的不		  适之后你的手腕就会开始适应并回到正常，并感到好许多。
+	         眼疲劳我觉得这对我不是问题，但你最好悠着点。我年轻的时候比 20/20 还要好，但用了几十年电脑有点偏了，	曾经用过眼镜矫正，我用得着的时候一直戴着，没有它们看周围的世界真是恼人的模糊。
+			　　在黑暗时期我们天天还瞅的是 CRT 显示器，烦人的闪烁已经把一些人的眼睛整垮了。现在的问题是多数 	LCD 屏幕对字体的糟糕渲染。 我想归功于苹果公司的专利，多数 LCD 屏都不能正常渲染字体。尽管有人认为苹果的字体看起来毛茸茸的，所以对于你的好处将很难说。
+			　　我想每天两个小时不看电脑。要么我去玩吉他不用费眼力，要么去公园散步。我可能不是整整两个小时都去这样干，但是加起来要保持两个小时。
+			　　这对于你可能有的头痛有助益。多数时候程序员可能会想玩电脑的时候开着灯导致了头痛，但其实是因为体位不对，还有糟糕的字体，饮水不足，而且是跟电脑打持久战。
+			　　不是把你房间的灯都关掉，只需要合理的照明，选择适合你液晶屏和室内灯光的色彩方案。 即融合室内照明，液晶屏亮度和字体，以及让你感觉更舒服的色彩方案。
+
+		　　但还是先休息一下吧。
+			</p>
+			<img src="images/02.jpg" alt="">
+		</div>
+
+
+		<script>
+			let oWrap = document.getElementById("wrap"),
+				oPlus = oWrap.getElementsByClassName("plus")[0],
+				oReduce = oWrap.getElementsByClassName("Reduce")[0],
+				aP = oWrap.getElementsByTagName("p"),
+				num = 16;
+				oPlus.onclick = function () {
+					num++;
+					for(let i = 0; i<aP.length; i++){
+						num = num >= 20 ? 20 : num;
+						aP[i].style.fontSize = num + "px";
+					};
+				};
+				oReduce.onclick = function() {
+					num--;
+					for(let i = 0; i<aP.length; i++){
+						num = num <= 12 ? 12 : num;
+						aP[i].style.fontSize = num + "px";
+					};
+				};
+		</script>
+	</body>
+</html>

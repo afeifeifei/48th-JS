@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        a{text-decoration: none;}
+        #wrap{
+            width:500px;
+            margin:50px;
+            text-align:center;
+        }
+        .change{
+            height: 80px;
+            line-height: 80px;
+            font-size:24px;
+            margin-left:15px;
+        }
+        .change button{
+            width:24px;height: 24px;
+            line-height: 20px;
+        }
+        .container{
+            margin-top:50px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<script>
+    window.onload = function(){
+        var addBtn = document.getElementById("addbtn"),
+            mulBtn = document.getElementById("mulbtn"),
+            oBody = document.querySelector(".container"),
+            size = 16;
+
+            addBtn.onclick = function(){
+                size = size++ < 36?size:36;
+                oBody.style.fontSize = size +"px";
+            };
+            //字体大小变化范围 自设定：14 < size <36
+            mulBtn.onclick = function(){
+                size = size-- > 14?size:14;   //判断初值
+                oBody.style.fontSize = size +"px";
+                
+                console.log("size -= " + size);
+            };
+    };
+    //使用 em设置字符大小，改变html的字符
+    </script>
+    
+   <div id="wrap">
+        <div class="change">
+            <label for="">改变文字大小 : </label>
+            <button id="addbtn">+</button>
+            <button id="mulbtn">-</button>
+        </div>
+
+        <div class="container">
+            改变文字大小，自适应
+        </div>
+</div>
+
+</body>
+</html>

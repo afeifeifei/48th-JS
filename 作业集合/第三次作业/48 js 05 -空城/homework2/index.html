@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />		
+		<title>我的作业</title>
+		<style>
+	    div{
+	    	height:300px;
+	    	width:400px;
+	    	margin:auto;
+	    	border:2px solid red;
+	    }
+	    button{
+	    	float:right;
+	    }
+	    ul{
+	    	list-style:none;
+	    	padding:0px;
+	    }
+	    ul li{
+	    	line-height:40px;
+	    	border-bottom:2px solid pink;
+	    }
+		</style>
+	</head>
+	<body>
+	<div>
+	    <div id="content" contenteditable="true"></div>
+	    <button id="button">提交</button>
+	    <ul id="list">
+	    </ul>
+	</div>    
+		<script>
+			let content=document.getElementById("content");
+			let btn=document.getElementById("button");
+			let lit=document.getElementById("list")
+			
+			btn.onclick=function(){
+				let str=content.innerHTML;
+				lit.innerHTML+="<li>"+str+"</li>"
+				content.innerHTML="";
+			}
+		</script>
+	</body>
+</html>

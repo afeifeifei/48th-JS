@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                margin: 50px;
+            }
+            #bottom{
+                border-top: 1px solid #8d8df0;
+            }
+            #wrap span{
+                display: inline-block;
+                width: 100px;
+                margin: 5px;
+                border: 1px solid;
+                line-height: 1.5em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="top">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul id="bottom">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        
+        <script>
+            let oTop = document.querySelectorAll("#top li");
+            let oBottom = document.querySelectorAll("#bottom li");
+
+            for ( let i = 1,j = 0; i < 10; i++,j++){
+                for ( let k = 1; k <= i ; k++){
+                    oTop[j].innerHTML += "<span>" + i + "*" + k + "</span>";
+                }
+            }
+            for ( let i = 9,j = 0; i > 0; i--,j++){
+                for ( let k = 1; k <= i ; k++){
+                    oBottom[j].innerHTML += "<span>" + i + "*" + k + "</span>";
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

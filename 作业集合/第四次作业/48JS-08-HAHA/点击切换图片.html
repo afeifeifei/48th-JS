@@ -1,0 +1,139 @@
+<!doctype html><!--声明文档类型为html-->
+<html><!--根标签 超文本标记语言-->
+	<head><!--头部 不可视化标签-->
+		<meta charset="UTF-8"><!--utf-8 :国际编码-->
+		<!--网页三要素-->
+		<title>28号-HAHA</title>
+	    <meta name="Keywords" content="认真上课"><!--关键词-->
+		<meta name="Description" content="描述">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<base target='_blank' />
+		<style type="text/css">
+			body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,code,form,fieldset,legend,input,p,th,td{margin:0; padding:0;}
+			img{border:0;vertical-align:middle;}
+			li{list-style:none;}
+			a:active, a:focus { outline:none;}
+			a{text-decoration:none; color:#000;}
+			.clearfix:after{ content:''; display:inline-block;clear:both;}
+			.fl{ float:left;}
+			.fr{ float:right;}
+			#wrap{
+				position: relative;
+				width: 600px;
+				height: 400px;
+				margin: 80px auto 0;
+			}
+			#wrap li{
+				display: none;
+				position: absolute;
+				width: 100%;
+				height: 400px;
+			}
+			#wrap li.active{
+				display: block;
+			}
+			#wrap li img{
+				width: 100%;
+				height: 100%;
+			}
+			#wrap p{
+				position: absolute;
+				width: 100%;
+				height: 30px;
+				background-color: rgba(0,0,0,.5);
+				color: #fff;
+				font-size: 18px;
+				text-align: center;
+			}
+			#wrap p.bottom{
+				bottom: 0;
+				left: 0;
+			}
+			#wrap span{
+				position: absolute;
+				width: 50px;
+				top:50%;
+				margin-top: -17px;
+				background-color: rgba(0,0,0,.5);
+				text-align: center;
+				font-size: 30px;
+				color: #fff;
+				cursor: pointer;
+			}
+			#wrap span:nth-of-type(2){
+				right: 0;
+			}
+			#wrap .btn{
+				position: absolute;
+				width: 100%;
+				bottom: -100px;
+				text-align: center;
+			}
+			#wrap .btn button{
+				height: 45px;
+				margin: 0 10px;
+			}
+			#wrap .btn button.active{
+				background-color: #f00;
+			}
+		</style>
+	</head>
+	<body> <!--身体:网页的内容.可视化标签-->
+		<div id="wrap">
+			<ul>
+				<li class="active"><img src="images/qinglong.jpg" alt=""></li>
+				<li><img src="images/baihu.jpg" alt=""></li>
+				<li><img src="images/zhuque.jpg" alt=""></li>
+				<li><img src="images/xuanwu.jpg" alt=""></li>
+				<li><img src="images/taotie.jpg" alt=""></li>
+			</ul>
+			<p class="top">1/5</p>
+			<p class="bottom">青龙</p>
+			<span class="prev"><</span>
+			<span class="next">></span>
+			<div class="btn">
+				<button class="active">正常模式</button><button>循环模式</button>
+			</div>
+		</div>
+		<script>
+			let oWrap =document.getElementById("wrap"),
+				aLi = oWrap.querySelectorAll("#wrap ul li"),
+				oTop = oWrap.getElementsByClassName("top")[0],
+				oBtm = oWrap.getElementsByClassName("bottom")[0],
+				oPrev = oWrap.getElementsByClassName("prev")[0],
+				oNext = oWrap.getElementsByClassName("next")[0],
+				aBtn = oWrap.querySelectorAll("#wrap .btn button"),
+				length = aLi.length;
+				index = 0,
+				bool = true;
+			let textArr = ["青龙","白虎","朱雀","玄武","饕餮"];
+			oNext.onclick = function() {
+				aLi[index].className = "";
+				index++
+				if ( index >= length )index = bool ? length-1 : 0;
+				aLi[index].className = "active";
+				oTop.innerHTML = index + 1 + "/5"
+				oBtm.innerHTML = textArr[index];
+			};
+
+			oPrev.onclick = function() {
+				aLi[index].className = "";
+				index--;
+				if(index < 0)index = bool ? 0 : length-1;
+				aLi[index].className = "active";
+				oTop.innerHTML = index + 1 + "/5"
+				oBtm.innerHTML = textArr[index];
+			};
+			aBtn[0].onclick = function() {
+				this.className = "active";
+				aBtn[1].className = "";
+				bool = true;
+			}
+			aBtn[1].onclick = function() {
+				this.className = "active";
+				aBtn[0].className = "";
+				bool = false;
+			}
+		</script>
+	</body>
+</html>

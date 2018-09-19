@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #comment{
+                width: 725px;
+                margin: auto;
+                margin-top: 50px;
+            }
+            .com-box span{
+                float: left;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .com-box span img{
+                width: 46px;
+                border-radius: 5px;
+            }
+            .com-box .content-box{
+                float: right;
+                position: relative;
+            }
+            .com-box input{
+                width: 640px;
+                height: 70px;
+                padding: 0 10px 100px 10px;
+                background: #fff;
+                border: 1px solid #f0f0f0;
+                outline: none;
+                font-size: 14px;
+            }
+            .com-box .content-box:before{
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: -8px;
+                border: 8px solid;
+                border-color: transparent #f0f0f0;
+                border-left: none;
+            }
+            .com-box .content-box:after{
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: -7px;
+                border: 8px solid;
+                border-color: transparent #fff;
+                border-left: none;
+            }
+            .com-box  button{
+                position: absolute;
+                right: 0;
+                bottom: -30px;
+                width: 60px;
+                height: 25px;
+                background: #00bcd4;
+                border: none;
+                color: #fff;
+             }
+            .com-box  button:hover{
+                background: #00acc1;
+            }
+            .clearfix:after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .commit{
+                margin-top: 2em;
+            }
+            .commit.change p{
+                padding-bottom: 7px;
+                border-bottom: 1px dashed #f0f0f0;
+                font-size: 14px;
+            }
+            .commit.change p:nth-child(n+2){
+                margin-top: 20px;
+            }
+            .commit.change img{
+                width: 46px;
+                margin-right: 23px;
+                border-radius: 50%;
+                vertical-align: text-bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="comment">
+            <div class="com-box clearfix">
+                <span>
+                    <img src="ava.jpg" alt="">
+                </span>
+                <div class="content-box clearfix">
+                    <input type="text" placeholder="（发表评论）">
+                    <button>发送</button>
+                </div>
+
+            </div>
+            <div class="commit">
+
+            </div>
+        </div>
+        
+        <script>
+            let oBtn = document.getElementsByTagName("button");
+            let oInp = document.getElementsByTagName("input");
+            oBtn[0].onclick = function () {
+                let oCommit = document.getElementsByClassName("commit");
+                let oCrep = document.createElement("p");
+                oCrep.innerHTML = "<img src = 'ava.jpg' alt = '头像'>" + oInp[0].value;
+                oCommit[0].appendChild(oCrep);
+                oCommit[0].className += " change";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

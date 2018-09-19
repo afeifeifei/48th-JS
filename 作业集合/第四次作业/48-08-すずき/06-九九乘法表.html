@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*{margin: 0;padding: 0;}*/
+        span{
+            display:inline-block;
+            width:80px;
+            margin:5px;
+            border:1px solid black;
+            text-align:center;
+            line-height: 30px;
+        }
+        hr{
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <script>
+        let oWrap=document.getElementsByClassName("wrap")[0],
+            i,j;
+            str="";
+            for(i=1;i<10;i++){
+                for (j=1;j<=i;j++){
+                    str += `<span>${i}*${j}=${i*j}</span>`;
+                }
+                str += `<br>`;
+            }
+            str += "<hr>";
+        // oWrap.innerHTML=str;
+
+            for(i=1;i<10;i++){
+                for (j=i;j<10;j++){
+                    str += `<span>${i}*${j}=${i*j}</span>`;
+                }
+                str += `<br>`;
+            }
+            str += "<hr>";
+
+            oWrap.innerHTML=str;
+    </script>
+</body>
+</html>

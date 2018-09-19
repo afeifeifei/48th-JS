@@ -1,0 +1,148 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期冷妆">
+        <style>
+            *{margin:0;padding:0;}
+            body{font-family: "Microsoft YaHei",serif;background-color: #eee;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:900px;
+                margin: 50px auto;
+                background-color: #fff
+            }
+            #wrap .button{
+                height:90px;
+                padding-left: 25px;
+                background-color: rgba(22,200,220,.6);
+                line-height: 90px;
+            }
+            #wrap .button .active{
+                background-color: red;
+            }
+            #wrap .button button{
+                width: 30px;
+                height:30px;
+                border: none;
+                background-color: black;
+                color: white;
+            }
+            #wrap h2{
+                text-align: center;
+                padding:20px 0;
+            }
+            #wrap .detail_time{
+                width: 850px;
+                margin: auto;
+                padding-bottom:10px;
+                border-bottom: 1px solid #eee;
+                text-align: center;
+            }
+            #wrap .content{
+                padding: 25px;
+            }
+            #wrap .content p{
+                display: inline-block;
+                margin-bottom: 10px;
+                text-indent: 2em;
+            }
+            #wrap p{
+                font-size: 14px;
+                color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="button">
+                <button>+</button>
+                <button>-</button>
+            </div>
+            <h2>剑网3·侠肝义胆沈剑心下周开播 圣地巡礼</h2>
+            <p class="detail_time"> 2018-09-14 10:20:17 </p>
+            <div class="content">
+                <p>继《剑网3》九周年发布会庆典上推出定档先导片之后，侠士们所熟悉的稻香村中的小保安——“沈剑心”即将于9月21日与诸位侠士共赴大美江湖！
+                    而在《剑网3·侠肝义胆沈剑心》正式开播之前，为了让侠士能够更多的了解到《剑网3·侠肝义胆沈剑心》背后的创作点滴，
+                    大唐旅游局特地为侠士准备了一份独家曝料，部分动画场景今日抢先放出，就让我们一同来看看吧！
+                </p>
+                <img src="images/1.jpg" height="429" width="800"/>
+                <p>《剑网3·侠肝义胆沈剑心》改编自《剑网3》游戏，是西山映画旗下奇遇工作室的代表作品。
+                    以搞怪趣味的江湖剧情，宝木中阳、藤新等知名的CV倾声加盟，
+                    用轻松诙谐的方式讲述了“沈剑心”在游历江湖成为一代大侠过程中所发生的一系列搞笑故事！
+                    《剑网3·侠肝义胆沈剑心》希望能够通过分享快乐的方式，让《剑网3》的魅力不仅仅存在于游戏中！同时，
+                    《剑网3·侠肝义胆沈剑心》将以季番的形式与侠士们见面，每集时长值得期待，绝不泡面番！</p>
+                <p>而在《剑网3·侠肝义胆沈剑心》剧集制作的过程中，为了保证能够完美呈现出《剑网3》的大美江湖！
+                    在确保场景还原的同时，根据剧集本身的故事性，将内容与画面做到同步。
+                    截止至今，西山映画旗下的奇遇工作室共为这部剧手绘制作了超过1000张的动画背景！
+                    对比一般动画的100-150张背景美术，《剑网3·侠肝义胆沈剑心》显得诚意十足。
+                    而这些场景中还有着侠士们所熟悉的稻香村、纯阳宫、藏剑山庄、明教光明顶等饱含回忆的场景，
+                    均还原了《剑网3》端游的绝美风景！
+                </p>
+                <img src="images/2.jpg" height="950" width="800"/>
+                <img src="images/3.jpg" height="950" width="800"/>
+                <img src="images/4.jpg" height="450" width="800"/>
+                <img src="images/5.jpg" height="450" width="800"/>
+                <img src="images/6.jpg" height="450" width="800"/>
+                <img src="images/7.jpg" height="450" width="800"/>
+                <p>除了上述几大5A级景区外，大唐旅游局还额外为侠士准备了几张福利，并将于今晚19:00在@剑网3侠肝义胆沈剑心 微博上进行抢先曝料！
+                    超多内容即将揭晓，诚邀侠士同游大唐5A级景区，共览江湖之美！</p>
+            </div>
+        </div>
+        
+        <script>
+            let oAdd=document.getElementsByTagName('button')[0],
+                oSub=document.getElementsByTagName('button')[1],
+                aP=document.getElementsByTagName('p'),
+                aH=document.getElementsByTagName('h2'),
+                psize=14,hsize=24;
+            oAdd.onclick=function () {
+                if(psize<25){
+                    ++psize;
+                    ++hsize;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=psize+'px';
+                        console.log(aP[0].style.fontSize);
+                    }
+                    aH[0].style.fontSize=hsize+'px';
+                }
+                oSub.className='';
+	psize==14?oAdd.className='':  oAdd.className='active';
+            }
+            oSub.onclick=function () {
+                if( hsize>22 ){
+                    --psize;
+                    --hsize;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=psize+'px';
+                        console.log(aP[0].style.fontSize);
+                    }
+                    aH[0].style.fontSize=hsize+'px';
+                }
+                oAdd.className='';
+	hsize==24?oSub.className='':  oSub.className='active';
+
+            }
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="qiehuanqiyou" unicode="&#13412;" d="M881.298746 375.657405 398.119373 896 175.112486 896 658.29178 375.657405 175.112507-107.504117l223.006914 0L881.298746 375.657405z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="qiehuanqizuo" unicode="&#13413;" d="M658.29178-107.504117l223.006914 0L398.119373 375.657405 881.298746 896 658.291782 896 175.112507 375.657405 658.29178-107.504117z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

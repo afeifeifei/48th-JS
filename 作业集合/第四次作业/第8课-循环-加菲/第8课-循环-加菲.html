@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <link rel="stylesheet" href="iconfont/iconfont.css">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #main{
+                position:relative;
+                width: 600px;
+                height: 400px;
+                margin: 50px auto 0;
+                border:1px red solid;
+            }
+            #main #imgShow{
+                position: relative;
+                width: 600px;
+                height: 350px;
+                background-color: #186362;
+            }
+            #main #imgShow img{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #main #imgShow #titleTop{
+                position: absolute;
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                vertical-align: middle;
+                color: #FFF;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.55);
+                top:0;
+            }
+            #main #imgShow #titleBottom{
+                position: absolute;
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                vertical-align: middle;
+                color: #FFF;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.55);
+                bottom:0;
+            }
+            #main #imgShow #btnLeft{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                vertical-align: middle;
+                color: #FFF;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.55);
+                top: calc(50% - 15px);
+                left: 0;
+            }
+            #main #imgShow #btnLeft:hover{
+                cursor: pointer;
+            }
+            #main #imgShow #btnRight{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                vertical-align: middle;
+                color: #FFF;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.55);
+                top: calc(50% - 15px);
+                right: 0;
+            }
+            #main #imgShow #btnRight:hover{
+                cursor: pointer;
+            }
+            #main #btnOps{
+                position: absolute;
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                vertical-align: middle;
+                top:350px;
+            }
+            #main #btnOps button{
+                outline: 0px;
+                /*border-color: red;*/
+            }
+            #main #btnOps button:hover{
+                cursor: pointer;
+            }
+            #main #btnOps button:first-child{
+                background-color: red;
+            }
+
+            /*乘法口诀一 */
+            #mult1{
+                 width: 700px;
+                 height: 350px;
+                 margin: 50px auto 0;
+                 border: 1px solid blue;
+             }
+            #mult1 ul{
+                display: inline-block;
+                list-style-type: none;
+            }
+            #mult1 ul li{
+                display: block;
+                width: 60px;
+                height: 30px;
+                margin: 5px;
+                line-height: 30px;
+                vertical-align: middle;
+                text-align: center;
+                border: 1px solid blue;
+            }
+            /*乘法口诀二 */
+            #mult2{
+                width: 700px;
+                height: 380px;
+                margin: 10px auto 50px;
+
+                border: 1px solid blue;
+            }
+            #mult2 ul{
+                display: block;
+                list-style-type: none;
+            }
+            #mult2 ul li{
+                display: inline-block;
+                width: 60px;
+                height: 30px;
+                margin: 5px;
+                line-height: 30px;
+                vertical-align: middle;
+                text-align: center;
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="imgShow">
+                <img id="imgPic" src="images/1.jpg" width="500"  height="300" alt="图片">
+                <div id="titleTop">
+                    <span id="titleNum">1</span><span>/5</span>
+                </div>
+                <div id="titleBottom">
+                    <span id="titleNote">火影忍者</span>
+                </div>
+                <div id="btnLeft">
+                    <i class="icon iconfont icon-qiehuanqizuo"></i>
+                </div>
+                <div id="btnRight">
+                    <i class="icon iconfont icon-qiehuanqiyou"></i>
+                </div>
+            </div>
+            <div id="btnOps">
+                <button id="btnOrder" type="submit" value="HTML">顺序模式</button>
+                <button id="btnLoop" type="submit" value="HTML">循环模式</button>
+                <button id="btnAdd" type="submit" value="HTML">+</button>
+                <button id="btnSub" type="submit" value="HTML">-</button>
+            </div>
+        </div>
+        <div id="mult1">
+        </div>
+        <div id="mult2">
+        </div>
+        
+        <script>
+            let btnChecd = 1;
+            let imgSize = 1;
+            let oBtnLeft = document.getElementById("btnLeft");
+            oBtnLeft.onclick=function () {
+                let oTitleNum = document.getElementById("titleNum");
+                let picNum = oTitleNum.innerHTML;
+                let picNumNew;
+                if (btnChecd === 1){
+                    if (Number(picNum) - 1 < 1){
+                        picNumNew = 1;
+                    }
+                    else {
+                        picNumNew =Number(picNum) - 1
+                    }
+                }
+                else{
+                    picNumNew = (Number(picNum) - 1)%5 == 0?5:(Number(picNum) + 1)%5 ;
+                }
+                oTitleNum.innerHTML  = picNumNew;
+                document.getElementById("imgPic").src="images/" + picNumNew + ".jpg";
+            }
+            let oBtnRight = document.getElementById("btnRight");
+            oBtnRight.onclick=function () {
+                let oTitleNum = document.getElementById("titleNum");
+                let picNum = oTitleNum.innerHTML;
+                let picNumNew;
+                if (btnChecd === 1){
+                    if (Number(picNum) + 1 > 5){
+                        picNumNew = 5;
+                    }
+                    else {
+                        picNumNew =Number(picNum) + 1
+                    }
+                }
+                else{
+                    picNumNew = (Number(picNum) + 1)%5 == 0?5:(Number(picNum) + 1)%5 ;
+                }
+                oTitleNum.innerHTML  = picNumNew;
+                document.getElementById("imgPic").src="images/" + picNumNew + ".jpg";
+            }
+            let oBtnOrder = document.getElementById("btnOrder");
+            let oBtnLoop = document.getElementById("btnLoop");
+            oBtnOrder.onclick=function () {
+                btnChecd =  1;
+                oBtnOrder.style.backgroundColor="RGB(250,0,0)";
+                oBtnLoop.style.backgroundColor="RGB(221, 221, 221)";
+            }
+            oBtnLoop.onclick=function () {
+                btnChecd =  0;
+                oBtnOrder.style.backgroundColor="RGB(221, 221, 221)";
+                oBtnLoop.style.backgroundColor="RGB(250,0,0)"
+            }
+            // 放大缩小
+            let oBtnAdd = document.getElementById("btnAdd");
+            let oBtnSub = document.getElementById("btnSub");
+            let oImgShow = document.getElementById("imgShow");
+            oBtnAdd.onclick=function () {
+                imgSize = imgSize + 0.05;
+                if (imgSize > 1){
+                    imgSize = 1;
+                }
+                oImgShow.style.width=600*imgSize + "px";
+                oImgShow.style.height=350*imgSize + "px";
+            }
+            oBtnSub.onclick=function () {
+                imgSize = imgSize - 0.05;
+                if (imgSize < 0.5){
+                    imgSize = 0.5;
+                }
+                oImgShow.style.width=600*imgSize + "px";
+                oImgShow.style.height=350*imgSize + "px";
+            }
+
+            // 乘法口诀
+            for(let i = 1;i<=9;i++){
+                // 乘法口诀一
+                let colUnit1 = '';
+                for(let j = i;j<=9;j++){
+                    colUnit1 += `<li>${j}*${i}=${j*i}</li>`;
+                }
+                let mulCol1=`<ul style="">${colUnit1}</ul>`;
+                document.getElementById("mult1").innerHTML+=mulCol1;
+                // 乘法口诀二
+                let colUnit2 = '';
+                for(let j = i;j<=9;j++){
+                    colUnit2 += `<li>${i}*${j}=${j*i}</li>`;
+                }
+                let mulCol2=`<ul style="">${colUnit2}</ul>`;
+                document.getElementById("mult2").innerHTML+=mulCol2;
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

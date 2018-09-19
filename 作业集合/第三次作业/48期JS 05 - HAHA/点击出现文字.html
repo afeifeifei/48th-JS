@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="学员-HAHA">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,div,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;vertical-align:middle;}
+            a:active, a:focus { outline:none;}
+			a{text-decoration:none; color:#000;}
+            .fl{ float:left;}
+			.fr{ float:right;}
+            .clearfix:after{ content:''; display:inline-block;clear:both;}
+			#wrap{
+                overflow: hidden;
+                width: 400px;
+                margin: 50px auto 0;
+            }
+            #wrap .box{
+                width: 99%;
+                height: 200px;
+                margin-bottom: 10px;
+                border: 1px solid;
+                text-indent: 30px;
+                font-size: 20px;
+            }
+            #wrap ul{
+                margin-top: 100px;
+            }
+            #wrap ul li{
+                width: 100%;
+                margin-top: 30px;
+                border-bottom:  1px solid;
+                text-indent: 30px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="box" contenteditable=""></div>
+            <button class="fr">发表</button>
+            <ul class="list"></ul>
+        </div>
+        
+        <script>
+           let oWrap = document.getElementById("wrap"),
+               oBox = oWrap.getElementsByClassName("box")[0],
+               oBtn = oWrap.getElementsByTagName("button")[0],
+               oList = oWrap.getElementsByClassName("list")[0],
+               str = "";
+
+
+                oBtn.onclick = function(){
+                   if(oBox.innerHTML){
+                       str = oBox.innerHTML;
+                       oList.innerHTML += "<li>"+str+"</li>";
+                       oBox.innerHTML = "";
+                   };
+                };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

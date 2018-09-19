@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* index */
+body{
+	background:#B7AB85;
+}
+#box {
+	width: 1000px;
+	margin: 0 auto;
+	font-size:14px;
+}
+#box .boxL {
+	float: left;
+	width: 268px;
+	margin-right:15px;
+}
+#box .boxL span {
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	background: #000;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	margin-right: 10px;
+	font-size:14px;
+}
+#box .boxL img{
+	width:268px;
+	height:356px;
+	display:block;
+}
+#box p{
+	text-indent:30px;
+}

@@ -1,0 +1,60 @@
+<!doctype html><!--声明文档类型  -->
+<html lang="en"><!--网页根标签 lang= “语言类型” -->
+ <head><!-- 网页头部.不可视化区域 -->
+  <meta charset="UTF-8"><!--编码格式  ) gbk（简体） gb2312（繁体）-->
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="当时我就火了"><!-- 作者 -->
+  <meta name="Keywords" content=""><!-- 关键字及词 -->
+  <meta name="Description" content=""><!--网站描述，简介  -->
+  <title>document</title><!-- 标题 -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+  <style type="text/css">
+	body,ul,ol,li,dl,dt{margin:0;padding:0;}
+	li{list-style:none;}
+	a{text-decoration:none;}
+	#wrap span{
+		display:inline-block;
+		width:80px;
+		margin:3px;
+		padding:3px 0;
+		border:1px solid red;
+		text-align:center;
+	}
+  </style>
+ </head>
+ <body><!-- 网页的身体部分 可视化区域 内容区-->
+	<div id="wrap">
+	</div>
+	<script type="text/javascript">
+		let oWrap = document.getElementById("wrap");
+			for(let i=1;i<=9;i++){
+				for(let j=1;j<=i;j++){
+					oWrap.innerHTML     +=`<span>${i}x${j}=${i*j}</span>`;
+				}
+				 oWrap.innerHTML += "<br>";
+			}
+			 oWrap.innerHTML += "<hr>";
+			for(let i=9;i>=1;i--){
+				for(let j=1;j<=i;j++){
+					oWrap.innerHTML     +="<span>"+i+"x"+j+"="+i*j+"</span>";
+				}
+				 oWrap.innerHTML += "<br>";
+			}
+			 oWrap.innerHTML += "<hr>";
+			for(let i=9;i>=1;i--){
+				for(let j=9;j>=i;j--){
+					oWrap.innerHTML     +="<span>"+i+"x"+j+"="+i*j+"</span>";
+				}
+				 oWrap.innerHTML += "<br>";
+			}
+			 oWrap.innerHTML += "<hr>";
+			for(let i=1;i<=9;i++){
+				for(let j=i;j<=9;j++){
+					oWrap.innerHTML     +="<span>"+i+"x"+j+"="+i*j+"</span>";
+				}
+				 oWrap.innerHTML += "<br>";
+			}
+			 oWrap.innerHTML += "<hr>";
+	</script>
+ </body>
+</html>

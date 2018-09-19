@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>静态轮播</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link href="" rel="stylesheet">
+        <style>
+            .wrap{
+                width:220px;
+                margin:20px auto;
+            }
+            span{
+                display: inline-block;
+                width: 50px;
+                height: 30px;
+                margin-right:10px;
+                font-size:20px;
+                line-height: 30px;
+                border:1px solid #f66;
+            }
+            .active{
+                background-color: Skyblue;
+            }
+            .bpic{
+                position:relative;
+                width: 220px;
+                height: 220px;
+                border: 1px dotted orange;
+            }
+            .pic{
+                display:block;
+                width: 190px;
+                margin:15px auto;
+            }
+            p{
+                width: 220px;
+                height: 30px;
+                background-color: #ccc;
+                line-height: 30px;
+                text-align:center;
+            }
+            #bar1{
+                position:absolute;
+                top:-16px;
+                }
+            #bar2{
+                position:absolute;
+                bottom:-16px;
+            }
+            #before{
+                position:absolute;
+                top:0;
+                bottom:0;
+                left:0;
+                width: 30px;
+                margin:auto 0;
+                background-color: #ccc;;
+                text-align:left;
+            }
+            #next{
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                width: 30px;
+                margin:auto 0;
+                background-color: #ccc;;
+                text-align:right;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+
+            <div class="bpic">
+                     <p id="bar1" class="bar1">第1/6页</p>
+                     <span id="before">&lt</span><span id="next">&gt</span>
+                     <p id="bar2" class="bar2">ponyWei一号</p>
+                     <img src="images/1.jpg" alt="" class="pic">
+            </div>
+            <span id="loop">循环</span><span id="single" class="active">单边</span>
+        </div>
+
+        <script>
+            //通过切换类名改变默认状态->点击 next/before切换图片->单边/循环效果-> 改变bar的对应的数字
+           let oLp=document.getElementById("loop"),
+            oS=document.getElementById("single"),
+            oPic=document.getElementsByClassName("pic"),
+            oBf=document.getElementById("before"),
+            oNx=document.getElementById("next");
+            oBar1=document.getElementsByClassName("bar1"),
+            oBar2=document.getElementsByClassName("bar2");
+            let bool=true;//单边为true
+            let num=1;
+            let arry=["ponyWei一号","ponyWei二号","ponyWei三号","ponyWei四号","ponyWei五号","ponyWei六号"];
+            //通过切换类名改变单边/循环的默认状态
+            oLp.onclick=function(){
+                 bool=false;
+                this.className="active";
+                oS.className="";
+                // console.log(bool);
+
+            };
+            oS.onclick=function(){
+                 bool=true;
+                this.className="active";
+                oLp.className="";
+                // console.log(bool);
+
+            };
+
+                    //点击 next/before切换图片
+                    oNx.onclick = function () {
+                        if (num < 6) {
+                            num++;
+                            oPic[0].src = "images/"+num + ".jpg";
+                            oBar1[0].innerHTML = "第" + num + "/6页";
+                            oBar2[0].innerHTML =  arry[num - 1] ;
+                        }
+                        else {
+                            if (bool) {
+                                alert("你已经走到底了！");
+                            } else {
+                                num = 1;
+                                oPic[0].src ="images/"+ num + ".jpg";
+                                oBar1[0].innerHTML = "第" + num + "/6页";
+                                oBar2[0].innerHTML =  arry[num - 1] ;
+                            }
+                        }
+                    };
+                    oBf.onclick = function () {
+                        if (num > 1 && num <= 6) {
+                            num--;
+                            oPic[0].src ="images/"+ num + ".jpg";
+                            oBar1[0].innerHTML = "第" + num + "/6页";
+                            oBar2[0].innerHTML =  arry[num - 1] ;
+                        }
+                        else {
+                            if(bool) {
+                                alert( "你已经走到头了!");
+                            }else {
+                                num = 6;
+                                oPic[0].src ="images/"+ num + ".jpg";
+                                oBar1[0].innerHTML = "第" + num + "/6页";
+                                oBar2[0].innerHTML =  arry[num - 1] ;
+                            }
+                        }
+                    };
+        </script>
+    </body>
+</html>

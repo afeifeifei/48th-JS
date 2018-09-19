@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	ul{
+		list-style: none;
+ 	}
+	li:after{
+	display: block;
+	content: "";
+	clear: both;
+}
+
+ul li p{
+	width: 50px;
+	height: 20px;
+	margin: 3px;
+	padding: 10px;
+	border: 1px solid #000;
+	float: left;
+	background-color:orange;
+} 
+</style>
+</head>
+<body>
+   <ul>
+   </ul>
+   <script>
+   	(function(){
+   		let oUl =document.getElementsByTagName("ul")[0],
+   			str ="";	
+   		for(let i=1; i<=9; i++){
+   			let str2 ="";
+   			for(let j=1; j<=i; j++){
+   				console.log(i*j);
+   				str2 +="<p>"+i +"*" + j + "="+i*j+"</p>";
+   			}
+   			str += "<li>"+str2+"</li>";
+   		}
+   		str += "<hr>";
+   		oUl.innerHTML = str;
+
+
+   		for(let i=1; i<=9; i++){
+   			let str2 ="";
+   			for(let j=i; j<=9; j++){
+   				console.log(i*j);
+   				str2 +="<p>"+i +"*" + j + "="+i*j+"</p>";
+   			}
+   			str += "<li>"+str2+"</li>";
+   		}
+   		oUl.innerHTML = str;
+   	})()
+   </script>
+</body>
+</html>

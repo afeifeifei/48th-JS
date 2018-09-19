@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<title>43-JS-send</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background-color: #f2f2f2;}
+			li{list-style: none;}
+
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			#box{
+				width: 300px;
+				padding: 15px;
+				margin: auto;
+				margin-top: 100px;
+				border: 1px solid lightblue;
+			}
+
+			#box #send{
+				padding-bottom: 5px;
+				border-bottom: 1px solid #ddd;
+			}
+
+			#box #send textarea{
+				width: 300px;
+				padding: 5px	;
+				box-sizing: border-box;
+				outline: none;
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+
+			#box #send img{
+				float: left;
+				width: 30px;
+				height: 30px;
+			}
+
+			#box #send #submit{
+				float: right;
+				width: 50px;
+				height: 30px;
+				outline: none;
+			}
+
+			#box #content{
+				width: 100%;
+			}
+
+			#box #content li{
+				line-height: 30px;
+				border: 1px solid transparent;
+				border-bottom: 1px solid #ddd; 
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 用form表单，按钮换成button就可以改变submit刷新效果 -->
+		<div id="box">
+			<div id="send" class="clearfix">
+				<textarea name="" rows="5" cols="30" id="text"></textarea>
+				<img src="img/cancer.png" alt="">
+				<input type="button" name="" value="提交" id="submit">
+			</div>
+			<ul id="content"></ul>
+		</div>
+		<script type="text/javascript">
+			var oTxt = document.getElementById("text"),
+				oBtn = document.getElementById("submit"),
+				oCon = document.getElementById("content"),
+				oLi;
+			/*
+				innerHTML：会处理之后变成纯文本，会让原来的变成文本，此时点击事件效果就不会实现
+			*/
+			oBtn.onclick = function(){
+				// console.log(oTxt.value);
+				oLi = "<li>" + oTxt.value + "</li>";
+				oCon.innerHTML += oLi;
+				// console.log(oCon.innerHTML);
+				if (oTxt) {
+					oTxt.value = "";
+				}
+			}
+		</script>
+	</body>
+</html>

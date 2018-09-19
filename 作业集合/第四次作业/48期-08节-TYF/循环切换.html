@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>循环切换</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="TYF">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            .content{
+                width: 600px;
+                height:600px;
+                margin:auto;
+                margin-top: 50px;
+            }
+            .arrow{
+                width: 50px;
+                height: 30px;
+                font-size: 23px;
+                color: #ffffff;
+                background-color: #000000;
+                opacity: .5;
+                z-index: 1;
+                cursor: pointer;
+            }
+            #banner{
+                position: relative;
+                width: 100%;
+                height:300px;
+                background-color: aquamarine;
+                text-align: center;
+            }
+            #left{
+                position: absolute;
+                left: 0;
+                top: 150px;
+            }
+            #right{
+                position: absolute;
+                right: 0;
+                top: 150px;
+            }
+            #banner img{
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 600px;
+                height:300px;
+            }
+            .title{
+                width: 100%;
+                height:30px;
+                background-color: #000000;
+                color:#fff;
+                opacity: .5;
+            }
+            #top{
+                position: absolute;
+                top: 0;
+                z-index: 1;
+            }
+            #bottom{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 30px;
+                background-color: #000000;
+                color: #fff;
+                z-index: 1;
+                opacity: .5;
+            }
+            .btn{
+                display: inline-block;
+                width: 80px;
+                margin-top: 50px;
+                line-height: 40px;
+                background-color: #666;
+                text-align: center;
+                color:#ffffff;
+                cursor:pointer;
+            }
+            #normal{
+                margin-left: 220px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div id="banner">
+                <div class="arrow" id="left"><</div>
+                <div class="arrow" id="right">></div>
+                <div class="title" id="top"></div>
+                <div id="bottom"></div>
+                <img id="img1" src="images/1.jpg" height="1024" width="1280" alt="dota2">
+            </div>
+            <botton class="btn" id="normal">正常模式</botton>
+            <botton class="btn" id="cycles">循环模式</botton>
+        </div>
+        
+        <script>
+           let oLeft = document.getElementById("left");
+           let oRight = document.getElementById("right");
+           let nImg = document.getElementById("img1");
+           let oNormal = document.getElementById("normal");
+           let oCycle = document.getElementById("cycles");
+           let oTitle = document.getElementById("top");
+           let oBottom = document.getElementById("bottom");
+           let i=1;
+           let num = 0;
+           let botArr =["欢迎","来到","Dota2","haha","hoho"];
+
+           oTitle.innerHTML = i+"/5";
+           oBottom.innerHTML = botArr[num];
+           oNormal.onclick = function () {
+                normal();
+                oNormal.style.backgroundColor = "#ff0036";
+                oCycle.style.backgroundColor = "#666";
+            }
+           oCycle.onclick = function () {
+                cycle();
+                oCycle.style.backgroundColor = "#ff0036";
+                oNormal.style.backgroundColor = "#666";
+            }
+           function cycle() {
+                oRight.onclick = function () {
+                    if( i<5 ){
+                        i++;
+                        num++;
+                    }
+                    oTitle.innerHTML = i+"/5";
+                    nImg.src = "images/" +
+                        i +
+                        ".jpg";
+                    if (i === 5) {
+                        i = 0
+                    };
+                    if( num === 5 ){
+                        num = 0;
+                    }
+                    oBottom.innerHTML=botArr[num];
+                }
+                oLeft.onclick = function () {
+                    if( i>0 ){
+                        i--;
+                        num--;
+                    }
+                    if (i === 0) {
+                        i = 5
+                    };
+                    oTitle.innerHTML = i+"/5";
+                    nImg.src = "images/" +
+                        i +
+                        ".jpg";
+                    if( num == -1){
+                        num = 4
+                    }
+                    oBottom.innerHTML=botArr[num];
+                }
+            }
+           function normal() {
+                oRight.onclick = function () {
+                    i++
+                    if( num<4 ){
+                        num++
+                    }
+                    oBottom.innerText = botArr[num];
+                    if( num ===4 ){
+                        num = 4;
+                    }
+                    if (i > 5) {
+                        i = 5;
+                    };
+                    oTitle.innerHTML = i+"/5";
+                    nImg.src = "images/" +
+                        i +
+                        ".jpg";
+                }
+                oLeft.onclick = function () {
+                    i--;
+                    if (i < 1) {
+                        i = 1;
+                    };
+                    oTitle.innerHTML = i+"/5";
+                    nImg.src = "images/" +
+                        i +
+                        ".jpg"
+                    if( num>0){
+                        num--
+                    }
+                    console.log(num)
+                    if( num <0){
+                        num =0;
+                    }
+                    oBottom.innerText = botArr[num];
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

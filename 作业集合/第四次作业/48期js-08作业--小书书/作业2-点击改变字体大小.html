@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>小书书</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="小书书">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                text-align: center;
+            }
+            #wrap .btn{
+                margin-top: 20px;
+            }
+            #wrap h1{
+                margin: 20px;
+            }
+            #wrap p{
+                margin: 20px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button class="btn btn1">点击放大字体</button>
+            <button class="btn btn2">点击缩小字体</button>
+            <h1>七号房的礼物</h1>
+            <p>《7号房的礼物》是由李焕庆执导，柳承龙、葛素媛、郑进永、朴信惠等主演的喜剧电影。</p>
+            <img src="images/9.jpg" alt="韩国电影" width="255px" height="340px">
+            <p>影片讲述了蒙受不白之冤入狱的李龙久和为了给父亲洗去冤屈而不懈努力的女儿之间的故事。</p>
+            <p>该片于2013年1月23日在韩国上映。并成为2013年韩国电影票房排名第一。</p>
+
+        </div>
+        
+        <script>
+            let oBtn = document.getElementsByClassName("btn");
+            let oP   = document.querySelectorAll("#wrap p");
+            let tmp = 16;
+
+            oBtn[0].onclick = function(){
+                if( tmp<36 ){
+                    tmp += 2;
+                    changeP()
+                }
+            };
+
+            oBtn[1].onclick = function(){
+                if( tmp<=36 && tmp>16){
+                    tmp -= 2;
+                    changeP()
+                }
+            };
+
+            function changeP(){
+                for(let i=0;i<oP.length;i++){
+                    oP[i].style.fontSize = tmp + "px";
+                }
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期js-你的名字">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #content{
+                margin: 40px auto 50px;
+                width: 250px;
+                height: auto;
+                background-color: #999;
+            }
+            #top-con{
+                position: relative;
+                width: 100%;
+                height: 400px;
+            }
+            #top-con>#oUl{
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            #top-con>#oUl>li{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                text-align: center;
+                color: white;
+                font-size: 100px;
+                font-weight: 800;
+                width: 100%;
+                height: 400px;
+            }
+            #top-con>#oUl>li>img{
+                width: 250px;
+                height: 400px;
+            }
+            #con-bottom{
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                background-color: aqua;
+            }
+            #con-bottom>button{
+                height: 40px;
+                border: none;
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+                margin-left: 40px;
+                padding: 0;
+                background-color: #bbb;
+                cursor: pointer;
+            }
+            #top-con>p{
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+                opacity: .6;
+                background-color: darkgrey;
+                cursor: pointer;
+            }
+            #top-con>p>span{
+                color: green;
+            }
+            #top-con>#left{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                line-height:20px;
+                font-size: 17px;
+                font-weight: 700;
+                width: 30px;
+                height: 60px;
+
+            }
+            #top-con>#right{
+                position: absolute;
+                top: 50%;
+                right: 0;
+                line-height: 20px;
+                font-size: 17px;
+                font-weight: 700;
+                width: 30px;
+                height: 60px;
+            }
+            #top-con>#top{
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: .9;
+                width: 100%;
+                height: 40px;
+            }
+            #top-con>#bottom{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: red;
+                opacity: .9;
+                width: 100%;
+                height: 40px;
+                background-color: #fff;
+            }
+            li.on{
+                display: block !important;
+            }
+            #con-bottom>button.on{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="top-con">
+                <ul id="oUl">
+                    <li class="on" ><img src="images/01.jpeg"/></li>
+                    <li ><img src="images/02.jpeg"/></li>
+                    <li ><img src="images/03.jpeg"/></li>
+                    <li ><img src="images/04.jpeg"/></li>
+                    <li ><img src="images/05.jpeg"/></li>
+                </ul>
+                <p id="left">上一页</p>
+                <p id="right">下一页</p>
+                <p id="top"><span>1</span>/5</p>
+                <p id="bottom">这是第一张图片</p>
+            </div>
+            <div id="con-bottom">
+                <button class="on">正常模式</button>
+                <button >循环模式</button>
+            </div>
+        </div>
+        
+        <script>
+            let bgc =["#fff","red","#ccc","yellow","#000"]
+            let color =['red','yellow','blue','green','pink']
+            let boarr = ["这是第一张图片","这是第二张图片","这是第三张图片","这是第四张图片","这是第五张图片"];
+            let oSp =document.querySelector('#top>span');
+            let left =document.getElementById("left");
+            let right =document.getElementById("right");
+            let bottom =document.getElementById('bottom');
+            let list =document.getElementsByTagName("li");
+            let oBtn =document.getElementsByTagName('button');
+
+            let index = 0; //用序号来记录当前显示的是哪一张图片
+            oBtn.idx = 0; //用序号来记录 单边或者循环模式 0单边 1循环
+
+            for (let i = 0; i <= oBtn.length-1; i++) {
+                oBtn[i].onclick = function () {
+                  oBtn[oBtn.idx].className = '';
+                  oBtn.idx = i;
+                  oBtn[i].className = 'on';
+                }
+            }
+            right.onclick = function () {
+                list[index].className = '';
+                index++;
+                // if( oBtn.idx === 0 ) {
+                //     if (index >= 4) {
+                //         index = 4
+                //     }
+                // }else{
+                //     if (index >= 4) {
+                //         index = 0
+                //     }
+                // }
+                if (index === list.length) { // 图片序号是否等于图片张数(5) 等于则进入先判断单边还是循环 是单边赋值 张数减一为序号4 还是第五张图片 是循环赋值0 第一张图片
+                    // if( oBtn.idx === 0 ) {  //判断是否是单边
+                    //     // if (index >= 4) {
+                    //         index = list.length
+                    //     // }
+                    // }else{  //循环模式
+                    //     // if (index >= 4) {
+                    //         index = 0
+                    //     // }
+                    // }
+                    index = oBtn.idx === 0? list.length-1:0; // list.length 是图片的数量5张 list.length-1 是第五张图片的序号 4
+                }
+
+                oSp.innerHTML = index+1;
+                oSp.style.color = color[index];
+                bottom.innerText = boarr[index];
+                bottom.style.color = color[index];
+                list[index].className = 'on';
+                bottom.style.backgroundColor = bgc[index]
+            }
+
+            left.onclick = function () {
+                list[index].className = '';
+                index--;
+                // if( oBtn.idx === 0 ) {
+                //     if (index <= 0) {
+                //         index = 0
+                //     }
+                // }else{
+                //     if (index < 0) {
+                //         index = 4
+                //     }
+                // }
+                if (index === -1) {
+                    // if( oBtn.idx === 0 ) {
+                    //     // if (index <= 0) {
+                    //         index = 0
+                    //     // }
+                    // }else{
+                    //     // if (index < 0) {
+                    //         index = 4
+                    //     // }
+                    // }
+                    index = oBtn.idx === 0? 0:list.length-1;
+                }
+
+                oSp.innerHTML = index+1;
+                oSp.style.color = color[index];
+                list[index].className = 'on';
+                bottom.innerText = boarr[index];
+                bottom.style.color = color[index];
+                bottom.style.backgroundColor = bgc[index];
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

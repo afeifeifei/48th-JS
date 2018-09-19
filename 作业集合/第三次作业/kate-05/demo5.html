@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>kate</title>
+    <style>
+        body{font-family:"Microsoft Yahei";}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        bl,ul,li{margin:0;padding: 0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            width: 441px;
+            margin: 30px auto;
+            text-align: left;
+        }
+        #wrap p{
+            text-align: right;
+        }
+        #wrap li{
+            border-bottom: 1px solid #999;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="div">
+        <textarea rows="10" cols="70"></textarea>
+        <p><button type="button">点 我 呗</button></p>
+        <ul>
+        </ul>
+    </div>
+    <script>
+        let iTxt = document.getElementsByTagName("textarea")[0],
+            oBtn = document.getElementsByTagName("button")[0],
+            sUl = document.getElementsByTagName("ul")[0];
+        
+        oBtn.onclick = function(){
+            if(iTxt.value != "" && iTxt.value.length > 0){
+                sUl.innerHTML += "<li>" + iTxt.value + "</li>";
+                iTxt.value = "";
+            }
+        }
+
+    </script>
+</body>
+</html>

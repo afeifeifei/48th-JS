@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            position: relative;
+            width:400px;
+            margin:50px auto 0;
+            border:1px solid #ccc;
+        }
+        #wrap span{
+            position:absolute;
+            top:160px;
+            width:30px;
+            height:30px;
+            background-size:30px;
+        }
+        #wrap span:hover{
+            cursor: pointer;
+        }
+        #wrap .back{
+            left:0;
+            background-image: url('images/Back.png');
+        }
+        #wrap .next{
+            right:0;
+            background-image: url('images/Next.png');
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="title" style="text-align: center">1/5</div>
+        <img src="images/1.jpg" height='300'  width='400' alt="" id="wrapImg">  
+        <span class='back'></span>
+        <span class='next'></span>
+        <div style="text-align:center"><button id="normal">正常模式</button><button id="circulate">循环模式</button></div> 
+    </div>
+    <script>
+        let oTitle=document.getElementById("title");
+        let oWrapImg=document.getElementById("wrapImg");
+        let oBack=document.getElementsByClassName("back");
+        let oNext=document.getElementsByClassName("next");
+        let oNormal=document.getElementById("normal");
+        let oCirculate=document.getElementById("circulate");
+        let pageIndex=5;   //初始页面
+        let totle=5;       //总数
+        let isNormal=true;  //标记是否为正常模式
+        oBack[0].onclick=function(){
+            if(pageIndex>1){
+                pageIndex--;  
+            }else if(pageIndex===1){
+                if(!isNormal){
+                    pageIndex=5;
+                }
+            } 
+            oTitle.innerText=`${pageIndex}/${totle}`;
+            oWrapImg.src=`images/${pageIndex}.jpg`;  
+        }
+        oNext[0].onclick=function(){
+            if(pageIndex<5){
+                pageIndex++;
+            }else if(pageIndex===5){
+                if(!isNormal){
+                    pageIndex=1;
+                }  
+            }
+            oTitle.innerText=`${pageIndex}/${totle}`;
+            oWrapImg.src=`images/${pageIndex}.jpg`;
+        }
+        oNormal.onclick=function(){
+            isNormal=true;
+            oNormal.style.backgroundColor="#e7ba5b";
+            oCirculate.style.backgroundColor="#e2e2e2";
+        }
+        oCirculate.onclick=function(){
+            isNormal=false;
+            oNormal.style.backgroundColor="#e2e2e2";
+            oCirculate.style.backgroundColor="#e7ba5b";
+        }
+
+        
+        // 初始化
+        oTitle.innerText=`${pageIndex}/${totle}`;
+        oWrapImg.src=`images/${pageIndex}.jpg`;
+        if(isNormal){
+            oNormal.style.backgroundColor="#e7ba5b";
+            oCirculate.style.backgroundColor="#e2e2e2";
+        }else{
+            oNormal.style.backgroundColor="#e2e2e2";
+            oCirculate.style.backgroundColor="#e7ba5b";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>九九乘法表 千纪凌</title>
+      <meta name="Keywords" content="关键词,关键词">
+      <meta name="description" content="">
+      <!--css/js-->
+      <style type="text/css">
+      .wrap {
+        width: 1000px;
+        margin: 20px auto;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        margin: 4px;
+        text-align: center;
+        background: #b0b300;
+        color: #fff;
+      }
+      </style>
+    </head>
+<body>
+  <div class="wrap">
+    <ul class="mult-table"></ul>
+    <ul class="mult-table"></ul>
+  </div>
+
+  <script>
+    (function() {
+      let oUl = document.getElementsByClassName('mult-table');
+      for (let i = 1; i < 10; i++) {
+        for (let j = 1; j <= i; j++) {
+          oUl[0].innerHTML += '<li>' + j + ' x ' + i + ' = ' + i * j + '</li>';
+        }
+        oUl[0].innerHTML += '<br>';
+      }
+      oUl[0].innerHTML += '<hr>';
+      for (let m = 9; m > 0; m--) {
+        for (let n = m; n > 0; n--) {
+          oUl[1].innerHTML += '<li>' + n + ' x ' + m + ' = ' + m * n + '</li>';
+        }
+        oUl[1].innerHTML += '<br>';
+      }
+    })();
+  </script>
+</body>
+</html>

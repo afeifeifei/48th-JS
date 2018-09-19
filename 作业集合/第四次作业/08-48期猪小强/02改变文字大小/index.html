@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>改变文字大小</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="猪小强">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 700px;
+                margin: 50px auto;
+                /*height: 5000px;*/
+            }
+            #wrap button{
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 18px;
+                color: deeppink;
+            }
+            #box{
+                width: 100%;
+                /*height: 5000px;*/
+            }
+            #box p{
+                text-indent: 2em;
+                height: 30px;
+                /*line-height: 30px;*/
+                /*font-size: 14pt;*/
+                /*line-height: 32pt;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button>+</button>
+            <button>-</button>
+            <div id="box">
+               <p style="font-size: 14pt;line-height: 28pt;"> 直播吧9月15日讯 今日马努-吉诺比利召开新闻发布会，接受了记者们的采访。
+                   谈到退役，吉诺比利表示波波维奇曾经尝试挽留过他，但是他也知道他倾向于退役，而在马刺GDP都离开以后，波波维奇面临的挑战将大大的提升。吉诺比利表示他将会怀念更衣室，里面的笑话，失利和胜利以及所有的一切。
+                   谈到帕克离开圣安东尼奥，吉诺比利说道：“帕克曾告诉我他要和黄蜂签约，但是我认为他和马刺还有很多的工作需要完成，我能够理解托尼的离开，他仍想继续打球，但是对于我来说看到他不在圣安东尼奥是一件令人震惊的事情。”
+                   谈到生涯没有完成的目标，吉诺比利开玩笑道：“打上首发，我打过几场首发但是之后又被放到了替补。”
+                   谈到生涯最令人难忘的时刻，吉诺比利表示2014年夺冠会让他永远铭记，因为2013年总决赛的失利让他背上了很多的包袱，马努说道：“如果没能夺冠，我一辈子都会背着这个包袱”。
+                   谈到他职业生涯中关键的人物，吉诺比利表示丹尼-费里、凯文-威利斯、史蒂夫-科尔、迈克-布朗、PJ-卡莱西莫、布鲁斯-鲍文以及其他的球员帮助他塑造了职业生涯。
+                   谈到未来，吉诺比利表示他将会留在圣安东尼奥几个月，帮助球队的年轻人成长。他也表示在家庭旅程结束后回来训练的时候看到球队年轻人的身体素质，他知道做出退役这个决定是正确的。 吉诺比利也表示上个赛季他就隐约感觉这会是他职业生涯的最后一个赛季，因为他的身体再也承受不住一个赛季的磨炼。
+                   同时，吉诺比利也表示在发出关于他从篮球界退役的那条推特时双手都是颤抖。
+                   吉诺比利也透露了一个关于他退役有趣的故事，他的一个儿子曾经请求他不要退役，因为在家属观看比赛的房间里会提供免费的炸鸡柳条。
+                   吉诺比利表示在12月份他将会带全家人一起回阿根廷，因为自从1998年以后他就再也没有度过南半球的夏天了。
+                   在最后，记者让吉诺比利给国际球员进军NBA提供意见和建议，吉诺比利说道：“学好一门语言，然后去适应那里的环境。”</p>
+            </div>
+        </div>
+        
+        <script>
+            let btn = document.getElementsByTagName("button"),
+                oP = document.getElementsByTagName("p")[0],
+                status0='',
+                curfontsize=14,
+                curlineheight=28;
+
+
+            btn[0].onclick = function(){
+                // alert(1)
+                // oP.cssText= "font-size=20px;"
+                // oP.fontsize(16) = "deeppink";
+                turnbig();
+            }
+            btn[1].onclick = function(){
+                turnsmall();
+            }
+
+            function turnsmall(){
+                if(curfontsize>10){
+                    oP.style.fontSize=(--curfontsize)+'pt';
+                    oP.style.lineHeight=(--curlineheight)+'pt';
+                }
+            }
+            function turnbig(){
+                if(curfontsize<28){
+                    oP.style.fontSize=(++curfontsize)+'pt';
+                    oP.style.lineHeight=(++curlineheight)+'pt';
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

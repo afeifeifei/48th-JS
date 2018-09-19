@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+	<meta charset="utf-8">
+	<title>轮播图</title>
+	<meta name="KeyWords" content="轮播图,律本无相~">
+	<style>
+		body,ul{
+			margin:0;
+			padding:0;
+			font:14px/1.5 'Microsoft Yahei',sans-serif;
+		}
+		.box{
+			position:relative;
+			width:660px;
+			height:330px;
+			margin:100px auto 0;
+		}
+		.rec-img img{
+			position:absolute;
+			width:660px;
+			height:330px;
+			opacity:0;
+			visibility:hidden;
+			transition:1s;
+		}
+		ul{
+			position:absolute;
+			width:100%;
+			height:35px;
+			line-height:35px;
+			color:#fff;
+		    z-index: 2;
+			list-style:none;
+		}
+		.top-num{
+			top:0;
+		    background: linear-gradient(rgba(0,0,0,.8),transparent);
+		}
+		.top-num li{
+			position:absolute;
+			top:0;
+			width:100%;
+			text-align:center;
+			opacity:0;
+			visibility: hidden;
+			transition:0.3s;
+		}
+		.rec-title{
+		    bottom: 0;
+		    background: linear-gradient(transparent,rgba(0,0,0,.8));
+		}
+		.rec-title li{
+			position:absolute;
+			bottom:0;
+			text-indent:40px;
+			opacity:0;
+			visibility:hidden;
+			transition:0.3s;
+		}
+		.btn{
+			position:absolute;
+			width:30px;
+			height:330px;
+			text-align:center;
+			line-height:330px;
+			background-color:red;
+			font-size:20px;
+			font-weight:bolder;
+			color:#fff;
+			cursor:pointer;
+			transition:0.3s;
+			z-index:2;
+		}
+		.btn-left{
+			left:0;
+		    background: linear-gradient(to right,rgba(0,0,0,.5),transparent);
+		}
+		.btn-right{
+			right:0;
+		    background: linear-gradient(to left,rgba(0,0,0,.5),transparent);
+		}
+		.btn:hover{
+			background-color:rgba(0,0,0,0.5);
+		}
+		.box .on{
+			opacity:1;
+			visibility:visible;
+			z-index:1;
+		}
+		.ifloopPic{
+			text-align:center;
+		}
+		.obt{
+			display:inline-block;
+			width:100px;
+			height:35px;
+			margin:40px 10px;
+			line-height:35px;
+			border:1px solid #000;
+			border-radius:4px;
+			transition:0.5s 0.3s;
+			cursor: pointer;
+		}
+		.oloop{
+			color:#fff;
+			background-color:red;
+		}
+		.obt:hover{
+			background-color:rgba(0,0,0,0.3);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- 图片 -->
+		<div class="rec-img">
+			<img class="on" src="images/lb1.jpg" width="440" height="220" src="卡路里">
+			<img src="images/lb2.jpg" width="440" height="220" src="风之大陆">
+			<img src="images/lb3.jpg" width="440" height="220" src="雅戈泰">
+			<img src="images/lb4.jpg" width="440" height="220" src="bili影视">
+			<img src="images/lb5.jpg" width="440" height="220" src="荣耀">
+		</div>
+		<!-- 图片数量 -->
+		<ul class="top-num"></ul>
+		<!-- 标题 -->
+		<ul class="rec-title">
+			<li class="on">吃鸭！燃烧卡路里~</li>
+			<li>风之大陆安卓版正版上线</li>
+			<li>《FGO》新篇雅戈泰开幕</li>
+			<li>bilibili影视圆桌 第13期：“一出好戏”开场了！</li>
+			<li>荣耀10GT手办摄影大赛</li>
+		</ul>
+		<!-- 按钮 -->
+		<div class="btn btn-left">&lt;</div>
+		<div class="btn btn-right">&gt;</div>
+	</div>
+	<div class="ifloopPic">
+		<div class="obt onormal">正常播放</div>
+		<div class="obt oloop">循环播放</div>
+	</div>
+	
+	
+
+	<script type="text/javascript">
+		let recImg = document.querySelectorAll('.rec-img img'),
+			topNum = document.getElementsByClassName('top-num')[0],
+			recTitle = document.querySelectorAll('.rec-title li');
+		let preBtn = document.getElementsByClassName('btn-left')[0],
+			nextBtn = document.getElementsByClassName('btn-right')[0];
+		let onormal = document.getElementsByClassName('onormal')[0],
+			oloop = document.getElementsByClassName('oloop')[0];
+		let index=0,
+			len=recImg.length,
+			ifloopPic = false;
+
+		//图片数量
+		for(let i=0;i<len;i++){
+			topNum.innerHTML += `<li>${i+1}/${len}</li>`;
+		}
+		topNum.children[0].className = "on";
+
+		//显示图片
+		function showPic(){
+			for(let j=0;j<len;j++){
+				topNum.children[j].className = index==j?"on":"";
+				recImg[j].className = index==j?"on":"";	
+				recTitle[j].className = index==j?"on":"";
+			}
+		}
+		/**********点击事件**********/
+		//正常播放
+		onormal.onclick = function(){
+			ifloopPic = false;
+		}
+		//循环播放
+		oloop.onclick = function(){
+			ifloopPic = true;
+		}
+		//上一张
+		preBtn.onclick = function(){
+			if(ifloopPic){
+				index>0?index--:index=len-1;
+			}else{
+				index>0?index--:index=0;
+			}
+			showPic();
+		}
+		//下一张
+		nextBtn.onclick = function(){
+			if(ifloopPic){
+				index<len-1?index++:index=0;
+			}else{
+				index<len-1?index++:index=len-1;
+			}
+			showPic();
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

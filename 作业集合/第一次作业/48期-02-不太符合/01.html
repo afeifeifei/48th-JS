@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title1</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 200px;
+                height: 200px;
+                margin: 10% auto;
+                background-color: #f70;
+                text-align: center;
+                line-height: 200px;
+                font-size: 40px;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+
+
+
+        <script>
+           var wra =document.getElementById('wrap')
+            wra.onclick =function () {
+             // console.log(this);
+              this.title+=1;
+              if(this.title == 1 ){
+                  this.innerHTML="不太符合"
+              }else{
+                  this.title=0;
+                  this.innerHTML=""
+              }
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

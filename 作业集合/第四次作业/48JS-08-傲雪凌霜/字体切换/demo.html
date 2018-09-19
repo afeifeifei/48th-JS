@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>字体大小切换</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="JavaScript">
+        <style>
+            body{
+            	font-family: "Microsoft YaHei",serif;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+            	margin:0;
+            }
+            ol,ul,li{
+            	margin:0;
+            	padding:0;
+            	list-style:none;
+            }
+            img{
+            	border:none;
+            }
+            #wrap{
+                width: 1000px;
+                margin: 50px auto;
+            }
+            #wrap button{
+                width: 50px;
+                height: 30px;
+                margin-right: 10px;
+                padding: 0;
+                border: none;
+                background-color: #333;
+                font-size: 25px;
+                color: #fff;
+                line-height: 30px;
+            }
+            #wrap button.minus{
+                line-height: 25px;
+                font-size: 27px;
+            }
+            #wrap p{
+                font-size: 15px;
+                line-height: 35px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button class="add">+</button>
+            <button class="minus">-</button>
+            <h3>励志说说</h3>
+            <p>
+            	当你感到悲哀痛苦时,最好是去学些什么东西。学习会使你永远立于不败之地。
+            </p>
+            	
+            <p>
+            	要让事情改变,先改变我自己;要让事情变得更好,先让自己变得更好。
+            </p>
+            
+            <img src="images/1.jpg" alt="" width="600" height="400">
+            
+            <p>
+            	如果你希望成功,以恒心为良友,以经验为参谋,以小心为兄弟,以希望为哨兵。
+            </p>
+            
+            <p>
+            	思考是一件最辛苦的工作,这可能是为什么很少人愿意思考的原因。
+            </p>
+            
+            <p>
+            	生活就像一杯白开水,向里面放一块糖,这杯水就会变甜,一味地灌进苦水,它就会苦不堪言。
+            </p>
+            
+            <img src="images/2.jpg" width="600" height="400" alt="">
+            
+            <p>
+            	世事忙忙如水流,休将名利挂心头。粗茶淡饭随缘过,富贵荣华莫强求。
+            </p>
+         
+            <p>
+            	你是你的敌人,只有你才能打倒你;你是你的上帝,只有你才能拯救你。
+            </p>
+       
+            <p>
+            	须交有道之人,莫结无义之友。饮清静之茶,莫贪花色之酒。开方便之门,闲是非之口。
+            </p>
+          
+            <p>
+            	不是不追求,只是不去追求,淡然地过着自己的生活,不要轰轰烈烈,只求安安心心。
+            </p>
+          
+            <p>
+            	成功呈概率分布,关键是你能不能坚持到成功开始呈现的那一刻。
+            </p>
+        </div>
+        
+        <script>
+            let oWrap=document.getElementById("wrap"),
+                aP=oWrap.getElementsByTagName("p"),
+                oAdd=oWrap.getElementsByClassName("add")[0],
+                oMinus=oWrap.getElementsByClassName("minus")[0];
+            for(let i=0;i<aP.length;i++){
+                aP[i].style.fontSize="14px";
+            }
+            let size=14;
+            oAdd.onclick=function () {
+                if(size<20){
+                    size++;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=size+"px";
+                    }
+                }else{
+                    size=20;
+                }
+            }
+            oMinus.onclick=function () {
+                if(size>12){
+                    size--;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=size+"px";
+                    }
+                }else{
+                    size=12;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

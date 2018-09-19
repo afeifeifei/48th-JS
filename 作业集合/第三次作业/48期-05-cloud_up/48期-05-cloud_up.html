@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是js第48期第5课的作业-点击添加输入内容</title>
+</head>
+<style type="text/css">
+    body
+    {
+        padding:0;
+        margin:0;
+    }
+    .center
+    {
+        width:300px;
+        margin:50px auto 0;
+    }
+    textarea
+    {
+        width:100%;
+    }
+    .btn
+    {
+        float:right;
+    }
+    .dashed
+    {
+        border-bottom: 2px dashed rgb(97,218,221);
+    }
+</style>
+<script type="text/javascript">
+    window.onload=function() {
+        document.getElementsByClassName("btn")[0].addEventListener("click", function () {
+            let oArea = this.previousElementSibling;
+            if (oArea.value) {
+                this.nextElementSibling.innerHTML += "<p class = 'dashed'>" + oArea.value + "</p>";
+                oArea.value = "";
+            }
+            else alert("请输入内容！");
+        });
+    };
+</script>
+<body>
+<div id="container" class = "center">
+    <textarea name="myArea" rows="5"></textarea>
+    <button class = btn>点击添加</button>
+    <div id="textList"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>yap</title>
+	<style>
+		#warp{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		#btn{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="warp">
+		
+	</div>
+	<div id="btn">
+		
+	</div>
+	<script>
+
+		//let 自定义
+		let oWarp=document.getElementById("warp");
+		let oBtn=document.getElementById("btn");
+		oWarp.onclick=function(){//驼峰命名法
+			oWarp.innerHTML="warp被点击了!";
+		};
+		oBtn.onclick=function () {
+			oWarp.innerHTML="btn被点击了!";
+        };
+		//var // let 不兼容IE 
+		//babel 编译工具 ES6转换至ES5 https://www.babeljs.cn/
+		//要么全部用ES5定义变量
+		//要么全部使用ES6不许混淆!
+		//定义变量的时候尽量吧所有变量放在一起;先定义再使用
+		//关于变量名的规则: 1.不能使用关键词/保留词  (比如let,js中本身就由意义的词)
+		//2. 不能使用js里已经赋予意义的关键词;
+		//3.组成名字的字符最好是数字 字母 _ $  并且不能以数字开头 除了这四种字符其他都不可以; 前面加O 表示节点
+		//0 加后字母大写 驼峰命名法! 多个单词拼接链接时候 单词分隔处后面一个单词首字母大写
+		//--------------------------------------------------------------------------------------
+		//数据类型  let 右边能写啥?(听着就地道...)
+		//1. number 数字类型 let x=10;
+		//2. string 字符串 let x="10";单双引号都可以
+		//3. let x=`4156`(键盘1左上);ES6中的新的模板字符串;
+		//4. let x=true;/false(真/假) 布尔值;
+		//5. undefined未定义 let x; 表示x是没有定义的值
+		//5.1 const(常量) x;/常量绝对不允许未定义.常量必须有初始值/次写法错误 但是const x=undefined 就可以.只要发生等号就行
+		//6. null(空); let x=null; 假设x 在后面的操作中x 是要被赋值的,只是在当下操作中x还未赋值;之后将赋予一个对象的值
+		//7. symbol ES6新增的数据类型 表示独一无二; let x=symbol(123);let y=symbol(123);
+		/*8. let x= [10,true,10] 代表数组.在[]内可以存放很多别的数据; 那数据的方式,x[1] 1代表拿x数组中的第二个,为啥是第二个,
+		因为在数组中从0开始数
+		 */
+		//8.1 let x=[
+		// 		10,["阿飞""朱雀"]二维数组
+		// ] 表示数组, 数组可以换行
+		// console.log(x[1][0]); 自己解读是:  选择x数组中的第二个是个数组,这个数组中的第0个数据;
+		//9. let x=10; let y=x; 但是这个时候解析时会先找到变量名x 然后把x的赋值给y; let yap="死肥宅";
+		//9.1 let yap_1=[
+		// 		yap,10,11 (数组中也可以使用定义的变量)
+		// ]
+		//10 let x={
+		// 		name:"yap", 左侧的属性名是x的属性,可以加引号的,加不加都行,但是加了会变成字符串;
+		//		age: 20,
+		//		marry: false,
+		//		yap_:[10,20,30],
+		//		yap:{x;10,y;20}
+		// }; 这表示 对象; 存值用逗号隔开.但是对象在存值的时候得有属性!
+		//10.1 取值方法 x.name; console.log(x.name );
+		//10.2 对象能存所有的数据类型; 取其中数组的30方法演示console.log(x.yap_[2] );取其中对象的x方法演示console.log(x.yap.x );
+		//对象和数组的使用区别.
+	</script>
+</body>
+</html>

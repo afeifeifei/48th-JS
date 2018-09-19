@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #box{
+                width: 250px;
+                /*height: 250px;*/
+                margin: 0 auto;
+            }
+            #box #text{
+                width: 250px;
+            }
+            #box #sub{
+                margin-left:205px;
+            }
+            #box1 .ceshi{
+                border-bottom: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="sub">提交</button>
+            <div id="box1"></div>
+        </div>
+        <script>
+            let Box=document.getElementById("box"),
+                Box1=document.getElementById("box1"),
+                Text=document.getElementById("text"),
+                Sub=document.getElementById("sub"),
+                ceShi=document.getElementsByClassName("ceshi")[0];
+                Sub.onclick=function () {
+                    Box1.innerHTML+="<p class='ceshi'>"+Text.value+"</p>";
+                    console.log(Box1.innerHTML)
+                    if(Text.value==""){
+                        alert("不能为空！");
+                        Box1.innerHTML="";
+                    }
+                    Text.value="";
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

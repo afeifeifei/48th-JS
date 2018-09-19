@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            box-shadow: 0 0 1px 3px #aaa;
+        }
+        #box ul{
+
+        }
+        #box ul li{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            list-style: none;
+        }
+        #box ul li.show{
+            display: block;
+        }
+        #box .order{
+            position: absolute;
+            width: 100%;
+            height: 100%
+        }
+        #box .order p{
+            position: absolute;
+            width:100%;
+            background: rgba(0,0,0,.8);
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+        }
+        #box .order p:nth-child(1){
+            top: 0;
+        }
+        #box .order p:nth-child(2){
+            bottom: 0;
+        }
+        #Tab {
+            width: 500px;
+            height: 100px;
+            margin: auto;
+            text-align: center;
+        }
+        #Tab input{
+            width: 90px;
+            height: 40px;
+            margin: 0 5px;
+            background: linear-gradient(#898c91, #191a15);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #Tab input.col{
+            background: #a29b90;
+        }
+        #box .slider{
+            width: 100%;
+            height: 100%;
+        }
+        #box .slider p{
+            position: absolute;
+            top: 45%;
+            width: 20px;
+            height: 40px;
+            background: rgba(0,0,0,.8);
+        }
+        #box .slider .left{
+            left: 0;
+        }
+        #box .slider .left:after{
+            position: absolute;
+            content: "";
+            top: 12px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border: 2px solid;
+            border-color: #fff   #fff  transparent  transparent;
+            transform: rotate(-135deg);
+        }
+        #box .slider .right{
+            right: 0;
+        }
+        #box .slider .right:after{
+            position: absolute;
+            content: "";
+            top: 12px;
+            width: 10px;
+            height: 10px;
+            border: 2px solid;
+            border-color: #fff   #fff  transparent  transparent;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+        <div id="box">
+            <ul>
+                <li class="show"><img src="images/Macan.jpg" alt="Macan" width="500" height="300"></li>
+                <li><img src="images/levante.jpg" alt="levante" width="500" height="300"></li>
+                <li><img src="images/Land-Rover.jpg" alt="Rover" width="500" height="300"></li>
+                <li><img src="images/Ferrari.jpg" alt="Ferrari" width="500" height="300"></li>
+                <li><img src="images/Bentley.jpg" alt="比亚迪" width="500" height="300"></li>
+            </ul>
+            <div class="order">
+                <p><span>1</span>/5</p>
+                <p><span>Macan</span>/车型</p>
+            </div>
+            <div class="slider">
+                <p class="left"></p>
+                <p class="right"></p>
+            </div>
+        </div>
+        <div id="Tab">
+            <input class="col" type="button" value="循环切换">
+            <input type="button" value="单边切换">
+        </div>
+        <script>
+            let oBox = document.getElementById("box"),
+                ali = oBox.querySelectorAll("ul li"),       //获取5张图片列表
+                Btn = oBox.querySelectorAll(".slider p"),   //获取左右切换按钮
+                Page = oBox.querySelectorAll(".order p span"),//获取上下页数的序号
+                Tab = document.querySelectorAll("#Tab input"),//获取选项卡模式按钮
+                arr = ['Macan','Levante','Rover','Ferrari','比亚迪'],     //定义一个数组，存中文页码
+                len = ali.length,
+                index = 0 , x= 0,
+                flag = true;
+
+             for(let i=0;i<2;i++){
+
+                 //选项卡模式切换
+                 Tab[i].i = i;           //自定义属性存下标
+                 Tab[i].onclick = function(){
+                     Tab[index].className = "";     //清空另一个Tab键的class
+                     index = this.i;
+                     this.className = "col";            //给当前的按钮加上class
+                     flag  = i===0?true:false;          //三目
+                 };
+
+                 //左右切换点击事件
+                 Btn[i].a = i;           //自定义属性存下标
+                 Btn[i].onclick = function(){
+                     if(flag){
+                         if(this.a===1){
+                             ali[x].className = "";//清空上一个li键的class
+                             x ++;
+                             if(x>=len){      //如果 x 大于等于临界值
+                                 x  %= len             //返回第一张图片
+                             }
+                             ali[x].className = "show";//显示当前li
+                         }else {
+                             ali[x].className = "";//清空上一个li键的class
+                             x --;
+                             if(x<0){
+                                 x = len-1
+                             }
+                             ali[x].className = "show";//显示当前li
+                         }
+                     }else {
+                         if(this.a===1){
+                             x ++;
+                             if(x>=len){      //如果 x 大于等于临界值
+                                 x  = len-1;             //停留在最后一张图片
+                                 alert("已经是最后一张图片了")
+                             }
+                             ali[x].className = "show";//显示当前li
+                         }else {
+                             if(x!==0){ali[x].className = "";}//如果是不是第一张则清空上一个li键的class
+                             x --;
+                             if(x<0){
+                                 x = 0;
+                                 alert("前面没有图片了")
+                             }
+                             ali[x].className = "show";//显示当前li
+                         }
+                     }
+                     Page[0].innerHTML = x+1 ;       //顶部序号变化
+                     Page[1].innerHTML = arr[x]        //底部中文序号变化
+                 }
+             }
+
+        </script>
+</body>
+</html>

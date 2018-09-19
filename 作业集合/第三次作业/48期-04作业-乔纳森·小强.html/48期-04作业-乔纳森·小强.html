@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>03.获取标签的内容</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <style>
+    #box.b-box{
+      margin:100px auto;
+      width:400px;
+      height:200px;
+    }
+    #ta.ni{
+      width:394px;
+      height:100px;
+    }
+    #btn.button{
+      float:right;
+      display:block;
+    }
+    #content.con{
+      float:right;
+      width:100%;
+      /*height:16px;*/
+    }
+    #content.con p{
+      width:100%;
+      line-height:30px;
+      border-bottom:1px dotted #000;
+    }
+  </style>
+  </head>
+  <body>
+      <section id="box">
+          <textarea id="ta" value=""></textarea>
+          <button id="btn">提交</button>
+          <div id="content"></div>
+      </section>
+
+      <script>
+
+      let oBox = document.getElementById("box");
+      let oTa = document.getElementById("ta");
+      let oBtn = document.getElementById("btn");
+      let oContent = document.getElementById("content");
+
+      oBox.className += "b-box";
+      oTa.className += "ni";
+      oBtn.className += "button";
+      oContent.className += "con";
+
+      oBtn.onclick = function(){
+        let val = oTa.value;
+        oTa.value="";
+        oContent.innerHTML +=`<p>${val}</p>`;
+        val = null;
+      };
+
+      </script>
+
+  </body>
+</html>

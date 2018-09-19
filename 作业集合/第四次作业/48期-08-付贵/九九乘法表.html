@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        p{
+            display: inline-block;
+            width: 100px;
+            height: 35px;
+            border: 1px solid skyblue;
+            text-align: center;
+            line-height: 35px;
+            margin: 5px 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="wrap">
+            <!-- <p>1*1=1</p> -->
+    </div>
+  
+    <script>
+        let oWrap=document.getElementById("wrap");
+        let str="";
+        for (let i = 1; i <=9; i++) {
+           for (let j =1; j <=i; j++) {
+               str +=`<p>${i}*${j}=${i*j}</p>`;
+           }
+           str+="<br>"
+        }
+        str+="<hr>"
+        for (let i = 1; i <=9; i++) {
+           for (let j =i; j <=9; j++) {
+               str +=`<p>${i}*${j}=${i*j}</p>`;
+           }
+           str+="<br>"
+        }
+        oWrap.innerHTML=str;
+    </script>
+</body>
+</html>

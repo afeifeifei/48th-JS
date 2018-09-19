@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期冷妆">
+        <style>
+            *{margin:0;padding:0;}
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width:440px;
+                margin:auto;
+                padding:30px;
+            }
+            #wrap textarea{
+                width: 400px;
+                height:60px;
+				margin-bottom:35px;
+				outline:none;
+            }
+            #wrap button{
+				position:absolute;
+                right:66px;
+                top:100px;
+                width:80px;
+            }
+            #wrap ul{
+                list-style: none;
+            }
+            #wrap ul li{
+                width:400px ;
+                height:30px;
+                margin-bottom:10px;
+                word-break:break-all;
+            }
+            #wrap ul li p{
+				display:inline-block;
+				overflow:hidden;
+				width:400px;
+                border-bottom:1px solid #000;
+				text-indent:2em;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+			<textarea name="text" id="text" cols="30" rows="10"></textarea>
+            <button>发送消息</button>
+            <ul></ul>
+        </div>
+        <script>
+            let oUl=document.getElementsByTagName('ul')[0];
+                oBtn=document.getElementsByTagName('button')[0],
+                //text=document.getElementsByTagName('input')[0];
+				text=document.getElementById('text');
+            oBtn.onclick=function(){
+                if(text.value){
+                    oUl.innerHTML+='<li><p>'+text.value+'</p></li>';
+                    text.value="";
+                }
+                else {
+                    alert('不能发送空内容!');
+                }
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

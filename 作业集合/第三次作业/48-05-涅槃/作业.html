@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>无标题文档</title>
+<style>
+.line {
+	display:block;
+	border-bottom:1px dashed #000;		
+	}
+#btn {
+	width:70px;
+	vertical-align:middle;
+	}
+#inp{
+	vertical-align:middle;		
+	}
+</style>
+</head>
+
+<body>
+<textarea id="inp"></textarea>
+<input type="button"  id="btn" value="提交">
+<div id="context"></div>
+<script>
+	let oinp=document.getElementById("inp");
+	let obtn=document.getElementById("btn");
+	let ocontext=document.getElementById("context");
+	let str="";
+	obtn.onclick=function(){
+		str=str+"<span class='line'>"+oinp.value+"</span>"+"<br>";
+		ocontext.innerHTML=str;
+		oinp.value="";
+		};
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{font-family:"Microsoft Yahei";}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        bl,ul,li{margin:0;padding: 0;list-style:none;}
+        img{border:none;}
+        #wrap span{
+            float: left;
+            width: 80px;
+            height: 25px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 25px;
+            margin: 5px;
+        }
+        #wrap div{
+            margin: 5px 0;
+            width: 900px;
+            height: 2px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap");
+        for(let i = 1; i <= 9; i++){
+            for(let j = 1; j <= i; j++){
+                oWrap.innerHTML += `<span>${j} * ${i} = ${i*j} </span>`;
+            }
+            oWrap.innerHTML += `<br><br>`;
+        }
+        oWrap.innerHTML += `<div></div>`;
+        for(let i = 9; i > 0; i--){
+            for(let j = i; j > 0; j--){
+                oWrap.innerHTML += `<span>${j} * ${i} = ${i*j} </span>`;
+            }
+            oWrap.innerHTML += `<br><br>`;
+        }
+        
+    </script>
+</body>
+</html>

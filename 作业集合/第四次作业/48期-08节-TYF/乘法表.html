@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="TYF">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            span{
+                display: inline-block;
+                width:60px;
+                height: 30px;
+                margin:5px;
+                border:1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+            for (let i = 1, length = 9; i <=length; i++) {
+                for (let j = 1;  j <=i; j++) {
+                    oWrap.innerHTML += `<span>${i}X${j}=${i*j}</span>`
+                }
+                oWrap.innerHTML += `<br/>`
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

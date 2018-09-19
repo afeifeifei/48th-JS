@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>文字放大缩小</title>
+        <style>
+            body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+                margin: 0;
+                padding: 0
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0
+            }
+
+            fieldset, img {
+                border: 0
+            }
+
+            address, caption, cite, code, dfn, em, strong, th, var {
+                font-style: normal;
+                font-weight: normal
+            }
+
+            ol, ul {
+                list-style: none
+            }
+
+            caption, th {
+                text-align: left
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 100%;
+                font-weight: normal
+            }
+
+            q:before, q:after {
+                content: ''
+            }
+
+            abbr, acronym {
+                border: 0;
+                font-variant: normal
+            }
+
+            sup {
+                vertical-align: text-top
+            }
+
+            sub {
+                vertical-align: text-bottom
+            }
+
+            input, textarea, select {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit
+            }
+
+            input, textarea, select {
+                *font-size: 100%
+            }
+            #box{
+                width:1000px;
+                height:auto;
+                margin:20px auto;
+            }
+            .content{
+                width:100%;
+                height:auto;
+                background-color: #ccc;
+            }
+            span{
+                display: inline-block;
+                width:50px;
+                height:20px;
+                padding:5px 0;
+                margin-right:30px;
+                font-size: 20px;
+                line-height: 20px;
+                background-color:#000;
+                color:#fff;
+                text-align: center;
+
+            }
+            p{
+                height:auto;
+                text-indent: 2em;
+                line-height: 30px;
+            }
+            img{
+                display: block;
+                margin:10px auto;
+                border-radius:50%;
+            }
+            .img1{
+                width:200px;
+            }
+            .img2{
+                width:300px;
+                height:300px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <span class="increase">+</span><span class="reduce">-</span>
+            <div class="content">
+                <p style="font-size: 16px;">马思纯<br/>
+                    &nbsp; &nbsp;六岁时，我认识了您，您喊我小美女。<br/>
+                    &nbsp; &nbsp;十八岁时，我经常去您家吃春饼，您爱喝上口小酒，我就在一旁和您的狗狗peter玩。<br/>
+                    &nbsp; &nbsp;后来，我继续去您家吃春饼…<br/>
+                    &nbsp; &nbsp;后来，我去看了您演的话剧，当时您已经八十好几。<br/>
+                    &nbsp; &nbsp;后来，宋奶奶走了，只有Peter陪着您了。<br/>
+                    &nbsp; &nbsp;后来，我赶回去工作，临走前，我又亲了亲您的大脑门，说了很多次我爱你。<br/>
+                    &nbsp; &nbsp;后来，今天凌晨，您走了，我知道您记得我，朱旭爷爷，我们天上见。<br/>
+                    <img src="images/girl.jpg" alt="小仙女" class="img1"><br/>
+                    &nbsp; &nbsp;全国人民都在为广东祈祷，只有广东人民沉迷在放假的喜悦中无法自拔<br/>
+                    <img src="images/gd.jpg" alt="广东近照" class="img2">
+                </p>
+            </div>
+        </div>
+        <script>
+            let oInc=document.getElementsByClassName("increase")[0],
+                oRed=document.getElementsByClassName("reduce")[0],
+                oTxt=document.getElementsByTagName("p")[0];
+            const fMin=12;
+            const fMax=26;
+                // 获取当前页面字体大小
+                let currentFs=parseInt(oTxt.style.fontSize);
+            // 点击字体增大
+            oInc.onclick=function() {
+                if(currentFs<fMax){
+                    currentFs ++;
+                    // console.log(currentFs);
+                    oTxt.style.fontSize=currentFs+"px";
+                }else{
+                    oTxt.style.fontSize=fMax+"px";
+                }
+                // console.log(oTxt.style.fontSize);
+
+            };
+            // 点击字体缩小
+            oRed.onclick=function() {
+                if(currentFs>fMin){
+                    currentFs --;
+                    // console.log(currentFs);
+                    oTxt.style.fontSize=currentFs+"px";
+                }else{
+                    oTxt.style.fontSize=fMin+"px";
+                }
+                // console.log(oTxt.style.fontSize);
+            };
+
+        </script>
+    </body>
+
+</html>

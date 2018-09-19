@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>九九乘法表</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="猪小强">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap p{
+                display: inline-block;
+                width: 70px;
+                height: 30px;
+                margin: 10px;
+                border: 1px solid skyblue;
+                /*background: deeppink;*/
+                line-height: 30px;
+                text-align: center;
+                font-size: 18px;
+                color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+
+            <!--<p>123</p>-->
+        </div>
+        
+        <script>
+            let wrap = document.getElementById("wrap");
+
+            for (let i = 1; i < 10; i++) {
+                for(let j = 1;j<(i+1);j++){
+                    wrap.innerHTML += "<p>"+i+"*"+j+"="+i*j+"</p>"
+
+                }
+                wrap.innerHTML += "<br >"
+            }
+                wrap.innerHTML += "<hr>"
+
+
+            for(let i = 1;i<10;i++){
+                for(let j = i;j<10;j++){
+                    wrap.innerHTML += "<p>"+i+"*"+j+"="+i*j+"</p>"
+                }
+                wrap.innerHTML += "<br >"
+            }
+                wrap.innerHTML += "<hr>"
+
+
+
+            for(let i = 9;i>0;i--){
+                for(let j = 1;j<(i+1);j++){
+                    wrap.innerHTML += "<p>"+i+"*"+j+"="+i*j+"</p>"
+                }
+                wrap.innerHTML += "<br >"
+            }
+                wrap.innerHTML += "<hr>"
+
+
+            for(let i = 9;i>0;i--){
+                for(let j = i;j<10;j++){
+                    wrap.innerHTML += "<p>"+i+"*"+j+"="+i*j+"</p>"
+                }
+                wrap.innerHTML += "<br >"
+            }
+            wrap.innerHTML += "<hr>"
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

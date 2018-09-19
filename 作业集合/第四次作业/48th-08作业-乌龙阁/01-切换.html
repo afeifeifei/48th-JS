@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #banner{
+                position:relative;
+                width:1130px;
+                height:500px;
+                margin:50px auto;
+                border:1px solid #ccc;
+            }
+            #banner ul li{
+                display:none;
+                position:absolute;
+            }
+            #banner ul li img{
+                width:1130px;
+                height:500px;
+            }
+            #banner p{
+                position:absolute;
+                left:0;
+                right:0;
+                margin:auto;
+                background-color:rgba(100,100,100,0.8);
+                color:#fff;
+                text-align:center;
+            }
+            #banner .topDesc{
+                top:0;
+            }
+            #banner .bottomDesc{
+                bottom:0;
+            }
+            #banner a{
+                position:absolute;
+                top:0;
+                bottom:0;
+                width:40px;
+                height:30px;
+                background-color:rgba(100,100,100,0.8);
+                margin:auto;
+                color:#fff;
+                font-size:26px;
+                text-align:center;
+                text-decoration:none;
+                line-height:30px;
+            }
+            #banner .pre{
+                left:0;
+            }
+            #banner .next{
+                right:0;
+            }
+            #btnBar{
+                width:1130px;
+                margin:50px auto;
+                text-align:center;
+            }
+            #btnBar button{
+                width:80px;
+                height:40px;
+                background-color:#ccc;
+            }
+            #btnBar button.on{
+                color:#fff;
+                background-color:#f00;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="banner">
+            <ul>
+                <li><img src="images/01.jpg" width='1130' height="500" alt="iphone"></li>
+                <li><img src="images/02.jpg" width="1180" height="500" alt="autumn"></li>
+                <li><img src="images/03.jpg" width="1130" height="500" alt="school"></li>
+                <li><img src="images/04.jpg" width="1130" height="500" alt="application"></li>
+                <li><img src="images/05.jpg" width="1130" height="500" alt="honnor"></li>
+            </ul>
+            <p class="topDesc">1/5</p>
+            <p class="bottomDesc">iphone xs</p>
+            <a class="pre" href="javascript:void(0);">&lt;</a>
+            <a class="next" href="javascript:void(0);">&gt;</a>
+        </div>
+        <div id="btnBar">
+            <button class="normalBtn">正常模式</button>
+            <button class="loopBtn">循环模式</button>
+        </div>
+
+
+        <script>
+            //获取列表
+            let oList = document.querySelectorAll("#banner ul li");
+
+            //获取上下文本
+            let topDesc = document.getElementsByClassName("topDesc")[0];
+            let bottomDesc = document.getElementsByClassName("bottomDesc")[0];
+
+            //获取a标签，pre和next
+            let pre = document.getElementsByClassName("pre")[0];
+            let next = document.getElementsByClassName("next")[0];
+
+            //获取按键
+            let normalBtn = document.getElementsByClassName("normalBtn")[0];
+            let loopBtn = document.getElementsByClassName("loopBtn")[0];
+
+            //设置按钮模式,true为正常
+            let btnFlag = true;
+           // btnFlag ? normalBtn.style.cssText = " color:#fff; background-color:#f00;" : loopBtn.style.cssText = " color:#fff; background-color:#f00;";
+            btnFlag ? normalBtn.className += " on" : loopBtn.className += " on";
+            normalBtn.onclick = function () {
+                if(!btnFlag){
+                    normalBtn.className += " on";
+                    loopBtn.className = "";
+               //   normalBtn.style.cssText = " color:#fff; background-color:#f00;";
+               //   loopBtn.style.cssText = '';
+                    btnFlag = true;
+                }
+            }
+            loopBtn.onclick = function () {
+                if(btnFlag){
+                    loopBtn.className += " on";
+                    normalBtn.className = "";
+                //  loopBtn.style.cssText = " color:#fff; background-color:#f00;";
+                //  normalBtn.style.cssText = '';
+                    btnFlag = false;
+                }
+            }
+
+            let count = 0;  //点击计数
+            //让图片消失
+            function dis(){
+                for(let i=0;i<=4;i++){
+                    oList[i].style.display = "none";
+                }
+            }
+            function desc(numb){
+                switch(numb){
+                    case 0:
+                        topDesc.innerHTML = "1/5";
+                        bottomDesc.innerHTML = "iphone xs";
+                        break;
+                    case 1:
+                        topDesc.innerHTML = "2/5";
+                        bottomDesc.innerHTML = "初秋邂逅";
+                        break;
+                    case 2:
+                        topDesc.innerHTML = "3/5";
+                        bottomDesc.innerHTML = "百事可乐";
+                        break;
+                    case 3:
+                        topDesc.innerHTML = "4/5";
+                        bottomDesc.innerHTML = "全球大家电";
+                        break;
+                    case 4:
+                        topDesc.innerHTML = "5/5";
+                        bottomDesc.innerHTML = "荣耀8X";
+                        break;
+                    default:
+                        topDesc.innerHTML = "1/5";
+                        bottomDesc.innerHTML = "iphone xs";
+                        break;
+                }
+            }
+            //只显示一张
+            oList[count].style.display = "block";
+            //点击事件
+            next.onclick = function () {
+                count += 1;
+                if(btnFlag) {
+                    count = count >= 4 ? 4 : count;
+                }else{
+                    count = count > 4 ? 0 : count;
+                }
+                dis();
+                oList[count].style.display = "block";
+                desc(count);
+            }
+            pre.onclick = function () {
+                count -= 1;
+                if(btnFlag) {
+                    count = count <= 0 ? 0 : count;
+                }else {
+                    count = count < 0 ? 4 : count;
+                }
+                dis();
+                oList[count].style.display = "block";
+                desc(count);
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

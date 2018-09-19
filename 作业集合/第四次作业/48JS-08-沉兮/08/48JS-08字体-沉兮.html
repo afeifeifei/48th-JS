@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+
+        ol,ul,li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+        p{
+            display: block;
+            width: 1400px;
+            height: 20px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p>愛されたい…愛してる?想要你爱我…我爱你？</p>
+        <p>何年も続けてきた関係，已经持续了这么多年的关系，</p>
+        <p>言葉じゃもう伝わらない，只言片语已无法表达，</p>
+        <p>傷つきたくはないよ　これ以上，不想受伤，到此为止了，</p>
+        <p>悔しくて泣きたくて，悔恨着，好想哭泣，</p>
+        <p>寂しくて恋しくて，寂寞着，眷恋着，</p>
+        <p>今は不安でも， 现在即使不安，</p>
+        <p>答えがなくても，即使仍然没有答案，</p>
+        <p>君が好きだから，还是喜欢着你，</p>
+        <p>なんか怒ってる気がするんだけどオレの気のせいか?总感觉你在生气，这是我得错觉吗？</p>
+        <p>一緒にいても最近つまんなそうなのもオレの気のせいか?最近虽然在一起却觉得无聊，这是我的错觉吗？</p>
+        <p>今日洗おうと決めてた洗濯物も君が朝こなして，今天决定要洗的衣服也是你在早上就洗好了，</p>
+        <p>心地よい眠りの邪魔をする掃除機の音がしてる，吸尘器的声音打扰着我舒适的睡眠，</p>
+        <p>「おはよう」君に挨拶したってなんの返事もないさ，“早上好”，向你问候早安也没有得到回应。</p>
+        <p>やっぱ怒ってる　それはいつまでも俺がフラフラしてるせいだ，果然在生气吧，那是我一直糊里糊涂的错呢。</p>
+        <p>分かってるけどもう少し甘えよう　だけどそのうち望み叶えよう，明明知道却还是想对你撒一下娇 ，想实现这个愿望，</p>
+        <p>俺にゃ夢がある　いつか雲の上に　そしたら君はセレブなLady，我有一个梦想，什么时候你就是那高不可攀的优雅夫人，</p>
+        <p>尽くすよ君のために，为了你我拼尽全力，</p>
+        <p>愛されたい…愛してる?想要你爱我…我爱你？</p>
+        <p>曖昧なまま崩れた関係，暧昧着的乱套了的关系</p>
+        <p>偽りじゃない　そう信じたい，不是谎言，想那样相信着，</p>
+        <p>いい聞かせてきたんだいつでも，无论何时都想告诉你，</p>
+        <p>虚しくて我慢して，徒劳地忍受着，</p>
+        <p>会いたくて矛盾して，想要见你却矛盾着</p>
+    </div>
+    <button class="jia">+</button>
+    <button class="jian">-</button>
+    <script>
+        let oWrap = document.getElementById("wrap");
+        let oJia = document.getElementsByClassName("jia");
+        let oJian = document.getElementsByClassName("jian");
+        let num = 16;
+        oJia[0].onclick = function () {
+                if ( num < 25 ) {
+                    num++;
+                    oWrap.style.fontSize = num+ "px";
+                }else if ( num >= 25 ){
+                    oWrap.style.fontSize = num+ "px";
+                }
+        }
+        oJian[0].onclick = function () {
+            if ( num >= 17 ){
+                num--;
+                oWrap.style.fontSize = num+ "px";
+            } else if ( num <= 17 ){
+                oWrap.style.fontSize = num+ "px";
+            }
+        }
+    </script>
+</body>
+</html>

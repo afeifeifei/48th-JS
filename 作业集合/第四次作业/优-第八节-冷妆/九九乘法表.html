@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="48期冷妆">
+    <style>
+        *{margin:0;padding:0;}
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            height:350px;
+            margin: 50px;
+        }
+        #wrap ul{
+            list-style-type: none;
+            margin-top: 10px;
+            padding-bottom:10px;
+            border-bottom: 1px solid #eee;
+        }
+        #wrap ul:last-child{
+            border-bottom: none;
+        }
+        #wrap ul li{
+            height:25px;
+            margin-bottom:10px;
+        }
+        #wrap ul li span{
+            display: inline-block;
+            width:100px;
+            height:100%;
+            margin-right: 10px;
+            border: 1px solid #000;
+            text-align:center;
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+    </div>
+
+    <script>
+        let oWrap=document.getElementById('wrap'),
+            aUl=document.getElementsByTagName('ul');
+        oWrap.innerHTML+='<ul></ul>';
+        for(let i=1;i<10;i++){
+            let oLi;
+            aUl[0].innerHTML+='<li></li>';
+            oLi=aUl[0].getElementsByTagName('li')[i-1];
+            for (let j=1;j<=i;j++){
+                oLi.innerHTML+='<span>'+i+'*'+j+'='+i*j+'</span>';
+            }
+        }
+        oWrap.innerHTML+='<ul></ul>';
+        for(let i=1;i<10;i++){
+            let oLi;
+            aUl[1].innerHTML+='<li></li>';
+            oLi=aUl[1].getElementsByTagName('li')[i-1];
+            for (let j=i;j<10;j++){
+                oLi.innerHTML+='<span>'+i+'*'+j+'='+i*j+'</span>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

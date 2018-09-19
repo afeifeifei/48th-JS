@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="帅气">
+    <meta name="description" content="帅气">
+    <meta name="Author" content="帅气的苏某人">
+    <title>Title</title>
+    <style>
+        body{font-family: 'Microsoft YaHei',serif}
+        body,dl,dd,h1,p,h2,h3,h4,h5,h6{margin:0}
+        ol,ul,li,a{margin:0;padding:0;list-style:none}
+        a{text-decoration: none}
+        img{border:none}
+        #gxd{
+            margin:200px;
+        }
+        #content{
+            width:100%;
+            height:300px;
+            border:1px solid #000;
+            overflow-y:auto;
+        }
+        #content li{
+            line-height:50px;
+        }
+
+    </style>
+</head>
+    <body>
+        <div id="gxd">
+            <ul id="content">
+            </ul>
+            <div>
+                <input class="message" type="text" placeholder="请输入发送信息">
+                <input class="btn" type="submit">
+            </div>
+        </div>
+    <script>
+            let gContent = document.getElementById('content'),
+                gMessage = document.getElementsByClassName('message')[0],
+                gBtn = document.getElementsByClassName('btn')[0];
+                gBtn.onclick=function () {
+                    gContent.innerHTML = gContent.innerHTML +"<li><p>"+ gMessage.value +"</p><li>";
+                    gMessage.value="";
+                }
+    </script>
+    </body>
+</html>

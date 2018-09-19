@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>48期-05-奇奇作业</title>
+<style>
+	.box{width:490px;margin:0 auto;}
+	textarea{width:400px;height:150px;border:1px solid #ccc;border-radius: 5px;margin:0 auto;display: block;float:left;}
+	button{display: block;float: right;height:35px;background: #f60;border:none;color:#fff;border-radius: 4px;float:right;margin-top:120px;}
+	ul{padding:0;margin:0;display: list-item;text-align: -webkit-match-parent;list-style: none;padding-top:20px;}
+	ul li{padding:0;margin:0;display: list-item;text-align: -webkit-match-parent;list-style: none;height: 40px;line-height: 40px;border-bottom:1px solid #ccc;}
+	.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+	.clearfloat{zoom:1}
+	.clear_qc{clear: both;}
+</style>
+</head>
+<body>
+	<div class="box clearfloat">
+		<textarea id="content"></textarea>
+		<button type="button" id="button">确认发送</button>
+		<ul id="info" class="clearfloat clear_qc"></ul>
+	</div>
+
+	<script>
+		let oText = document.getElementById("content");
+		let oBtn = document.getElementById("button");
+		let oList =document.getElementById("info");
+		oBtn.onclick = function(){
+			oList.innerHTML += '<li>'+oText.value+'</li>';
+			oText.value = '';
+			//console.log(oList);打印成功
+		}
+	</script>
+	
+</body>
+</html>

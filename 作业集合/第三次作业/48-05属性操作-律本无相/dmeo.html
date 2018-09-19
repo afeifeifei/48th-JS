@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+	<meta charset="utf-8">
+	<title>属性操作</title>
+	<meta name="author" content="律本无相~">
+	<meta name="keyWords" content="js属性操作">
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+	<div class="box">
+		<div class="content">
+			<input type="text" name="add-content" placeholder="添加关键词" class="add-content">
+			<ul class="kword-list">
+				<li class="keyword">
+					<div class="base-line"><span>关键词</span></div>
+				</li>
+			</ul>
+			<button class="btn-add">添  加</button>
+		</div>
+	</div>
+
+	<script>
+
+		let oKeyword = document.getElementsByClassName('add-content')[0];
+		let obtn = document.getElementsByClassName('btn-add')[0];
+		let oList = document.getElementsByClassName('kword-list')[0];
+
+		//触发事件
+		obtn.onclick = function(){
+			let str = oKeyword.value?oKeyword.value:"输入为空";
+			oList.innerHTML += `<li>`+str+`</li>`;
+		}
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

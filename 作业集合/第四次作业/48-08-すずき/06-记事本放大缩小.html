@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap1{
+            width: 500px;
+            height: 600px;
+        }
+        #wrap{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap1">
+        <div id="btn1"><p>-</p></div>
+        <div id="btn2"><p>+</p></div>
+        <div id="wrap">中新网9月18日电 据韩联社报道，当地时间18日上午9时50分(北京时间8时50分)许，韩国总统文在寅乘坐的专机抵达朝鲜平壤顺安国际机场。朝方举行欢迎仪式，朝鲜最高领导人金正恩在机场迎接。
+
+            据此前韩媒报道，今年4月，文在寅和金正恩在板门店韩方一侧举行的首次会谈中，金正恩曾对文在寅表示，“阁下如果乘坐飞机前往朝鲜，我们将在机场举行欢迎仪式”。
+
+            2000年，当韩国前总统金大中抵达平壤顺安机场时，金正日在事先未通知的情况下突然前来迎接金大中，给了人们意外的惊喜。
+
+            欢迎仪式后，文在寅将直接前往下榻的平壤百花园迎宾馆。据悉，2000年和2007年的韩朝首脑平壤会谈场所均为朝鲜百花园迎宾馆。
+
+            此次陪同文在寅访朝的随行人员，除16日为筹备会谈先期抵朝的先遣队外，第一夫人金正淑女士、正式和特别随行人员等100余人随行。
+        </div>
+    </div>
+    <script>
+       let oBtn1=document.getElementById("btn1");
+            oBtn2=document.getElementById("btn2");
+            oWrap=document.getElementById("wrap");
+
+            i=18;
+            oBtn2.onclick=function () {
+                i++;
+                if(i>36){
+                   i=13;
+                }
+                oWrap.style.fontSize=i+"px";
+            }
+
+           oBtn1.onclick=function () {
+               i--;
+                if(i<14){
+                  i=36;
+               }
+               oWrap.style.fontSize=i+"px";
+           }
+
+    </script>
+</body>
+</html>

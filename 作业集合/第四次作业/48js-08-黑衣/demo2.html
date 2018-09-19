@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            .content{
+                width:900px;
+                margin:20px auto 0;
+                font-size:16px;
+            }
+            .content h3{
+                color:blue;
+                font-size:24px;
+                text-align:center;
+                margin-bottom:20px;
+            }
+            .content p{
+
+                text-indent:2em;
+                margin-bottom:16px;
+            }
+            .size{
+                position: fixed;
+                top:10px;
+                left:380px;
+                width: 120px;
+            }
+            .size h5{
+                display: inline-block;
+            }
+            .size button{
+                width:24px;
+                height: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h3>动漫学习框架</h3>
+            <p>模型内容总共分为四个部分：1.Maya界面介绍 2.道具建模 3.场景建模4.卡通角色建模
+                以上课程的安排是让学员从简单建模制作慢慢过渡到复杂模型制作，同时掌握不同的模型的制作方法。
+                总的来说通过模型部分的学习，从认识Maya到掌握简单模型的制作，让学员由浅入深的进入Maya的学
+                习。也为后面的学习打下坚实的基础。
+            </p>
+            <p> 材质灯光	材质课程总共分为六个部分： 1.理论 2.灯光 3.质感 4.贴图 5.综合制作 6.渲染；
+                通过理论让学员在学习软件之前掌握物理世界的一些关键性的知识，这样能更好的理解软件材质的参数。
+                灯光、质感、贴图部分让学员参考自然界的光、质感，掌握软件中各种灯光及材质的使用，
+                让我们创造出各类物体材质。最后通过渲学习渲染部分，最终输出作品。材质灯光部分的知识从理论到学习、
+                制作、提高、个人发挥、让学员能够由浅入深，融会贯通挖掘并提高自己独有的长处。
+            </p>
+            <p> 骨骼绑定	骨骼绑定课程总共分为七个部分：1.绑定方法思路分析 2.道具制作 3.IKFK控制的制作
+                4.骨骼缩放控制制作 5.手动制作人体骨骼控制器系统 6.角色权重的分配 7.绑定插件的运用；
+                每个部分都有相应的案例制作规范要求，便于循序渐进的掌握骨骼工具——约束、Deformer、
+                驱动关键帧（SDK）、IKFK、Cluster、LatticelK Spline Handle Tool在绑定中的应用。
+                分析人体和各类动物骨架结构，搭建骨骼，掌握控制器创建，添加属性等常用方法。学习蒙皮和权重，
+                熟悉使用Paint-Skin Weighed Tool、DeltaMush绘画权重，学习骨骼绑定插件的应用。
+            </p>
+            <p> 高级动画	动画总共分为四个部分：1.基础动画 2.肢体语言 3.表演课程 4.拓展训练；
+                基础动画部分包括“路径动画”和“生长动画”等简单元素动画，还包括摄像机的推拉摇移等运动的制作。
+                在肢体动画部分首先学习、掌握走跑跳基本的运动规律，进一步提高掌握更复杂的角色肢体动画。
+                进入到表演课程部分，学员开始临摹、学习一些经典动画片中的精彩片段，掌握复杂动画的实际制作方法。
+                ，强化提高针对角色表演的口型、表情、肢体语言的塑造。在最后的拓展训练阶段，
+                学员将前面部分的学习成果全面展现，完成原创短片的制作。整个课程加大了对表演的训练力度，
+                使我们不仅拥有扎实的基础，更能适应不同的动画要求。最终达到动画师的要求。
+            </p>
+            <p>
+                后期合成	后期课程总共分为三个部分：1.基础讲解 2.实例操作 3.个人作品制作；
+                学习AE后期合成软件，从角色动画影片的后期合成知识开始整个模块的教学，通过合成、
+                调色、抠像、跟踪、特效等知识点的深入学习，逐步了解和掌握后期合成的整个制作流程，
+                为将来从事影视动画的工作打下良好的基础。从而对影视动画制作的整个流程有全面的了解。
+            </p>
+        </div>
+        <div class="size">
+          <h5>字体变大:</h5>     <button class="size-big">+</button>
+          <h5>字体变小:</h5>     <button class="size-small">-</button>
+        </div>
+        <script>
+            let oSizeBig=document.getElementsByClassName("size-big")[0];
+            let oSizeSmall=document.getElementsByClassName("size-small")[0];
+            let oP=document.getElementsByClassName("content")[0];
+            let num=16;
+            oSizeBig.onclick=function () {
+                num<20&&num++;
+                oP.style.fontSize=num+"px";
+            }
+            oSizeSmall.onclick=function () {
+                num>12&&num--;
+                oP.style.fontSize=num+"px";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

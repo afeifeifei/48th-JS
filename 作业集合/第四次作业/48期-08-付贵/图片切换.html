@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        #wrap{
+            width: 800px;
+            margin:50px auto;
+        }
+        #heared{
+            width: 100%;
+         
+        }
+        #heared span{
+            display: inline-block;
+            width: 100px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #ccc;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #heared span.on{
+            background-color: #f60;
+        }
+        #content{
+            position: relative;
+            width: 800px;
+            height: 534px;
+            margin: auto;
+            
+        }
+        #content li{
+            display: none;
+        }
+        #content li.on{
+            display: block;
+        }
+        #content .top{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        #content .bottom{
+            position: absolute;
+            bottom: 0;
+            right:  0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        #content .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            width: 20px;
+            /* height: 40px; */
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 26px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 40px;
+        }
+        #content .btn.lf{
+            left:  0;
+        }
+        #content .btn.rg{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="heared">
+            <span class="on">循环模式</span>
+            <span>单边模式</span>
+        </div>
+        <div id="content">
+            <ul>
+                <li class="on"><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+            </ul>
+            <p class="top"><span>1</span>/5</p>
+            <p class="bottom">星海湾跨海大桥夜景</p>
+            <p class="btn lf"><</p>
+            <p class="btn rg">></p>
+        </div>
+    </div>
+    <script>
+        let arr=["星海湾跨海大桥夜景","夕阳红星海","迷雾大连星海湾跨海大桥","星海湾跨海大桥夜景","跨海大桥"],
+            oTab=document.querySelectorAll("#heared span"),
+            oLi=document.getElementsByTagName("li"),
+            oTop=document.querySelector(".top span"),
+            oBottom=document.getElementsByClassName("bottom")[0],
+            oLf=document.getElementsByClassName("lf")[0],
+            oRg=document.getElementsByClassName("rg")[0],
+            index=0;
+            oTab.idx=0;
+            //选项
+            for (let i = 0; i < oTab.length; i++) {
+                oTab[i].onclick=function(){
+                   oTab[oTab.idx].className="";
+                   oTab.idx=i;
+                   oTab[i].className="on";
+                }
+            }
+            //右侧按钮
+            oRg.onclick=function(){
+            oLi[index].className="";
+            index++;
+            if(index>=oLi.length){
+                if(oTab.idx===0){
+                    //循环模式
+                    index=0;
+                }else{
+                    //单边
+                    index=oLi.length-1;   
+                }
+            }
+            oLi[index].className="on";
+            oTop.innerText=index+1;
+            oBottom.innerText=arr[index];
+            }
+            //左侧按钮
+            oLf.onclick=function(){
+                oLi[index].className="";
+                index--;
+                if(index<0){
+                   if(oTab.idx===0){
+                       //循环
+                        index=oLi.length-1;
+                   }else{
+                        //单边
+                        index=0;
+                   }
+                }
+                oLi[index].className="on";
+                oTop.innerText=index+1;
+                oBottom.innerText=arr[index];
+            }
+    </script>
+</body>
+</html>

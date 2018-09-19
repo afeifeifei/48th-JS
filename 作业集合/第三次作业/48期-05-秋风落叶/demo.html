@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{
+            	font-family: "Microsoft YaHei",serif;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+            	margin:0;
+            }
+            ol,ul,li{
+            	margin:0;
+	            padding:0;
+	            list-style:none;
+            }
+            img{
+            	border:none;
+            }
+            .clearfix:after{
+            	content:'';
+            	display:block;
+            	clear:both;
+            }
+            #wrap{
+            	width:400px;
+            	margin:50px auto 0;
+            }
+			#wrap .text{
+				width:400px;
+				height:200px;
+				margin-bottom:15px;
+				border-radius: 10px;
+				border:2px solid #ccc;
+				box-shadow: 0 0 2px 0 #305dfe;
+				outline: 0;
+			}
+			#wrap .btn{
+				float:right;
+				width:50px;
+				height:30px;
+				background-color:skyblue;
+				border:1px solid #ccc;
+			}
+			#wrap .list{
+				float:left;
+				width:100%;
+				margin-top:10px;
+			}
+			#wrap .list li{
+				padding:5px;
+				border-bottom:1px solid #ccc;
+				background-color:#fff;
+				font-size:14px;
+				line-height:26px;
+			}
+			#wrap .list li:hover{
+				background-color:#f5f5f5;
+			}
+        </style>
+    </head>
+	<body>
+		<div id="wrap" class="clearfix">
+			<div class="text" contenteditable></div>
+			<input type="submit" value="确定" class="btn">
+			<ul class="list"></ul>
+		</div>
+		<script>
+			let oText = document.getElementsByClassName("text");
+				oBtn = document.getElementsByClassName("btn");
+				oList = document.getElementsByClassName("list");
+			oBtn[0].onclick = function() {				
+				oList[0].innerHTML += "<li>" + oText[0].innerText + "</li>";
+				oText[0].innerText = "";
+			};
+		</script>
+	</body>
+</html>

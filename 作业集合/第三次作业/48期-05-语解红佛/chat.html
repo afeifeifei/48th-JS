@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<mate  charset="utf-8">
+<title>
+     微信聊天
+</title>
+<style>
+    *{
+       margin:0;
+       padding:0;
+     }
+    #wrap{
+       width:380px;
+       height:500px;
+       margin:20px auto;
+       }
+      i{
+         display:inline-block;
+        border-radius:50%;
+        }
+     i.face{
+        float:left;
+        margin:5px   10px;
+        width:50px;
+        height:50px;
+        //background-color:red;
+       background:url("imgs/u2.jpg") no-repeat;
+       background-size:100% 100%;
+       }
+     .add{
+        float:right;
+        margin:15px  20px 0 0;
+       width:32px;
+       height:32px;
+       font-size:30px;
+       color:gray;
+       line-height:30px;
+       background-color:#ccc;
+     }
+      .top{
+           background-color:rgba(0,0,0,.75);
+        }
+      .clearfix:after{
+       content:"";
+       display:block;
+       clear:both; 
+        }
+     .txt-con{
+         opacity:0;
+         float:left;
+         margin:20px 10px  0px 10px;
+      }
+     input{
+        opacity:0;
+       float:left;
+       margin:20px 20px 0px 0;
+       height:22px;
+       padding:0 5px;
+       font-size:12px;
+       }
+     .list{
+      width:100%;
+      background-color:pink;
+      }
+      .list li{
+      width:100%;
+      height:58px;
+      line-height:58px;
+       }
+      .list li i{
+          display:inline-block;
+          width:32px;
+          height:32px;
+          margin:0 10px;
+          vertical-align:middle;
+          }
+       .list li i img{
+          width:100%;
+          height:100%;
+          }
+       span{
+              display:inline-block;
+              line-height:40px;
+              padding:0 8px;
+              border-radius:8px;
+              background-color:lightgreen;
+             }
+       .left{
+           float:left;
+           margin:0 10px;
+          }
+       .right i,.right span{
+         float:right
+        }
+</style>
+</head>
+<body>
+   <div id='wrap'>
+            <div class='top clearfix'>
+              <i class="face"></i>
+              <textarea name='txt'  cols='25' rows='1' style="height:24px" class="txt-con"></textarea>
+              <input type='button' value='发送'>
+              <i class='add'>+</i>
+            </div>
+        <ul class='list'>
+               
+        </ul>
+   </div>
+   <script>
+        let headPic =document.getElementsByClassName("face")[0];
+        let txt = document.getElementsByClassName("txt-con")[0];
+        let str = txt.value;
+        let btn = document.getElementsByTagName("input")[0];
+        let add = document.getElementsByClassName("add")[0];
+        let list = document.getElementsByClassName("list")[0];
+       // let oLi  = document.querySelectorAll(".list li");
+       // let pho =document.getElementsByClassName("photo");
+        let srcaddress;
+        add.onclick = function(){
+               txt.style.opacity=1;
+               btn.style.opacity=1;
+               alert("点击头像可切换")
+              }
+        headPic.mark=false;
+        headPic.onclick = function(){
+              headPic.style.backgroundImage=headPic.mark?"url(imgs/u2.jpg)":"url(imgs/u1.jpg)";
+              headPic.mark=!headPic.mark;
+          }
+       
+         let count = -1;
+         btn.onclick = function(){
+            srcaddress=headPic.mark?"imgs/u1.jpg":"imgs/u2.jpg";
+              if(headPic.mark){
+                    list.innerHTML +=`<li class="clearfix right">
+                         <i class='photo'>
+                             <img src=${srcaddress}>
+                        </i>
+                       <span>${txt.value}</span>
+                      </li>
+               `  
+            }else{
+                 list.innerHTML +=`<li class="clearfix ">
+                         <i class='photo'>
+                             <img src=${srcaddress}>
+                        </i>
+                       <span>${txt.value}</span>
+                      </li>
+               `  
+              }
+            txt.value =" "; 
+         }
+   </script>
+</body>
+</html>

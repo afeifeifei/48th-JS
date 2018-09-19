@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#wrap ul li{
+		float:left;
+		margin: 2px;
+		border:1px solid #999;
+		list-style: none;
+	}
+	#wrap ul:after{
+        content:"";
+        display: block;
+        clear:both;
+    }
+
+	</style>
+</head>
+<body>
+	<div id="wrap"></div>
+	<script type="text/javascript">
+	var oWrap = document.getElementById('wrap');
+	var str = '';
+
+	for (var i = 1; i <= 9; i++) {
+		str += '<ul>';
+		for (var j = 1; j <=9 ;j++) {
+			str+=`<li>${i}*${j}</li>`
+		}
+		str += '</ul>';
+	}
+	  oWrap.innerHTML=str;
+
+	</script>
+</body>
+</html>

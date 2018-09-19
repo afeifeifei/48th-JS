@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+
+        p{
+            width:500px;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p>
+            根据苹果官网的预售规则，9月13日发布的iPhone XS、
+            iPhone XS Max两款机型，昨日开启预售，9月21日起正式发货。
+            用户购买最新发布的iPhone新品有两种预订方式，分别为预购及预约。
+            前者通过在线选型、购买和支付，随后将由苹果免费送货上门；
+            预约则指经过在线预订，然后在用户约定的零售店面交付手机。
+        </p>
+        <button id="grow">增大</button><button id="reduce">减小</button>
+    </div>
+    <script>
+        let oPs=document.getElementsByTagName("p");
+        let oGrow=document.getElementById("grow");
+        let oReduce=document.getElementById("reduce");
+        let fontsize=14;
+        
+         oGrow.onclick=function(){
+            if(fontsize<=20){
+                fontsize++;
+                oPs[0].style.fontSize=fontsize+"px";
+            }
+        }
+        oReduce.onclick=function(){
+            if(fontsize>=13){
+                fontsize--;
+                oPs[0].style.fontSize=fontsize+"px";
+            }
+        }
+    </script>
+</body>
+</html>

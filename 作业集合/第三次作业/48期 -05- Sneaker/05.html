@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name='keywords' content='Keywords'>
+    <meta name='description' content='Description'>
+    <style>
+        #inf {
+            width: 500px;
+            height: 600px;
+            padding: 0;
+            margin: 100px auto;
+        }
+        #btn {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="inf">
+    <div>
+        <textarea id="content" rows="3" cols="68"></textarea>
+    </div>
+    <button id="btn">提交</button>
+    <div id="txt"></div>
+    <script>
+        let oButton = document.getElementById("btn");
+        let oText = document.getElementById("content");
+        let oTxt = document.getElementById("txt");
+        oButton.onclick = function () {
+           oTxt.innerHTML += oText.value + '<hr>';
+        }
+    </script>
+</div>
+</body>
+</html>

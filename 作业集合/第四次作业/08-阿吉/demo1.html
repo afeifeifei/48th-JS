@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap ul:after{
+            content:"";
+            display: block;
+            clear:both;
+        }
+        #wrap ul li{
+            float:left;
+            width:60px;
+            padding:5px;
+            border:1px solid #ccc;
+            margin:2px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        
+    </div>
+    <script>
+        let oWrap=document.getElementById("wrap");
+        let htmlstr="";
+        for(i=1;i<=9;i++){
+            htmlstr +="<ul>";
+            for(j=1;j<=i;j++){
+                htmlstr+=`<li>${i}*${j}</li>`
+            }
+            htmlstr +="</ul>";   
+        }
+        oWrap.innerHTML=htmlstr;
+    </script>
+</body>
+</html>

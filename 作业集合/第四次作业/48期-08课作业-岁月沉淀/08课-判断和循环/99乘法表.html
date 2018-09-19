@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业-九九乘法表</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box,#box2{
+            margin: 10px;
+        }
+        #box span{
+            display: inline-block;
+            width: 90px;
+            height: 35px;
+            line-height: 35px;
+            margin-right:5px;
+            margin-bottom:10px;
+            background: #5f6889;
+            border: 1px solid #aaa;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+        #box2 span{
+            display: inline-block;
+            width: 90px;
+            height: 35px;
+            line-height: 35px;
+            margin-right:5px;
+            background: #4b986a;
+            margin-bottom:10px;
+            border: 1px solid #aaa;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+    <script>
+        let Box = document.getElementById('box');
+        let Box2 = document.getElementById('box2');
+        //正三角
+        for(let i=1;i<10;i++){
+
+            for(let j=0;j<i;j++){
+                Box.innerHTML += `<span>${i}X${j+1} = ${i*(j+1)}</span>`
+            }
+            Box.innerHTML += "<br>";
+            Box.style.cssText= "border-bottom:1px solid #aaa"
+        }
+
+        //倒序三角
+        for(i=1;i<10;i++){
+
+            for(let j=i;j<10;j++){
+                Box2.innerHTML += `<span>${i}X${j} = ${i*(j)}</span>`
+            }
+            Box2.innerHTML += "<br>"
+        }
+    </script>
+</body>
+</html>

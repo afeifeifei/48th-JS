@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>作业一9.7</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #wrap{
+                margin: 80px auto;
+                width:300px;
+                height: 150px;
+                line-height: 150px;
+                background-color: rgb(241, 123, 143);
+                color:#fff;
+                font-size: 30px;
+                text-align: center;
+                box-shadow: 0 0 10px  rgb(154, 192, 236);
+                border-radius: 20px 0px 20px 0px;
+            }
+            #wrap:hover{
+                background-color: rgb(85, 100, 233);
+                border-radius: 50%;
+                border-radius: 0px 20px 0px 20px;
+                box-shadow:0 0 10px  rgb(154, 192, 236);
+                transition: 1s; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <script>
+            let name=document.getElementById("wrap");
+            name.onclick=function(){
+                name.innerHTML="高雅";
+            };
+            
+        </script>
+    </body>
+</html>

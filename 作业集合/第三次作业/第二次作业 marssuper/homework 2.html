@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position:relative;
+                margin:auto;
+                width:500px;
+                height:100%;
+            }
+            #wrap textarea{
+                margin-top:10px;
+                margin-left:25px;
+                width:450px;
+                height:250px;
+                resize:none;
+            }
+            #wrap button{
+                margin-left:430px;
+                margin-bottom:15px;
+            }
+            #box{
+                margin:auto;
+                width:450px;
+                height:400px;
+                font-size:20px;
+                font-color:black;
+                line-height:24px;
+            }
+            #wrap p{
+                width:400px;
+                height:30px;
+                line-height:30px;
+                font-size:16px;
+                border-bottom:1px dashed dimgrey;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea id="Textarea" value=""></textarea>
+            <button id="Button" type="submit">提交</button>
+            <div id="box"></div>
+        </div>
+        
+        <script>
+            document.getElementById("Button").onclick = function(){
+                let val = document.getElementById("Textarea").value;
+                document.getElementById("box").innerHTML +=`<p>${val}</p>`;
+                val = null;
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

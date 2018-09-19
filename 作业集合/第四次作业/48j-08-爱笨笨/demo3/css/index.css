@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* index */
+span{
+	display:inline-block;
+	width:70px;
+	height:25px;
+	border:#ccc solid 1px;
+	line-height:25px;
+	text-align:center;
+	margin:0 5px 5px 0;
+}

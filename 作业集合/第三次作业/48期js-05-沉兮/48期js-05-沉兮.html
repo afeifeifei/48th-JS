@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            position: relative;
+            left: 0;
+            right: 0;
+            width: 400px;
+            height: 500px;
+            margin: auto;
+        }
+        #wrap{
+            width: 400px;
+            height: 200px;
+            margin-top: 20px;
+            border:  1px solid #000;
+        }
+        .btn{
+            position: absolute;
+            right: 0;
+            width: 50px;
+            height: 25px;
+        }
+        #in{
+            position: absolute;
+            bottom: 0;
+            width: 400px;
+            height: 230px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <textarea id="wrap" cols="50" rows="20"></textarea>
+        <button class="btn">提交</button>
+        <div id="in"></div>
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap");
+        let oBtn = document.getElementsByClassName("btn");
+        let oIn = document.getElementById("in");
+        oBtn[0].onclick = function () {
+            oIn.innerHTML += "<p style='border-bottom: 2px solid #d0c9c9'>"+ oWrap.value +"</p>";
+            console.log( oWrap.value );
+        }
+    </script>
+</body>
+</html>

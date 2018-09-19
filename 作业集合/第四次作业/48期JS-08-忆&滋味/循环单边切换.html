@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="keyworks" content="关键词">
+	<meta name="description" content="描述">
+	<title>循环切换 单边切换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			margin: 2% auto;
+			width: 800px;
+			height: 500px;
+			border: 1px solid pink;
+		}
+		#wrap .show{
+			position: relative;
+			width: 100%;
+			height: 430px;
+		}
+		#wrap .show .showTop{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 25px;
+			color: #FFF;
+			line-height: 25px;
+			vertical-align: middle;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.55);
+		}
+		#wrap .show .showContent{
+			width: 100%;
+			height: 100%;
+		}
+		#wrap .show .showBottom{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 25px;
+			color: #FFF;
+			line-height: 25px;
+			vertical-align: middle;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.55);
+		}
+		#wrap .show .btnLeft, #wrap .show .btnRight{
+			position: absolute;
+			top: 225px;
+			width: 30px;
+			height: 30px;
+		}
+		#wrap .show .btnLeft:hover, #wrap .show .btnRight:hover{
+                cursor: pointer;
+        }
+		#wrap .show .btnRight{
+			right: 0;
+		}
+		#wrap .regulate{
+			width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+		}
+		#wrap .regulate button{
+                outline: 0;
+        }
+        #wrap .regulate button:hover{
+                cursor: pointer;
+        }
+        #wrap .regulate button:first-child{
+                background-color: red;
+        }
+	</style>
+	</head>
+	
+	<body>
+	<div id="wrap">
+		<div class="show">
+			<div class="showTop">
+			<p><span class="showTopPage">1</span>/5</p>
+			</div>
+			<img class="showContent" src="images/1.jpg" width="1920" height="1200" alt="进击的巨人">
+			<img class="btnLeft" src="images/tb1.jpg" width="205" height="205" alt="左翻页">
+			<img class="btnRight" src="images/tb2.jpg" width="205" height="205" alt="右翻页">
+			<div class="showBottom">
+			<p>进击的巨人</p>
+			</div>
+		</div>
+		
+		<div class="regulate">
+		<button class="btnOrder" type="submit" value="HTML">顺序模式</button>
+        <button class="btnLoop" type="submit" value="HTML">循环模式</button>
+		</div>
+	</div>
+	
+	
+	<script>
+	let btnChecd =  1,
+		oBtnOrder = document.getElementsByClassName("btnOrder")[0],
+		oBtnLoop = document.getElementsByClassName("btnLoop")[0];
+	oBtnOrder.onclick=function () {									//顺序模式按键变化
+        btnChecd =  1;
+        oBtnOrder.style.backgroundColor="RGB(250,0,0)";
+        oBtnLoop.style.backgroundColor="RGB(221, 221, 221)";
+        };
+    oBtnLoop.onclick=function () {									//循环模式按键变化
+        btnChecd =  0;
+        oBtnOrder.style.backgroundColor="RGB(221, 221, 221)";
+        oBtnLoop.style.backgroundColor="RGB(250,0,0)"
+        };
+	let oBtnLeft = document.getElementsByClassName("btnLeft")[0],
+		oBtnRight = document.getElementsByClassName("btnRight")[0],
+		oShowTopPage = document.getElementsByClassName("showTopPage")[0];
+		oBtnLeft.onclick=function () {  								//点击左翻页
+			let page = oShowTopPage.innerHTML,
+				pageNum;
+			if(btnChecd === 1){   										 //顺序模式
+				if (Number(page) == 1){
+					pageNum = 1;
+
+				}
+				else{
+					pageNum = Number(page) - 1;
+				}
+			}
+			else{                  										//循环模式
+				if(Number(page)==1){
+					pageNum = 5;
+				}
+				else{
+					pageNum = Number(page) - 1;
+				}
+			}
+			oShowTopPage.innerHTML = pageNum;
+			document.getElementsByClassName("showContent")[0].src="images/" + pageNum + ".jpg";
+		};
+		oBtnRight.onclick=function () {  								//点击右翻页
+			let page = oShowTopPage.innerHTML,
+				pageNum;
+			if(btnChecd === 1){  										 //顺序模式
+				if (Number(page) == 5){
+					pageNum = 5;
+
+				}
+				else{
+					pageNum = Number(page) + 1;
+				}
+			}
+			else{                                                     //循环模式
+				if(Number(page)==5){
+					pageNum = 1;
+				}
+				else{
+					pageNum = Number(page) + 1;
+				}
+			}
+			oShowTopPage.innerHTML = pageNum;
+			document.getElementsByClassName("showContent")[0].src="images/" + pageNum + ".jpg";
+		};
+	</script>
+	</body>
+</html>

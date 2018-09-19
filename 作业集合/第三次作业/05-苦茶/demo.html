@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0
+        }
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            border: none
+        }
+        #wrap{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+        }
+        #wrap .box{
+            width:400px;
+            height: 100%;
+        }
+        #wrap .box #list{
+            width:100%;
+            height:200px;
+            font-size: 18px;
+            text-indent: 10px;
+        }
+        #wrap .box #sublime{
+            position: absolute;
+            top: 225px;
+            left: 170px;
+            color: #fff;
+            width: 60px;
+            height: 40px;
+            background-color: #000;
+            border-radius: 10px;
+            cursor:pointer;
+        }
+        #wrap .box #text{
+            line-height: 5;
+        }
+        #wrap .box #text li{
+            text-indent: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box">
+            <Textarea id="list"></Textarea>
+            <Button id="sublime">提交</Button>
+            <ul id="text"></ul>
+        </div>
+    </div>
+
+<script>
+    let oTextarea = document.getElementById("list"),
+        oButton = document.getElementById("sublime"),
+        oUl = document.getElementById("text");
+
+    oButton.onclick = function(){
+        oUl.innerHTML +="<li>" + oTextarea.value + "</li>";
+        oTextarea.value = '';
+    }
+
+</script>
+</body>
+</html>

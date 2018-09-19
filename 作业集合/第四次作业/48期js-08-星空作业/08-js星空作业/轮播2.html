@@ -1,0 +1,186 @@
+<!doctype html>
+<!--文档类型:html文档(html5标准模式)-->
+<!--注释:是给开发人员看的-->
+<html lang='en'>
+<!--html跟标签 lang意思是翻译成英文-->
+
+<head>
+    <!--网页的头部-->
+    <meta charset='utf-8' />
+    <!--meta是单标签,单标签在后面括号前加/,以表示闭合,charset是设置字符编码的,utf-8是国际编译代码-->
+    <meta name='generator' content='EditPlus®' />
+    <!--generator意思是使用的编译软件,content后面是编译软件名字-->
+    <meta name='author' content='星空' />
+    <!--author这是网站作者的意思-->
+    <meta name='keywords' content='潭州教育48期,阿飞老师,00作业' />
+    <!--网页三要素之一,这是网页的关键词,给搜索引擎搜索你的网页用的,-->
+    <meta name='description' content='梗概,简介,' />
+    <!--网页三要素之一,这是对自己的网页的一些简介.-->
+    <title>Document</title>
+    <!--网页三要素之一,标题,这是在网页最上面的名词-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bigbox{
+            position: relative;
+            width: 225px;
+            height:250px;
+            margin:10px auto;
+            border:1px solid red;
+        }
+        img{
+            display: none;
+            position: absolute; 
+            top:50%;
+            margin-top:-105px;   
+            width: 225px;
+            height:225px;
+        }
+        img.on{
+            display: block;
+        }
+        p{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0,0,0,.5);
+            color: #fff;
+        }
+        .bottom p{
+            bottom: 0;
+        }
+        button{
+            position: absolute;
+            width:20px;
+            height: 60px;
+            top:50%;
+            margin-top:-30px;   
+        }
+        .right{
+            right:0;
+        }
+        .box{
+            margin:50px 0;
+            text-align: center;
+        }
+        .box span{
+            position: relative;
+            bottom: -230px;
+            display: inline-block;
+            width: 90px;
+            border:1px solid #000;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        span.on{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--网页的身体,里面的内容是给浏览者观看得到的东西-->
+    <div class='bigbox'>
+        <div class="img">
+            <img src="./images/1.JPG" alt="" class='on'>
+            <img src="./images/2.JPG" alt="">
+            <img src="./images/3.JPG" alt="">
+            <img src="./images/4.JPG" alt="">
+        </div>
+        <div class="title">
+            <p>
+                <span>1</span>/4
+            </p>
+        </div>
+        <div class="bottom">
+            <p class="content">我一世英名,你奈我何?</p>
+        </div>
+        <div class="turn">
+            <button class='left'> < </button>
+            <button class='right'> > </button>
+        </div>
+        <div class='box'>
+            <span>单边模式</span>
+            <span>循环模式</span>
+        </div>
+    </div>
+    <script>
+        let oImg = document.getElementsByTagName('img'),
+            textNum = document.getElementsByTagName('span')[0],
+            content = document.getElementsByClassName('content')[0],
+            prev = document.getElementsByClassName('left')[0],
+            next = document.getElementsByClassName('right')[0],
+            box = document.getElementsByClassName('box')[0],
+            normal = box.getElementsByTagName('span')[0],
+            infinite = box.getElementsByTagName('span')[1],
+            Arr = ['我一世英名,你奈我何?', '我这么真挚的眼神会是变态吗?', '进入委屈模式', '欺负人!欺负人!'],
+            len = oImg.length
+            num = 0,
+            i = 0;
+            // 单边
+            normal.onclick = function() {
+                normal.style.backgroundColor = 'red'
+                infinite.style.backgroundColor = '#ccc';
+                // 下一张
+                next.onclick = function() {
+                    for (let j = 0; j < len; j++) {
+                        oImg[j].className = '';
+                    }
+                    num++
+                    if(num > len - 1){
+                        num = len - 1
+                    }
+                    textNum.innerText = num + 1
+                    content.innerText = Arr[num]
+                    oImg[num].className = 'on'
+                }
+                //上一张
+                prev.onclick = function() {
+                    for (let j = 0; j < len; j++) {
+                            oImg[j].className = '';
+                        }
+                    num--
+                    if(num < 0){
+                        num = 0
+                    }
+                    content.innerText = Arr[num]
+                    textNum.innerText = num + 1
+                    oImg[num].className = 'on'
+                }
+            }
+            // 循环
+            infinite.onclick = function() {
+                normal.style.backgroundColor = '#ccc'
+                infinite.style.backgroundColor = 'red';
+                next.onclick = function () {
+                    for (let j = 0; j < len; j++) {
+                        oImg[j].className = '';
+                    }
+                    num++
+                    if (num > len - 1) {
+                        num = 0
+                    }
+                    textNum.innerText = num + 1
+                    content.innerText = Arr[num]
+                    oImg[num].className = 'on'
+                }
+                //上一张
+                prev.onclick = function () {
+                    for (let j = 0; j < len; j++) {
+                        oImg[j].className = '';
+                    }
+                    num--
+                    if (num < 0) {
+                        num = len - 1
+                    }
+                    content.innerText = Arr[num]
+                    textNum.innerText = num + 1
+                    oImg[num].className = 'on'
+                }
+            }
+    </script>
+</body>
+
+</html>
+<!--这就是网页的基本样式-->

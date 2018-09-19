@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #box{
+                width:700px;
+                height:742px;
+                margin:100px auto 0;
+                border-radius: 5px;
+            }
+            #box>.title{
+                line-height:40px;
+                background-color: #2c3f51;
+            }
+            #box>.title>h2{
+                color:#fff;
+                font-weight:100;
+                text-align: center;
+            }
+            #box>.tool{
+
+            }
+            #box>.tool>ul{
+                padding:10px 20px 3px;
+                border:1px solid #ebebeb;
+                line-height:40px;
+                font-size:20px;
+            }
+            #box>.tool>ul>li{
+                display:inline-block;
+                margin:0 10px;
+            }
+            #box>.container{
+                position: absolute;
+                width: 542px;
+                height:635px;
+                background-image: url("images/timg.jpg");
+                background-size:100% 100%;
+                opacity: .8;
+            }
+            #box .chat{
+                width:540px;
+                height:465px;
+                padding-top:10px;
+                border-style:solid;
+                border-width:0 1px 0;
+                border-color:#ebebeb;
+
+            }
+            #box .chat>li{
+                height:30px;
+                margin-top: 20px;
+            }
+            #box .chat>li>span{
+                position: absolute;
+                right:50px;
+                padding:5px;
+                background-color: #1b4aa2;
+                color:#fff;
+                border-radius:5px;
+                font-size: 15px;
+            }
+            #box .input{
+                position: absolute;
+                width: 540px;
+            }
+            #box .input>.button{
+                position: absolute;
+                right:15px;
+                bottom:10px;
+                width: 90px;
+                line-height: 30px;
+                background-color: #1b4aa2;
+                color:#fff;
+                text-align:center;
+                border-radius:4px;
+                cursor: pointer;
+            }
+            #box .input>.button:hover{
+                background-color: #688ccf;
+            }
+            #box>.right{
+                float:right;
+                width:158px;
+                height:634px;
+                border-style:solid;
+                border-width:0 1px 1px 0;
+                border-color:#ebebeb;
+
+            }
+            #box>.right>.top{
+                height:165px;
+                padding:10px;
+                border-bottom:1px solid #ebebeb;
+            }
+            #box>.right .h3{
+                font-size:18px;
+                font-weight: 400;
+            }
+            #box>.right>.top>.text{
+                margin-top:5px;
+                line-height: 20px;
+                font-size:10px;
+                color:#797979;
+            }
+            #box>.right>.bottom{
+                padding:10px;
+            }
+            #box>.right>.bottom>ul{
+                margin-top:15px;
+            }
+            #box>.right>.bottom img{
+                display:inline-block;
+                width:20px;
+                height:20px;
+                border-radius:10px;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div class="title">
+                <h2>48期JavaScript学习群</h2>
+            </div>
+            <div class="tool">
+                <ul>
+                    <li>聊天</li>
+                    <li>公告</li>
+                    <li>相册</li>
+                    <li>文件</li>
+                    <li>活动</li>
+                    <li>设置</li>
+                </ul>
+            </div>
+            <div class="container">
+                <ul class="chat"></ul>
+                <div class="input">
+                    <textarea cols="74" rows="10" style="resize:none;border:1px solid #ebebeb; width:536px;height: 154px;outline: none;"></textarea>
+                    <div class="button">发送</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h3 class="h3">群通知</h3>
+                    <ul class="text">
+                        <li>阿飞飞最帅</li>
+                        <li>阿飞飞最帅</li>
+                        <li>阿飞飞最帅</li>
+                        <li>阿飞飞最帅</li>
+                    </ul>
+                </div >
+                <div class="bottom">
+                    <h3 class="h3">群成员</h3>
+                    <ul>
+                        <li>
+                            <img src="" alt="">
+                            <span>一叶扁舟</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            let oBut=document.getElementsByClassName('button')[0],
+                oText=document.getElementsByTagName('textarea')[0],
+                oChat=document.getElementsByClassName('chat')[0];
+            oBut .onclick = function () {
+                oChat .innerHTML +='<li><span>'+oText.value+'</span></li>';
+                oText .value='';
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>奔跑</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #warp{
+                width: 261px;
+                margin:100px auto ;
+            }
+            #warp img{
+                width: 50px;
+                height: 56px;
+                vertical-align: middle;
+
+            }
+            #warp textarea{
+                width: 200px;
+                height: 50px;
+                border: 1px solid #000;
+                resize: none;
+                outline:none;
+                vertical-align: middle;
+            }
+            input{
+                float: right;
+            }
+            ul li{
+                margin-top: 30px;
+                padding-bottom: 10px;
+                text-indent: 15px;
+                line-height: 20px;
+                font-size: 18px;
+                color: pink;
+                border-bottom: 1px  dashed #000;
+            }
+        </style>
+        <script>
+            window.onload=function (){
+                let oImg=document.getElementById('img'),
+                    oPut=document.getElementById('put'),
+                    oBtn=document.getElementById('btn'),
+                    oUl=document.getElementById('ul');
+                let src="images/2.gif"
+                let src1="images/1.jpg"
+                let img=oImg;
+                let boll=true;
+                oImg.onclick=function (){
+                    boll? oImg.src=src:oImg.src=src1;
+                    boll=!boll;
+                }
+                oBtn.onclick=function (){
+                    if( boll) {
+                       oUl.innerHTML += '<li>' +
+                            '<img src="images/1.jpg" style="margin-right: 10px;">' +
+                            oPut.value + '</li>';
+                        oPut.value = '';
+                    }
+                    else{
+                        oUl.innerHTML += '<li>' +
+                            '<img src="images/2.gif" style="margin-right: 10px;">' +
+                            oPut.value + '</li>';
+                        oPut.value = '';
+                    }
+                    console.log(oBtn);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="warp">
+            <img    id="img" src="images/1.jpg" alt="">
+            <textarea  id="put"  id="show" ></textarea>
+            <input id="btn" type="submit">
+            <ul id="ul">
+            </ul>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

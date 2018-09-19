@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #wrap{
+            margin:100px auto 0;
+            width:100px;
+            height:100px;
+            background-color:pink;
+            font-size:32px;
+            font-family:serif;
+            text-shadow:0 0 12px #00e5ff;
+            line-height:100px;
+            color:purple;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap"></div>
+    <script>
+        document.getElementById("wrap").onclick = function(){
+            document.getElementById("wrap").innerHTML="杨森岚";
+        };
+    </script>
+</body>
+</html>

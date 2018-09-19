@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="小夜">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:500px;
+                height:100%;
+                margin:0 auto;
+            }
+            ul{
+                list-style:none;
+            }
+            li{
+                height:20px;
+                line-height:20px;
+                margin:5px;
+                border-bottom:2px #eee solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea rows="20" cols="75" ></textarea>
+            <input type="button" class="btn" value="确定" style="margin:0 0 5px 450px">
+            <ul class="centent">     </ul>
+        </div>
+
+        <script>
+            let oCen = document.getElementsByClassName('centent')[0],
+                oText = document.getElementsByTagName('textarea')[0],
+                oBtn = document.getElementsByClassName('btn')[0];
+            oBtn.onclick = function(){
+                oCen.innerHTML = '<li>'+ oText.value +'</li>';
+                oText.value = '';
+            }
+        </script>
+    </body>
+</html>

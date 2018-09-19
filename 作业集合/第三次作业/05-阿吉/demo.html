@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:500px;
+            height:200px;
+            margin:auto;
+        }
+        .box textarea{
+            width:100%;
+            height:100px;
+        }
+        #content{
+            width:500px;
+            margin:auto;
+        }
+        #content p{
+            line-height:50px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <textarea id="ta">
+        </textarea>
+        <input type="submit" id='sub'>
+    </div>
+    <div id='content'></div>
+    </div>
+    <script>
+        document.getElementById("sub").onclick=function(){
+            let text=document.getElementById("ta").value;
+            console.dir(document.getElementById("ta"));
+            let oContent=document.getElementById("content");
+            oContent.innerHTML+="<p>"+text+"</p>";
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #wrap{
+                width:440px;
+                margin: auto;
+            }
+                #wrap #content{
+                    width: 440px;
+                    /* height: 200px;
+                    background-color: antiquewhite; */
+                }
+                #wrap #content p{
+                    margin: 0;
+                    font-size: 13px;
+                }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea style="width:440px;height:100px;"></textarea>
+            <button style="float:right;">提交</button>
+            <div id="content"></div>
+        </div>
+        <script>
+            let oWrap=document.getElementById("wrap");      
+            let con=document.getElementById("content");
+            let oTextarea=oWrap.getElementsByTagName("textarea");
+            let btn=oWrap.getElementsByTagName("button");
+          
+            btn[0].onclick=function(){
+               let value= oTextarea[0].value;
+               con.innerHTML+="<p>"+value+"</p>"+"<hr>";
+               oTextarea[0].value="";
+            }
+        </script>
+    </body>
+</html>

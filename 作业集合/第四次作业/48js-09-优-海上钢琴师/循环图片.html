@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>循环图片</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{background-color: #eee;}
+		li{
+			list-style: none;
+		}
+		
+		#box{
+			width: 450px;
+			margin:50px auto;
+		}
+		.btn{
+			height: 30px;
+		}
+		.btn span{
+			float: left;
+			width: 75px;
+			height: 30px;
+			margin-right:5px;
+			text-align:center;
+			line-height: 30px;
+			background: #aaa;
+			cursor: pointer;
+			color:#fff;
+		}
+		.btn span.on{
+			background: #f60;
+		}
+
+		.banner{
+			position: relative;
+			width: 100%;
+			height: 300px;
+		}
+		.banner>ul{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.banner li{
+			display: none;
+
+		}
+		.banner li.on{
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		.banner p{
+			position: absolute;
+			height: 30px;
+			width: 100%;
+			text-align: center;
+			line-height: 30px;
+			font-size:26px;
+			background: #666;
+			color:white;
+			opacity:0.7;
+		}
+		.top{
+			top: 0;
+		}
+		.bottom{
+			bottom: 0;
+		}
+		.banner p.btn{
+			height: 70px;
+			width: 35px;
+			top:50%;
+			margin-top:-35px;
+			line-height: 70px;
+			text-align: center;
+			font-size:30px;
+			cursor: pointer;
+		}
+		.banner p.right{
+			right: 0;
+		}
+		
+	</style>
+</head>
+<body>
+    <div id="box">
+    	<div class="btn">
+    		<span  class="on">单边切换</span>
+    		<span>循环切换</span>
+    	</div>
+    	<div class="banner">
+    		<ul>
+    			<li class="on" style="background:url('img/RNG.jpg') no-repeat"></li>
+    			<li style="background:url('img/EDG.jpg') no-repeat"></li>
+    			<li style="background:url('img/JDG.jpg') no-repeat"></li>
+    			<li style="background:url('img/WE.jpg') no-repeat"></li>
+    			<li style="background:url('img/LGD.jpg') no-repeat"></li>
+    		</ul>
+    		<p class="top"><span>1</span>/5</p>
+    		<p class="bottom">RNG</p>
+    		<p class="btn left">&lt;</p>
+    		<p class="btn right">&gt;</p>
+    	</div>
+    </div>
+    <script type="text/javascript">
+    	let leftBtn=document.getElementsByClassName("left")[0],
+    		rightBtn=document.getElementsByClassName("right")[0]
+    		oLi=document.getElementsByTagName("li"),
+    		oNum=document.querySelector(".top span"),
+    		oBottom=document.getElementsByClassName("bottom")[0],
+    		oModel=document.querySelectorAll(".btn span"),
+    		oValue=["RNG","EDG","JDG","WE","LGD"];
+    		num=0,
+    		mask=false,
+    		max=oLi.length-1;
+
+    	//单边模式
+    	oModel[0].onclick=function(){
+    		this.className="on";
+    		oModel[1].className="";
+    		mask=false;
+    	}
+    	//循环模式
+    	oModel[1].onclick=function(){
+    		this.className="on";
+    		oModel[0].className="";
+    		mask=true;
+    	}
+    	//右侧点击事件	
+    	rightBtn.onclick=function(){
+    		oLi[num].className="";
+    		num++;
+    		if(num>max)mask?num=0:num=max;
+    		changeStyle(num);
+    	}
+    	//左侧点击事件
+    	leftBtn.onclick=function(){
+    		oLi[num].className="";
+    		num--;
+    		if(num<0)mask?num=max:num=0;
+    		changeStyle(num);
+    	}
+    	//更改样式，抽出为公共
+    	function changeStyle(num){
+    		oNum.innerHTML = num+1;
+    		oBottom.innerHTML = oValue[num];
+    		oLi[num].className="on";
+    	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+  div{
+  		width:400px;
+  		 
+  		border:1px solid green;
+
+  }
+  p{
+  	border:1px solid green;
+  }
+  ul{
+
+  		width:300px;
+  		padding: 0; 
+  		 
+
+  }
+
+</style>
+</head>
+<body>
+ <div id="box">
+	 <input type="" name="" value=" " id="ipt">
+	<button id="btn">123</button>
+	<ul id="list">
+	</ul>
+ </div>	
+    <script type="text/javascript">
+    	let bot = document.getElementById("btn"),
+    		ipt = document.getElementById('ipt'),
+    		olist = document.getElementById('list');
+    		
+ 			 
+
+    		bot.onclick = function(){
+			 let x  = `<li>${ipt.value}</li>` 
+
+    		 olist.innerHTML += x;
+    		 ipt.value = ' '
+
+    			 
+    			 
+    			
+
+
+
+    		}
+    </script>
+</body>
+</html>

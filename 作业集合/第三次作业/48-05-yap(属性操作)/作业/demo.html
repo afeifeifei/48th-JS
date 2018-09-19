@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>demo</title>
+        <link href="../css/reset9.css">
+        <style>
+            #search{
+                width: 500px;
+                height: 600px;
+                margin: 0 auto;
+            }
+
+            #search  .searchBox{
+                display:block;
+                margin: 0 auto;
+            }
+            #search .btn{
+                display: block;
+                margin-top: 20px;
+                margin-left: 330px;
+            }
+            #search .list{
+                display: block;
+            }
+            #search .list li{
+                font-size: 15px;
+                line-height: 22px;
+                background-color: #ccc;
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="search">
+            <input class="searchBox" type="text">
+            <button class="btn">按钮</button>
+            <ul class="list">
+
+            </ul>
+        </div>
+        <script>
+            let oSearchBox=document.getElementsByClassName("searchBox");
+            let oBtn=document.getElementsByClassName("btn");
+            let oList=document.getElementsByClassName("list");
+            oBtn[0].onclick=function (){
+                    oList[0] .innerHTML += '<li>'+oSearchBox[0].value+'</li>';
+                    oSearchBox[0].value='';
+                }
+                /*
+                    找了半天,还偷瞄了大佬的作业才发现 这个+ 号真的是致命
+                    但是...大佬们为啥用if 我就很无奈了..看不懂,但是不用if效果也是有的啊......
+                 */
+        </script>
+    </body>
+</html>

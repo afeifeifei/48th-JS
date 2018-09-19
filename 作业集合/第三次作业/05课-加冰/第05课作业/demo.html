@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body {
+                background-color: aliceblue;
+            }
+            .box {
+                margin: 30px auto 0;
+                width: 300px;
+                background-color: beige;
+            }
+            clearfix:after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            #writer{
+                float: left;
+                display: inline-block;
+                height: 150px;
+                width: 294px;
+                resize: none;
+                outline: none;
+                border: none;
+                margin: auto;
+            }
+            #sender {
+                float: right;
+                margin-top: 10px;
+            }
+            #recorder {
+                float: left;
+                width: 300px;
+                height: 30px;
+                background-color: #fff;
+            }
+            #recorder li {
+                display: inline-block;
+                width: 300px;
+                height: 30px;
+                border-bottom: 1px solid #ccc;
+                background-color: #fff;
+                font-size: 14px;
+                font-weigth: 600;
+                text-shadow: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box clearfix">
+            <textarea value="你能不能上去？？？" id="writer"></textarea>
+            <button id="sender">提交</button>
+            <ul id="recorder"></ul>
+        </div>
+        <script>
+            let oSender = document.getElementById("sender");
+            let oWriter = document.getElementById("writer");
+            let oRecorder = document.getElementById("recorder");
+            oSender.onclick = function(){
+                oRecorder.innerHTML += '<li>' + oWriter.value + '</li>'
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

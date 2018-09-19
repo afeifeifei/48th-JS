@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #chat{
+                width:473px;
+                margin:auto;
+                overflow:auto;
+
+            }
+            #chat>button{
+                display:inline-block;
+                float:left;
+                width:100px;
+                height:306px;
+                margin:auto;
+            }
+            #record{
+                display:block;
+                width:473px;
+                margin:40px auto 0;
+            }
+            #record>li{
+                height: 20px;
+                border-bottom:1px dashed #888;
+                line-height:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="chat">
+            <textarea cols="50" rows="20" style="resize:none;float:left;"></textarea>
+            <button>提交</button>
+        </div>
+        <ul id="record">
+        </ul>
+        <script>
+            let oTextarea = document.getElementsByTagName('textarea')[0],
+                oButton=document.getElementsByTagName("button")[0],
+                oRecord = document.getElementById("record");
+            oButton.onclick = function () {
+                oRecord .innerHTML += '<li>'+oTextarea.value+'</li>';
+                oTextarea.value='';
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

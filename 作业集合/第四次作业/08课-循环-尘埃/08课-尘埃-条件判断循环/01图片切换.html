@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        a{text-decoration: none;}
+        #wrap{
+            position: relative;
+            width:650px;
+            height:410px;
+            border:2px solid red;
+            margin:50px auto;
+        }
+        li {
+            position: absolute;
+            top:0;
+            opacity: 0;
+        }
+        li.active{
+            opacity: 1;
+        }
+        img{
+            display: block;
+            width:100%;
+            height: 100%;
+            border:0;
+        }
+        p{
+            position: absolute;
+            top:0;
+            width:100%;
+            height: 36px;
+            background-color:rgba(0,0,0,.77);
+            text-align:center;
+            line-height: 36px;
+            color:blanchedalmond;
+        }
+        .info{top:auto;bottom:0;}
+        button{
+            position: absolute;
+            top:50%;
+            transform: translateY(-50%);
+            width:36px;
+            height: 45px;
+            border:0;
+            outline: none;
+            font-size:24px;
+            background-color:rgba(100, 0, 0, 0.808);
+        }
+        button:hover{background-color:rgba(0,0,0,.85);color:white;}
+        .left{ left:0;}
+        .right{ right:0}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="banner">
+            <ul>
+                <li class="active"><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+            </ul>
+        </div>
+
+        <p><span class="title"></span>/5</p>
+
+        <button class="left">&lt;</button>
+        <button class="right">&gt;</button>
+
+        <p class="info">text container</p>
+    </div>
+    <script>
+        (function(){
+            var site = 0,
+                oBtn = document.getElementsByTagName("button"),
+                oP   = document.getElementsByTagName("p")[1],
+                oSpan=document.getElementsByTagName("span")[0];
+                oLi  = document.getElementsByTagName("li"),
+                info = ["闯关模式","第二张","第三张","第四张","无尽模式"];
+
+            oSpan.innerHTML = site+1;
+            oP.innerHTML = info[0];     //初始信息
+
+            oBtn[0].onclick = function(){
+                oLi[site].style.opacity = 0;
+                site--;
+                site = btnUp(site);
+
+                changeAttr();
+            };
+
+            oBtn[1].onclick = function(){
+                oLi[site].style.opacity = 0;
+                site++;
+                site = btnNext(site);
+
+                changeAttr();
+            };
+
+                function changeAttr(){
+                    oLi[site].style.opacity =1;
+                    oSpan.innerHTML = site+1;
+                    oP.innerHTML = info[site];
+                }
+                function btnNext(a){
+                    return  a < 5 ? a:0;
+                }
+                function btnUp(a){
+                    return a >=0 ? a:4;
+                }
+        })();
+    </script>
+</body>
+</html>

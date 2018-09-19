@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-Lxoxo">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:80%;
+                margin:100px auto;
+            }
+            #wrap button{
+                width:100px;
+                background-color:#000;
+                margin-bottom:50px;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button id="incbtn">+</button>
+            <button id="decbtn">-</button>
+            <p class="Paragraf">
+                别再说，地铁太挤工作不易，你可曾见过火车上肩扛手提，许多我们叫爸的人拖着比自己都高的行李奔赴生计压力太大生活艰辛，
+                你可曾知道有人已经年逾古稀依然起早贪黑，只为解决一家温饱！灯红酒绿索然无味，你可曾想过穿梭城市的民工也许连一瓶矿泉水都很心
+                珍惜！
+            </p>
+            <p class="Paragraf">
+                生活就如同时间一样，对每一个人都是一样的。但是却因为人与人思想、思维、心态等不同便出现了不同的生活局面，有的人过得贫苦心酸，
+                有的人过得衣食无忧，有的人过得锦衣玉食。 面对如此落差的生活，自然就会心生埋怨或牢骚满腹。但是，我们可有进行过深层次的分析
+            </p>
+            <img src="images/1.jpg">
+            <p class="Paragraf">
+                生活不如意十之八九，因此，我们总是不满意的多。人的满意分为两种，一种对自身的，一种是对外界的。外界我们控制不了，外界常常令
+                我们促不及防的产生不愉快，如下班时今天没赶上末班车，早上上班时堵车，这些外界的不愉快不可避免的会影响我们自己的不满意，努力
+                成功
+            </p>
+            <p class="Paragraf">
+                梯子的梯阶从来不是用来搁脚的，它只是让人们的脚放上一段时间，以便让别一只脚能够再往上登。 山路曲折盘旋，但毕竟朝着顶峰延伸。
+                只有登上山顶，才能看到那边的风光。 即使道路坎坷不平，车轮也要前进；即使江河波涛汹涌，船只也航行。 只有创造，才是真正的享受
+            </p>
+        </div>
+        
+        <script>
+            let oIncbtn=document.getElementById("incbtn");
+            let oDecbtn=document.getElementById("decbtn");
+            let oP=document.getElementsByClassName("Paragraf");
+            let index=1;
+            // let oP=document.querySelectorAll("#wrap p");
+            oIncbtn.onclick=function () {
+                if(index<6) {
+                    index++;
+                    for(let i=0;i<oP.length;i++)
+                        oP[i].style.fontSize=index*10+'px';
+                }
+            }
+
+            oDecbtn.onclick=function () {
+                if(index>1) {
+                    index--;
+                    for(let i=0;i<oP.length;i++)
+                        oP[i].style.fontSize=index*10+'px';
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

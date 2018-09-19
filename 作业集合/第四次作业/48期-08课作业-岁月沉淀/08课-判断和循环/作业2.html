@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        .box{
+            width:1200px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        .box span{
+            display: inline-block;
+            width: 60px;
+            height: 25px;
+            line-height: 25px;
+            margin-right: 10px;
+            text-align: center;
+            background: #191a15;
+            color: #fff;
+            user-select: none;
+        }
+        .box p{
+            font-size: inherit;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="box">
+        <span>+</span><span>-</span>
+        <div>
+            <p>真人赌场游戏，性感荷官在线发牌</p>
+            <p>陪您嗨翻天，给您不一样的博彩体验</p>
+            <img src="images/IMG_1025.JPG" alt="">
+        </div>
+    </div>
+    <script>
+        let oSpan = document.querySelectorAll('.box span');
+        let oP = document.querySelector('.box  div');
+        let index = 14;
+        oSpan[0].onclick = function(){
+            index++;
+            oP.style.fontSize = index+"px"
+        }
+        oSpan[1].onclick = function(){
+            index--;
+            oP.style.fontSize = index+"px"
+        }
+
+    </script>
+</body>
+</html>

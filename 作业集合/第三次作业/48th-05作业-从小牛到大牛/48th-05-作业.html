@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width:500px;
+                margin:50px auto;
+            }
+            #wrap input[type=text]{
+                width:500px;
+                height:300px;
+            }
+            #submit{
+                height:30px;
+                padding-top:10px;
+                border-bottom:1px solid #999;
+            }
+            #submit img{
+                float:left;
+                width:30px;
+                height:30px;
+                border-radius:20px;
+            }
+            #submit #btn{
+                float:right;
+            }
+            #list{
+                height:40px;
+                line-height:40px;
+                font-size:20px;
+            }
+            #list p{
+                border-bottom:1px dotted #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <input id="inp" type="text">
+            <div id="submit">
+                <img src="images/1.jpg" width='220' height='300' alt="?">
+                <button id="btn">提交</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        
+        <script>
+            let btn = document.getElementById("btn");
+            let text = document.getElementById("inp");
+
+            btn.onclick = function () {
+                let value = text.value;
+                if(value.length!=0){
+                    document.getElementById("list").innerHTML += `<p>${value}</p>`;
+                    text.value = '';
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

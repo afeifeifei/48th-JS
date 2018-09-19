@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:400px;
+                margin:50px auto;
+            }
+            #input{
+                width:100%;
+                height:218px;
+            }
+            #tArea{
+                width:394px;
+                height:180px;
+                resize:none;
+                font-family: "Microsoft Himalaya",Serif;
+                font-size:20px;
+            }
+            #list{
+                margin-top: 30px;
+            }
+            #list li{
+                font-size: 14px;
+                text-indent: 2em;
+                line-height:18px;
+                border-bottom: 1px dotted #999;
+                margin:10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="input">
+                <textarea id="tArea"></textarea>
+                <button id="btn">提交</button>
+            </div>
+            <ul id="list">
+
+            </ul>
+        </div>
+
+        <script>
+            //(在同一个作用域中)let不能两次定义一个变量
+            //对象的 . 操作添加属性等是不需要也不能let的
+            //一个let可以用,隔开定义多个变量
+            let oArea = document.getElementById("tArea"),
+                oBtn = document.getElementById("btn"),
+                oList = document.getElementById("list");
+            //给btn加点击事件
+            oBtn.onclick = function(){
+                let val = oArea.value;
+                //alert{val}
+                let a = "<li>"
+                a += val;
+                a +="</li>";
+                oList.innerHTML += a;
+                oArea.value = "";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

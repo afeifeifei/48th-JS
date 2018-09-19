@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position:relative;
+                margin:auto;
+                margin-top:100px;
+                width:658px;
+                height:411px;
+                background-color:grey;
+            }
+            #btn {
+                position:relative;
+                margin:auto;
+                margin-top:30px;
+                width:140px;
+            }
+            #btn button{
+                background-color: darkgrey;
+            }
+            #normal{
+                margin-right:10px;
+            }
+            #wrap ul{
+                width:658px;
+                height:411px;
+            }
+            #wrap ul #first{
+                position:absolute;
+                top:0;
+                left:0;
+                width:658px;
+                height:411px;
+                background-image: url("1.jpg");
+                z-index:1;
+            }
+            #wrap ul #second{
+                position:absolute;
+                top:0;
+                left:0;
+                width:658px;
+                height:411px;
+                background-image: url("2.jpg");
+            }
+            #wrap ul #third{
+                position:absolute;
+                top:0;
+                left:0;
+                width:658px;
+                height:411px;
+                background-image: url("3.jpg");
+            }
+            #wrap ul #fourth{
+                position:absolute;
+                top:0;
+                left:0;
+                width:658px;
+                height:411px;
+                background-image: url("4.jpg");
+            }
+            #wrap ul #fifth{
+                position:absolute;
+                top:0;
+                left:0;
+                width:658px;
+                height:411px;
+                background-image: url("5.jpg");
+            }
+            #wrap ul li .top {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                font-size: 18px;
+                color: white;
+                text-align: center;
+                line-height: 30px;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            #wrap ul li .bottom {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                font-size: 18px;
+                color: white;
+                text-align: center;
+                line-height: 30px;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            #wrap ul li .left{
+                position:absolute;
+                top:0;
+                bottom:0;
+                left:0;
+                margin:auto;
+                width:30px;
+                height:30px;
+                font-size:18px;
+                color:white;
+                text-align: center;
+                line-height: 30px;
+                background-color: rgba(0,0,0,0.5);
+            }
+            #wrap ul li .right{
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                margin:auto;
+                width:30px;
+                height:30px;
+                font-size:18px;
+                color:white;
+                text-align: center;
+                line-height: 30px;
+                background-color: rgba(0,0,0,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li id="first">
+                    <p class="top">1/5</p>
+                    <p class="bottom">植物</p>
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </li>
+                <li id="second">
+                    <p class="top">2/5</p>
+                    <p class="bottom">大战</p>
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </li>
+                <li id="third">
+                    <p class="top">3/5</p>
+                    <p class="bottom">植物大战</p>
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </li>
+                <li id="fourth">
+                    <p class="top">4/5</p>
+                    <p class="bottom">植物大战僵尸</p>
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </li>
+                <li id="fifth">
+                    <p class="top">5/5</p>
+                    <p class="bottom">植物大战僵尸中文版</p>
+                    <p class="left">&lt;</p>
+                    <p class="right">&gt;</p>
+                </li>
+            </ul>
+        </div>
+        <div id="btn">
+            <button id="normal">normal</button>
+            <button id="circulate">circulate</button>
+        </div>
+        <script>
+            let oNormal = document.getElementById("normal");
+            let oCirculate = document.getElementById("circulate");
+            let oLeft = document.querySelectorAll("#wrap .left");
+            let oRight = document.querySelectorAll("#wrap .right");
+            let oLi = document.querySelectorAll("#wrap ul li");
+            let num = 0;
+            oNormal.onclick = function(){
+                oNormal.style.backgroundColor = "red";
+                oNormal.style.color = "white";
+                oCirculate.style.backgroundColor = "darkgrey";
+                oCirculate.style.color = "black";
+                for(let i = 0;i<5;i++) {
+                    oRight[i].onclick = function () {
+                        if (num < 5) {
+                            oLi[num].style.zIndex = 0;
+                            oLi[num+1].style.zIndex = 1;
+                            num++;
+                        }else{}
+                    }
+                }
+                for(let i = 0;i<5;i++) {
+                    oLeft[i].onclick = function () {
+                        if (num > 0) {
+                            oLi[num].style.zIndex = 0;
+                            oLi[num-1].style.zIndex = 1;
+                            num--;
+                        }else{}
+                    }
+                }
+            }
+            oCirculate.onclick = function(){
+                oCirculate.style.backgroundColor = "red";
+                oCirculate.style.color = "white";
+                oNormal.style.backgroundColor = "darkgrey";
+                oNormal.style.color = "black";
+                for(let i = 0;i<5;i++) {
+                    oRight[i].onclick = function () {
+                        if (num < 4) {
+                            oLi[num].style.zIndex = 0;
+                            oLi[num+1].style.zIndex = 1;
+                            num++;
+                        }else if(num >= 4){
+                            oLi[num].style.zIndex = 0;
+                            num = 0;
+                            oLi[num].style.zIndex = 1;
+                        }
+                    }
+                }
+                for(let i = 0;i<5;i++) {
+                    oLeft[i].onclick = function () {
+                        if (num > 0) {
+                            oLi[num].style.zIndex = 0;
+                            oLi[num-1].style.zIndex = 1;
+                            num--;
+                        }else if(num <= 0){
+                            oLi[num].style.zIndex = 0;
+                            num = 4;
+                            oLi[num].style.zIndex = 1;
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

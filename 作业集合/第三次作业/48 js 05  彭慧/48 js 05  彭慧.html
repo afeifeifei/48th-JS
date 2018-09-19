@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#add{
+			width:400px;
+			height:800px;
+			margin: auto;
+			
+		}
+		#add textarea{
+			width:100%;
+			height:140px;
+			outline:none;
+			text-align: left;
+			resize: none;
+			padding:0;
+		}
+		#add button{
+			display:block;
+			float:right;
+		}
+		#add>div{
+			width:100%;
+			margin-top: 50px;
+		}
+		#add>div>p{
+			width:100%;
+			padding-bottom: 10px;
+			margin:10px auto 0;
+			border-bottom:1px solid #808082;
+		}
+	</style>
+	<body>
+		<div id="add">
+			<textarea rows="1" cols="100" autofocus="true"></textarea>
+			<button id="button">提交</button>
+			<div>
+				
+			</div>
+		</div>
+	</body>
+	<script>
+		let oAdd=document.getElementById("add");
+		let text=oAdd.querySelector("#add textarea");
+		let oAddp=oAdd.querySelector("#add div");
+		console.log(oAdd);
+//		let oAdd=document.querySelectorAll("#add");
+//		console.log(oAdd)
+		
+		document.getElementById("button").onclick= function(){
+			oAddp.innerHTML +="<p>"+text.value+"</p>";
+			text.value=" ";
+		}
+	</script>
+</html>

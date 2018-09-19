@@ -1,0 +1,62 @@
+<!doctype html> <!--网页文档-->
+<html>
+ <head> <!--用户看不到-->
+	  <meta charset="UTF-8"><!--万国码-->
+	  <title>傲雪凌霜</title><!--标题-->
+	  <meta name="Keywords" content="潭州课堂"> <!--搜索关键字-->
+	  <meta name="Description" content="很幸运来到潭州课堂"> <!--网页描述-->
+	  	<meta name='author' content='JavaScript'>
+	  <style>
+		body{
+			font-family: "微软雅黑",serif;
+		}
+		body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+			margin:0;
+		}
+		ol,ul,li{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		img{
+			border:none;
+		}
+		input[type=text]{
+			display:block;
+			width:400px;
+			height:200px;
+			margin:auto;
+			background-color:#fff;
+			border:1px solid #999;
+		}
+		input[type=button]{
+			display:block;
+			margin-left:61%;
+		}
+		.content{
+			width:400px;
+			height:300px;
+			margin:auto;
+			background-color:lightblue;
+		}
+		.content li{
+			border-bottom:1px solid #666;
+			line-height:50px;
+		}
+	  </style>
+ </head>
+ <body>
+ 	<input class="text" type="text" />
+ 	<input class="btn" type='button' value="提交" />
+ 	<ul class="content">
+ 	</ul>
+ 	<script>
+ 		let oText=document.getElementsByClassName("text")[0];
+ 		let oBtn=document.getElementsByClassName("btn")[0];
+ 		let oContent=document.getElementsByClassName("content")[0];
+ 		oBtn.onclick=function(){
+ 			oContent.innerHTML += "<li>" + oText.value + "</li>";
+ 		}
+ 	</script>
+ </body>	
+</html>

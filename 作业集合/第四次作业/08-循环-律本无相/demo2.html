@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+	<meta charset="utf-8">
+	<title>字体缩放</title>
+	<meta name="KeyWords" content="字体缩放,律本无相~">
+	<style>
+		body{
+			margin:0;
+			padding:0;
+			background:linear-gradient(rgba(0,0,0,0.16),rgba(255,255,255,0.6));
+		}
+		.btn{
+			position:absolute;
+			top:10px;
+			left:50%;
+			width:200px;
+			margin:auto;
+			margin-left:-100px;
+			overflow:hidden;
+		}
+		#big,
+		#small{
+			display:inline-block;
+			width:30px;
+			height:30px;
+			margin-right:5px;
+			border-radius:4px;
+			border:1px solid #e5e5e5;
+			background-color:#ff0036;
+			text-align:center;
+			line-height:30px;
+			color:#fff;
+			cursor:pointer;
+			transition:0.5s 0.3s;
+		}
+		#big:hover,
+		#small:hover{
+			color:#ff0036;
+			background-color:rgba(255,255,255,0.8);
+		}
+		.lrcbox{
+			width:400px;
+			margin:50px auto;
+			text-align: center;
+			font-size:14px;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn">
+		字体大小：
+			<span id="big">+</span>
+			<span id="small">-</span>
+	</div>
+	<div class="lrcbox">
+		<p>Time after time～在落花纷飞的街道上～</p>
+		<p>作词 : 倉木麻衣</p>
+
+		<p>編曲：Cybersound</p>
+
+		<p>もしも君に巡り逢えたら</p>
+		<p>如果上天让你我再次相遇</p>
+		<p>二度と君の手を離さない</p>
+		<p>我绝对不会再次松开你的手</p>
+		<p>春の終わり告げる 花御堂(はなにど)</p>
+		<p>在这个宣告春季结束的佛之花殿</p>
+		<p>霞む花 一枚</p>
+		<p>朦胧的花朵一瓣飘零</p>
+		<p>蘇(よみがえ)る 思い出の歌</p>
+		<p>记忆中的歌声缓缓的苏醒</p>
+		<p>この胸に 今も優しく</p>
+		<p>至今还在胸中的温柔回荡</p>
+		<p>Time after time</p>
+		<p>一次又一次</p>
+		<p>君と出逢った奇跡</p>
+		<p>与你相遇的奇迹</p>
+		<p>緩やかな風吹く街で</p>
+		<p>在那微风缓缓吹过的街道</p>
+		<p>そっと手を繋ぎ 歩いた坂道</p>
+		<p>悄悄的牵着手一起走过的坡道</p>
+		<p>今も忘れない約束</p>
+		<p>直到如今也无法忘记的约定</p>
+		
+	</div>
+
+	<script>
+		let bigBtn = document.getElementById('big'),
+			smallBtn = document.getElementById('small'),
+			otext = document.getElementsByClassName('lrcbox')[0];
+		let fontSize = 14;
+
+		console.log(otext.style.fontSize);
+		bigBtn.onclick = function(){
+			fontSize<24 && fontSize++;
+			otext.style.fontSize = fontSize +"px";
+		};
+		smallBtn.onclick = function(){
+			fontSize>10 && fontSize--;
+			otext.style.fontSize = fontSize +"px";
+		};
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

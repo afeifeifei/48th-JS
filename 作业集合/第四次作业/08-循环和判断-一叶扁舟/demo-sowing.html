@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            a{color:#fff;text-decoration: none;}
+            #wrap{
+                position: relative;
+                width: 1000px;
+                height: 500px;
+                margin: 50px auto 0;
+                color:#fff;
+                background-color: #688ccf;
+            }
+            #wrap ul>li{
+                position: absolute;
+                top: 0;
+                width: 1000px;
+                height: 500px;
+            }
+            #wrap ul>li>img{
+                position: absolute;
+                left: 0;
+                right: 0;
+                display: none;
+                height: 100%;
+                width: auto;
+                margin:auto;
+            }
+            #wrap .top{
+                position: absolute;
+                top:0;
+                width: 100%;
+                line-height: 30px;
+                text-align: center;
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .bottom{
+                position: absolute;
+                bottom:0;
+                width: 100%;
+                line-height: 30px;
+                text-align: center;
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .arrow{
+                width: 30px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                background-color: rgba(0,0,0,.5);
+            }
+            #wrap .left{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left:0;
+                margin: auto;
+            }
+            #wrap .right{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right:0;
+                margin: auto;
+            }
+            #wrap .btn{
+                position: absolute;
+                left: 0;
+                right: 0;
+                width: 200px;
+                bottom: -50px;
+                margin: auto;
+            }
+            #wrap .color{
+                background-color: #ff0036;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li>
+                    <img src="images/1.png" width="514" height="569" alt="afeifei">
+                </li>
+                <li>
+                    <img src="images/2.jpg" width="514" height="569" alt="afeifei">
+                </li>
+                <li>
+                    <img src="images/3.jpg" width="514" height="569" alt="afeifei">
+                </li>
+                <li>
+                    <img src="images/4.jpg" width="514" height="569" alt="afeifei">
+                </li>
+                <li>
+                    <img src="images/5.jpg" width="514" height="569" alt="afeifei">
+                </li>
+            </ul>
+            <p class="top">1/5</p>
+            <p class="bottom">这个是阿飞飞</p>
+            <a class="left arrow"> &lt </a>
+            <a class="right arrow"> &gt </a>
+            <div class="btn">
+                <button class="color">正常模式</button>
+                <button>循环模式</button>
+            </div>
+        </div>
+
+        <script>
+            let oImg=document.querySelectorAll("#wrap ul>li>img"),
+                oTop=document.getElementsByClassName('top')[0],
+                oBottom=document.getElementsByClassName('bottom')[0],
+                oLeft=document.getElementsByClassName('left')[0],
+                oRight=document.getElementsByClassName('right')[0],
+                oText=["1/5","2/5","3/5","4/5","5/5"],
+                oTitle=["这个是阿飞飞","性别绝对是男的","额或许吧...","是不是很帅！","唉，又说谎了-_-||"],
+                oBnt=document.querySelectorAll("#wrap button");
+            let num=0;
+            let oImage=oImg[num];
+            let onoff=true;
+            oImage.style.display="block";
+            oBnt[0].onclick =function(){
+              onoff=true;
+              oBnt[1].className='';
+              oBnt[0].className='color';
+            };
+            oBnt[1].onclick =function(){
+                onoff=false;
+                oBnt[0].className='';
+                oBnt[1].className='color';
+            };
+            oLeft .onclick=function () {
+                num--;
+                if( num<0 ){
+                    if (onoff) {
+                        num=0;
+                    }else {
+                        num=4;
+                    };
+                };
+                oImage.style.display="none";
+                oImg[num].style.display = "block";
+                oImage=oImg[num];
+                oTop.innerHTML=oText[num];
+                oBottom.innerHTML=oTitle[num];
+            };
+            oRight .onclick=function () {
+                num++;
+                if (num > 4) {
+                    if( onoff ){
+                        num=4;
+                    }else {
+                        num=0;
+                    };
+                };
+                oImage.style.display="none";
+                oImg[num].style.display = "block";
+                oImage=oImg[num];
+                oTop.innerHTML=oText[num];
+                oBottom.innerHTML=oTitle[num];
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

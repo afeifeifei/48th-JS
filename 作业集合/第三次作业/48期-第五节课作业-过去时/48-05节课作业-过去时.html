@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #box{
+
+                width:500px;
+                margin:auto;
+                margin-top:50px;
+            }
+            #box:after{
+                content:'';
+                display:block;
+                clear:both;
+            }
+            #wrap{
+                width:100%;
+                height:100px;
+                border:1px solid;
+            }
+            .btn{
+                /*position:absolute;*/
+                float:right;
+                margin:5px 0;
+
+            }
+            #text.text{
+                margin-top:10px;
+                line-height:2;
+                border-bottom: 1px solid ;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <input id="wrap" type="text" value="">
+            <button class='btn'>提交</button>
+            <p id="text" class=""></p>
+        </div>
+
+
+        <script>
+
+            let oWrap = document.getElementById('wrap');
+            let oBtn = document.getElementsByClassName('btn');
+            let oText = document.getElementById('text')
+
+
+            // console.dir( oBtn[0].style.cssText );
+
+            oBtn[0].onclick = function (){
+                oText.innerHTML = oWrap.value
+                oText.className = 'text'
+                oWrap.value = '';
+            }
+            // oBtn[0].onclick.[oText.innerHTML] = oWrap.value = '';
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

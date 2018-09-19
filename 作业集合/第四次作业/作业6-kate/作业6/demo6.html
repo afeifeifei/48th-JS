@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>09KATE-js作业1</title>
+    <style>
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;font-size: 14px;}
+        bl,ul,li{margin:0;padding: 0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            width: 600px;
+            height: 460px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap .imgbox{
+            position: relative;
+            width: 100%;
+            height: 370px;
+        }
+        #wrap .imgbox p{
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background-color: rgba(0, 0, 0, .5);
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+        #wrap .imgbox p.bottom{
+            bottom: 0;
+        }
+        #wrap .imgbox img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #wrap .imgbox img.on{
+            display: block;
+            animation:mychange .5s;
+            -webkit-animation:mychange .5s;
+        }
+        @keyframes mychange{
+            from{opacity: 0.5}
+            to{opacity: 1}
+        }
+        #wrap .imgbox p.left,#wrap .imgbox p.right{
+            width: 35px;
+            top:50%;
+            margin-top: -15px;
+            cursor: pointer;
+        }
+        #wrap .imgbox p.left{
+            left:0;
+        }
+        #wrap .imgbox p.right{
+            right:0;
+        }
+        #wrap .btn{
+            width: 160px;
+            height: 35px;
+            margin: 35px auto 0;
+        }
+        #wrap .btn div{
+            width: 70px;
+            height: 100%;
+            background-color: #666;
+            color: #000;
+            text-align: center;
+            line-height: 35px;
+            cursor: pointer;
+        }
+        #wrap .btn div.on{
+            background-color: orangered;
+            color: #fff;
+        }
+        #wrap .btn .btnL{
+            float: left;
+        }
+        #wrap .btn .btnR{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="imgbox">
+            <img src="img/1.jpg" class="on" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+            <p class="top"><span>1</span>/5</p>
+            <p class="bottom">one</p>
+            <p class="left">&lt;</p>
+            <p class="right">&gt;</p>
+        </div>
+        <div class="btn">
+            <div class="btnL on">正常模式</div>  
+            <div class="btnR">循环模式</div>
+        </div>
+    </div>
+    <script>
+        let imgArr=document.getElementsByTagName("img"),
+            pTop=document.querySelector("#wrap .imgbox .top").querySelector("span"),
+            pBot=document.querySelector("#wrap .imgbox .bottom"),
+            pLeft=document.querySelector("#wrap .imgbox .left"),
+            pRight=document.querySelector("#wrap .imgbox .right"),
+            dLeft=document.querySelector("#wrap .btn .btnL"),
+            dRight=document.querySelector("#wrap .btn .btnR"),
+            i=0,
+            cnArr=[" on","btnL","btnR"],
+            botArr=["one","two","three","four","five"],
+            oldImg=imgArr[i],
+            btnFlag=true;//no loop
+            
+        dLeft.onclick = function(){
+            this.className += cnArr[0];
+            dRight.className = cnArr[2];
+            btnFlag = true;
+        }
+        dRight.onclick = function(){
+            this.className += cnArr[0];
+            dLeft.className = cnArr[1];
+            btnFlag = false;
+        }
+        pLeft.onclick = function(){
+            i--;
+            if(btnFlag){
+                if(i < 0){
+                    i = 0;
+                    return;
+                }
+            }else{
+                i = i<0 ? 4 : i;
+            }
+            changeImg(i);
+        }
+        pRight.onclick = function(){
+            i++;
+            if(btnFlag){
+                if(i > 4){
+                    i = 4;
+                    return;
+                }
+            }else{
+                i %= 5;
+            }
+            changeImg(i);
+        }
+        function changeImg(i){
+            oldImg.className="";
+            imgArr[i].className="on";
+            oldImg=imgArr[i];
+            pBot.innerText=botArr[i];
+            pTop.innerText=i+1;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期js-你的名字">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            span{
+                display: inline-block;
+                width: 68px;
+                height: 28px;
+                line-height: 28px;
+                text-indent: 5px;
+                margin: 5px 15px 5px;
+                border:1px solid #fff;
+                background-color: lightblue;
+            }
+            div{
+                padding-bottom: 20px;
+                border-bottom:2px solid #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="con1"></div>
+            <div id="con2"></div>
+            <div id="con3"></div>
+            <div id="con4"></div>
+        </div>
+        
+        <script>
+            let con1 =document.getElementById('con1')
+            let con2 =document.getElementById('con2')
+            let con3 =document.getElementById('con3')
+            let con4 =document.getElementById('con4')
+
+            for (let i = 1; i <= 9; i++) {
+                for (let j = 1;j <= i; j++ ){
+                    con1.innerHTML += `<span>${i}X${j}=${i*j}</span>`
+                }
+                con1.innerHTML += `<br/>`
+            }
+
+            for (let i = 9; i >= 1; i--) {
+                for (let j = i;j >=1 ; j-- ){
+                    con2.innerHTML += `<span>${i}X${j}=${i*j}</span>`
+                }
+                con2.innerHTML += `<br/>`
+            }
+
+            for (let i = 1; i <= 9; i++) {
+                for (let j = i;j <=9 ; j++ ){
+                    con3.innerHTML += `<span>${i}X${j}=${i*j}</span>`
+                }
+                con3.innerHTML += `<br/>`
+            }
+
+            for (let i = 9; i >= 1; i--) {
+                for (let j = 1;j <=i; j++ ){
+                    con4.innerHTML += `<span>${i}X${j}=${i*j}</span>`
+                }
+                con4.innerHTML += `<br/>`
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

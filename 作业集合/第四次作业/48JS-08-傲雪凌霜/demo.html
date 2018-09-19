@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>九九乘表法</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="JavaScript">
+        <style>
+            body{
+            	font-family: "Microsoft YaHei",serif;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+            	margin:0;
+            }
+            ol,ul,li{
+            	margin:0;
+            	padding:0;
+            	list-style:none;
+            }
+            img{
+            	border:none;
+            }
+            #wrap{
+
+            }
+            #wrap span{
+                display: inline-block;
+                width: 65px;
+                height: 25px;
+                margin: 3px 3px;
+                background-color: lightblue;
+                text-align: center;
+                line-height: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+        </div>
+        
+        <script>
+            let oWrap=document.getElementById("wrap");
+            let str="";
+            for(let i=1;i<=9;i++){
+                for(let j=1;j<=i;j++){
+                    str+=`<span>${i}*${j}=${i*j}</span>`
+                }
+                str+=`</br>`;
+            }
+            oWrap.innerHTML=str;
+            for(let i=9;i>=1;i--){
+                for(let j=1;j<=i;j++){
+                    str+=`<span>${i}*${j}=${i*j}</span>`
+                }
+                str+=`</br>`;
+            }
+            oWrap.innerHTML=str;
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

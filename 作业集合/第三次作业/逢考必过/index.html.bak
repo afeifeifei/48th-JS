@@ -1,0 +1,84 @@
+<!--声明文档类型为html -->
+<!doctype html>
+<!--根标签 超文本标记语言 -->
+<html> 
+<!--99%是双标签 -->
+<!--头部 不可视化标签-->
+	<head> 
+	<!--utf-8:国际编码 -->
+		<meta charset="UTF-8"> 
+		<!--关键词 关键字 -->
+	    <meta name="Keywords" content=" "> 
+        <!-- 描述网页内容 -->
+		<meta name="Description" content="">
+		<!--网页三要素-->
+		<title>Document</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				padding:0;
+			}
+			li{
+				list-style:none;
+				padding:20px 0 6px 20px;
+				border-bottom:1px dotted #8e8e8e;
+			}
+			#search{
+				width:450px;
+				margin:50px auto;
+				padding:20px;
+			}
+			#search input{
+				width:300px;
+				height:35px;
+				padding:0 10px;
+				font-size:15px;
+			}
+			button{
+				width:100px;
+				height:40px;
+				line-height:40px;
+				background:#ccc;
+				margin-left:-5px;
+				border-radius:1px;
+				font-size:18px;
+				border:none;
+				color:#fff;
+				letter-spacing:11px;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<!--身体:网页的内容.可视化标签-->
+<body>  
+	<div id="search">
+		<input type="text" name="" placeholder="请输入内容" />	
+		<button>搜索</button>
+		<ul></ul>
+	</div>
+	<script type="text/javascript">
+		var Text = document.getElementsByTagName('input')[0];
+			Btn = document.getElementsByTagName('button')[0];
+			List = document.getElementsByTagName("ul")[0];
+		Btn.onclick = function(){
+			if (Text.value == ''){ //判断是否输出内容
+			
+				//alert("搜索")
+
+				List.innerHTML = List.innerHTML;
+			}else{
+				List.innerHTML = '<li>' + Text.value + '</li>' + List.innerHTML;
+
+				Text.value = '';
+			}
+			{
+			}
+		}
+	</script>
+	</body>
+</html>
+
+

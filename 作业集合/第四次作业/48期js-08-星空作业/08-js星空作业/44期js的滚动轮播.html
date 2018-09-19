@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <style>
+           *{margin:0;padding: 0}
+           .box{
+                position: relative;
+                width: 220px;
+                height: 220px;
+                margin: 50px auto;
+                overflow: hidden; 
+           }
+           p{
+                position: absolute;
+                width: 100%;
+                height:20px;
+                background-color: rgba(0,0,0,.5);
+                text-align: center;
+                font-weight: bold;
+                color:#fff;
+           }
+           p.num{
+               top: 0;
+           }
+           p.text{
+               bottom: 0;
+           }
+           .imgbox{
+               position: absolute;
+               top: 0;
+               left: 0px;
+               width: 900px;
+               transition: 2s;
+           }
+           input.switch{
+                position:absolute;
+                top: 50%;
+                margin-top:-25px; 
+                width:20px;
+                height: 50px;
+                background-color:rgba(0,0,0,.5);
+                font-weight: bold;
+                color:#fff;
+           }
+           input.prev{
+                left: 0;  
+           }
+           input.next{
+                right: 0;
+            }
+            form{
+                width:220px;
+                margin:auto;
+                text-align: center;
+            }
+            .mode{
+                width:100px;
+                height:50px;
+                background-color:#ccc;
+                color:#fff;
+            }
+            .checked{
+                background-color: red;
+                color: #fff;
+            }
+       </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class='box'>
+            <div class="imgbox">
+                <img src="./images/1.JPG" alt="">
+                <img src="./images/2.JPG" alt="">
+                <img src="./images/3.JPG" alt="">
+                <img src="./images/4.JPG" alt="">
+            </div>
+            <p class='num'><span>1</span>/4</p>
+            <p class='text'>你奈我何?</p>
+            <input class="prev switch" type="button" value="<">
+            <input class="next switch" type="button" value=">">
+        </div>
+        <form>
+            <input class="normal mode" type="button" value="正常模式">
+            <input class="infinite mode" type="button" value="循环模式">
+        </form>
+        <script>
+            let imgBox = document.getElementsByClassName('imgbox')[0],
+                textNum = document.getElementsByTagName('span')[0],
+                content = document.getElementsByTagName('p')[1],
+                prev = document.getElementsByTagName('input')[0],
+                next = document.getElementsByTagName('input')[1],
+                normal = document.getElementsByClassName('mode')[0],
+                infinite = document.getElementsByClassName('mode')[1],
+                Arr = ['你奈我何?','我这么真挚的眼神会是变态吗?','进入委屈模式','欺负人!欺负人!'],
+                num = 0,
+                i = 0;
+            normal.onclick = function(){
+                normal.style.backgroundColor = 'red';
+                infinite.style.backgroundColor = '#ccc';
+                next.onclick = function () {
+                    if(num>-675){
+                        num -= 225;
+                        imgBox.style.left = num+"px";
+                        i++;
+                        // textNum.innerHTML= i + 1;
+                        // content.innerHTML= Arr[i];
+                        console.log(num);
+                    }else{
+                        num=-675;
+                        i=3;
+                        imgBox.style.left = num+"px";
+                        // content.innerHTML= Arr[i];
+                        // textNum.innerHTML= i + 1;
+                    }
+                    content.innerHTML= Arr[i];
+                    textNum.innerHTML= i + 1;
+                    // console.log(imgBox.style.left)
+                }
+                prev.onclick = function () {
+                    if(num<0){
+                        num += 225;
+                        imgBox.style.left = num+"px";
+                        i--;
+                        // content.innerHTML= Arr[i];
+                        // textNum.innerHTML= i + 1;
+                        // console.log(num);
+                    }else{
+                        num = 0;
+                        imgBox.style.left = num+"px";
+                        i=0;
+                        // content.innerHTML= Arr[i];
+                        // textNum.innerHTML= i + 1;
+                    }
+                    content.innerHTML= Arr[i];
+                    textNum.innerHTML= i + 1;
+                }
+            } 
+            infinite.onclick = function(){
+                normal.style.backgroundColor = '#ccc';
+                infinite.style.backgroundColor = 'red';
+                next.onclick = function () {
+                    if(num>-675){
+                        num -= 225;
+                        imgBox.style.left = num+"px";
+                        i++;
+                        // textNum.innerHTML= i + 1;
+                        // content.innerHTML= Arr[i];
+                        console.log(num);
+                    }else{
+                        num=0;
+                        imgBox.style.left = num+"px";
+                        i=0;
+                        // textNum.innerHTML= i + 1;
+                        // content.innerHTML= Arr[i];
+                    }
+                    textNum.innerHTML= i + 1;
+                    content.innerHTML= Arr[i];
+                    console.log(imgBox.style.left)
+                }
+                prev.onclick = function () {
+                    if(num<0){
+                        num += 225;
+                        imgBox.style.left = num+"px";
+                        i--;
+                        // textNum.innerHTML= i + 1;
+                        // content.innerHTML= Arr[i];
+                        console.log(num);
+                    }else{
+                        num = -675;
+                        imgBox.style.left = num+"px";
+                        i=3;
+                        // textNum.innerHTML= i + 1;
+                        // content.innerHTML= Arr[i];
+                    }
+                    textNum.innerHTML= i + 1;
+                    content.innerHTML= Arr[i];
+                }
+                
+            }
+    /* 
+    先写我做这个作业的做的想法:首先,我是做无缝轮播的,所以嘛<div class='box'>是大盒子给了个固定宽高和超出隐藏,
+    然后<div class='imgbox'>是装图片的盒子给了绝对定位的,里面有4张图片,
+    
+    1  然后我想点击左右切换就改变left值(注意::这里开始不会写了,因为不知道该怎么对变量定性什么的),
+    其实想法是left加或者减固定的225px,
+    2  然后就能实现左右切换的,(注意::是有这想,没想到怎么写,因为不会'所谓'的公式,)
+    3  不会运用for和if(这是我自己猜自己的问题所在)
+    4  条件运用有点不太会写
+    5  下面按钮的那里也是,不会转换颜色,该怎么写,感觉还是不会写代码,没记住代码的缘故~~~!
+    */
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 1000px;
+                margin: 50px auto;
+            }
+            #wrap button{
+                width: 50px;
+                height: 30px;
+                margin-right: 10px;
+                padding: 0;
+                border: none;
+                background-color: #000000;
+                font-size: 25px;
+                color: #ffffff;
+                line-height: 30px;
+            }
+            #wrap button.minus{
+                line-height: 25px;
+                font-size: 27px;
+            }
+            #wrap p{
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button class="add">+</button>
+            <button class="minus">-</button>
+            <p>2016年5月12日上午9点，央视二套（CCTV-2）“财经资讯”栏目组到访潭州。此次“来自改革创新一线的报道”的主题采访在全国各地收集创新创业一线企业和团队典型，而潭州教育是湖南地区的第一家企业也是重要一站。</p>
+            </br>
+            <p>潭州教育成立于2007年，于2015年10月正式入驻长沙国家高新技术产业开发区麓谷芯城信息产业园区，是一家典型性的创新创业的“互联网+教育”企业。在市委市政府及长沙高新区的大力支持下，潭州教育得到了飞速的发展，已经成为一家具有一定影响力的跨品类的综合性直播在线教育企业。</p>
+            </br>
+            <img src="images/1.jpg" alt="" width="600" height="400">
+            <br>
+            <p>栏目组拍摄潭州讲师上课情况</p>
+            <br>
+            <p>潭州教育董事长周有贵（Moon老师）与央视记者会谈</p>
+            <br>
+            <p>在采访过程中，董事长周有贵多次提到，潭州是一家文化教育企业，我们在给广大学员提供技术教学的同时也在传播我们的教学理念，唤醒学员学习的兴趣。周有贵还提及，在今年4月份，潭州已经开始筹备对外融资，通过吸引投资来开发潭州自己的产品平台，这将为潭州未来的发展奠定更加坚实的基础。</p>
+            <br>
+            <img src="images/2.jpg" width="600" height="400" alt="">
+            <br>
+            <p>潭州教育董事长周有贵（Moon老师）接受央视记者采访</p>
+            <br>
+            <p>此外，央视记者在采访潭州教育合伙人印亚兰女士时，印亚兰就潭州未来前景、发展创新情况等进行了整体概述，并再次补充，潭州目前已经与多家投资公司进行过商谈，预计将在今年下半年确定公司的A轮融资状况。</p>
+            <br>
+            <p>潭州教育合伙人印亚兰（Sunny老师）接受央视记者采访</p>
+            <br>
+            <p>潭州教育是一家新兴创新型企业，是湖南关于创新创业企业及团队省市区三级资金及政策支持的重要扶持对象，在这样的发展趋势下，在所有潭州人的共同努力下，潭州教育也将继续迸发出勃勃生机，真正成为一家具有极强影响力、推动基础教育发展和社会进步的在线教育企业。</p>
+            <br>
+            <p>98.6%的用户看了此文都推荐了↓↓↓</p>
+        </div>
+        
+        <script>
+            let oWrap=document.getElementById("wrap"),
+                aP=oWrap.getElementsByTagName("p"),
+                oAdd=oWrap.getElementsByClassName("add")[0],
+                oMinus=oWrap.getElementsByClassName("minus")[0];
+            for(let i=0;i<aP.length;i++){
+                aP[i].style.fontSize="14px";
+            }
+            let size=14;
+            oAdd.onclick=function () {
+                if(size<20){
+                    size++;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=size+"px";
+                    }
+                }else{
+                    size=20;
+                }
+            }
+            oMinus.onclick=function () {
+                if(size>12){
+                    size--;
+                    for(let i=0;i<aP.length;i++){
+                        aP[i].style.fontSize=size+"px";
+                    }
+                }else{
+                    size=12;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

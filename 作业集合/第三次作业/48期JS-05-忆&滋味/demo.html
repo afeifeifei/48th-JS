@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>05作业 </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 300px;
+            margin: 50px auto;
+        }
+        #wrap textarea {
+            width: 300px;
+            height: 200px;
+            font-size: 18px;
+            text-indent: 20px;
+            border-radius: 30px;
+            background-color: #fff;
+            outline: none;
+        }
+        #wrap button {
+            width: 60px;
+            height: 40px;
+            margin: 10px 0;
+            background-color: rgb(165, 231, 248);
+            font-size: 18px;
+        }
+        #wrap ul{
+            height: 100px;
+            width: 100%;
+        }
+        #wrap UL li {
+            list-style-type: none;
+            font-size: 16px;
+            line-height: 2;
+            text-indent: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <textarea id="list"></textarea>
+    <button id="submit">提交</button>
+    <ul id="text"></ul>
+
+    <script>
+        let oTextarea = document.getElementById("list"),
+                oButton = document.getElementById("submit"),
+                oUl = document.getElementById("text");
+
+        oButton.onclick = function (){
+            oUl.innerHTML += "<li>"+ oTextarea.value +"</li>";
+            oTextarea.value = "";
+        }
+    </script>
+</div>
+
+</body>
+</html>

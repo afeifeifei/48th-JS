@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>缩放</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="TYF">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #add{
+                display: inline-block;
+                width: 40px;
+                height:40px;
+                background-color: #000000;
+                color: #ffffff;
+                cursor: pointer;
+            }
+            #sub{
+                display: inline-block;
+                width: 40px;
+                height:40px;
+                background-color: #000000;
+                color: #ffffff;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <botton id="add">+</botton>
+        <botton id="sub">-</botton>
+        <div id="wrap">阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师阿飞老师</div>
+        <img  id="im" src="images/6.jpg" width="628" height="873" alt="">
+
+        <script>
+           let oWrap = document.getElementById("wrap"),
+               oAdd = document.getElementById("add"),
+               oSub = document.getElementById("sub"),
+               oIm = document.getElementById("im"),
+               oWid = oIm.width,
+               oHei = oIm.height,
+               i = 1;
+               x =16+i;
+               oAdd.onclick = function () {
+                   i++
+                    oWrap.style.fontSize = x+i
+                    +"px"
+                    ;
+                    oIm.style.width = oWid + 10*i
+                        +"px";
+                    oIm.style.height = oHei + 10*i
+                        +"px";
+               }
+                oSub.onclick = function () {
+                    i--
+                    oWrap.style.fontSize = 15+i
+                    +"px";
+                    oIm.style.width = oWid + 10*i
+                        +"px";
+                    oIm.style.height = oHei + 10*i
+                        +"px";
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

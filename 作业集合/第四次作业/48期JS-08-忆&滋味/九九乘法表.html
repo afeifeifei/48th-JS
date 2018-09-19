@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keyword" content="">
+    <meta name="description" content="">
+    <title>九九乘法表</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         ul{
+            display: inline-block;
+            list-style-type: none;
+        }
+         ul li{
+            width: 80px;
+            height: 30px;
+            border: 1px solid #000;
+        }
+        #esc{
+            margin-top: 30px;
+        }
+        #esc ul{
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div id="asc"></div>
+<div id="esc"></div>
+<script>
+
+
+    for(let i=1;i<10;i++){
+        let oLi1 =  "";
+        for(let j=i;j<10;j++){
+            oLi1 +="<li>"+i+"*"+j+"="+i*j+"</li>";
+        }
+        let oUl1="<ul>"+oLi1+"</ul>";
+        document.getElementById("asc").innerHTML +=oUl1;
+
+        let oLi2 = "";
+        for(let j=9;j-i>=0;j--){
+            oLi2 +="<li>"+i+"*"+j+"="+i*j+"</li>";
+        }
+        let oUl2="<ul>"+oLi2+"</ul>";
+        document.getElementById("esc").innerHTML +=oUl2;
+    }
+
+</script>
+<div id="desc"></div>
+</body>
+</html>

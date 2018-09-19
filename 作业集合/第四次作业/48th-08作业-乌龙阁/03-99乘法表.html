@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width:800px;
+                margin:50px auto;
+            }
+            #wrap .row{
+
+            }
+            #wrap .row ul:after{
+                content:'';
+                display:block;
+                clear:both;
+            }
+            #wrap .row ul li{
+                float:left;
+                box-sizing: border-box;
+                width:80px;
+                height:45px;
+                box-shadow:0 0 2px 0 rgba(100,100,100,0.5);
+                /*border:1px solid #666;*/
+                text-align:center;
+                line-height:45px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--<div class="row">-->
+                <!--<ul>-->
+                    <!--<li>1*1=1</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<ul>-->
+                    <!--<li>1*2=2</li>-->
+                    <!--<li>2*2=4</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                <!--<ul>-->
+                    <!--<li>1*3=3</li>-->
+                    <!--<li>2*3=6</li>-->
+                    <!--<li>3*3=9</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+
+            //先插入行
+            for(let i = 0; i < 18; i++){
+                oWrap.innerHTML += "<div class='row'></div>";
+            }
+            //再选中行
+            let oRow = document.querySelectorAll("#wrap .row");
+            //行中插入列表
+            for(let i = 0; i < 18; i++){
+                oRow[i].innerHTML += "<ul></ul>";
+            }
+            oRow[8].style.marginBottom = "20px";
+            //选中列表
+            let oList = document.querySelectorAll("#wrap .row ul");
+            // console.log(oList.length);
+            /*
+                循环插入li标签
+                i代表行，从0-18；
+                j代表每行的列的参数，从0-8
+                z代表从0-9的行的参数
+             */
+            for(let i = 0; i < 18; i++){
+                let z = (i>=9) ? (17-i) : i;
+                for(let j = 0; j <= z; j++){
+                    oList[i].innerHTML += `<li>${z+1}*${j+1}=${(z+1)*(j+1)}</li>`
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

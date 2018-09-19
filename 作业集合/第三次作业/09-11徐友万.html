@@ -1,0 +1,75 @@
+<!doctype html><!-- 页面头部声明-->
+<html>
+<head>
+    <meta charset='UTF-8'><!-- 万国码-->
+    <meta name='Keywords' content=''><!-- 搜索该页面所使用的关键词-->
+    <meta name='Description' content=''><!-- 页面描述信息-->
+    <title>18/09/11 —— JS作业</title><!-- 网页的标题-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .contain{
+            width: 800px;
+            margin: 50px auto 0;
+            padding: 100px;
+            background-color: #aaa;
+            font-size: 0;
+            text-align: center;
+        }
+        .contain #writer{
+            width: 500px;
+            height: 100px;
+            padding: 20px;
+            resize: none;
+            outline: none;
+            font-size: 16px;
+            color: coral;
+        }
+        .contain #sender{
+            display: block;
+            width: 60px;
+            height: 30px;
+            margin-left: 611px;
+        }
+        .contain #text{
+            display: inline-block;
+            width: 500px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .contain #text li{
+            margin-top: 10px;
+            padding-left: 10px;
+            border-bottom: 1px dashed #ccc;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class='contain'>
+        <textarea id='writer'></textarea>
+        <input type='submit' id='sender'>
+        <ul id='text'></ul>
+    </div>
+    <script>
+        let oWriter = document.getElementById('writer');
+        let oSender = document.getElementById('sender');
+        let oText = document.getElementById('text');
+
+        oSender.onclick = function () {
+            if (oWriter.value){
+               oText.innerHTML += '<li>' + oWriter.value + '</li>';
+               oWriter.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

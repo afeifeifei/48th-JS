@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            ul li{
+                width:200px;
+                text-align:right;
+                margin-left:725px;
+                list-style-type: none;
+                border-bottom: 1px dotted #000;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="wrap">
+        <input type="submit" id="btn">
+        <ul id="content"></ul>
+        <script>
+            let owrap=document.getElementById("wrap");
+            owrap.style.cssText ="display:block;height:200px;width:400px;border:2px solid pink;margin:50px auto 0; ";
+            let obtn=document.getElementById('btn');
+            obtn.style.cssText='margin-top:10px;margin-left:920px;';
+            let ocon=document.getElementById('content');
+            obtn.onclick=function () {
+                ocon.innerHTML += '<li>' + owrap.value + '</li>';
+                owrap.value='';
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

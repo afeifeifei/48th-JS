@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* index */
+    .clearfix:after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+    i{
+    	font-style: normal;
+    }
+  	body{
+  		font-family:"微软雅黑", "黑体","宋体";
+  		color: #333;
+  	}
+	#wrap{
+		width: 500px;
+		margin:50px auto; 
+		background: #EFDDC2;
+		border:#DEC6AE solid 4px;
+		border-radius: 10px; ;
+		padding: 30px 50px;
+	}
+	#wrap .topbar{
+		position: relative;
+		width: 500px;
+		height: 300px;
+		border-radius: 10px;
+	}
+	#wrap .topbar textarea{
+		width: 500px;
+		height: 200px;
+		background: #F2E8D8;
+		resize: none;/*禁止拉伸*/
+		outline:none;/*焦点没有被选中效果*/
+		box-sizing:border-box; 
+		padding: 15px;
+		border:#DEC6AE solid 2px; 
+		border-radius: 10px;
+		font-size: 14px;
+	}
+	#wrap .topbar button{
+		position: absolute;
+		right: 0px;
+		bottom: 20px; 
+		width:120px;
+		height: 35px;
+		background: #916248;
+		border:#694431 solid 2px;
+		outline: none;
+		border-radius: 10px;
+		color: #fff;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	#wrap ul.main{
+
+	}
+	#wrap ul.main li{
+		position: relative;
+		height:140px;
+		border-top:#DEC6AE solid 2px;
+		line-height: 1.5em;
+		padding: 20px 0;
+		word-break: break-all;
+	}
+	#wrap ul.main li:last-child{
+		border-bottom:#DEC6AE solid 2px;
+	}
+	

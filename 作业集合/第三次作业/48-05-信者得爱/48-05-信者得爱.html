@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            .clearfix:after{
+                content:'';
+                display:block;
+                clear:both;
+            }
+            #wrap{
+                width:370px;
+                margin:100px auto;
+                background-color:pink;
+
+            }
+            #wrap textarea{
+                width:370px;
+                height:80px;
+                padding:0;
+                text-indent:2em;
+
+            }
+            #wrap button{
+                float:right;
+                width:30px;
+                height:20px;
+                padding:0;
+                font-size:12px;
+            }
+            #wrap ul {
+                width: 370px;
+                padding-top: 20px;
+            }
+            #wrap .list li{
+                top:100px;
+                height:30px;
+                line-height:30px;
+                border-bottom:3px solid red;
+               
+            }
+        
+        </style>
+
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="clearfix">
+                <textarea  id="text" ></textarea>
+                <button class="btn ">提交</button>
+            </div>
+            <ul class="list"></ul>
+        </div>
+
+
+        <script>
+            let oText = document.getElementById('text'),
+                oBtn = document.getElementsByClassName('btn')[0],
+                oList = document.getElementsByClassName('list')[0];
+                oBtn.onclick = function(){
+                    oList.innerHTML += "<li>"+oText.value+"</li>";
+                    oText.value='';
+                };
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

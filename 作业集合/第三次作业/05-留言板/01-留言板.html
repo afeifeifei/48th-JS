@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="wrap">
+        <h3>留言板 : </h3>
+        <div class="msg-frame clearfix">
+            <textarea></textarea>
+            <button onclick="outMsg()">提交</button>
+        </div>
+        <div class="msg-pannel"></div>
+    </div>
+
+
+    
+    <script>
+        let txtObj = document.getElementsByTagName("textarea")[0],
+            btn = document.getElementsByTagName("button")[0],
+            msgPannel = document.querySelector("#wrap .msg-pannel");
+
+            function outMsg(){
+                let txt = txtObj.value.trim();
+                txt && (msgPannel.innerHTML += `<p>${txt}</p>`);
+                txtObj.value = "";
+            }
+    </script>
+</body>
+</html>

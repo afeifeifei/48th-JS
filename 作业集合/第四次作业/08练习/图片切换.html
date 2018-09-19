@@ -1,0 +1,187 @@
+<!doctype html><!--声明文档类型  -->
+<html lang="en"><!--网页根标签 lang= “语言类型” -->
+ <head><!-- 网页头部.不可视化区域 -->
+  <meta charset="UTF-8"><!--编码格式  ) gbk（简体） gb2312（繁体）-->
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="当时我就火了"><!-- 作者 -->
+  <meta name="Keywords" content=""><!-- 关键字及词 -->
+  <meta name="Description" content=""><!--网站描述，简介  -->
+  <title>document</title><!-- 标题 -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+  <style type="text/css">
+	body,ul,ol,li,dl,dt,p{margin:0;padding:0;}
+	li{list-style:none;}
+	a{text-decoration:none;}
+	#wrap{
+		position: relative;
+		width:600px;
+		height:400px;
+		margin:20px auto;
+		user-select:none;
+	}
+	.pictures{
+		position:relative;
+		width:100%;
+		height:100%;
+	}
+	li{
+		position:absolute;
+		top:0;
+		left:0;
+		opacity:0;
+		transition:.3s;
+	}
+	.on{
+		opacity:1;
+	}
+	li img{
+		display:block;
+		width:600px;
+		height:400px;
+	}
+	p,span.bt{
+		position: absolute;
+		background-color:rgba(0,0,0,.5);
+		text-align: center;
+		color:#fff;
+		z-index:1;
+	}
+	span.bt{
+		width: 40px;
+		font-size:30px;
+		line-height: 80px;
+		color:#fff;
+		cursor: pointer;
+	}
+	.left{
+		top: 180px;
+		left:0;
+	}
+	.right{
+		top:180px;
+		right: 0px;
+	}
+	.top,.bottom{
+		width:600px;
+		line-height: 35px;
+	}
+	.top{
+		top:0;
+	}
+	.bottom{
+		bottom:0;
+	}
+	#wrap .btn{
+		text-align:center;
+	}
+	.btn div,.btn div{
+		display:inline-block;
+		padding:10px 15px;
+		margin:20px 12px;
+		background-color: #ccc;
+		border-radius: 10px;
+		font-size: 14px;
+		font-weight: bold;
+		color: #fff;
+		cursor: pointer;
+		box-shadow: 0 0 20px 3px rgba(0,0,0,.5);
+		transition: .3s;
+	}
+	#on{
+		background-color: #7B86AB;
+	}
+  </style>
+ </head>
+ <body><!-- 网页的身体部分 可视化区域 内容区-->
+	<div id="wrap">
+		<ul class="pictures">
+			<li class="on">
+				<img src="images/1.jpg" alt="" />
+			</li>
+			<li class="list">
+				<img src="images/2.jpg" alt="" />
+			</li>
+			<li class="list">
+				<img src="images/3.jpg" alt="" />
+			</li>
+			<li class="list">
+				<img src="images/4.jpg" alt="" />
+			</li>
+			<li class="list">
+				<img src="images/5.jpg" alt="" />
+			</li>
+		</ul> 
+		<P class='top'>风景<span>1</span></P>
+        <P class='bottom'>第一张图</P>
+        <span class='bt left'> < </span>
+        <span class='bt right'> > </span>
+		<div class="btn">
+			<div id="on" >单边模式</div>
+			<div >循环模式</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let oSpan = document.querySelectorAll("span.bt"),
+			oLi = document.querySelectorAll(".pictures li"),
+			oBtn = document.querySelectorAll(".btn div"),
+			aSpan = document.querySelectorAll(".top span")[0],
+			oBottom = document.getElementsByClassName('bottom')[0],
+			length = oLi.length,
+			arrBottom = ['第一张图', '第二张图', '第三张图','第四张图', '第五张图'],
+			bool = true,
+			i=0;
+			oBtn[0].onclick = function(){
+				oBtn[0].id = "on";
+				oBtn[1].id = "";
+				bool = true;
+			}
+			oBtn[1].onclick = function(){
+				oBtn[1].id = "on";
+				oBtn[0].id = "";
+				bool = false;
+			}
+			oSpan[1].onclick = function(){
+				if(bool){
+					oLi[i].className = "";
+					i++;
+					if(i>=length){
+						i=length-1;
+					}
+					oLi[i].className = "on";
+					aSpan.innerHTML = i+1;
+					oBottom.innerHTML = arrBottom[i];
+				}else{
+					oLi[i].className = "";
+					i++;
+					if(i>=length){
+						i=0;
+					}
+					oLi[i].className = "on";
+					aSpan.innerHTML = i+1;
+					oBottom.innerHTML = arrBottom[i];
+				}
+			}
+			oSpan[0].onclick = function(){
+				if(bool){
+					oLi[i].className = "";
+					i--;
+					if(i<=0){
+						i=0;
+					}
+					oLi[i].className = "on";
+					aSpan.innerHTML = i+1;
+					oBottom.innerHTML = arrBottom[i];
+				}else{
+					oLi[i].className = "";
+					i--;
+					if(i<0){
+						i=length-1;
+					}
+					oLi[i].className = "on";
+					aSpan.innerHTML = i+1;
+					oBottom.innerHTML = arrBottom[i];
+				}
+			}
+	</script>	
+ </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            button{
+                width:100px;
+                height:30px;
+                background-color: black;
+                color:#fff;
+                margin-right:20px;
+                border:none;
+                font-size:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="big">+</button>
+        <button class="narrow">-</button>
+        <p style="font-size:16px;">
+            不如我们一起吧!<br>
+
+            这段时间和同事们有空出去玩，从两个玩得近的同事的口头禅获得一些灵感和想法。就此做点纪念性文字，以便为无聊的生活添点色彩!<br>
+
+            同事A：我陪你。<br>
+
+            同事B：我们一起。<br>
+
+            看着这两句话很耳熟吧!呵呵，或许我们都有其中一种口头禅哦，不过你属于哪种?你又喜欢哪种呢?它们又各自有什么不同?而我更在意哪种更有爱?更适合我?你呢?嘿嘿。<br>
+
+            先说说我对此口头禅的理解：<br>
+
+            “我陪你”，首先，“我”和“你”有主次之分，“我”只是“你”的陪衬，一切以“你”为主，这是客观事实;再者，“我陪你”从情感上来讲比较客气，并没有那么亲密，不是吗?“我”只是在“你”身边，“我”作为一个旁观者参与不到“你”的活动，一切都是“你”做主，或许“我”会给你点建议给你点看法，可“我”却不会为你做决定，更不会为“你”的做法负责任、买单。“我”是独立的个体，“你”也是。我们能做到的便是尊重、理解。不过这却会让你成为一个独立自主的人，特别适合有依赖症的人哦，!可是，我想知道，“我”陪“你”，我们是否有同样感受，能共享喜怒哀乐?嘿嘿。<br>
+
+            “我们一起”首先已经默认和承认了“我”和“你”是独立的有想法有主见的不同个体。对于提出的计划或活动我们都是参与者，没有主次，我们是平等的。你可以选择“是”也可以选择“否”，在这个过程中完全都是自己心甘情愿的选择;再者“我们一起”这种感情要更为浓烈、真挚、明确一些。能传达给我们“能共分享所有一切”的信息。“我们一起做决定”，一起享受过程，并一起承担结果，是不是这样就足够?或许我们有不同的方式、方法和决定，可我们的目标一致，共享受这所有的一切，这样是不是很完美?嘿嘿，就如一句话所说的大概意思是：我们的目光凝望着同一个方向!多美的意境，何不试试?哈哈哈<br>
+
+            不如就让我们一起吧!你说呢?亲爱的你，又有怎样的选择?<br>
+        </p>
+        <script>
+            let oBtn1 = document.getElementsByClassName("big")[0];
+                oBtn2 = document.getElementsByClassName("narrow")[0];
+                oP = document.getElementsByTagName("p")[0];
+            let size = 16;
+            console.log(size);
+            oBtn1.onclick =function Big() {
+                size++;
+                oP.style.fontSize=size+"px";
+            }
+            oBtn2.onclick =function Narrow() {
+                size--;
+                oP.style.fontSize=size+"px";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

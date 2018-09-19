@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+ 
+<script type="text/javascript">
+   /* let x = {
+        name : "aa"
+    }
+    x.age = 18;
+    console.log(x) ;*/
+    //let有独立的作用域
+    window.onload=function(){
+        let oSender = document.getElementById("sender");
+        let oWriter = document.getElementById("writer");
+        let oRecorder = document.getElementById("recorder"); 
+        oSender.onclick = function(){
+           if( oWriter.value !="  "){
+            let oLi = document.createElement( "li");
+            oLi.innerHTML = oWriter.value;
+            oRecorder.appendChild( oLi)  ;
+          }
+            else{
+              return false;
+            }
+
+          
+            oWriter.value ="";
+
+
+         } ;
+
+
+    }   
+
+</script>
+<style type="text/css">
+    *{ padding: 0; margin: 0; }
+    li{ list-style-type: none;}
+    .box{ width: 202px; margin: 0 auto;}
+    #writer{ width: 200px;   height: 200px; }
+    #sender{ width: 200px;  height: 20px; margin: 10px 0 ; border: none; }
+    #recorder li{ width: 200px; font-weight: 600; line-height: 30px; border-bottom: 1px solid #ccc }
+</style>
+<title>我猜可能是...</title>
+   
+</head>
+
+<body>
+  <div class="box clearfix">
+      <textarea id="writer" value="你能不能上去？"></textarea>
+      <button id="sender">提交</button>
+      <ul id="recorder"></ul>
+  </div>
+</body>
+</html>

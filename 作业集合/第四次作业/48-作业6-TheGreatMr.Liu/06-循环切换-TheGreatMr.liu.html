@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position:relative;
+                width:670px;
+                height:410px;
+                background-color:#ff0036;
+                margin:50px auto;
+                font-size: 18px;
+                box-shadow: 2px 2px 10px;
+            }
+            #wrap img{
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+            }
+            #wrap .top{
+                position: absolute;
+                top:0;
+                width:100%;
+                height:30px;
+                background-color:rgba(0,0,0,0.5);
+                text-align: center;
+                line-height: 30px;
+                color:#fff;
+            }
+            #wrap .bottom{
+                position: absolute;
+                width:100%;
+                height:30px;
+                bottom:0;
+                background-color:rgba(0,0,0,0.5);
+                text-align: center;
+                line-height: 30px;
+                color:#fff;
+            }
+            #wrap .pre{
+                position: absolute;
+                width:50px;
+                height: 30px;
+                top:0;
+                bottom:0;
+                left:0;
+                margin:auto;
+                text-align:center;
+                line-height: 30px;
+                background-color: rgba(0,0,0,0.5);
+                color:#fff;
+                cursor: pointer;
+            }
+            #wrap .next{
+                position: absolute;
+                width:50px;
+                height: 30px;
+                top:0;
+                bottom:0;
+                right:0;
+                margin:auto;
+                text-align:center;
+                line-height: 30px;
+                background-color: rgba(0,0,0,0.5);
+                color:#fff;
+                cursor: pointer;
+            }
+            #btn{
+                width:144px;
+                margin:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <img style="display:block" src="images/6.jpg" alt="">
+            <img style="display:none"  src="images/7.jpg" alt="">
+            <img style="display:none" src="images/8.jpg" alt="">
+            <img style="display:none" src="images/9.jpg" alt="">
+            <img style="display:none" src="images/10.jpg" alt="">
+            <div class="top">1/5</div>
+            <div class="bottom">植物</div>
+            <div class="pre"><</div>
+            <div class="next">></div>
+        </div>
+        <div id="btn">
+            <button style="color:#fff;background-color: red" class="btn1">正常模式</button>
+            <button class="btn2">循环模式</button>
+        </div>
+        <script>
+            let cycle=false;
+            let x=0;
+            let aText=["赵","丽","颖","丽颖","赵丽颖"];
+            let oWrap=document.getElementById("wrap");
+                oImg =oWrap.getElementsByTagName("img");
+                oTop =oWrap.getElementsByClassName("top")[0];
+                oBottom=oWrap.getElementsByClassName("bottom")[0];
+                oPre =oWrap.getElementsByClassName("pre")[0];
+                oNext=oWrap.getElementsByClassName("next")[0];
+                oBtn1=document.getElementById("btn").getElementsByClassName("btn1")[0];
+                oBtn2=document.getElementById("btn").getElementsByClassName("btn2")[0];
+            oBtn1.onclick = function(){
+                cycle=false;
+                oBtn1.style.cssText="color:#fff;background-color:red";
+                oBtn2.style.cssText="";
+            }
+            oBtn2.onclick = function(){
+                cycle=true;
+                oBtn2.style.cssText="color:#fff;background-color:red";
+                oBtn1.style.cssText="";
+            }
+            oNext.onclick = function() {
+                for (let i = 0; i < oImg.length; i++) {
+                    if (oImg[i].style.display === "block") {
+                        if (i===4 && cycle!==true) {
+                        }else if(i===4){
+                            oImg[i].style.display = "none";
+                            oImg[0].style.display = "block";
+                            oTop.innerHTML="1/5";
+                            oBottom.innerHTML=aText[0];
+                        }else {
+                            oImg[i].style.display = "none";
+                            oImg[i + 1].style.display = "block";
+                            x=i+2;
+                            oTop.innerHTML=x+"/5";
+                            oBottom.innerHTML=aText[i+1];
+                        }
+                        break;
+                    }
+                }
+            }
+            oPre.onclick = function(){
+                for (let i = 0; i < oImg.length; i++) {
+                    if (oImg[i].style.display === "block") {
+                        if (i===0 && cycle!==true) {
+                        }else if(i===0){
+                            oImg[i].style.display = "none";
+                            oImg[4].style.display = "block";
+                            oTop.innerHTML="5/5"
+                            oBottom.innerHTML=aText[4];
+                        }else {
+                            oImg[i].style.display = "none";
+                            oImg[i - 1].style.display = "block";
+                            x=i;
+                            oTop.innerHTML=i+"/5";
+                            oBottom.innerHTML=aText[i-1];
+                        }
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=2">
+    <title>测试</title>
+  <style type="text/css">
+      html,body{
+      	   margin:0px;
+      	   padding:0px;
+
+     }
+     .box{
+     	   width:500px;
+     	   height:500px;
+     	   background:blue;
+     	   display:block;
+     	   margin:60px auto;
+     	   text-align:center;
+     	   color:red;
+     	   font-size:20px;
+     	   border-radius:50%;
+     	    
+     }      
+
+     /* .box span{
+     	width:200px;
+     	height:200px;
+     	background:red;
+     	float:left;
+     	margin:20px;
+     	
+     }
+     .box span:nth-of-type(1)
+     {
+     	border-radius:0px 70%;
+     }
+     .box span:nth-of-type(2)
+     {
+     	border-radius:70% 0;
+     }
+     .box span:nth-of-type(3)
+     {
+     	border-radius:70% 0;
+     }
+     .box span:nth-of-type(4)
+     {
+     	border-radius:0px 70%;
+     }*/
+  </style>
+  
+
+    </head>
+    <body>
+   <div class="box" name="text">
+    <!-- <span></span>
+    <span></span>
+    <span></span>
+    <span></span> -->
+
+
+  </div>
+
+   
+   <script  src="jquery-3.3.1.min.js"></script> 
+     
+   <script type="text/javascript">
+   
+/*var oText=document.getElementsByClassName("text")[0];
+      var onoff=true;
+      oText.offsetTop=10;
+      oText.offsetLeft=10;
+      var time=null;
+      time=setInterval(function(){
+       
+       if(onoff==true)
+       {
+       	  oText.style.top=oText.offsetTop+100+"px";
+	       if(oText.offsetTop>500)
+	       {
+	       	  onoff=false;
+	       }
+	   }
+	   else if(onoff==false)
+       {
+     
+        oText.style.left=oText.offsetLeft+100+"px";
+	       if(oText.offsetLeft>1000)
+	       {
+	       	   clearInterval(time);
+	       	  onoff=true;
+	       }
+      }
+	},1000)*/
+  var oBox=document.getElementsByClassName("box")[0];
+  oBox.onclick=function(){
+  	  oBox.innerHTML="我是时光旅客";
+  }
+  </script>  
+   
+
+
+    </body>
+    </html>

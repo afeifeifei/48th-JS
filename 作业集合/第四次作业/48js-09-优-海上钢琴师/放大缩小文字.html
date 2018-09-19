@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>放大缩小文字</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body{
+			background-color: #eee;
+		}
+		#box{
+			width: 850px;
+			margin: 100px auto;
+		}
+		#box p{
+			text-indent: 20px;
+			font-size: 14px;
+		}
+		#box button{
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			font-size:30px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<button id="increase">+</button>
+		<button id="reduce">-</button>
+		<p>
+		  	习近平主席多次访问俄罗斯。在发表重要讲话、重要文章和接受记者采访时，他常深情地讲述一些动人的小故事。这些故事，是昨天和今天两国关系的缩影，更昭示了两国人民友谊的地久天长。战火纷飞的年代，中俄两国人民是同一战壕的战友。习近平讲的这几个故事表明，鲜血凝成的友谊坚不可摧。
+			抗日战争时期，苏联飞行大队长库里申科来华同中国人民并肩作战，他动情地说：“我像体验我的祖国的灾难一样，体验着中国劳动人民正在遭受的灾难。”他英勇牺牲在中国大地上。中国人民没有忘记这位	英雄，一对普通的中国母子已为他守陵半个多世纪。
+		    抗战期间，来华的苏联空军志愿人员多达2000余人，多次与中国空军并肩作战。库里申科就是其中之一。1939年，库里申科受苏联政府派遣，率“达沙式”轰炸机大队来到战火弥漫的中国，投入中国人民抗日战争的洪流。在一次激战中击落6架日机，自己飞机也遭重创，迫降于重庆万州长江水面。由于劳累过度无力跳出机舱，献出了宝贵生命。
+		</p>
+
+	</div>
+    <script type="text/javascript">
+    	let oIncrease=document.getElementById("increase"),
+    		oReduce=document.getElementById("reduce"),
+    		oText=document.querySelector("#box p"),
+    		oFontSize=14;
+    	
+		oIncrease.onclick=function(){
+			oFontSize += 2;
+			if(oFontSize>22){
+				oFontSize=14;
+			}
+			oText.style.fontSize=oFontSize+"px";
+		}
+		oReduce.onclick=function(){
+			oFontSize -= 2;
+			if(oFontSize<14){	
+				oFontSize=22;
+			}
+			oText.style.fontSize=oFontSize+"px";	
+		}
+
+    </script>
+</body>
+</html>

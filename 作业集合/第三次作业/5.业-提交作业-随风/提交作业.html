@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提交作业2</title>
+     <style>
+     *{margin:0;padding:0;}
+     body{
+         background-color:mediumspringgreen;
+    }
+    .wrap{
+         width:260px;
+         height:482px;
+         border:1px solid #000;
+         border-radius:20px;
+         margin:100px auto;
+         overflow:hidden;
+         background-color:#fff;
+    }
+    .header{
+         width:100%;
+         height:20px;
+         position:relative;
+    }
+    .header .H-1{
+          width:50px;
+          height:3px;
+          background-color:#000;
+          border-radius:0px 0px 3px 3px;
+          margin:auto;
+    }
+    .header .H-2{
+          width:10px;
+          height:10px;
+          margin-left:200px;
+          border-radius:50%;
+          background-color:#000;
+    }
+    .main{
+        width:258px;
+        height:440px;
+        border:1px solid #000;
+        border-radius:10px;
+        position:relative;
+        overflow:hidden;
+        background-image:url(./images/02.jpg);
+        background-image:no-repeat;
+        background-size:100% 100%;
+
+    }
+    .main .main2{
+        width:100%;
+        height:30px;
+        border:1px solid #000;
+        background-color:rgb(189, 208, 214);
+        position:absolute;
+            left:0;
+            bottom:0;
+    }
+    .main .main2 p{
+        width:16px;
+        height:16px;
+        border:1px solid #000;
+        border-radius:50%;
+        text-align:center;
+        line-height:14px;
+        font-weight:bold;
+        margin-left:10px;
+        display:inline-block;
+        cursor:pointer;
+    }
+    .main .main2 input{
+        width:60%; 
+        border:1px solid #fff;
+        border-bottom:2px solid rgb(80, 247, 2);
+        display:inline-block;
+    }
+    .main .main1{
+        width:98%;
+        height:100%;
+        margin:auto;
+    }
+    .main .main1 li{
+        text-align:right;
+        border-bottom:1px solid red;
+    }
+    .main .main1 li ~ li{
+        text-align:left;
+        border-bottom:1px solid red;
+    }
+     </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="H-1"></div>
+            <div class="H-2"></div>
+        </div>
+        <div class="main">
+            <div class="main1">
+                <ul id = 'value'></ul>
+            </div>
+            <div class="main2">
+                <p>=</p>
+                <input id='liset' type="text">
+                <p>+</p>
+                <button>发送</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    let oInput = document.getElementById('liset'),
+        oButton = document.getElementsByTagName('button')[0],
+        oUl = document.getElementById('value');
+        oButton.onclick = function(){
+            let oValue = oInput.value;
+            oUl.innerHTML += '<li>' + oValue + '</li>';
+            oInput.value = '';
+        }
+    </script>
+</body>
+</html>

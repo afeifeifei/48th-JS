@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期-JS-问题不大">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 400px;
+                margin: 20px auto;
+            }
+            #wrap .text{
+                width: 400px;
+                height: 200px;
+                border-radius: 10px;
+                font-size: 20px;
+                outline: none;
+                resize: none;
+            }
+            #wrap>p{
+                width: 400px;
+                height: 50px;
+            }
+            #wrap>p>img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                vertical-align: middle;
+                user-select: none;
+            }
+            #wrap>p>button{
+                float: right;
+                margin-top: 10px;
+                user-select: none;
+            }
+            #wrap>ul{
+                list-style: none;
+            }
+            #wrap>ul>li{
+                width: 400px;
+                height: 30px;
+                border-bottom: 1px solid #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea class="text">
+
+            </textarea>
+            <p>
+                <img src="1.jpg" alt="">
+                <button>发送</button>
+            </p>
+            <ul>
+                <!--<li></li>-->
+                <!--<li></li>-->
+            </ul>
+        </div>
+        
+        <script>
+            let oText = document.getElementsByClassName("text")[0],
+                oUl = document.getElementsByTagName("ul")[0],
+                oBtn = document.getElementsByTagName("button")[0];
+
+            oBtn.onclick = function() {
+                let str = oText.value;
+                if(oText.value !=""&& oText.value.length>0){
+                    oUl.innerHTML += "<li>"+str+"</li>";
+                    oText.value = "";
+                }else{
+                    alert("请输入内容！")
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

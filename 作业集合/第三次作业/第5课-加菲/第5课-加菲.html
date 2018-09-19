@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #write-box{
+                width: 600px;
+                height: 300px;
+                margin: 50px auto 0;
+                padding: 5px;
+                border: 1px solid cyan ;
+                border-radius: 8px;
+                box-shadow: 2px 2px 5px 2px #186362;
+                color: #186362;
+            }
+            #write-box {
+                outline:0;
+            }
+            #btn-box{
+                width: 600px;
+                height: 30px;
+                margin: 10px auto 0;
+                border-bottom: 2px solid cyan;
+            }
+            #btn-box .btn-box-left{
+                float: left;
+                color: #186362;
+            }
+            #btn-box .btn-box-right{
+                float: right;
+                width: 70px;
+                height: 80%;
+                border-color: cyan;
+                border-radius: 8px;
+                background-color: transparent;
+            }
+            #btn-box .btn-box-right:focus{
+                outline:0;
+            }
+            #print-box{
+                width: 600px;
+                height: 600px;
+                margin: 10px auto 0;
+            }
+            #print-box .print-row{
+                display: block;
+                width: 600px;
+                color: #186362;
+                border-bottom: 1px solid cyan;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="write-box" contenteditable></div>
+        <div id="btn-box">
+            <span class="btn-box-left">请在上方文本框输入信息后点击【确定】按钮</span>
+            <input id="btn" class="btn-box-right" type="button" value="确定" />
+        </div>
+        <div id="print-box">
+
+        </div>
+        <script>
+            document.getElementById('btn').onclick=function() {
+                let write = document.getElementById('write-box').innerText;
+                document.getElementById('print-box').innerHTML += '<span class="print-row">' +  write + '</span>'
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

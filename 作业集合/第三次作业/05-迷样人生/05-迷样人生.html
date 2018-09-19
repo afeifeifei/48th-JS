@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 500px;
+                height: 200px;
+                margin:20px 0 0 500px;
+                font-family: "Microsoft YaHei",serif;
+                font-size: 20px;
+                resize: none;
+            }
+            #btn{
+                margin:20px 968px;
+            }
+            #list{
+                width: 500px;
+                height: 200px;
+                margin:20px 0 0 500px;
+            }
+            #list li{
+                height:20px;
+                border-bottom: 1px solid #999;
+
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="wrap"></textarea>
+        <input id="btn" type="submit" value="提交">
+        <ul id="list">
+
+
+        </ul>
+        <script>
+            let oWrap=document.getElementById('wrap'),
+                oBtn=document.getElementById('btn')
+                oList=document.getElementById('list')
+                oBtn.onclick=function () {
+                let val=oWrap.value
+                oList.innerHTML+="<li>"+ val +"</li>"
+                oWrap.value=" "
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

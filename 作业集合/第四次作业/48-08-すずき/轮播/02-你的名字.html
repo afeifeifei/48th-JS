@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body,ul,li,p{margin: 0px;padding: 0px;}
+            li{list-style: none;}
+            .wrap{
+                width: 500px;
+                margin: 100px auto;
+            }
+            #nav1,#nav2 p{
+                width: 500px;
+                height: 30px;
+                text-align: center;
+                color: black;
+                background-color: pink;
+            }
+            #pics{
+                position: relative;
+                width: 500px;
+                height: 640px;
+            }
+            #pics img{
+                width:500px ;
+                height: 640px;
+            }
+            #pics ul li{
+                position: absolute;
+                top:0;
+                left:0;
+                display: none;
+                width: 500px;
+                height: 300px;
+            }
+            #pics ul .no{
+                display: block;
+            }
+            .left{
+                position: absolute;
+                top:320px;
+                left:0;
+                width: 30px;
+                height: 40px;
+                background-color: #1f1e1e70;
+                cursor: pointer;
+            }
+            .right{
+                position: absolute;
+                top:320px;
+                right:0;
+                width: 30px;
+                height: 40px;
+                background-color:#1f1e1e70;
+                cursor: pointer;
+            }
+            .left,.right p{
+                text-align: center;
+                color: pink;
+                background-color:#1e1f1f9f;
+                font-size: 29px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="nav1">
+                <p>
+                    蔡旭森
+                </p>
+            </div>
+            <div id="pics">
+                <ul>
+                    <li class="no">
+                        <img src="1.jpg" alt="蔡旭森">
+                    </li>
+                    <li>
+                        <img src="2.jpg" alt="王子异">
+                    </li>
+                    <li>
+                        <img src="3.jpg" alt="尤长靖">
+                    </li>
+                    <li>
+                        <img src="4.jpg" alt="小鬼">
+                    </li>
+                    <li>
+                        <img src="5.jpg" alt="陈立农">
+                    </li>
+                </ul>
+                <div id="btn1" class="left"><p><</p></div>
+                <div id="btn2" class="right"><p>></p></div>
+            </div>
+            <div id="nav2"><p>第一张图</p></div>
+        </div>
+
+    <script>
+        let oNav1=document.getElementById("nav1");
+            oNav2=document.getElementById("nav2");
+            oBtn1=document.getElementById("btn1");
+            oBtn2=document.getElementById("btn2");
+            aLi=document.getElementsByTagName("li");
+            arr1=["蔡旭森","王子异","尤长靖","小鬼","陈立农"];
+            arr2=["一","二","三","四","五"];
+
+
+            i=0;
+            oBtn2.onclick=function(){
+                aLi[i].className = "";
+                i++
+                if(i>4){
+                    i=0;
+                }
+            aLi[i].className="no";
+                oNav1.innerHTML = "<p>"+arr1[i]+"</p>";
+                oNav2.innerHTML = "<p>第"+arr2[i]+"张图</p>";
+        }
+
+
+
+            oBtn1.onclick=function(){
+                aLi[i].className = "";
+                i--;
+                if(i<0){
+                    i=4;
+                }
+            aLi[i].className="no";
+                oNav1.innerHTML = "<p>"+arr1[i]+"</p>";
+                oNav2.innerHTML = "<p>第"+arr2[i]+"张图</p>";
+
+        }
+    </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </p></div>
+        </div>
+        
+        <script>
+            let wrp = document.getElementById('wrap');
+            let na =document.getElementById('name')
+            wrp.onclick = function(){
+              na.innerText = '你的名字';
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

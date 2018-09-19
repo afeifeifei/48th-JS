@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 540px;
+                margin: 50px auto 0;
+            }
+            #wrap .list{
+                position: relative;
+                width: 100%;
+                height: 345px;
+                background-color: skyblue;
+            }
+            #wrap .list a{
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .list a:nth-child(n+2){
+                opacity: 0;
+            }
+
+            #wrap .list a img{
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .slide-top{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 30px;
+                background-color: rgba(0,0,0,0.5);
+                color: #fefefe;
+                font-size: 15px;
+                line-height: 30px;
+                text-align: center;
+            }
+            #wrap .slide-bottom{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 30px;
+                background-color: rgba(0,0,0,0.5);
+                color: #fefefe;
+                font-size: 15px;
+                line-height: 30px;
+                text-align: center;
+
+            }
+            #wrap .list .slide-left{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                display: block;
+                width: 40px;
+                height: 60px;
+                background-image: url("images/icon-slides.png");
+                background-position-y: -73px;
+                z-index: 999;
+            }
+            #wrap .list .slide-right{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                display: block;
+                width: 40px;
+                height: 60px;
+                background-image: url("images/icon-slides.png");
+                background-position: -41px -3px;
+            }
+            #wrap .layer{
+                width: 100%;
+                text-align: center;
+            }
+            #wrap .layer .model{
+                width: 70px;
+                height: 40px;
+                margin: 10px 20px;
+                font-weight: bold;
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="list">
+                <a href="#" style="opacity: 1;"><img src="images/2.jpg" alt=""></a>
+                <a href="#"><img src="images/3.jpg" alt=""></a>
+                <a href="#"><img src="images/4.jpg" alt=""></a>
+                <a href="#"><img src="images/5.jpg" alt=""></a>
+                <a href="#"><img src="images/6.jpg" alt=""></a>
+                <span class="slide-bottom">假笑男孩像‘秋实’</span>
+                <span class="slide-top">1/5</span>
+                <span class="slide-left"></span>
+                <span class="slide-right"></span>
+            </div>
+            <div class="layer">
+                <button class="normal-model model">正常模式</button>
+                <button class="loop-model model">循环模式</button>
+            </div>
+        </div>
+        <script>
+            let oBtn=document.querySelectorAll("#wrap .layer .model"),
+                oSlide=document.querySelectorAll("#wrap .list span"),
+                oImg=document.querySelectorAll("#wrap .list a"),
+                num=0;
+            oBtn[0].onclick=function () {
+                if(oBtn[1].style.backgroundColor=="rgb(255, 0, 54)"){
+                    oBtn[1].style.backgroundColor='';
+                    oBtn[1].style.color="#000"
+                    this.style.backgroundColor="rgb(255, 0, 54)";
+                    this.style.color="#fefefe";
+
+                }
+                else{
+                    this.style.backgroundColor="rgb(255, 0, 54)";
+                    this.style.color="#fefefe";
+                }
+            }
+            oBtn[1].onclick=function () {
+                if(oBtn[0].style.backgroundColor=="rgb(255, 0, 54)"){
+                    oBtn[0].style.backgroundColor='';
+                    oBtn[0].style.color="#000"
+                    this.style.backgroundColor="rgb(255, 0, 54)";
+                    this.style.color="#fefefe";
+                }
+                else{
+                    this.style.backgroundColor="rgb(255, 0, 54)";
+                    this.style.color="#fefefe";
+                }
+            }
+            oSlide[3].onclick = function () {
+                for(let i=0,len=oImg.length; i<len; i++){
+                    if(oImg[i].style.opacity==" 1"){
+                        num=i;
+                        break;
+                    }
+                }
+
+
+                if(oBtn[0].style.backgroundColor=="rgb(255, 0, 54)") {
+                    if (num != 4) {
+                        oImg[num].style.opacity = "0";
+                        oImg[++num].style.opacity = "1";
+                    }
+                    else {
+                        oImg[num].style.opacity = "1";
+                    }
+                }
+                else if(oBtn[1].style.backgroundColor=="rgb(255, 0, 54)"){
+                    oImg[4].style.opacity="0";//先清理一遍
+                    if (num != 4) {
+                        oImg[num].style.opacity = "0";
+                        oImg[++num].style.opacity = "1";
+                    }
+                    else if(num==4){
+                        num-=4;
+                        oImg[num].style.opacity = "1";
+
+                    }
+                }
+
+
+                    switch (num) {
+                        case 0 :
+                            oSlide[0].innerHTML="假笑男孩像‘秋实’";
+                            oSlide[1].innerHTML=`${num+1}/5`;
+
+                            break;
+                        case 1 :
+                            oSlide[0].innerHTML="网恋吗？？小哥哥";
+                            oSlide[1].innerHTML=`${num+1}/5`;
+                            break;
+                        case 2 :
+                            oSlide[0].innerHTML="真漂亮的姐姐";
+                            oSlide[1].innerHTML=`${num+1}/5`;
+                            break;
+                        case 3 :
+                            oSlide[0].innerHTML="傲娇的姐姐";
+                            oSlide[1].innerHTML=`${num+1}/5`;
+                            break;
+                        case 4 :
+                            oSlide[0].innerHTML="这是我老婆";
+                            oSlide[1].innerHTML=`${num+1}/5`;
+                        default :
+                            break;
+                    }
+
+            };
+            oSlide[2].onclick = function () {
+                for(let i=0,len=oImg.length; i<len; i++){
+                    if(oImg[i].style.opacity==" 1"){
+                        num=i;
+                        break;
+                    }
+                }
+                if(oBtn[0].style.backgroundColor=='rgb(255, 0, 54)') {
+                    if (num != 0) {
+                        oImg[num].style.opacity = "0";
+                        oImg[--num].style.opacity = "1";
+                    }
+                    else {
+                        oImg[num].style.opacity = "1";
+                    }
+                }
+                else if(oBtn[1].style.backgroundColor=="rgb(255, 0, 54)"){
+                    oImg[0].style.opacity="0"; /*先清理一遍*/
+                    if (num != 0) {
+
+                        oImg[num].style.opacity = " 0";
+                        oImg[--num].style.opacity = " 1";
+                    }
+                    else if(num==0){
+                        num+=4;
+                        oImg[num].style.opacity = "1";
+                    }
+                }
+                    switch (num) {
+                        case 0 :
+                            oSlide[0].innerHTML = "假笑男孩像‘秋实’";
+                            oSlide[1].innerHTML = `${num + 1}/5`;
+                            break;
+                        case 1 :
+                            oSlide[0].innerHTML = "网恋吗？？小哥哥";
+                            oSlide[1].innerHTML = `${num + 1}/5`;
+                            break;
+                        case 2 :
+                            oSlide[0].innerHTML = "真漂亮的姐姐";
+                            oSlide[1].innerHTML = `${num + 1}/5`;
+                            break;
+                        case 3 :
+                            oSlide[0].innerHTML = "傲娇的姐姐";
+                            oSlide[1].innerHTML = `${num + 1}/5`;
+                            break;
+                        case 4 :
+                            oSlide[0].innerHTML = "这是我老婆";
+                            oSlide[1].innerHTML = `${num + 1}/5`;
+                        default :
+                            break;
+                    }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

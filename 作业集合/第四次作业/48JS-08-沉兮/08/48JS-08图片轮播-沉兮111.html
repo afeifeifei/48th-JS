@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+        ol,ul,li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            border: none;
+        }
+        #box{
+            position: relative;
+            width: 600px;
+            height: 450px;
+            margin: 20px auto;
+        }
+        #wrap{
+            position: absolute;
+            width: 600px;
+            height: 375px;
+            margin: 20px auto;
+            background-image: url("1.jpg");
+            background-size: 600px 400px;
+            background-repeat: no-repeat;
+            border: 1px solid #FFF;
+            overflow: hidden;
+        }
+        #shang{
+            position: absolute;
+            top: 0;
+            width: 600px;
+            height: 30px;
+            color: lawngreen;
+            text-align: center;
+        }
+        #xia{
+            position: absolute;
+            bottom: 0;
+            width: 600px;
+            height: 30px;
+            color: aqua;
+            text-align: center;
+        }
+        #wrap a.left{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 16px;
+            height: 30px;
+            margin: auto;
+        }
+        #wrap a.right{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 16px;
+            height: 30px;
+            margin: auto;
+        }
+        .btn{
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            height: 50px;
+        }
+        .xh{
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="wrap">
+            <div id="shang">1/5</div>
+            <div id="xia">FF15</div>
+            <a style="z-index: 1000" href="#2" class="left"><img src="arrow1.png" width="16" height="30"/></a>
+            <a  style="z-index: 1000" href="#2" class="right"><img src="arrow2.png" width="16" height="30"/></a>
+        </div>
+        <button style="font-size: 12px" class="btn zc">正常模式</button>
+        <button style="font-size: 12px" class="btn xh">循环模式</button>
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap");
+        let oSaang = document.getElementById("shang");
+        let oXia = document.getElementById("xia");
+        let oLeft = document.getElementsByClassName("left");
+        let oRight = document.getElementsByClassName("right");
+        let oZc = document.getElementsByClassName("zc");
+        let oXh = document.getElementsByClassName("xh");
+        let p = [
+            "FF15",
+            "征程的初端",
+            "露娜姐姐",
+            "基友四伙伴",
+            "全家福"
+        ];
+        let i = 1;
+        oZc[0].onclick = function () {
+            oZc[0].style.backgroundColor += "red";
+            oXh[0].style.backgroundColor = "";
+            oRight[0].onclick = function () {
+                if (i <= 4){
+                    i++;
+                    oWrap.style.backgroundImage = "url(" + i + ".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                    console.log(i);
+                } else if ( i >= 4){
+                    oWrap.style.backgroundImage = "url(5.jpg)";
+                    }
+                }
+            oLeft[0].onclick = function () {
+                if (i >= 2 ){
+                    i = --i;
+                    oWrap.style.backgroundImage = "url("+ i +".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                    console.log( i );
+                }else if ( i <= 1 ){
+                    oWrap.style.backgroundImage = "url(1.jpg)";
+                }
+            }
+        }
+        oXh[0].onclick = function () {
+            oXh[0].style.backgroundColor += "red";
+            oZc[0].style.backgroundColor = "";
+            oRight[0].onclick = function () {
+                if ( i <= 4 ) {
+                    i++;
+                    oWrap.style.backgroundImage = "url("+ i +".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                }else if ( i >= 5 ){
+                    i = 0;
+                    i++;
+                    oWrap.style.backgroundImage = "url("+ i +".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                }
+            }
+            oLeft[0].onclick = function () {
+                if ( i >= 2 ){
+                    i--;
+                    oWrap.style.backgroundImage = "url("+ i +".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                }else if ( i <= 1 ){
+                    i = 6;
+                    i--;
+                    oWrap.style.backgroundImage = "url("+ i +".jpg)";
+                    oSaang.innerHTML = i+"/5";
+                    oXia.innerHTML = p[i-1];
+                    console.log( i );
+                }
+            }
+        }
+    </script>
+</body>
+</html>

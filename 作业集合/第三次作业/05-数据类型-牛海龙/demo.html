@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-牛海龙-ID:尔boy">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap.box{
+            width:380px;
+            margin:100px auto;
+            padding:10px;
+            box-shadow:0 6px 10px #000;
+        }
+        .box #text {
+            width:375px;
+            height:140px;
+            border: 1px solid #0cf;
+
+        }
+        #wrap #sub{
+            float:right;
+            width:60px;
+            height:30px;
+            margin-top:5px;
+            background-color:#ccc;
+        }
+        #wrap #goes{
+            width:375px;
+            margin-top:35px;
+        }
+        #wrap #goes li{
+            border-bottom:2px dotted #0cf;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="sub">提交</button>
+            <ul id="goes"></ul>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap");
+            oWrap.className = "box";
+            let oTextarea = document.getElementById("text");
+            let oSubmit = document.getElementById("sub");
+            let oUl = document.getElementById("goes");
+            //document改成oWrap是错误的。
+            oSubmit.onclick = function(){
+                oUl.innerHTML += "<li>" + oTextarea.value + "</li>";
+                oTextarea.value ="";
+                // alert("123");
+                //问题:如果文本框中未输入信息，如何解决点击提交不输出li？
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

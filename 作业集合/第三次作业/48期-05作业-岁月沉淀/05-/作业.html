@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            width: 500px;
+            height: 150px;
+            margin: 50px auto 30px;
+            padding: 15px 0;
+            background: #4b986a;
+            border-radius: 0 10px 10px;
+        }
+        #box form{
+            width: 470px;
+            margin: auto;
+        }
+        #box form textarea{
+            width: 465px;
+            height: 120px;
+            border:1px solid #666;
+            border-radius: 5px;
+            padding: 2px;
+            resize: none;
+        }
+        #box form button{
+            float: right;
+            width: 80px;
+            height:25px;
+            line-height: 25px;
+            margin-top: 2px;
+            margin-left: 5px;
+            background: linear-gradient(#5f6889,#272d41);
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+        }
+        .portrait{
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 70px;
+            height: 70px;
+            margin-left: -72px;
+        }
+        .portrait img{
+            display: none;
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 70px;
+            height:70px;
+            border: 1px solid #5f6889;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 10px 0 0 10px;
+        }
+        #list{
+            width: 500px;
+            margin: auto;
+        }
+        #list ul{
+            list-style:none;
+        }
+        #list ul li{
+            line-height: 50px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        #list ul li img{
+            display: inline-block;
+            width: 50px;
+            height:50px;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+        #list ul li p{
+            display: inline-block;
+            max-width: 420px;
+            line-height: 25px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <form>
+        <textarea id="txt" cols="30" rows="8"></textarea>
+        <button id="btn" type="button">发表</button>
+        <button id="remove" type="button">清空</button>
+    </form>
+    <div class="portrait">
+        <img src="images/1.png" style="display: block" width="50" height="50">
+        <img src="images/3.jpg" width="50" height="50">
+    </div>
+</div>
+<div id="list">
+    <ul>
+    </ul>
+</div>
+
+<script>
+    let box = document.getElementById('box');
+    let pImg = box.querySelectorAll('.portrait img');
+    let oUl = document.getElementById('list').querySelector('ul');
+    let srcs = "images/1.png";
+
+    //头像点击事件
+    pImg[0].onclick = function(){
+        pImg[1].style.display = 'block';
+        pImg[0].style.display = 'none';
+        srcs = pImg[1].src;
+    };
+    pImg[1].onclick = function(){
+        pImg[0].style.display = 'block';
+        pImg[1].style.display = 'none';
+        srcs = pImg[0].src
+    };
+    //聊天框按钮事件
+    btn.onclick = function(){
+        oUl.innerHTML += "<li><img src="+srcs+"><p>"+txt.value+"</p>"+"</li>"
+    };
+    remove.onclick =function () {
+        oUl.innerHTML = ""
+    }
+</script>
+</body>
+</html>

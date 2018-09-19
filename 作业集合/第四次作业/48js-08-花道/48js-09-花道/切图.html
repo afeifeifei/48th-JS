@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 960px;
+                margin: 50px auto;
+            }
+            #container{
+                position: relative;
+                height: 550px;
+                color: #fff;
+                font-size: 0;
+                text-align: center;
+            }
+            #container li{
+                position: absolute;
+            }
+            #container li:first-child{
+                z-index: 1;
+            }
+            #container img{
+                width: 960px;
+            }
+            #container .top{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                background: rgba(0,0,0,.4);
+                font-size: 20px;
+                line-height: 2em;
+            }
+            #container .bottom{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0,0,0,.4);
+                font-size: 20px;
+                line-height: 2em;
+            }
+            #wrap span{
+                position: absolute;
+                z-index: 100;
+                top: 270px;
+                width: 60px;
+                height: 2em;
+                background: rgba(0,0,0,.4);
+                color: #fff;
+                font-size: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #left{
+                left: 25px;
+            }
+            #right{
+                right: 25px;
+            }
+            #wrap i{
+                display:inline-block;
+                font-size: 30px;
+                line-height: 2em;
+            }
+            #button{
+                text-align: center;
+            }
+            #button button{
+                margin: 0 10px;
+                background: #fff;
+                border: 1px solid #000;
+                font-size: 20px;
+                outline: none;
+                cursor: pointer;
+            }
+            #button #button-normal{
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul id="container">
+                <li>
+                    <img src="2.jpg" width=“1920” height=“1080” alt="死神">
+                    <div class="top">1/5</div>
+                    <div class="bottom">死神</div>
+                </li>
+                <li>
+                    <img src="3.jpg" width=“1920” height=“1080” alt="天使姐姐">
+                    <div class="top">2/5</div>
+                    <div class="bottom">天使姐姐</div>
+                </li>
+                <li>
+                    <img src="4.jpg" width=“1920” height=“1080” alt="温斯顿">
+                    <div class="top">3/5</div>
+                    <div class="bottom">温斯顿</div>
+                </li>
+                <li>
+                    <img src="5.jpg" width=“999” height=“562” alt="猎空">
+                    <div class="top">4/5</div>
+                    <div class="bottom">猎空</div>
+                </li>
+                <li>
+                    <img src="6.jpg" width=“1920” height=“1080” alt="源氏">
+                    <div class="top">5/5</div>
+                    <div class="bottom">源氏</div>
+                </li>
+            </ul>
+            <span id="left"><i class="iconfont icon-qiehuanqizuo"></i></span>
+            <span id="right"><i class="iconfont icon-qiehuanqiyou"></i></span>
+            <div id="button">
+                <button id="button-normal">正常模式</button>
+                <button id="button-loop">循环模式</button>
+            </div>
+        </div>
+        
+        <script>
+            let oButton_normal = document.getElementById("button-normal");
+            let oButton_loop = document.getElementById("button-loop");
+            let oLeft = document.getElementById("left");
+            let oRight = document.getElementById("right");
+            let flag = true;
+            let i = 0;
+            let x = 1;
+            let oLi = document.querySelectorAll("#container li");
+            oButton_normal.onclick = function () {
+                oButton_normal.style.background = "red";
+                oButton_loop.style.background = "#fff";
+                flag = true;
+            };
+
+            oButton_loop.onclick = function () {
+                oButton_loop.style.background = "red";
+                oButton_normal.style.background = "#fff";
+                flag = false;
+            };
+            //右切
+            oRight.onclick = function () {
+                if (flag){
+                    if ( i < oLi.length - 1 ){
+                        i++;
+                        x++;
+                        oLi[i].style.zIndex = x;
+                        console.log("z-index"+oLi[i].style.zIndex);
+                        console.log("x:"+x);
+                        console.log("i:"+i);
+                    }
+                }else{//循环模式
+                    if ( i === oLi.length - 1 ){
+                        i = -1;
+                    }
+                    i++;
+                    x++;
+                    oLi[i].style.zIndex = x;
+                    console.log("z-index"+oLi[i].style.zIndex);
+                    console.log("x:"+x);
+                    console.log("i:"+i);
+                }
+            };
+            //左切
+            oLeft.onclick = function () {
+                if (flag){
+                    if ( i > 0 ){
+                        i--;
+                        x++;
+                        oLi[i].style.zIndex = x;
+                        console.log("z-index:"+oLi[i].style.zIndex);
+                        console.log("x:"+x);
+                        console.log("i:"+i);
+                    }
+                }else{//循环模式
+                    if (i === 0){
+                        i = oLi.length;
+                    }
+                    i--;
+                    x++;
+                    oLi[i].style.zIndex = x;
+                    console.log("z-index:"+oLi[i].style.zIndex);
+                    console.log("x:"+x);
+                    console.log("i:"+i);
+                }
+            };
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

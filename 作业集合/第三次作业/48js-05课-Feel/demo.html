@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap{
+                width:300px;
+                height:600px;
+                margin:20px auto;
+            }
+            #wrap #text{
+                width: 296px;
+                color: #40913b;
+                font-size:14px;
+            }
+            #wrap #btn{
+                margin-left: 260px;
+                background-color: #50afff;
+                border-color: #ddac45;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" >
+            <textarea cols="30" rows="10" resize="none" id="text" placeholder="在此次发表的你的言论"></textarea>
+            <input type="submit" id="btn" value="发送">
+            <ul>
+            </ul>
+        </div>
+        
+        <script>
+            let oText = document.getElementById("text");
+            let oBtn = document.getElementById("btn");
+            oBtn.onclick=function(){
+               let oLi=document.createElement("li");
+               oLi.style.cssText="height:25px;border-bottom: 2px dotted #ccc;color:red;font-size:14px;line-height:30px;";
+               oLi.innerHTML =oText.value;
+               let oUl = document.getElementsByTagName("ul")[0];
+               oUl.appendChild(oLi);
+
+
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

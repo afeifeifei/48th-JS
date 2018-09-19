@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期冷妆">
+        <style>
+            *{margin:0;padding:0;}
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 600px;
+                height: 300px;
+                margin: 50px auto;
+                background-color: black;
+                color: white;
+                text-align:center;
+            }
+            #wrap ul{
+                position: absolute;
+                top:0;
+                bottom: 0;
+                width: 100%;
+                height:240px;
+                margin: auto;
+                background-color: green;
+            }
+            #wrap ul li{
+                position: absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height: 100%;
+                opacity: 0;
+            }
+            #wrap ul li:first-child{
+                opacity: 1;
+            }
+            #wrap ul li img{
+                width:100%;
+                height: 100%;
+            }
+            #wrap input{
+                outline: none;
+                border: none;
+            }
+            #wrap .switch{
+                position: absolute;
+                top:0;
+                bottom: 0;
+                margin: auto;
+                width:30px;
+                height:30px;
+                box-shadow: 0 0 2px #bcb8b8;
+            }
+            #wrap #right{
+                right:0;
+            }
+            #wrap #left{
+                left:0;
+            }
+            #wrap p{
+                line-height: 30px;
+                margin-bottom: 0px;
+            }
+            #wrap .text{
+                margin-top: 240px;
+            }
+            #wrap .model{
+                width: 80px;
+                height:30px;
+                margin:50px 20px 0 0;
+                color: #ffffff;
+            }
+            #wrap .model{
+                background-color: black;
+            }
+            #wrap .click{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p><span>1</span>/5</p>
+            <ul>
+                <li><img src="images/1.jpg" alt="小清新" width="480" height="300"></li>
+                <li><img src="images/2.jpg" alt="小清新" width="500" height="313"></li>
+                <li><img src="images/3.jpg" alt="小清新" width="533" height="300"></li>
+                <li><img src="images/4.jpg" alt="小清新" width="479" height="300"></li>
+                <li><img src="images/5.jpg" alt="小清新" width="533" height="300"></li>
+            </ul>
+            <p class="text">图片切换</p>
+            <input type="button" class="switch" id="left" value="<">
+            <input type="button" class="switch" id="right" value=">">
+            <input type="button" class="model click" id="single" value="单边模式">
+            <input type="button" class="model" id="loop" value="循环模式">
+        </div>
+        
+        <script>
+            let oSingle=document.getElementById('single'),
+                oLoop=document.getElementById('loop'),
+                oLeft=document.getElementById('left'),
+                oRight=document.getElementById('right'),
+                aLi=document.getElementsByTagName('li'),
+                oSpan=document.getElementsByTagName('span')[0];
+                i=0,flag=true;
+            oSingle.onclick=function () {
+                flag=true;
+                oSingle.className+=' click';
+                oLoop.className='model';
+            }
+            oLoop.onclick=function () {
+                flag=false;
+                oLoop.className+=' click';
+                oSingle.className='model';
+            }
+            oRight.onclick=function () {
+                if(i<aLi.length-1){
+                    aLi[i].style.opacity='0';
+                    aLi[i+1].style.opacity='1';
+                    i++;
+                }
+                else {
+                    if(flag){
+                        alert('已经是最后一张图片');
+                    }
+                    else {
+                        aLi[i].style.opacity='0';
+                        aLi[0].style.opacity='1';
+                        i=0;
+                    }
+                }
+                oSpan.innerHTML=i+1;
+            };
+            oLeft.onclick=function () {
+                if(i>0){
+                    aLi[i-1].style.opacity='1';
+                    aLi[i].style.opacity='0';
+                    oSpan.innerHTML=i+1;
+                    i--;
+                }
+                else {
+                    if (flag) alert('已经是第一张图片');
+                    else if(i=='0'){
+                        aLi[0].style.opacity = '0';
+                        aLi[aLi.length-1].style.opacity = '1';
+                        i = aLi.length-1;
+                    }
+                }
+                oSpan.innerHTML=i+1;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

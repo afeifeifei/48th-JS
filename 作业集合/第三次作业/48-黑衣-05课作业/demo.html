@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            input[type=text]{
+                display:block;
+                width:400px;
+                height:200px;
+                margin:auto;
+                background-color:white;
+                border:1px solid blue;
+            }
+            input[type=button]{
+                display:block;
+                margin-left: 61%;
+            }
+            .content{
+                width:400px;
+                height:300px;
+                margin:auto;
+                background-color: aqua;
+            }
+            .content li{
+                border-bottom:1px solid pink;
+                line-height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <input class="text" type="text"/>
+        <input class="btn" type="button" value="提交"/>
+        <ul class="content">
+        </ul>
+        <script>
+            let oText=document.getElementsByClassName("text")[0];
+            let oBtn=document.getElementsByClassName("btn")[0];
+            let oContent=document.getElementsByClassName("content")[0];
+            oBtn.onclick=function(){
+                oContent.innerHTML += "<li>" + oText.value+ "</li>";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

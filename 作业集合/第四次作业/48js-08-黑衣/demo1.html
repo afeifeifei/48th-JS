@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            .banner {
+                position:relative;
+                width:500px;
+                height: 400px;
+                margin:80px auto;
+                background-color: teal;
+            }
+            .banner  .top,.banner  .bottom{
+                position: absolute;
+                width:500px;
+                height:40px;
+                background-color: black;
+                color:green;
+                font-size:20px;
+                text-align:center;
+                line-height:40px;
+                opacity: 0.5;
+            }
+            .banner  .top{
+                top:0;
+            }
+            .banner  .bottom{
+                bottom:0;
+            }
+            .banner  .right , .banner  .left{
+                position: absolute;
+                width:0;
+                height:0;
+                top:0;
+                bottom:0;
+                margin:auto;
+                border-width: 20px;
+                border-style:solid;
+                z-index: 1;
+            }
+            .banner  .left{
+                left:0;
+                border-color:transparent rgba(0,0,0,0.5) transparent transparent ;
+                border-left:none;
+            }
+            .banner  .right{
+                right:0;
+                border-color:transparent  transparent transparent rgba(0,0,0,0.5) ;
+                border-right:none;
+            }
+            .list,.list li{
+                position: absolute;
+                width:500px;
+                height:400px;
+            }
+            .list li img{
+                display:none;
+                width:500px;
+                height:400px;
+            }
+            .list li:first-child img{
+                display: block;
+            }
+            button,.nor{
+                position: absolute;
+                right:0;
+                left:0;
+                bottom:-60px;
+                width:80px;
+                height:40px;
+                margin:auto;
+             }
+            button{
+                margin-left:150px;
+            }
+            .nor{
+                margin-right:150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="banner ">
+            <ul class="list">
+                <li>
+                    <img src="img/1.jpg" height="800" width="800"/>
+                </li>
+                <li>
+                    <img src="img/2.jpg" height="1024" width="724"/>
+                </li>
+                <li>
+                    <img src="img/3.jpg" height="966" width="1024"/>
+                </li>
+                <li>
+                    <img src="img/4.jpg" height="792" width="850"/>
+                </li>
+                <li>
+                    <img src="img/5.jpg" height="673" width="1024"/>
+                </li>
+            </ul>
+            <p class="top">1/5</p>
+            <div class="left"></div>
+            <div class="right"></div>
+            <p class="bottom">背景1</p>
+            <button class="nor">正常播放</button>
+            <button class="loop">循环播放</button>
+        </div>
+        <script>
+            let oRight=document.getElementsByClassName("right")[0];
+            let oLeft=document.getElementsByClassName("left")[0];
+            let oTop=document.getElementsByClassName("top")[0];
+            let oBottom=document.getElementsByClassName("bottom")[0];
+            let oImg=document.querySelectorAll(".banner .list li img");
+            let oNor=document.getElementsByClassName("nor")[0];
+            let oLoop=document.getElementsByClassName("loop")[0];
+            let bottomText=["背景1","背景2","背景3","背景4","背景5"];
+            let num=0;
+            let oldImage=oImg[num];
+            let nor=true;   // 正常播放
+            oLoop.onclick=function(){
+                nor=false;
+            }
+            oNor.onclick=function(){
+                nor=true;
+            }
+            oRight.onclick=function () {
+                num++;
+                if(num>=4){
+                    if(nor){
+                        num=4;
+                    }else{
+                        num=0;
+                    }
+                }
+                oldImage.style.display="none";
+                oImg[num].style.display="block";
+                oldImage=oImg[num];
+                oTop.innerHTML=num+1+"/"+"5";
+                oBottom.innerHTML=bottomText[num];
+            }
+            oLeft.onclick=function () {
+                num--;
+                if(num<=0){
+                    if(nor){
+                        num=0;
+                    }else{
+                        num=4;
+                    }
+                }
+                oldImage.style.display="none";
+                oImg[num].style.display="block";
+                oldImage=oImg[num];
+                oTop.innerHTML=num+1+"/"+"5";
+                oBottom.innerHTML=bottomText[num];
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

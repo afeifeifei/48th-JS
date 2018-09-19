@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>43js</title>
+	<style>
+		*{margin: 0;padding: 0}
+		#box{
+			width: 300px;
+			margin: 100px auto;
+		}
+
+		textarea{
+			width: 300px;
+		}
+
+		button{
+			float: right;
+		}
+		ul{
+			margin-top: 20px
+		}
+	</style>
+
+</head>
+<body>
+	<div id="box">
+		<textarea name="" id="info" cols="30" rows="10"></textarea>
+		<button id="btn">提交</button>
+	    <ul id="list"></ul>
+	</div>
+	
+    <script>
+    	let oInfo = document.getElementById('info'),
+    		oBtn = document.getElementById('btn'),
+    		oList = document.getElementById('list');
+
+    	oBtn.onclick = () => {
+    		let val = oInfo.value;
+    		oList.innerHTML += `<li>${val}</li>`;
+    		oInfo.value = "";
+    	};
+
+
+    </script>
+</body>
+</html>

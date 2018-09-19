@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标题</title>
+    <style>
+        body{font-family: "Microsoft YaHei",serif;background-color: #cdd5e0;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #box{
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 500px;
+            height: 100%;
+            margin: 50px auto 10px;
+        }
+        #wrap{
+            width: 500px;
+            height: 200px;
+        }
+        #box input[type=button]{
+            float: right;
+        }
+        #box ul{
+            width: 500px;
+        }
+        #box ul>li{
+            width: 500px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-bottom: 1px dashed #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="wrap" title="">
+        <input type="button" id="btn" value="提交">
+        <ul>
+        </ul>
+    </div>
+    <script>
+        let oInp = document.getElementById('wrap');
+        let oUl = document.querySelector('#box ul');
+        document.getElementById('btn').onclick = function () {
+            oUl.innerHTML += '<li>'+oInp.value+'</li>';
+        }
+    </script>
+</body>
+</html>

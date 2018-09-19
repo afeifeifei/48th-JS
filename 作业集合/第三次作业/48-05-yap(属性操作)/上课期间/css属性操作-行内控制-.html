@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>yap</title>
+        <style>
+
+
+        </style>
+    </head>
+    <body>
+        <div yap="666" style="width:100px;" id="warp" class="box" title="我是div">123456</div>
+        <script>
+            //合法的标签属性直接 . 操作
+            let oDiv= document.getElementById('warp');//oDiv已经和对象建立了一个途径(指针?)!
+            oDiv.title='yap';//写入值
+            console.log(oDiv.title);//读取值
+            oDiv.className='box1';//class写入特殊,需要用到className
+            oDiv.style='';//style非常特殊,.log后显示是对象....他存储的是这个节点对象的所有的css(内联)(行内)样式,
+            oDiv.style.height='200px';//正确的style的操作方式;
+            oDiv.style.backgroundColor='pink';
+            //复合型写法;
+            console.log(oDiv.style.cssText);//看到style中写了什么样式
+            oDiv.style.cssText+='width:200px;';
+            /*
+            操作自定义的标签:
+            -getAttribute//获取
+            -setAttribute//设置   **自定义标签的操作也可以操作合法的标签属性**
+            -removeAttribute//移除,这里不做演示
+             */
+            //获取自定义标签
+            console.log(oDiv.getAttribute('yap'));
+            //设置自定义属性,有啥用???
+            oDiv.setAttribute('yap','999');
+        </script>
+    </body>
+</html>

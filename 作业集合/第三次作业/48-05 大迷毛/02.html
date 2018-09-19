@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Jerry">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap{
+            margin-top:40px;
+            margin-left: 35%;
+        }
+        #box{
+            border-color: black;
+
+        }
+        #btn{
+            color: white;
+            background-color: lightskyblue;
+            border-radius: 10%;
+            width: 80px;
+            height: 40px;
+            position: relative;
+            top: -15px;
+            left: 10px;
+        }
+        #hr{
+            width: 350px;
+            margin-left: 0px;
+            border:dashed 1px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <textarea name="chatRoom" id="box" cols="50" rows="10"></textarea>
+            <button id="btn">Submit</button>
+            <div id="record"></div>
+        </div>
+        
+        <script>
+            let wrap = document.getElementById("wrap")
+            let clickBtn = document.getElementById("btn");
+            let content = document.getElementById("box");
+            let record = document.getElementById("record");
+            clickBtn.onclick = function () {
+                record.innerHTML += content.value + "<hr id='hr'>" ;
+                content.value = '';
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
