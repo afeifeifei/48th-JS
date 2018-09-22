@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                border: 1px dashed #999;
+                margin: 20px auto 0;
+            }
+            #wrap div{
+                float: left;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bolder;
+                background-color: #abcdef;
+                color: #000;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+        </div>
+        
+        <script>
+
+            let num = 8;
+            let mid = 0;
+            let oWrap = document.getElementById("wrap");
+
+
+            //设置wrap的宽高
+            if(num%2){
+                mid = (num-1)/2
+            }else{
+                mid = num/2
+            }
+            oWrap.style.width = (num+1)*50 + 'px';
+            oWrap.style.height = (mid+1)*50 + 'px';
+
+            let html = "";
+            for (let i = 0; i <= num; i++) {
+               let x = mid-(i<=mid?i:num-i);
+               html += `<div style='margin-top:${x*50}px'>${i}</div>`;
+            }
+
+            oWrap.innerHTML = html;
+
+            /*
+             if( i <= mid ){
+                    html += `<div style='margin-top:${i*50}px'>${i}</div>`;
+                }else{
+                    html += `<div style='margin-top:${(num-i)*50}px'>${i}</div>`;
+                }
+             */
+
+            
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

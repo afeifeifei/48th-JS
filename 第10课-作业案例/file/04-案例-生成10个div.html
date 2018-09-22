@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap div{
+                float: left;
+                margin: 2px;
+                width: 50px;
+                height: 50px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn">点击生成10个DIV</button>
+        <div id="wrap"></div>
+        
+        <script>
+
+            let oWrap = document.getElementById("wrap"),
+                oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function(){
+
+                let HTML = "";
+                for(let i=0;i<10;i++){
+                    HTML += "<div></div>";
+                }
+
+                oWrap.innerHTML += HTML;
+
+            };
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

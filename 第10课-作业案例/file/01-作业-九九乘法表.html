@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 750px;
+            }
+            #wrap span{
+                display: inline-block;
+                width: 65px;
+                height: 35px;
+                border: 1px solid blue;
+                margin: 2px;
+                line-height: 35px;
+                text-align: center;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--
+            <span>1*8=8</span>
+
+            <br>
+
+            <span>1*8=8</span>
+            <span>1*8=8</span>-->
+
+        </div>
+        
+        <script>
+
+            let oWrap = document.getElementById("wrap");
+
+            let s = ""
+            for(let i=1;i<=9;i++){
+                //console.log(i);
+
+                //根据当前的行数，生成不同个数的span
+                let html = "";
+                for(let j=1;j<=i;j++){
+                    //html += "<span>"+i+"*"+j+"="+i*j+"</span>";
+                    html += `<span>${i}*${j}=${i*j}</span>`;
+                }
+
+                html += "<br>";//每行结束的换行符
+
+                s += html;
+            }
+
+            s += "<hr><hr>";
+
+            for(let i=1;i<=9;i++){
+                let html = "";
+                for(let j=i;j<=9;j++){
+                    html += `<span>${i}*${j}=${i*j}</span>`;
+                }
+                html += "<br>";
+                s += html;
+            }
+
+            s += "<hr><hr>";
+
+            for(let i=9;i>=1;i--){
+                let html = "";
+                for(let j=1;j<=i;j++){
+                    html += `<span>${i}*${j}=${i*j}</span>`;
+                }
+                html += "<br>";
+                s += html;
+            }
+
+
+
+
+
+
+
+            oWrap.innerHTML = s;
+
+
+            //true "true"
+            // "阿飞i朱雀"
+            // `阿飞${i}朱雀`
+            // "阿飞"+ i +"朱雀"
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

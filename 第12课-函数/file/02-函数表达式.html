@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            /*
+            函数表达式 可以直接加括号执行
+
+             */
+
+            //使用这种形式定义的函数，不能直接加括号执行，只能通过名字再加括号执行
+            /*function a(){
+                alert( 3 );
+            }
+            a();*/
+
+            //这种方式定义的函数，可以直接在后面加括号执行
+            let a = function(){
+                alert( 3 );
+            }();
+
+            (function(){
+                alert( 4 );
+            })();
+
+            (function(){
+                alert(5);
+            }());
+
+            +function(){
+                alert(6);
+            }();
+
+            -function(){
+                alert(7);
+            }();
+
+            ~function(){
+                alert(8);
+            }();
+
+            !function(){
+                alert(9);
+            }();
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

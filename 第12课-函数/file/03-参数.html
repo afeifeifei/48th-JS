@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            参数
+                形参
+                实参
+                不定参
+             */
+
+            //定义函数的时候 () 里面是允许写 变量名字的，这么变量名字就是形参，形参只针对函数内部起作用
+            /*function a( x,y ){
+                alert( x+y );
+            }
+
+            //函数调用的时候， () 里面写的就是实参
+            a( 7,8 )*/
+
+            /*function a(x,z,y){
+                console.log(x);
+                console.log(y);
+                console.log(z);
+            }
+
+            a(1,2);*/
+
+            /*function a(x,y){
+                console.log(x + y);
+            }
+
+            a(7,8); //15
+            a(4,5); // 9*/
+
+            /*function a(x,z){
+                console.log(x);
+                console.log(z);
+            }
+
+            a(1,2,3);*/
+
+
+            /*function sum(a,b){
+                alert( a+b );
+            }
+            sum(7,8);
+            sum(2,3);*/
+
+            /*function sum(a,b,c){
+                alert( a+b+c );
+            }
+            sum(7,8,2);
+            sum(2,3,3);*/
+
+            //求 n 个数的和，每次不一定是相同的个数，实参传入几个数，就求几个数的和
+            function sum(a){
+                //不定参 -- 他是一个类数组，存储着所有实参
+                console.log( arguments );
+
+                let s = 0;
+                for(let i=0,len=arguments.length;i<len;i++){
+                    s += arguments[i];
+                }
+                alert( s );
+
+            }
+
+            sum(4,5,6);
+            sum(1,2);
+            sum(7,8,9,4);
+
+
+            let x = 10;
+            function a( b ){
+                alert( b );
+            }
+
+            //实参不一定非得是一个确切的数据，也可以传入某个变量，此时会直接访问这个变量的值
+            a( x )
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

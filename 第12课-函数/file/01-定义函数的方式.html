@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+
+            函数可以加括号自执行
+             */
+
+            /*let a = function(){
+                //代码
+                alert( 1 );
+            };*/
+
+            //a();
+
+            //let a = 10;
+            //a(); //这样是报错的， a is not a function
+
+
+            /*
+            //这种定义方式允许在前面调用
+            a();
+            function a(){
+                alert(1);
+            }*/
+
+            /*
+            //这种定义方式不允许提前调用
+            a();
+            var a = function(){
+                alert( 2 );
+            }*/
+
+            /*function a(){
+                alert(1);
+            }
+
+            a();*/
+
+            let a = function b(){
+                alert( 2 );
+                console.log(b); //在函数里面可以获取到b，此时 b === a
+                console.log(b === a);
+            };
+
+            a();
+
+            //b();  //外面不能使用b
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

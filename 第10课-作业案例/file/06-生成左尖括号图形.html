@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                border: 1px dashed #999;
+                margin: 20px auto;
+            }
+            #wrap div{
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: #000;
+                font-size: 20px;
+                font-weight: bolder;
+                background-color: #abcdef;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--<div>4</div>-->
+        </div>
+        
+        <script>
+
+            /*
+                        4   3*50
+                        5   3.5*50
+                        6   4*50
+                        8   5*50
+                        10  6*50
+                         */
+            let num = 11;
+            let mid;
+            let oWrap = document.getElementById("wrap");
+            let HTML = "";
+
+            //计算得出wrap的宽高
+            if( num % 2 ){
+                mid = (num-1)/2;
+            }else{
+                mid = num/2;
+            }
+            oWrap.style.width = (mid+1)*50+"px";
+            oWrap.style.height = (num+1)*50+"px";
+
+
+            for(let i=0;i<=num;i++){
+                /*if( i <= mid ){
+                    //一半之前
+                    HTML += `<div style="margin-left:${i*50}px;">${i}</div>`;
+                }else{
+                    HTML += `<div style="margin-left:${(num-i)*50}px;">${i}</div>`;
+                }*/
+
+                let x = mid - (i<=mid?i:num-i);
+                HTML += `<div style="margin-left:${x*50}px;">${i}</div>`;
+            }
+
+
+            oWrap.innerHTML = HTML;
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
