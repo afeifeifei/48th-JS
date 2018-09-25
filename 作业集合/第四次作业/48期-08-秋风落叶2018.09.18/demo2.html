@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+	<html lang="zh-Hans-cn">
+		<head>
+		<meta charset="utf-8"><!--国际编码格式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content=""><!--网页描述-->
+		<meta name="keywords" content=""><!--网页关键字-->
+		<title>9X9乘法表</title><!--网页标题-->
+		<style>
+			body{
+            	font-family: "Microsoft YaHei",serif;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+            	margin:0;
+            }
+            ol,ul,li{
+            	margin:0;
+	            padding:0;
+	            list-style:none;
+            }
+            img{
+            	border:none;
+            }
+            h3{
+            	margin-left: 15px;    
+            	font-size:18px;
+            	line-height:32px;
+            }
+			.wrap>ul{
+				list-style-type:none;
+				margin-left: 15px;
+				margin-top:15px;
+			}
+			.wrap>ul>li{
+				display:inline-block;
+				width:65px;
+				padding-left:5px;
+				margin:0 3px 3px 0;
+				border:1px solid #ccc;
+				line-height: 24px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h3>9X9乘法表</h3>
+	    <div class="wrap">
+			<ul class=table></ul>
+			<ul class=table></ul>
+	    </div>
+	    <script>
+	    	let oWrap = document.getElementsByClassName('wrap');
+	    	let oTable = document.getElementsByClassName('table');
+	    	//顺序乘法口诀表	
+	    	for( i=1;i<=9;i++ ){
+	    		for( j=1;j<=i;j++ ){
+	    			oTable[0].innerHTML += "<li>"+j+"x"+i+"="+i*j+"</li>";
+	    		};
+	    		oTable[0].innerHTML += "<br>";
+	    	};
+	    	//倒序乘法口诀表	
+	    	for( i=9;i>=1;i-- ){
+	    		for( j=i;j>=1;j-- ){
+	    			oTable[1].innerHTML += "<li>"+j+"x"+i+"="+i*j+"</li>";
+	    		};
+	    		oTable[1].innerHTML += "<br>";
+	    	};
+	    </script>
+	</body>
+</html>

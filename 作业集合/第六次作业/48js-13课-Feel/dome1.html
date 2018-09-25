@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 1008px;
+                height: 520px;
+                margin: 50px auto;
+            }
+            #wrap ul{
+                float: left;
+            }
+            #wrap ul li{
+                width: 250px;
+                height: 100px;
+                line-height: 100px;
+                border: 1px solid #993300;
+                font-size: 14px;
+                text-align: center;
+            }
+            #wrap ul:nth-child(n+2) li{
+               border-left:none ;
+            }
+            #wrap ul li:nth-child(n+2){
+                border-bottom:none ;
+            }
+            #wrap ul li:last-child{
+                border-bottom: 1px solid #993300;
+            }
+            #wrap ul li:first-child{
+                height: 50px;
+                background-color:#cc3366;
+                color: #fff;
+                font-weight: 800;
+                line-height: 50px;
+            }
+            #wrap ul li img{
+                width: 120px;
+                height: 70px;
+                vertical-align: middle;
+            }
+            #wrap ul:nth-child(3) li div{
+                width: 112px;
+                height: 30px;
+                margin: 33px auto;
+            }
+            #wrap ul:nth-child(3) li input{
+                float: left;
+                width: 50px;
+                height: 26px;
+                border: 1px solid #ccc;
+                color: red;
+                text-align: center;
+                outline: none;
+
+            }
+            input::-webkit-input-placeholder{
+                color: red;
+            }
+            #wrap ul:nth-child(3) li button{
+                float: left;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-color: #ddd;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            #wrap #footer{
+                position: absolute;
+                left:0;
+                bottom:0;
+                width: 1005px;
+                line-height: 50px;
+                background-color: #cc3366;
+            }
+            #wrap #footer p{
+                float: right;
+                margin-right: 100px;
+                color: #fff;
+                font-size: 14px;
+            }
+            #wrap #footer p span{
+                color: #f4e5a9;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li>商品</li>
+                <li><img src="images/shop1.jpg" height="220" width="220"/></li>
+                <li><img src="images/shop2.jpg" height="147" width="220"/></li>
+                <li><img src="images/shop3.jpg" height="165" width="220"/></li>
+                <li><img src="images/shop4.jpg" height="220" width="220"/></li>
+            </ul>
+            <ul>
+                <li>单价</li>
+                <li class="unp">8</li>
+                <li class="unp">10</li>
+                <li class="unp">12</li>
+                <li class="unp">23</li>
+            </ul>
+            <ul>
+                <li>数量</li>
+                <li>
+                    <div>
+                        <button class="reduce" > - </button>
+                        <input type="text" placeholder="0" readonly>
+                        <button class="add"> + </button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <button class="reduce"> - </button>
+                        <input type="text" placeholder="0" readonly>
+                        <button class="add"> + </button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <button class="reduce"> - </button>
+                        <input type="text" placeholder="0" readonly>
+                        <button class="add"> + </button>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <button class="reduce"> - </button>
+                        <input type="text" placeholder="0" readonly>
+                        <button class="add"> + </button>
+                    </div>
+                </li>
+            </ul>
+            <ul >
+                <li>小计</li>
+                <li class="calculation"><span>0</span></li>
+                <li class="calculation"><span>0</span></li>
+                <li class="calculation"><span>0</span></li>
+                <li class="calculation"><span>0</span> </li>
+            </ul>
+            <div id="footer">
+                <p class="total">合计费用:<span> 0 </span>￥</p>
+                <p class="selected">已选中商品:<span> 0 </span>个</p>
+            </div>
+        </div>
+        
+        <script>
+            let aInp = document.querySelectorAll("#wrap ul li div input"),
+                aBtnA = document.querySelectorAll("#wrap ul li div .add"),
+                aBtnR = document.querySelectorAll("#wrap ul li div .reduce"),
+                aCal = document.querySelectorAll("#wrap ul .calculation span"),
+                aUnp = document.querySelectorAll("#wrap ul .unp"),
+                oTot = document.querySelector("#wrap #footer .total span"),
+                oSel = document.querySelector("#wrap #footer .selected span"),
+                len = aUnp.length;
+            //加法部分
+            function add(i) {
+                aInp[i].value++;
+                aCal[i].innerHTML = aInp[i].value*aUnp[i].innerHTML;//计算单个商品的总价格
+                oSel.innerHTML++; //计算所以商品的总个数
+                oTot.innerHTML =oTot.innerHTML*1+aUnp[i].innerHTML*1;//计算所以商品的总价格
+            }
+            //减法部分
+            function reduce(i) {
+                if( aInp[i].value ==0 )return; //使数量不能小于0
+                aInp[i].value--;
+                aCal[i].innerHTML = aInp[i].value*aUnp[i].innerHTML;//计算单个商品的总价格
+                oSel.innerHTML--;   //计算所以商品的总个数
+                oTot.innerHTML =oTot.innerHTML*1-aUnp[i].innerHTML*1;//计算所以商品的总价格
+            }
+            for (let i=0 ; i< len;i++){
+                aBtnA[i].onclick = function () {
+                    add(i);
+                }
+                aBtnR[i].onclick = function () {
+                    reduce(i);
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

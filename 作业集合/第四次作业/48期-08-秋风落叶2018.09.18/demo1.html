@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+	<html lang="zh-Hans-cn">
+		<head>
+		<meta charset="utf-8"><!--国际编码格式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content=""><!--网页描述-->
+		<meta name="keywords" content=""><!--网页关键字-->
+		<title></title><!--网页标题-->
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			#wrap{
+				width: 650px;
+				padding: 0 10px;
+				margin: 30px auto;
+				border-left:1px solid #ccc;	
+				border-right:1px solid #ccc;				
+			}
+			#wrap>button{
+				width:40px;
+				height:30px;
+				margin:0 0 15px 15px;
+				background-color:#4885ed;
+				border:0;
+				color:#fff;
+				font-size:20px;
+			}
+			#wrap>span{
+				font-size:20px;
+				margin-left:15px;
+			}
+			#content{
+				text-align: center;
+				font-size:16px;
+			}
+			#content>p{
+				margin-bottom: 10px;
+				line-height: 1.5;
+				text-align: left;
+				text-indent:2em;	
+			}
+			#content>img{
+				margin-bottom: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+		    <button id="add">+</button>
+			<button id="abate">-</button>
+			<span>调节文字大小</span>
+			<div id="content">
+				<img src="images/032301.jpg" width="620" height="382" alt="插图">
+				<p>										
+					“世界那么大，我想去看看。”旅游似乎没有门槛，只要愿意，谁都能去。有钱就富游，没钱就穷游；有时间就远游，没时间就近游。奇怪的是，绝大部分人游着游着，就成一个“姿势”——上车睡觉，停车撒尿，见庙烧香，见景拍照。他们绝不会承认自己不会旅游，事实上真的不会。旅游可是一门大学问，同是旅游，你看人家是怎么玩的。
+				</p>
+				<p>
+				第一位名叫“诗哥”。早年诗哥在粮食系统的船队工作，任务是到各地拉食用油。每到一地，他总是骑上那辆破自行车遍访当地的古迹，结交文朋酒友。因他长得挺帅，还满腹经纶，时不时即兴作诗，一不小心就很容易赢得姑娘的好感。一些暗恋他的姑娘常常在心里默算着他的船期，早早地在码头上翘首以盼。姑娘的心思爹知道。这天，一位老爹又请诗哥喝酒，婉转地说:“你那里还有好小伙吗？给我家姑娘介绍一个。”诗哥问他要什么标准的，老爹不好意思地说:“像你这样的就行。”诗哥后来反应过来了，是人家姑娘和老爹都看上他了。遗憾的是自己早就结婚，那时候真想一咬牙、一跺脚回到一夫多妻“万恶的旧社会”。后来，那姑娘倒是真的一咬牙、一躁脚，考上大学，远嫁到了苏州。
+				</p>
+				<p>				
+				另一位仁兄，我这里叫他“远行”吧。他在2014年借宣传青奥会之机，让女儿休学，全家周游全国。每到一地，便让女儿去访问当地名人，孩子长了见识，长了能力，真乃读万卷书不如行万里路。这一路，他坚持每天发微博，“帐篷边与野猪同眠”“路遇狼群围攻”等故事不断流出，有图有真相，粉丝量暴涨，不久便成了旅游大V。知名度日日见长，也就有了商机，粉丝看到他手上戴的旅行手表，死皮赖脸地要花高价买，他假装客气了一番，最后一口气卖出去100多只。到了新疆库尔勒，他发现当地香梨4元钱一斤还卖不出去，内地超市可是12元一斤，他在微博里给亲们发福利，价格是8元钱，而且强调是限购，一人只能买两箱，搞得不少粉丝走后门要多买几箱。于是，他一路上边旅游边挣钱，真爽。
+				</p>
+				<p>				
+				不妨学学这两位的做法，找个适合的方式，让自己在旅游中有更大更多的收获，哪怕是一个好心情也行啊。
+				</p>
+			</div>
+		</div>
+		<script>
+		let oAdd = document.getElementById("add"),
+			oAbate = document.getElementById("abate"),
+			oContent = document.getElementById("content"),
+			size = 16,
+			oSize = size + "px";	
+		//文字增大		
+		oAdd.onclick = function() {
+			size +=2;
+			if( size>30) {
+				size=30;
+			 };
+			//console.log(oSize);
+			oSize = size + "px";
+			oContent.style.fontSize = oSize;
+		};
+		//文字减小
+		oAbate.onclick = function() {
+			size -=2;
+			if( size<10) {
+				size=10;
+			 };
+			//console.log(oSize);
+			oSize = size + "px";
+			oContent.style.fontSize = oSize;
+		};
+		</script>
+	</body>
+</html>

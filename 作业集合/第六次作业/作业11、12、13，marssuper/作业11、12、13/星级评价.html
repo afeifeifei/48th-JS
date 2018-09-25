@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position:relative;
+                top:100px;
+                width:500px;
+                height:350px;
+                margin:auto;
+            }
+            #wrap .nav{
+                display:inline-block;
+                margin-top:50px;
+                width:100px;
+                height:20px;
+                text-align:center;
+                line-height:20px;
+                font-size:14px;
+                color:red;
+
+            }
+            #wrap ul{
+                display:inline-block;
+                margin-top:50px;
+                width:120px;
+                height:19px;
+            }
+            #wrap ul li{
+                display:inline-block;
+                width:20px;
+                height:19px;
+                background-image: url('star.png');
+                background-position:0 0%;
+                background-repeat:no-repeat;
+            }
+            #wrap .direction{
+                position:absolute;
+                left:250px;
+                top:30px;
+                padding:5px;
+                width:140px;
+                height:90px;
+                border:1px solid dodgerblue;
+                border-radius:4px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p class="nav">请选择星级：</p>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p class="direction">请将鼠标放置于希望的星级之上</p>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                oLi = document.getElementsByTagName("li"),
+                oDirection = document.getElementsByClassName("direction");
+
+            let oWord = ["很差","一般","还行","不错","很赞"];
+            console.log(oLi);
+            console.log(oDirection);
+            for(let i = 0;i<5;i++){
+                oLi[i].onmouseover = function(){
+                    for(let x = 0;x<=i;x++){
+                        oLi[x].style.backgroundPosition = "0 100%";
+                    }
+                    oDirection[0].innerText = oWord[i];
+                }
+                oLi[i].onmouseout = function(){
+                    for(let x = 0;x<=i;x++){
+                        oLi[x].style.backgroundPosition = "0 0%";
+                    }
+                    oDirection[0].innerText = "请将鼠标放置于希望的星级之上";
+                }
+                oLi[i].onclick = function(){
+                    for(let x = 0;x<=i;x++){
+                        oLi[x].style.backgroundPosition = "0 100%";
+                    }
+                    oDirection[0].innerText = oWord[i];
+                    for(let y = 0;y<5;y++) {
+                        oLi[y].onmouseout = function () {
+                        };
+                        oLi[y].onmouseover = function () {
+                        };
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

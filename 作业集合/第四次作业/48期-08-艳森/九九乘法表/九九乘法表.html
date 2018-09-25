@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 820px;
+            margin-top: 8px;
+            margin-left: 8px;
+            border-bottom: 1px solid #666;
+        }
+        .box p{
+            margin-bottom: 8px;
+        }
+        .box p span{
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            margin-right: 8px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <div id="twoBox" class="box"></div>
+    <div id="threeBox" class="box"></div>
+    <div id="fourBox" class="box"></div>
+
+    <script>
+        // const oBox = document.getElementById("box");
+        // let list = "";
+        // for (let i = 1; i < 10; i++) {
+        //     let Str = "";
+        //   for (let j = 1; j <=i; j++) {
+        //     Str +="<span>" + i + "x" +j + "=" + i*j + "</span>";
+        //   }
+        //   list += "<p>" + Str + "</p>";
+        // }
+        // oBox.innerHTML += list;
+
+        const oBox = document.getElementById("box");
+        let list="";
+        for (let i = 1; i < 10; i++) {
+            let Str="";
+            for (let j = 1; j <= i; j++) {
+                Str += "<span>"+ i + "x"+ j + "="+ i*j + "</span>";
+            }
+            list +="<p>"+ Str + "</p>";
+        }
+        oBox.innerHTML += list;
+
+        // const oTwo =document.getElementById("twoBox");
+        // let twoList = "";
+        // for (let i = 1; i < 10; i++) {
+        //     let str = "";
+        //   for (let j = i; j < 10; j++) {
+        //       str += "<span>"+ i + "x"+ j + "="+ i*j + "</span>";
+        //   }
+        //     twoList +="<p>"+ str + "</p>";
+        // }
+        // oTwo.innerHTML += twoList;
+
+
+        const oTwo = document.getElementById("twoBox");
+        let twoList="";
+        for (let i = 1; i < 10; i++) {
+            let twoStr = "";
+            for (let j = i; j < 10; j++) {
+              twoStr += "<span>"+ i + "x"+ j + "="+ i*j + "</span>"
+            }
+            twoList +="<p>"+ twoStr + "</p>";
+        }
+        oTwo.innerHTML += twoList;
+
+        const oThree = document.getElementById("threeBox");
+        let threeList = "";
+        for (let i = 9; i > 0; i--) {
+            let threeStr = "";
+          for (let j = 1; j < i+1; j++) {
+              threeStr += "<span>"+ i + "x"+ j + "="+ i*j + "</span>"
+          }
+            threeList +="<p>"+ threeStr + "</p>";
+        }
+        oThree.innerHTML += threeList;
+
+        const oFour = document.getElementById("fourBox");
+        let fourList = "";
+        for (let i = 9; i > 0 ; i--) {
+            let fourStr ="";
+          for (let j = i; j <= 9; j++) {
+              fourStr += "<span>"+ i + "x"+ j + "="+ i*j + "</span>";
+          }
+            fourList +="<p>"+ fourStr + "</p>";
+        }
+        oFour.innerHTML +=fourList;
+
+    </script>
+
+</body>
+</html>

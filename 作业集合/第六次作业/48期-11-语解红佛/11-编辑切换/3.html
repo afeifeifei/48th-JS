@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a { text-decoration: none; }
+        p{font-size: 14px;}
+        li {list-style: none;}
+        .fl{
+            float: left;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        #wrap {
+            width:800px;
+            height:auto;
+            padding-bottom:10px;
+            margin: 20px auto;
+        }
+        table{
+            width: 100%;
+        }
+        th,tfoot td{
+            height:50px;
+            font-size:18px;
+            color:#fff;
+            background-color: rgb(184, 12, 106);
+        }
+        table td{
+            width:10%;
+            border:1px solid rgb(184, 12, 106);
+        }
+        tbody td{
+            height:80px;
+            text-align: center;
+        }
+        tfoot td{ 
+            padding-right:20px;
+            font-size: 16px;
+            text-align: right;
+        }
+        .free,.total{
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <table style="border-collapse: collapse;border-spacing:0px;">
+           <thead>
+               <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+               </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>商品1</td>
+                    <td class="cell">10</td>
+                    <td>
+                        <button class="dele">-</button>
+                        <input type="text" value="0">
+                        <button class="add">+</button>
+                    </td>
+                    <td><span class="fee">0</span></td>
+                </tr>
+                <tr>
+                    <td>商品2</td>
+                    <td class="cell">12</td>
+                    <td>
+                        <button class="dele">-</button>
+                        <input type="text" value="0">
+                        <button class="add">+</button>
+                    </td>
+                    <td><span class="fee">0</span></td>
+                </tr>
+                <tr>
+                    <td>商品3</td>
+                    <td class="cell">6</td>
+                    <td>
+                        <button class="dele">-</button>
+                        <input type="text" value="0">
+                        <button class="add">+</button>
+                    </td>
+                    <td><span class="fee">0</span></td>
+                </tr>
+                <tr>
+                    <td>商品4</td>
+                    <td class="cell">20</td>
+                    <td>
+                        <button class="dele">-</button>
+                        <input type="text" value="0">
+                        <button class="add">+</button>
+                    </td>
+                    <td><span class="fee">0</span></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr height="48px" >
+                    <td colspan="3">已选商品<span class="total">0</span>个</td>
+                    <td>合计￥<span class="free">0</span>元</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        //获取元素
+        let fee = document.getElementsByClassName("fee"),
+            dele = document.getElementsByClassName("dele"),
+            add = document.getElementsByClassName("add"),
+            num =document.getElementsByTagName("input"),
+            cell=document.getElementsByClassName("cell");
+            total = document.getElementsByClassName("total")[0],
+            free = document.getElementsByClassName("free")[0];
+        let leng = num.length;
+        let numb=0;
+        let all=0,tNum=0;
+        //总个数计算 函数
+        let ototal =function(){
+            tNum = 0;
+            all= 0 ;
+            for (let j = 0; j < leng; j++) {
+                tNum += parseInt(num[j].value); 
+                //总合计计算 函数
+                all += parseInt(fee[j].innerHTML);  
+            }
+            total.innerHTML = tNum; 
+            free.innerHTML = all; 
+        }
+        //点击事件 数量增减  
+        for (let i = 0; i < leng; i++) {
+             let count =0;
+            //增 点击按钮
+            add[i].onclick =function(){
+                count++;
+                num[i].value = count;
+                //小计值
+                fee[i].innerHTML =cell[i].innerHTML*count;
+                //总个数 以及合计
+                ototal();
+            }
+            //减 点击按钮
+            dele[i].onclick =function(){
+                if(count<=0)count=1;
+                count--;
+                num[i].value = count;
+                //小计值
+                fee[i].innerHTML =cell[i].innerHTML*count;
+                //总个数
+                ototal();
+            }   
+        }
+    </script>
+</body>
+</html>

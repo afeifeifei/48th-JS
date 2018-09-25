@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>九九乘法表</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-牛海龙-ID:尔boy">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap,#wraptwo{
+            padding:5px 10px;
+            border-bottom:1px solid #0066cc;
+        }
+        #wrap div{
+            display:inline-block;
+            width:110px;
+            height:32px;
+            margin:1px;
+            line-height:32px;
+            text-align:center;
+            border:1px solid #06c;
+        }
+
+        #wraptwo div{
+            display:inline-block;
+            width:110px;
+            height:32px;
+            margin:1px;
+            line-height:32px;
+            text-align:center;
+            border:1px solid #06c;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <div id="wraptwo"></div>
+        <script>
+                let oWrap = document.getElementById ("wrap");
+                let oWrapTwo = document.getElementById ("wraptwo");
+                for(let i=1;i<10;i++){
+                    for(let j=1;j<10;j++){
+                        if(j<=i){
+                           // oWrap.innerHTML += ‘<div>${i}*${j}=${j*i}</div>‘;
+                            oWrap.innerHTML += `<div>${i}*${j}=${j*i}</div>`;
+                        }else{
+                           oWrap.innerHTML += "<br>"
+                           break;
+                        }
+                    }
+                }
+                for(let i=1;i<10;i++){
+                    for(let j=1;j<10;j++){
+                        if(i<=j){
+                            // oWrap.innerHTML += ‘<div>${i}*${j}=${j*i}</div>‘;
+                            oWrapTwo.innerHTML += `<div>${i}*${j}=${j*i}</div>`;
+                        }
+                    }oWrapTwo.innerHTML += "<br>"
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

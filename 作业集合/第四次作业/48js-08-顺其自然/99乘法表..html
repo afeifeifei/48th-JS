@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0;padding: 0;}
+	ul li{width:80px;line-height: 40px;border:1px solid #ccc;padding:0 0 0 10px;display: inline-block;margin:5px;list-style: none;}
+</style>
+</head>
+
+<body>
+	<ul id="Oul">
+
+	</ul>
+	<script>
+		let Oul = document.getElementById("Oul")
+		for(let i =1;i<=9;i++){
+			for(let j =1;j<=i;j++){
+				//Oul.innerHTML+="<li>"+i+"*"+j+"="+i*j+"</li>"
+				Oul.innerHTML+=`<li>${i}*${j}=${i*j}</li>`
+			}
+			Oul.innerHTML+="<br>"
+		}
+		Oul.innerHTML+="<hr>"
+		for(let i =1;i<=9;i++){
+			for(let j =i;j<=9;j++){
+				Oul.innerHTML+="<li>"+i+"*"+j+"="+i*j+"</li>"
+			}
+			Oul.innerHTML+="<br>"
+		}
+	</script>
+</body>
+</html>

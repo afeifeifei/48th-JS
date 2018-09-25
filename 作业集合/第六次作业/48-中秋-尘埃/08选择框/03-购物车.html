@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <style>
+        *{margin:0;padding:0;}
+        #shop{
+            width:700px;
+            margin: 50px auto;
+           
+        }
+        table{ 
+            width:100%;
+            border-collapse:collapse;}
+        th,td{
+            height:80px;
+            width:25%;
+            border:1px solid #666;
+            border-spacing: 0;
+            text-align: center;
+        }
+        img{
+            height:80%;
+        }
+
+        thead,.foo{
+            background-color: red;
+            line-height: 46px;
+            color:#fff;
+        }
+        .foo,th{
+            height: 46px;
+        }
+        .foo{
+            margin-top:10px;
+        }
+        .foo > p {
+            float: right;
+            width:26%;
+            height: 100%;
+            font-size:15px;
+        }
+        .control{
+            display: inline-block;
+            width: 116px;
+            height: 28px;
+            border:1px solid #666c;
+            font-weight: bold;
+        }
+        input{
+            width:50px;
+            height: 28px;
+            outline: none;
+            border:0px;
+            vertical-align: top;
+            text-align: center;
+            color:skyblue;
+        }
+        tbody span{
+            display: inline-block;
+            width:28px;
+            height: 28px;
+            
+            background-color:#ccc;
+        }
+        tbody span:hover{
+            background-color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="shop">
+        <table>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="images/1.jpg" alt=""></td>
+                    <td class="price-float">8</td>
+                    <td><div class="control">
+                        <span class="mul">-</span>
+                        <input type="text" value="0">
+                        <span class = "add">+</span>
+                    </div></td>
+                    <td class= "price">0</td>
+                </tr>
+                <tr>
+                        <td><img src="images/2.jpg" alt=""></td>
+                    <td class= "price-float">10</td>
+                    <td><div class="control">
+                        <span class="mul">-</span>
+                        <input type="text" value="0">
+                        <span class = "add">+</span>
+                    </div></td>
+                    <td class= "price">0</td>
+                </tr>
+                <tr>
+                    <td><img src="images/3.jpg" alt=""></td>
+                    <td class= "price-float">12.5</td>
+                    <td><div class="control">
+                        <span class="mul">-</span>
+                        <input type="text" value="0">
+                        <span class = "add">+</span>
+                    </div></td>
+                    <td class= "price">0</td>
+                </tr>
+                <tr>
+                    <td ><img src="images/4.jpg" alt=""></td>
+                    <td class= "price-float">23</td>
+                    <td><div class="control">
+                        <span class="mul">-</span>
+                        <input type="text" value="0">
+                        <span class = "add">+</span>
+                    </div></td>
+                    <td class= "price">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="foo">
+                <p>合计费用 :   <span class="total"> 0 </span>￥</p>
+                <p>已选中商品 : <span class="pitch"> 0 </span>个</p>
+        </div>
+    </div>
+    
+    <script>
+        (function(){
+            let oPriceFloat = document.querySelectorAll(".price-float");
+                oMul = document.getElementsByClassName("mul"),
+                oAdd = document.getElementsByClassName("add"),
+                oInput = document.getElementsByTagName("input"),
+                oPrice = document.getElementsByClassName("price"),
+                oPitch = document.getElementsByClassName("pitch")[0],
+                oTotal = document.getElementsByClassName("total")[0],
+                len = oPrice.length,
+                index = [0,0,0,0];
+            // console.log(oMul,oAdd,oInput,oPrice,oPitch,oTotal);
+            for(let i = 0; i < len; i++){
+                let price =  oPriceFloat[i].innerText,
+                    total,
+                    selec;
+                oAdd[i].onclick =function(){
+                    change(i,++index[i]);
+                    totalSelected(selec,total);
+                };
+                oMul[i].onclick =function(){
+                    change(i,--index[i]);
+                    totalSelected(selec,total);
+                };
+            }
+             // 参数 i 表示 增量Len   k 表示 数量增减
+            function change(i,k){
+                if(k < 0){k = 0;}
+                oInput[i].value = k;
+                oPrice[i].innerHTML =  parseFloat(oPriceFloat[i].innerHTML) * k;
+            }
+            function totalSelected(selec,total){
+                total= 0;
+                selec = 0;
+                for(let i = 0; i < len; i++) {
+                    selec += parseFloat(oInput[i].value);
+                    total += parseFloat(oPrice[i].innerHTML);
+                    oPitch.innerHTML = selec;
+                    oTotal.innerHTML = total;
+                }
+                
+            }
+        })();
+    </script>
+</body>
+</html>

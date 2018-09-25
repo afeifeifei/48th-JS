@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <link rel='stylesheet' href='css/public.css'>
+        <style>
+            #wrap{
+                width:320px;
+                height:75px;
+                line-height: 75px;
+                margin: 30px auto;
+            }
+            #wrap h5{
+                display: inline-block;
+                width: 60px;
+                height:75px;
+                text-align: right;
+                color: red;
+                vertical-align: middle;
+            }
+            #wrap .star{
+                display: inline-block;
+                width: 110px;
+                height:75px;
+            }
+            #wrap .star span{
+                display: inline-block;
+                width:19px;
+                height: 19px;
+                vertical-align: middle;
+                background: url("images/star.png") no-repeat;
+                background-position: 0px 0px;
+            }
+            #wrap .star .on{
+                background-position: 0px -28px;
+            }
+            #wrap textarea {
+                display: inline-block;
+                width: 130px;
+                height: 55px;
+                vertical-align: middle;
+                border: 1px  solid #ddd;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <h5>星级评分:</h5>
+            <div class="star">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <textarea id='txtSorc' placeholder="提示：请认真给当前文章打分" >
+                提示：请认真给当前文章打分
+            </textarea>
+        </div>
+        
+        <script>
+            let aStar=document.querySelectorAll("#wrap .star span"),
+                oTxt=document.getElementById("txtSorc");
+            let starnum = 0;
+            let aPj = ['很差','较差','还行','推荐','力荐']
+            for(let i=0,len=aStar.length;i<len;i++){
+                aStar[i].onclick=function () {
+                    starnum=i+1;
+                }
+                aStar[i].onmousemove=function () {
+                    return mousermove(i,len);
+                }
+                aStar[i].onmouseout=function () {
+                    return mouserout(i,len);
+                }
+            }
+            // 鼠标划入代码
+            function mousermove(i,len) {
+                for (let m = i+1; m < len; m++) {
+                    aStar[m].className="";
+                }
+                for (let j = 0; j < i+1; j++) {
+                    aStar[j].className="on";
+                }
+                oTxt.innerHTML=aPj[i];
+            }
+            // 鼠标离开代码
+            function mouserout(i,len) {
+                for (let j = starnum; j < len; j++) {
+                    aStar[j].className="";
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

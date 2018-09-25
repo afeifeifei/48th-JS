@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>编辑修改</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+        a { text-decoration: none; }
+        p{font-size: 14px;}
+        li {list-style: none;}
+        .fl{
+            float: left;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        #wrap {
+            position: relative;
+            width:100%;
+            /* height: 420px; */
+            height:auto;
+            padding-bottom:10px;
+            margin: 20px auto;
+            border:1px solid #ccc;
+            box-shadow: 0 0 5px 5px #ccc;
+        }
+        .list{
+            width: 100%;
+            height:50px;
+            line-height: 50px;
+            padding-left:20px;
+            border-bottom:1px solid red;
+        }
+        .list p{
+            margin-right: 15px;
+            font-weight: bold;
+            user-select: none;
+        }
+        .list input{
+            float: left;
+            height: 20px;
+            margin-top: 15px;
+            border:1px solid skyblue;
+        }
+        button{
+            display:block;
+            float: left;
+            width: 48px;
+            height:24px;
+            margin:13px 10px 0 10px;
+            line-height: 24px;
+            font-size:14px;
+            color:#fff;
+            text-align: center;
+            background-color: #000;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li class="list clearfix">
+                <p class="fl show">可编辑内容1</p>
+                <input type="text" class='hide' autofocus>
+                <button class="ale">修改</button>
+                <button class="yes hide">确定</button>
+            </li>
+            <li class="list">
+                <p class="fl show">可编辑内容2</p>
+                <input type="text hide" class='hide' autofocus>
+                <button class="ale show">修改</button>
+                <button class="yes hide">确定</button>
+            </li>
+            <li class="list">
+                <p class="fl show">可编辑内容3</p>
+                <input type="text hide" class='hide' autofocus>
+                <button class="ale show">修改</button>
+                <button class="yes hide">确定</button>
+            </li>
+            <li class="list">
+                <p class="fl show">可编辑内容4</p>
+                <input type="text hide" class='hide' autofocus>
+                <button class="ale show">修改</button>
+                <button class="yes hide">确定</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //获取元素
+        let op = document.getElementsByTagName("p"),
+            txt = document.getElementsByTagName("input"),
+            ale = document.getElementsByClassName("ale"),
+            yes = document.getElementsByClassName("yes"),
+            leng = ale.length;
+        //修改按钮点击事件函数
+        let aclick = function(x){
+            return function(){
+                ale[x].className = "ale hide";
+                yes[x].className = "yes show";
+                op[x].className = "fl hide";
+                txt[x].className = "text show";
+            }
+        }
+        //确认按钮点击事件
+        let bclick = function(y){
+            return function(){
+                ale[y].className = "ale show";
+                yes[y].className = "yes hide";
+                op[y].className = "fl show";
+                txt[y].className = "text hide";
+                if(txt[y].value)op[y].innerHTML = txt[y].value;
+            }
+        }
+        //点击事件触发 (修改 确认)
+        for (let i = 0; i < leng; i++) {
+            ale[i].onclick = aclick(i);
+            yes[i].onclick = bclick(i);     
+        }   
+    </script>
+</body>
+</html>

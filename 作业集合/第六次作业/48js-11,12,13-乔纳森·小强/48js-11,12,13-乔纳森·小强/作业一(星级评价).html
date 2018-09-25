@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Anthor" content="阿飞老师" />
+        <title>星级评价</title>
+        <style>
+            *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+            li{ list-style-type: none;}
+            
+            #wrap{
+                width:350px;
+                margin:50px auto;
+                -webkit-user-select:none;
+            }
+            #wrap span{
+                float:left;
+                margin-top:30px;
+                font-size:14px;
+                color:#f00;
+            }
+            #wrap .star{
+                float:left;
+                padding:30px 10px;
+                overflow:hidden;
+            }
+            #wrap .star li{
+                float:left;
+                width:20px;
+                height:20px;
+                background-image:url("./images/star.png");
+                cursor:pointer;
+            }
+            #wrap .star li.on{
+                background-position-y:-28px;
+            }
+            #wrap p{
+                float:left;
+                width:135px;
+                height:80px;
+                border:2px solid #ccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span>星级评价:</span>
+            <ul class="star">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p>提示：请认真给当前文章打分</p>
+        </div>
+        <script>
+
+         //获取元素
+
+         let oP = document.querySelectorAll("#wrap p")[0],
+             aLi = document.querySelectorAll("#wrap .star li"),
+             len = aLi.length,
+             oUl = document.querySelectorAll("#wrap ul"),
+             index = -1;
+             arrText =[
+                "很差",
+                "较差",
+                "还行",
+                "推荐",
+                "力荐"
+             ]
+             ;
+
+            //定义鼠标移入事件
+             function inevent( i ){
+                //移入显示
+                for(let j=0; j<=i; j++){
+                    aLi[j].className ="on";
+                }
+                //清除显示
+                for(let j=i+1; j<len; j++){
+                    aLi[j].className ="";
+                }
+                oP.innerHTML =arrText[i];
+             };
+
+             //定义鼠标移出事件
+             function outevent( index ){
+                //移出显示
+                for(let j=0; j<=index; j++){
+                    aLi[j].className ="on";
+                }
+                //清除显示
+                for(let j=index+1; j<len; j++){
+                    aLi[j].className ="";
+                }
+                if(index === -1) return;
+                oP.innerHTML =arrText[index];
+             };
+
+             //定义鼠标点击事件
+             function cLickevent( i ){
+                index =i;
+                //点击显示
+                for(let j=0; j<=index; j++){
+                    aLi[j].className ="on";
+                }
+                //点击消失
+                for(let j=i+1; j<i; j++){
+                    aLi[j].className ="";
+                }
+                 oP.innerHTML =arrText[i];
+             };
+
+             //定义循环事件
+             for(let i=0; i<len; i++){
+                aLi[i].onmouseenter =function(){
+                    inevent(i);
+                }
+                aLi[i].onclick =function(){
+                    cLickevent(i);
+                }
+                aLi[i].onmouseleave =function(){
+                    outevent(index);
+                }
+             }
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

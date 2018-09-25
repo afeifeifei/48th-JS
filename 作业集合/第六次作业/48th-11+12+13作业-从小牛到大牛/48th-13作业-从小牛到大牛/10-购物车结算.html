@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            body{
+                user-select: none;
+            }
+            table{
+                width:1000px;
+                margin:50px auto 20px;
+                border-color:#930;
+                border-collapse:collapse;
+                text-align:center;
+            }
+            table tr td{
+                width:25%;
+                height:100px;
+            }
+            table .title td{
+                height:50px;
+                background-color:#c36;
+                color:white;
+                font-size:14px;
+                font-weight:bolder;
+            }
+            table tr td img{
+                height:70px;
+            }
+            table tr td.number{
+                font-size:0;
+                line-height:100px;
+            }
+            .number span{
+                display:inline-block;
+                border:1px solid #ddd;
+                font-size:14px;
+            }
+            .number .sub,.number .add{
+                width:30px;
+                height:30px;
+                background-color:#ddd;
+                line-height:30px;
+                font-weight:bolder;
+                text-align:center;
+                cursor:pointer;
+            }
+            .number .num{
+                width:50px;
+                height:30px;
+                line-height:30px;
+                color:#c36;
+                font-size:12px;
+            }
+            .footer{
+                position: relative;
+                width:1000px;
+                height:50px;
+                margin:auto;
+                background-color:#c36;
+                line-height:50px;
+            }
+            .footer p{
+                position: absolute;
+                color:white;
+                font-size:14px;
+                font-weight:bolder;
+            }
+            .footer .selected{
+                left:500px;
+            }
+            .footer .sum{
+                left:750px;
+            }
+            .footer p span{
+                color:#f4e5a9;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1">
+            <tr class="title">
+                <td>商品</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>小计</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop1.jpg" alt="">
+                </td>
+                <td class="danjia">8</td>
+                <td class="number">
+                    <span class="sub">-</span>
+                    <span class="num">0</span>
+                    <span class="add">+</span>
+                </td>
+                <td class="price">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop2.jpg" alt="">
+                </td>
+                <td class="danjia">10</td>
+                <td class="number">
+                    <span class="sub">-</span>
+                    <span class="num">0</span>
+                    <span class="add">+</span>
+                </td>
+                <td class="price">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop3.jpg" alt="">
+                </td>
+                <td class="danjia">12.5</td>
+                <td class="number">
+                    <span class="sub">-</span>
+                    <span class="num">0</span>
+                    <span class="add">+</span>
+                </td>
+                <td class="price">0</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="img/shop4.jpg" alt="">
+                </td>
+                <td class="danjia">23</td>
+                <td class="number">
+                    <span class="sub">-</span>
+                    <span class="num">0</span>
+                    <span class="add">+</span>
+                </td>
+                <td class="price">0</td>
+            </tr>
+        </table>
+        <div class="footer">
+            <p class="selected">已选中商品： <span>0</span> 个</p>
+            <p class="sum">合计费用： <span>0</span> ￥</p>
+        </div>
+        
+        <script>
+
+            let aDan = document.querySelectorAll("table .danjia"),
+                aSub = document.querySelectorAll("table .number .sub"),
+                aAdd = document.querySelectorAll("table .number .add"),
+                aNum = document.querySelectorAll("table .number .num"),
+                aPrice = document.querySelectorAll("table .price"),
+                oSelected = document.querySelector(".footer .selected span"),
+                oSum = document.querySelector(".footer .sum span"),
+                len = aDan.length;
+
+            //减法封装
+            function subtraction(i) {
+                //console.log(typeof aNum[i].innerHTML);     string
+                if(aNum[i].innerHTML == 0) return;  //不能小于0
+                aNum[i].innerHTML--;
+                aPrice[i].innerHTML -= aDan[i].innerHTML;
+                oSelected.innerHTML --;
+                oSum.innerHTML -= aDan[i].innerHTML;
+            }
+            
+            //加法封装
+            function addition(i) {
+                aNum[i].innerHTML++;
+                aPrice[i].innerHTML = aNum[i].innerHTML*aDan[i].innerHTML;
+                oSelected.innerHTML++;
+                oSum.innerHTML = oSum.innerHTML*1 + aDan[i].innerHTML*1;
+            }
+            
+            
+            //循环添加点击事件
+            for(let i=0;i<len;i++){
+                //减法计算
+                aSub[i].onclick = function () {
+                    subtraction(i);
+                }
+                //加法计算
+                aAdd[i].onclick = function () {
+                    addition(i);
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

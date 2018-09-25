@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:1000px;
+                margin:50px auto;
+                -webkit-user-select: none;
+            }
+            #wrap .head li{
+                float:left;
+                width:25%;
+                height:50px;
+                border:1px solid #000;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 50px;
+                font-weight: bolder;
+                color:#fff;
+                background-color: #cc3366;
+            }
+            #wrap .content li{
+                float:left;
+                width:25%;
+                height:100px;
+                border:1px solid #000;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 100px;
+            }
+            #wrap .content li img{
+                width:100px;
+                height:70px;
+                margin-top: 12px;
+            }
+            #wrap .content li:nth-child(4n+3) div{
+                display: inline-block;
+                width:30px;
+                height:30px;
+                text-align: center;
+                line-height: 30px;
+                border:1px solid #999999;
+                background-color: #999999;
+                cursor: pointer;
+            }
+            #wrap .content li:nth-child(4n+3) p{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                border:1px solid #999999;
+                color:#ff0036;
+            }
+            #wrap .foot{
+                float: left;
+                width:100%;
+                height:50px;
+                margin-top: 20px;
+                background-color: #cc3366;
+                line-height: 50px;
+            }
+            #wrap .foot .p1{
+                display: inline-block;
+                width:153px;
+                margin-left:577px;
+                height:100%;
+                color:#fff;
+            }
+            #wrap .foot .p2{
+                display: inline-block;
+                width:200px;
+                margin-left:50px;
+                height:100%;
+                color:#fff;
+            }
+            #wrap .foot span{
+                color:#f4e5a9;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="head">
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+            </ul>
+            <ul class="content">
+                <li><img src="images/shop1.jpg" alt=""></li>
+                <li>8</li>
+                <li>
+                    <div class="left">-</div><p>0</p><div class="right">+</div>
+                </li>
+                <li>0</li>
+                <li><img src="images/shop2.jpg" alt=""></li>
+                <li>10</li>
+                <li>
+                    <div class="left">-</div><p>0</p><div class="right">+</div>
+                </li>
+                <li>0</li>
+                <li><img src="images/shop3.jpg" alt=""></li>
+                <li>12.5</li>
+                <li>
+                    <div class="left">-</div><p>0</p><div class="right">+</div>
+                </li>
+                <li>0</li>
+                <li><img src="images/shop4.jpg" alt=""></li>
+                <li>23</li>
+                <li>
+                    <div class="left">-</div><p>0</p><div class="right">+</div>
+                </li>
+                <li>0</li>
+            </ul>
+            <div class="foot">
+                <p class="p1">已选中商品：<span>0</span> 个</p> <p class="p2">合计费用： <span>0</span> ￥</p>
+            </div>
+        </div>
+
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                aLi = oWrap.querySelectorAll(".content li:nth-child(4n+3)"),
+                aCount = oWrap.querySelectorAll(".content li:nth-child(4n)"),
+                aP = oWrap.querySelectorAll(".content li:nth-child(4n+3) p"),
+                aLeft = oWrap.querySelectorAll(".content li:nth-child(4n+3) .left"),
+                aRight = oWrap.querySelectorAll(".content li:nth-child(4n+3) .right"),
+                oSpan1 = oWrap.querySelectorAll(".foot .p1 span"),
+                oSpan2 = oWrap.querySelectorAll(".foot .p2 span"),
+                index = [0,0,0,0],
+                sPrice = [8,10,12.5,23],  //单价
+                s1=0,
+                s2=0,
+                len = aLi.length;
+            function right(i) {
+                index[i]++;
+                s1++;
+                aP[i].innerHTML = `${index[i]}`;
+                oSpan1[0].innerHTML = `${s1}`;
+                aCount[i].innerHTML = `${index[i]*sPrice[i]}`;
+                s2+=sPrice[i];
+                oSpan2[0].innerHTML = `${s2}`;
+            }
+            function left(i) {
+                index[i]--;
+                s1--;
+                aP[i].innerHTML = `${index[i]}`;
+                oSpan1[0].innerHTML = `${s1}`;
+                aCount[i].innerHTML = `${index[i]*sPrice[i]}`;
+                s2-=sPrice[i];
+                oSpan2[0].innerHTML = `${s2}`;
+            }
+            for(let i=0;i<len;i++){
+                aRight[i].onclick = function () {
+                    right(i);
+                }
+                aLeft[i].onclick = function(){
+                    if (index[i]!==0){
+                        left(i);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

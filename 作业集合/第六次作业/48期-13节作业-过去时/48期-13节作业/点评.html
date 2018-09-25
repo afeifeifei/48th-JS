@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            width: 300px;
+            height:200px;
+            margin:50px auto;
+            font-size:0;
+            vertical-align:middle;
+        }
+        #wrap span{
+            color:red;
+            font-size:12px;
+            vertical-align:middle;
+        }
+        #wrap ul{
+            display:inline-block;
+            vertical-align:middle;
+        }
+        #wrap ul li{
+            display:inline-block;
+            width:20px;
+            height:19px;
+            background-image: url('images/1.png');
+            cursor:pointer;
+        }
+        #wrap ul li.on{
+            background-position:0 19px;
+        }
+        #wrap p{
+            display:inline-block;
+            width:100px;
+            height:50px;
+            border:1px solid;
+            font-size:14px;
+            vertical-align:middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <span>星级评分：</span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p>级别</p>
+    </div>
+    <script>
+        let oXing = document.querySelectorAll('#wrap ul li');
+        let op = document.querySelector('#wrap p');
+
+        for( let x =0; x<5 ;x++){
+            oXing[x].onmouseenter = function (){
+                for( let y =0; y<=x ;y++){
+
+                    oXing[y].className = 'on';
+                    if(x===0){
+                        op.innerHTML = '较差';
+                    }else if(x===1){
+                        op.innerHTML = '差';
+                    }else if(x===2){
+                        op.innerHTML = '一般';
+                    }else if(x===3){
+                        op.innerHTML = '好';
+                    }else if(x===4){
+                        op.innerHTML = '非常好';
+                    }
+                    oXing[x].onmouseleave = function (){
+                        for(let y =0  ; y<=x ;y++){
+                            oXing[y].className = '';
+                            op.innerHTML = '请评价！';
+                        }
+                    }
+                    // oXing[x].onmouseleave = function (){
+                    //     oXing[x].onclick;
+                    // }
+                }
+
+                oXing[x].onclick = function () {
+                    for (let y = 0; y <= x; y++) {
+                        oXing[y].className = 'on';
+
+                        oXing[y].onmouseleave = function (){
+                            oXing[y].onclick;
+                        }
+                    }
+                }
+                // oXing[x].onmouseleave = function (){
+                //         oXing[x].onclick();
+                // }
+
+            }
+            // oXing[x].onclick = function (){
+            //     for( let y =0; y<=x ;y++){
+            //         oXing[y].className = 'on';
+            //
+            //         // oXing[y].onmouseleave = function (){
+            //         //     oXing[y].onclick();
+            //         // }
+            //     }
+            //
+            // }
+
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

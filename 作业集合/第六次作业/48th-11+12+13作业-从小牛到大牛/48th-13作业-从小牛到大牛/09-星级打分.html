@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width:320px;
+                height:72px;
+                margin:50px auto 0;
+                font-size:14px;
+            }
+            #wrap span{
+                color:red;
+                line-height:70px;
+                vertical-align: middle;
+            }
+            #wrap ul{
+                display:inline-block;
+                vertical-align: middle;
+            }
+            #wrap ul li{
+                float:left;
+                width:20px;
+                height:20px;
+                background-image: url("img/star.png");
+                cursor:pointer;
+            }
+            #wrap ul li.on{
+                background-position:bottom;
+            }
+            #wrap p{
+                float:right;
+                width:120px;
+                height:70px;
+                border:1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span>星级评分:</span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p>提示:请认真给阿飞老师教学打分</p>
+        </div>
+        
+        <script>
+            let aLi = document.querySelectorAll("#wrap ul li"),
+                oP = document.querySelectorAll("#wrap p")[0],
+                pContent=[
+                    "很差",
+                    "较差",
+                    "还行",
+                    "推荐",
+                    "力荐"
+                ],
+                len = aLi.length,
+                index = -1;
+
+            //定义移入事件
+            function inEvent(i){
+                //移入显示
+                for(let j=0;j<=i;j++){
+                    aLi[j].className = "on";
+                }
+                //清除显示
+                for(let j=i+1;j<len;j++){
+                    aLi[j].className = '';
+                }
+                oP.innerHTML = pContent[i];
+            }
+
+            //定义点击事件
+            function clickEvent(i) {
+                index = i;
+                //显示
+                for(let j=0;j<=index;j++){
+                    aLi[j].className = "on";
+                }
+                //消失
+                for(let j=index+1;j<len;j++){
+                    aLi[j].className = "";
+                }
+                oP.innerHTML = pContent[index];
+            }
+
+            //定义移开事件
+            function leaveEvent(index) {
+                //显示
+                for(let j=0;j<=index;j++){
+                    aLi[j].className = "on";
+                }
+                //消失
+                for(let j=index+1;j<len;j++){
+                    aLi[j].className = '';
+                }
+                if(index === -1)return;
+                oP.innerHTML = pContent[index];
+            }
+
+            //循环给对象添加事件
+            for(let i=0;i<len;i++){
+                //鼠标移入事件
+                aLi[i].onmouseenter = function () {
+                    inEvent(i);
+                }
+                //鼠标离开事件
+                aLi[i].onmouseleave = function () {
+                    leaveEvent(index);
+                }
+                //点击事件
+                aLi[i].onclick = function () {
+                    clickEvent(i);
+                }
+
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

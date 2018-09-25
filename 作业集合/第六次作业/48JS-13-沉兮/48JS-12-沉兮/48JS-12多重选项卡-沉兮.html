@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            border: none;
+        }
+        #wrap{
+            position: relative;
+            width: 600px;
+            height: 500px;
+            margin: 20px auto;
+            border: 1px solid hotpink;
+            user-select: none;
+        }
+        #wrap div ul li img{
+            width: 400px;
+            height: 400px;
+        }
+        #wrap div{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            cursor: pointer;
+        }
+        #wrap div ul li{
+            display: none;
+            position: absolute;
+        }
+        #wrap div ul{
+            display: none;
+        }
+        #wrap div a{
+            display: inline-block;
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            background-color: #795da3;
+            text-align: center;
+            line-height: 30px;
+            color: wheat;
+            border-radius: 25%;
+        }
+        #wrap #cz1 a{
+            left: -80px;
+        }
+        #wrap #cz2 a{
+            top: 50px;
+            left: -80px;
+        }
+        #wrap #cz3 a{
+            top: 100px;
+            left: -80px;
+        }
+        #wrap>ul{
+            position: absolute;
+            bottom: 50px;
+            right: 110px;
+            width: 120px;
+            height: 30px;
+        }
+        #wrap>ul li{
+            position: absolute;
+            border: 1px solid darkblue;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        #wrap>ul li:nth-child(1){
+            left: 0;
+        }
+        #wrap>ul li:nth-child(2){
+            left: 25px;
+        }
+        #wrap>ul li:nth-child(3){
+            left: 50px;
+        }
+        #wrap>ul li:nth-child(4){
+            left: 75px;
+        }
+        #wrap>ul li:nth-child(5){
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="cz1">
+            <a style="background-color: green">操作</a>
+            <ul style="display: block" class="u1">
+                <li style="display:block"><img src="a.jpg" width="500" height="397"></li>
+                <li><img src="b.jpg" width="500" height="395"></li>
+                <li><img src="c.jpg" width="500" height="395"></li>
+                <li><img src="d.jpg" width="500" height="400"></li>
+                <li><img src="e.jpg" width="500" height="395"></li>
+            </ul>
+        </div>
+        <div id="cz2">
+            <a>操作续</a>
+            <ul class="u2">
+                <li style="display:block"><img src="i.jpg" width="489" height="384"></li>
+                <li><img src="k.jpg" width="257" height="204"></li>
+                <li><img src="f.jpg" width="500" height="395"></li>
+                <li><img src="n.jpg" width="518" height="409"></li>
+                <li><img src="o.jpg" width="518" height="409"></li>
+            </ul>
+        </div>
+        <div id="cz3">
+            <a>操作续续</a>
+            <ul class="u3">
+                <li style="display:block"><img src="p.jpg" width="518" height="415"></li>
+                <li><img src="q.jpg" width="168" height="134"></li>
+                <li><img src="g.jpg" width="210" height="123"></li>
+                <li><img src="m.jpg" width="308" height="127"></li>
+                <li><img src="l.jpg" width="198" height="158"></li>
+            </ul>
+        </div>
+        <ul class="n3">
+            <li style="background-color: pink">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap"),
+            aA = document.querySelectorAll("#wrap div a"),
+            aUl = document.querySelectorAll("#wrap div ul"),
+            aLi1 = document.querySelectorAll("#wrap #cz1 .u1 li"),
+            aLi2 = document.querySelectorAll("#wrap #cz2 .u2 li"),
+            aLi3 = document.querySelectorAll("#wrap #cz3 .u3 li"),
+            aN = document.querySelectorAll("#wrap>ul li");
+        let j = 0,
+            t = 0,
+            h = 0,
+            n = 0;
+        //针对图片显示的操作
+        function changea() {
+            for (let x = 0;x<aN.length;x++){
+                aN[x].onclick = function () {
+                    aN[0].style.backgroundColor = "";
+                    aN[x].style.backgroundColor = "pink";
+                    aN[h].style.backgroundColor = "";
+                    h = x;
+                    console.log(h);
+                    if (h == x){
+                        aN[x].style.backgroundColor = "pink";
+                    }
+                    if (j == 0){
+                        aLi1[x].style.display = "block";
+                        aLi1[t].style.display = "none";
+                        t = x;
+                        if (t == x){
+                            aLi1[t].style.display = "block";
+                        }
+                    }else if (j == 1){
+                        aLi2[x].style.display = "block";
+                        aLi2[t].style.display = "none";
+                        t = x;
+                        if (t == x){
+                            aLi1[t].style.display = "block";
+                        }
+                    } else if (j == 2){
+                        aLi3[x].style.display = "block";
+                        aLi3[t].style.display = "none";
+                        t = x;
+                        if (t == x){
+                            aLi1[t].style.display = "block";
+                        }
+                    }
+                }
+            }
+        }
+        //针对左侧变换ul显示的操作
+        function changeb(i) {
+            aA[i].onclick = function () {
+                aUl[i].style.display = "block";
+                aA[i].style.backgroundColor = "green";
+                aUl[j].style.display = "none";
+                aA[n].style.backgroundColor = "";
+                j = i;
+                n = i;
+                q = 0;
+                console.log(h);
+                if (i == 0){
+                    aN[0].style.backgroundColor = "pink";
+                    for (let m = 1;m<aLi1.length;m++){
+                        aN[m].style.backgroundColor = "";
+                    }
+                }else if (i == 1) {
+                    aN[0].style.backgroundColor = "pink";
+                    for (let m = 1;m<aLi1.length;m++){
+                        aN[m].style.backgroundColor = "";
+                    }
+                }else if (i == 2) {
+                    aN[0].style.backgroundColor = "pink";
+                    for (let m = 1;m<aLi1.length;m++){
+                        aN[m].style.backgroundColor = "";
+                    }
+                }
+                if (j == i){
+                    aUl[i].style.display = "block";
+                }
+                if (n == i){
+                    aA[i].style.backgroundColor = "green";
+                }
+            }
+        }
+        for (let i=0;i<aUl.length;i++){
+            changeb(i);
+            changea();
+        }
+    </script>
+</body>
+</html>

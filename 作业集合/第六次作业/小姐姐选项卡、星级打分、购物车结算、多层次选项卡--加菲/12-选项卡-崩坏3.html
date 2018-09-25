@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>选项卡-崩坏3</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <link rel='stylesheet' href='css/public.css'>
+        <link rel='stylesheet' href='css/bh3.css'>
+    </head>
+    <body>
+        <div id="picture">
+            <div class="tab tab0 show">
+                <span class="tab0-pic1"></span>
+                <span class="tab0-pic2"></span>
+                <span class="tab0-pic3"></span>
+            </div>
+            <div class="tab tab1"></div>
+            <div class="tab tab2"></div>
+            <div class="tab tab3"></div>
+            <div class="tab tab4"></div>
+        </div>
+        <ul class="nav">
+            <li class="active">
+                <a href="javascript:void(0);">
+                    <span><text>首页</text></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span><text>作战咨询</text></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span><text>角色介绍</text></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span><text>游戏特色</text></span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <span><text>壁纸下载</text></span>
+                </a>
+            </li>
+        </ul>
+
+        <script>
+            let aTab=document.querySelectorAll("#picture .tab");
+            let aNav=document.querySelectorAll(".nav li");
+            let num=0;
+            let len=aNav.length;
+            for(let i=0;i<len;i++){
+                aNav[i].onclick=function () {
+                    return btn(i);
+                };
+            }
+            // 导航按钮功能代码
+            function btn(i) {
+                aTab[num].className=`tab tab${num}`;
+                aNav[num].className='';
+                aTab[i].className=`tab tab${i} show`;
+                aNav[i].className='active';
+                num = i;
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

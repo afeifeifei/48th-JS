@@ -1,0 +1,82 @@
+<!--声明文档类型为html -->
+<!doctype html>
+<!--根标签 超文本标记语言 -->
+<html> 
+<!--99%是双标签 -->
+<!--头部 不可视化标签-->
+	<head> 
+	<!--utf-8:国际编码 -->
+		<meta charset="UTF-8"> 
+		<!--关键词 关键字 -->
+	    <meta name="Keywords" content=" "> 
+        <!-- 描述网页内容 -->
+		<meta name="Description" content="">
+		<!--网页三要素-->
+		<title>Document</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				list-style:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			#wrap{
+                width: 800px;
+                margin:100px  auto 0;
+                user-select: none;
+                font-size: 14px;
+            }
+            #wrap span{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color:#ffcc99;
+                color: #fff;
+                font-size: 12px;
+                cursor: pointer;
+                margin: 0 5px;
+            }
+            #wrap p{
+                text-indent: 2em;
+                line-height: 30px;
+                margin: 20px auto;
+            }
+		</style>
+	</head>
+	<!--身体:网页的内容.可视化标签-->
+<body>  
+	<div id="wrap">
+		<span>+</span><span>-</span>
+            <p>超视网膜显示屏，两款大作一起登场。 它们经过精心定制，是 iPhone 色彩精准度最高的 OLED 显示屏，支持 HDR 显示，并能呈现真实深邃的黑色。其中，iPhone XS Max 更拥有 iPhone 迄今最大的显示屏。</p>
+            <p>材质样样出众。 iPhone 迄今最坚固耐用的玻璃面板，由原子级工艺造就的夺目新款金色外观，精密打造的手术级不锈钢边框，以及更胜以往的抗水防尘特性2。</p>
+            <p>先进的面容 ID。 现在你可以用自己的脸当作密码，所以安全保障变得简单多了。只要看一眼，就能解锁 iPhone、登录 app 或进行支付。这种面容识别技术的安全性非常出色，而且现在速度比之前更快。</p>
+	</div>
+	<script type="text/javascript">
+		let oWrap = document.getElementById("wrap");
+            let aSpan = oWrap.getElementsByTagName("span");
+            let font = 14;
+            aSpan[0].onclick = function(){
+                font ++;
+                if( font > 30 ){
+                    font = 30;
+                }
+                oWrap.style.fontSize = font + 'px';
+            };
+            aSpan[1].onclick = function(){
+                font --;
+                if( font < 12 ){
+                    font = 12;
+                }
+                oWrap.style.fontSize = font + 'px';
+            };
+	</script>
+	</body>
+</html>
+
+

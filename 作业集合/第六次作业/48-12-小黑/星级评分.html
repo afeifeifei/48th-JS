@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body{
+                background-color: #000;
+            }
+            #wrap{
+                width: 600px;
+                height: 60px;
+                margin: 100px auto 0;
+            }
+            #wrap p{
+                float: left;
+                line-height: 60px;
+                color: gold;
+                font-size: 30px;
+                text-shadow: 5px 5px 5px #d94466;
+            }
+            #wrap .mark{
+                float: left;
+                height: 100%;
+                width: 327px;
+                background-image: url("images/1.png");
+                background-repeat: no-repeat;
+            }
+            #wrap .mark ul:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+            #wrap .mark li{
+                float: left;
+                width: 65px;
+                height: 60px;
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--差 一般 满意 非常满意 无可挑剔-->
+            <p>星级评分</p>
+            <div class="mark">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <p class="evaluate">请打分！！</p>
+        </div>
+        
+        <script>
+            let oMark=document.querySelector("#wrap .mark"),
+                aLi=document.querySelectorAll("#wrap .mark li"),
+                oP=document.querySelector('#wrap .evaluate');
+            let position = 0;
+            let change = false;
+            let content = ["差","一般","满意","非常满意","无可挑剔"];
+
+
+            //添加鼠标移入和移出事件
+            for(let i=0,len=aLi.length; i<len; i++){
+                //鼠标移入添加事件
+                aLi[i].onmouseenter = function () {
+                    position=(i+1)*(-59.4);
+                    oMark.style.backgroundPositionY=""+position+"px";
+                    oP.innerHTML=content[i];
+                }
+                aLi[i].onclick =  function () {
+                    oMark.style.backgroundPositionY=""+position+"px";
+                    change=true;
+                }
+                //鼠标移出事件
+                oMark.onmouseleave = function () {
+                    if(change){
+                        oMark.style.backgroundPositionY=""+position+"px";
+                        change=false;
+                    }
+                    else{
+                        this.style.backgroundPositionY="0";
+                        oP.innerHTML="宝宝，你还没有打分呢！"
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

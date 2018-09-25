@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width: 1000px;
+                user-select: none;
+            }
+            #wrap ul li{
+                height: 50px;
+                border-bottom: 1px solid red;
+                font-size:12px;
+                padding-left:50px;
+            }
+            #wrap ul li p,#wrap ul li input,#wrap ul li div{
+                float: left;
+            }
+            #wrap ul li p{
+                line-height: 50px;
+            }
+            #wrap ul li p.hide{
+                display: none;
+            }
+            #wrap ul li p.show{
+                display: block;
+            }
+            #wrap ul li input{
+                display: none;
+                font-size: 12px;
+                margin-top: 15px;
+            }
+            #wrap ul li input.show{
+                display: block;
+            }
+            #wrap ul li input.hide{
+                display: none;
+            }
+            #wrap ul li div{
+                width: 50px;
+                height: 20px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 20px;
+                background-color: #000;
+                color: #fff;
+                margin: 15px 0 0 20px;
+                cursor: pointer;
+            }
+            #wrap ul li div.show{
+                display: block;
+            }
+            #wrap ul li div.hide{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li>
+                    <p>可编辑的框</p>
+                    <input type="text" placeholder="可编辑的框">
+                    <div class="xiugai show">修改</div>
+                    <div class="queding hide">确定</div>
+                </li>
+                <li>
+                    <p>可编辑的框</p>
+                    <input type="text" placeholder="可编辑的框">
+                    <div class="xiugai show">修改</div>
+                    <div class="queding hide">确定</div>
+                </li>
+                <li>
+                    <p>可编辑的框</p>
+                    <input type="text" placeholder="可编辑的框">
+                    <div class="xiugai show">修改</div>
+                    <div class="queding hide">确定</div>
+                </li>
+                <li>
+                    <p>可编辑的框</p>
+                    <input type="text" placeholder="可编辑的框">
+                    <div class="xiugai show">修改</div>
+                    <div class="queding hide">确定</div>
+                </li>
+            </ul>
+
+        </div>
+        
+        <script>
+
+            //变量
+            let aP = document.querySelectorAll("#wrap p"),
+                aInp = document.querySelectorAll("#wrap input"),
+                aXiu = document.querySelectorAll("#wrap .xiugai"),
+                aQue = document.querySelectorAll("#wrap .queding");
+            let len = aP.length;
+
+
+            //修改按钮点击的事件函数
+            function xClick(i){
+                //修改隐藏，确定显示
+                this.className = "xiugai hide";
+                aQue[i].className = "queding show";
+
+                //p隐藏
+                aP[i].className = 'hide';
+
+                //input显示
+                aInp[i].className = "show";
+            }
+
+            //确定按钮点的事件函数
+            function qClick(i){
+                //确定隐藏 修改显示
+                this.className = "queding hide";
+                aXiu[i].className = "xiugai show";
+
+                //p显示
+                aP[i].className = "show";
+
+                //input隐藏
+                aInp[i].className = "hide";
+
+                //p的内容应该是input的value
+                aP[i].innerHTML = aInp[i].value;
+            }
+
+            //添加事件
+            for(let i=0;i<len;i++){
+                //修改按钮的点击事件
+                aXiu[i].onclick = function(){
+                    xClick(i);
+                };
+
+                //确定按钮的点击事件
+                aQue[i].onclick = function(){
+                    qClick(i);
+                };
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

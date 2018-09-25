@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        p {
+            margin:0;
+        }
+        a {
+            text-decoration: none;
+        }
+        .box {
+            margin:20px;
+        }
+        .btn a {
+            font-size:14px;
+            color:#333;
+            width:50px;
+            height:30px;
+            line-height:30px;
+            display:inline-block;
+            vertical-align: top;
+            text-align:center;
+            border:1px solid #333;
+            margin:0 3px;
+        }
+        .btn {
+            padding-bottom:10px;
+        }
+        .img {
+            text-align:center;
+        }
+        .wz p {
+            line-height:2em;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="btn">
+            <a href="javascript:;">+</a>
+            <a href="javascript:;">-</a>
+        </div>
+        <div class="wz">
+            <p>中央气象台9月16日10时继续发布台风红色预警。今年第22号台风“山竹”（编号1822 号），正以每小时30多公里的速度，气势汹汹地向华南地区袭来。中央气象台预计，“山竹”将于16日傍晚前后在广东台山到阳江一带沿海登陆（14—15级，42—48米/秒，强台风级），登陆后将继续向西偏北方向移动，先后穿过广东西部和广西南部。</p>
+            <div class="img">
+                <img src="01.jpg" alt="">
+            </div>
+            <p>在对台风“山竹”严防死守的同时，很多人对这个名字产生了浓厚的兴趣。有人说：用可爱的山竹命名超强台风，体现了伟大的革命乐观主义精神。听起来还蛮有道理。不过，实际上这只是巧合。</p>
+            <p>那么，凶猛肆虐的台风“山竹”，到底为什么取了这么一个可爱的名字？</p>
+            <p>台风大多用“温柔”的名字</p>
+            <p>热带气旋是发生在热带洋面上急速旋转并向前移动的大气涡旋，在北半球是逆时针旋转。它在不同的海域有不同的名称,在大西洋和北太平洋东部叫“飓风”,在孟加拉湾叫“风暴”,我国习惯于称其为“台风”。</p>
+            <p>西北太平洋和南海是世界上台风活动最频繁的区域，以往，有关国家和地区对出没在这里的热带风暴叫法不一，同一台风往往有几个称呼，容易造成混乱。</p>
+            <p>于是，世界气象组织和亚太经社会所属的台风委员会，制定了一个台风命名办法，2000年1月1日起开始使用。由台风周边国家和地区共同事先制定一个命名表，按顺序年复一年地循环使用，大致5年左右轮回一次。命名表共有140个名字，分别由台风委员会14个成员国和地区提供。</p>
+        </div>
+    </div>
+    <script>
+        let wz=document.getElementsByClassName("wz")[0];
+        let btn=document.getElementsByClassName("btn")[0];
+        let btns=btn.getElementsByTagName("a");
+        let i=14;
+        function size(){
+            wz.style.fontSize=i+"px";
+        }
+        size();
+        btns[0].onclick=function(){
+            if(i<=24) {
+                i++;
+            }
+            size();
+        }
+        btns[1].onclick=function(){
+            if(i>14) {
+                i--;
+            }
+            size();
+        }
+    </script>
+</body>
+</html>

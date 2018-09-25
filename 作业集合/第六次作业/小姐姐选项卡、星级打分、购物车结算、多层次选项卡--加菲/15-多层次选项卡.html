@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <link rel='stylesheet' href='css/public.css'>
+        <style>
+            #wrap{
+                width: 430px;
+                height: 210px;
+                margin: 50px auto;
+                border: 1px solid red;
+            }
+            #wrap .nav{
+                float:left;
+                width: 100px;
+                height: 100px;
+            }
+            #wrap .nav span{
+                display: block;
+                width: 98px;
+                height: 30px;
+                border: 1px solid #ffffff;
+                text-align: center;
+                line-height: 30px;
+                vertical-align: middle;
+                color: #ffffff;
+                font-size: 12px;
+                background-color: #000000;
+                cursor: pointer;
+            }
+            #wrap .nav .active{
+                background-color: #FE6508;
+            }
+            #wrap .content{
+                float: left;
+                position: relative;
+                width: 330px;
+                height: 210px;
+                background-color: green;
+            }
+            #wrap .content ul{
+                display: none;
+            }
+            #wrap .content .show{
+                display: block;
+            }
+            #wrap .content ul li{
+                display: none;
+                position: absolute;
+                top:0;
+                left:0;
+            }
+            #wrap .content ul .show{
+                display: block;
+            }
+            #wrap .content ul li img{
+                width: 330px;
+                height: 210px;
+            }
+            #wrap .content .subNav{
+                position: absolute;
+                width: 175px;
+                height: 25px;
+                bottom:5px;
+            }
+            #wrap .content .subNav .hide{
+                display: none;
+            }
+            #wrap .content .subNav span{
+                float: left;
+                width: 25px;
+                height: 25px;
+                margin: 0 5px;
+                text-align: center;
+                line-height: 25px;
+                vertical-align: middle;
+                color: #ffffff;
+                background-color: black;
+                cursor: pointer;
+            }
+            #wrap .content .subNav .active{
+                background-color: #FE6508;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="nav">
+                <span class="active">豪车</span>
+                <span>美味</span>
+                <span>美女风景</span>
+            </div>
+            <div class="content">
+                <ul class="show">
+                    <li class="show"><img src="images/1.jpg" alt="汽车"></li>
+                    <li><img src="images/2.jpg" alt="汽车"></li>
+                    <li><img src="images/3.jpg" alt="汽车"></li>
+                    <li><img src="images/4.jpg" alt="汽车"></li>
+                </ul>
+                <ul>
+                    <li class="show"><img src="images/m1.jpg" alt="美食"></li>
+                    <li><img src="images/m2.jpg" alt="美食"></li>
+                    <li><img src="images/m3.jpg" alt="美食"></li>
+                    <li><img src="images/m4.jpg" alt="美食"></li>
+                    <li><img src="images/m5.jpg" alt="美食"></li>
+                </ul>
+                <ul>
+                    <li class="show"><img src="images/s1.jpg" alt="风景美女"></li>
+                    <li><img src="images/s2.jpg" alt="风景美女"></li>
+                    <li><img src="images/s3.jpg" alt="风景美女"></li>
+                    <li><img src="images/s4.jpg" alt="风景美女"></li>
+                    <li><img src="images/s5.jpg" alt="风景美女"></li>
+                </ul>
+                <div class="subNav">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let aNav=document.querySelectorAll("#wrap .nav  span"),
+                aUl=document.querySelectorAll("#wrap .content ul"),
+                aSubNav=document.querySelectorAll("#wrap .subNav  span");
+            let aPic;
+            let numClick=0,numPic=0;
+            initSubNav(0);
+            for (let i = 0, length = aNav.length; i < length; i++) {
+                aNav[i].onclick = function () {
+                    return navClick(i);
+                }
+            }
+            for (let j = 0, length = aSubNav.length; j < length; j++) {
+                aSubNav[j].onclick = function () {
+                    return subNavClick(j);
+                }
+            }
+            //左侧菜单栏点击
+            function navClick(i){
+                aNav[numClick].className="";
+                aNav[i].className="active";
+                aUl[numClick].className="";
+                aUl[i].className="show";
+                numClick=i;
+                numPic=0;
+                initUl()
+                initSubNav();
+            }
+            //照片子导航栏点击事件
+            function subNavClick(j){
+                aPic=aUl[numClick].getElementsByTagName("li");
+                aPic[numPic].className="";
+                aPic[j].className="show";
+                aSubNav[numPic].className="";
+                aSubNav[j].className="active";
+                numPic=j;
+            }
+            //初始化照片
+            function initUl(){
+                let length=aUl[numClick].getElementsByTagName("li").length;
+                aPic=aUl[numClick].getElementsByTagName("li");
+                aPic[0].className="show";
+                for (let j = 1; j < length; j++) {
+                    aPic[j].className="";
+                }
+            }
+            //初始化照片子导航栏
+            function initSubNav(){
+                let length=aUl[numClick].getElementsByTagName("li").length;
+                aSubNav[0].className="active";
+                for (let j = 1; j < 5; j++) {
+                    if (j<length){
+                        aSubNav[j].className="";
+                    }
+                    else{
+                        aSubNav[j].className="hide";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

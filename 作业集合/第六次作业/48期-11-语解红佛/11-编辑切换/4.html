@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>双重切换</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+        }
+        a { text-decoration: none; }
+        p{font-size: 14px;}
+        li {list-style: none;}
+        .fl{
+            float: left;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        #wrap {
+            width:800px;
+            height:420px;
+            margin: 20px auto;
+        }
+        .btn{
+            width:10%;
+            height:30%;
+            /* border:1px solid #ccc; */
+        }
+        .btn li{
+            width: 100%;
+            height:30px;
+            font-size:14px;
+            text-align: center;
+            line-height: 30px;
+            border:1px solid #f60;
+            cursor: pointer;
+            user-select: none;
+        }
+        .contain{
+            position: relative;
+            width:90%;
+            height:100%;
+            box-shadow: 0 0 1px 1px blue;
+        }
+        
+        .con{
+            display: none;
+            position: absolute;
+            width:100%;
+            height:100%;
+        }
+        .con  ul{
+            position: relative;
+            width: 100%;
+            height:100%;
+        }
+        .con  ul li{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .con ul li img{
+            width: 100%;
+            height: 100%;    
+        }    
+        .index {
+            position: absolute;
+            z-index: 999;
+            bottom:10px;
+            left:20px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .index ul{
+            width:100%;
+        }
+        .index ul li{
+            float: left;
+            width:28px;
+            height:28px;
+            margin:0 3px;
+            color:#fff;
+            line-height:28px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #000;
+        }
+        .active{
+            color:#fff;
+            background-color: #f60;
+        }
+        .show{
+            display: block;
+        }
+        .show .on{
+            display: block;
+        }
+        .index li.checked{
+            background-color:rgb(241, 182, 131);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="clearfix">
+        <div class="btn fl">
+            <ul>
+                <li class='active'>第一</li>
+                <li>第二</li>
+                <li>第三</li>
+            </ul>
+        </div>
+        <div class="contain fl">
+            <div class="con clearfix show">
+                <ul>
+                  <li class="on">
+                    <img src="images/1.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/2.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/3.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/4.jpg" alt="">
+                  </li>
+               </ul>    
+            </div>    
+            <div class="con clearfix">
+                <ul>
+                  <li class="on">
+                    <img src="images/5.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/6.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/7.jpg" alt="">
+                  </li>
+                  <li>
+                    <img src="images/8.jpg" alt="">
+                  </li>
+               </ul>    
+            </div>  
+            <div class="con clearfix">
+                <ul>
+                    <li class="on">
+                        <img src="images/9.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="images/10.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="images/11.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="images/12.jpg" alt="">
+                    </li>
+                </ul>     
+            </div> 
+            <div class="index">
+                <ul class='clearfix'>
+                    <li class="checked">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        //获取元素
+        let btn = document.querySelectorAll(".btn ul li"),
+            con = document.getElementsByClassName("con"),
+            list = document.querySelectorAll(".con ul li"),
+            index = document.querySelectorAll(".index li");
+        //获取长度
+        let bLeng = btn.length,
+            leng = index.length;
+        //记录序号 变量
+        let count =0,mark = 0,aaa = 0;
+        //侧按钮 点击事件函数
+        let bclick = function(x){
+            return function(){
+            //对应con显示
+            if(count===x)return;
+            con[count].classList.remove("show");
+            con[x].classList.add("show");
+            //对应con中的图片显示
+            // 侧按钮显示
+            btn[count].classList.remove("active");
+            btn[x].classList.add("active");
+            count = x; 
+            //清除主按钮上所有点击显示的 功能
+            for (let j = 0; j < index.length; j++) {
+                list[count*4 + j].classList.remove("on");
+                index[j].classList.remove("checked");
+                //点击侧按钮 初始化主按钮序号 以及相应的显示
+                aaa = count*4;
+                count = x;
+                mark = 0; 
+                list[aaa].classList.add("on");
+                index[mark].classList.add("checked");   
+                }  
+            }
+        }
+        //主按钮点击事件 函数
+        let iclick = function(y){
+            aaa =count*4 + y;
+            return function(){
+                if(mark === y) return;
+                console.log(count*4 + y);
+                list[aaa].classList.remove("on");
+                list[count*4 + y].classList.add("on");
+                index[mark].classList.remove("checked");
+                index[y].classList.add("checked");
+                aaa = count*4 + y;
+                mark = y;    
+            }
+        }
+        for (let k = 0; k < bLeng; k++) { 
+            //侧按钮点击事件 触发
+            btn[k].onclick = bclick(k);
+            // //根据不同的.con 获取不同的.con下的li
+            // let clist = con[k].querySelectorAll(".con li");      
+        }
+        //主按钮点击事件 触发
+        for (let i = 0; i < leng; i++) { 
+            index[i].onclick = iclick(i)
+            }
+    </script>
+</body>
+</html>

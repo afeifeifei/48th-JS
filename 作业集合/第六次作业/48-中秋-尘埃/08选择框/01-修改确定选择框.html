@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        a{text-decoration: none;}
+        #content{
+            width:500px;
+            margin:50px auto;
+            border:1px solid #ccc;
+        }
+        li{margin: 5px;}
+        p,input{
+            display: inline-block;
+            height: 36px;
+            padding-left: 1em;
+            line-height: 36px;
+            outline: none;
+        }
+        p{width:234px;}
+        input{
+            display:none;
+            width:168px;
+        }
+        .btn{
+            display:inline-block;
+            width:50px;
+            height: 36px;
+            margin: 5px;
+            background-color:#ccc;
+            border-radius:5px;
+            line-height: 36px;
+            text-align:center; 
+        }
+        .btn:hover{
+            background-color:#666;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <ul>
+            <li>
+                <div class="btn">修改</div>
+                <p class="text">可编辑项</p>
+                <input type="text">
+            </li>
+            <li>
+                <div class="btn">修改</div>
+                <p class="text">可编辑项</p>
+                <input type="text">
+            </li>
+            <li>
+                <div class="btn">修改</div>
+                <p class="text">可编辑项</p>
+                <input type="text">
+            </li>
+            <li>
+                <div class="btn">修改</div>
+                <p class="text">可编辑项</p>
+                <input type="text">
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function(){
+            var oBtn = document.getElementsByClassName("btn"),
+                oTxt = document.getElementsByClassName("text"),
+                oInpt= document.getElementsByTagName("input"),
+                onbool = [true,true,true,true];
+                len = oBtn.length;
+            for(let i = 0; i < len; i++){
+                
+                oBtn[i].onclick = function(){
+                    changeBtn(i);
+                };
+            }
+            //确定按钮
+            function changeBtn(i){
+                var val,temp;
+                if(onbool[i]){
+                    oBtn[i].innerHTML = "确定";
+                    oBtn[i].style.backgroundColor = "#999";
+                    oTxt[i].style.display = "none";
+                    oInpt[i].style.display = "inline-block";
+                    onbool[i] = false;
+                }else{
+                    val  = oInpt[i].value;
+                    temp = oTxt[i].innerText; 
+                    oTxt[i].innerHTML = val? val : temp;
+                    oTxt[i].style.display = "inline-block";
+                    oInpt[i].style.display = "none";
+                    onbool[i] = true;
+                }
+                
+            }
+        })();
+    </script>
+</body>
+</html>

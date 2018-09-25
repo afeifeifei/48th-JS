@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	table{
+		margin: 50px auto;
+		text-align: center;
+	}
+	table tr{
+		display: block;
+		width: 600px;
+		border: 1px solid red;
+		border-top: none;
+
+	}
+	table tr:nth-child(1){
+		border: 1px solid red;
+	}
+	table td{
+		width: 170px;
+		height: 150px;
+		margin: 0;
+
+		
+	}
+	table td button{
+		width: 20px;
+	}
+	table td span{
+		font-size: 22px;
+		color: red;
+	}
+	table td .quantity{
+		display: inline-block;
+		width: 50px;
+		height: 30px;
+		border: 1px solid #f00;
+	}
+	img{
+		width: 100%;
+		height: 100%;
+	}
+
+</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>商品</td>
+			<td>单价</td>
+			<td>数量</td>
+			<td>小计</td>
+		</tr>
+		<tr>
+			<td><img src="images/shop1.jpg"></td>
+			<td><span class="price">10</span></td>
+			<td>
+				<button class="minus">-</button>
+				 <span class="quantity">0</span>
+				<button class="add">+</button>
+			</td>
+			<td><span class="subtotal">0</span></td>
+		</tr>
+		<tr>
+			<td><img src="images/shop2.jpg"></td>
+			<td><span class="price">20</span></td>
+			<td>
+				<button class="minus">-</button>
+				 <span class="quantity">0</span>
+				<button class="add">+</button>
+			</td>
+			<td><span class="subtotal">0</span></td>
+		</tr>
+		<tr>
+			<td><img src="images/shop3.jpg"></td>
+			<td><span class="price">30</span></td>
+			<td>
+				<button class="minus">-</button>
+				 <span class="quantity">0</span>
+				<button class="add">+</button>
+			</td>
+			<td><span class="subtotal">0</span></td>
+		</tr>
+		<tr>
+			<td><img src="images/shop4.jpg"></td>
+			<td><span class="price">40</span></td>
+			<td>
+				<button class="minus">-</button>
+				 <span class="quantity">0</span>
+				<button class="add">+</button>
+			</td>
+			<td><span class="subtotal">0</span></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td>已选购<span class="pur">0</span></td>
+			<td>总价格<span class="sum">0</span>￥</td>
+		</tr>
+	</table>
+   <script>
+   	(function(){
+   		let oTable = document.getElementsByTagName("table")[0],
+   			aPrice = oTable.getElementsByClassName("price"),
+   			aMinus = oTable.getElementsByClassName("minus"),
+   			aQuantity = oTable.getElementsByClassName("quantity"),
+   			aAdd = oTable.getElementsByClassName("add"),
+   			aSubtotal = oTable.getElementsByClassName("subtotal"),
+   			aPur = oTable.getElementsByClassName("pur"),
+   			aSum = oTable.getElementsByClassName("sum"),
+   			len= aPrice.length;
+   		for(let i=0; i<len; i++){
+   			aMinus[i].onclick = function(){
+   				if(--aQuantity[i].innerHTML < 0){
+   					aQuantity[i].innerHTML = 0;
+   					 console.log(i+"-");
+   					}
+   					change(i);
+   				};
+   			aAdd[i].onclick = function(){
+   				++aQuantity[i].innerHTML;
+   				change(i);
+   				 console.log(i+"+");
+   				};
+   		}
+   		
+   		function change(i){
+   				let total =0,
+   					count =0;
+   				aSubtotal[i].innerHTML = aQuantity[i].innerHTML * aPrice[i].innerHTML;
+   				
+   				for(let j=0; j<len; j++){
+   					total += aSubtotal[j].innerHTML - 0;
+   					count += aQuantity[j].innerHTML - 0;
+   				}
+   				aSum[0].innerHTML =total;
+   				aPur[0].innerHTML =count;
+   		}
+   	}());
+   </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Danew">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                position: relative;
+                width:430px;
+                height:206px;
+                margin:50px auto 0;
+            }
+            #wrap>ul>li{
+                width:100px;
+                height:40px;
+                margin-bottom:2px;
+            }
+            #wrap>ul>li>span{
+                display:inline-block;
+                width:100%;
+                height:100%;
+                background-color: #000;
+                color:white;
+                font-size:14px;
+                line-height:40px;
+                text-align:center;
+                cursor:pointer;
+            }
+            #wrap>ul>li>span.on{
+                background-color: #f60;
+            }
+            #wrap .picture{
+                position: absolute;
+                display:none;
+                left:102px;
+                top:0;
+                width:326px;
+                height:204px;
+            }
+            #wrap .picture.show{
+                display:block;
+            }
+            #wrap .picture ul.jpg{
+
+            }
+            #wrap .picture ul.jpg li{
+                position: absolute;
+                display:none;
+            }
+            #wrap .picture ul.jpg li.show{
+                display:block;
+            }
+            #wrap .picture ul.tab{
+                position: absolute;
+                left:0;
+                bottom:0;
+            }
+            #wrap .picture ul.tab li{
+                float:left;
+                width:25px;
+                height:25px;
+                margin:5px;
+                background-color: #000;
+                color:white;
+                font-size:14px;
+                line-height:25px;
+                text-align:center;
+                cursor:pointer;
+            }
+            #wrap .picture ul.tab li.on {
+                background-color: #f60;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li class="car">
+                    <span class="on">豪车</span>
+                    <div class="picture show">
+                        <ul class="jpg">
+                            <li class="show"><img src="img/1.jpg" alt=""></li>
+                            <li><img src="img/2.jpg" alt=""></li>
+                            <li><img src="img/3.jpg" alt=""></li>
+                            <li><img src="img/4.jpg" alt=""></li>
+                        </ul>
+                        <ul class="tab">
+                            <li class="on">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="food">
+                    <span>美味</span>
+                    <div class="picture">
+                        <ul class="jpg">
+                            <li class="show"><img src="img/m1.jpg" alt=""></li>
+                            <li><img src="img/m2.jpg" alt=""></li>
+                            <li><img src="img/m3.jpg" alt=""></li>
+                            <li><img src="img/m4.jpg" alt=""></li>
+                            <li><img src="img/m5.jpg" alt=""></li>
+                        </ul>
+                        <ul class="tab">
+                            <li class="on">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="beauty">
+                    <span>美女风景</span>
+                    <div class="picture">
+                        <ul class="jpg">
+                            <li class="show"><img src="img/s1.jpg" alt=""></li>
+                            <li><img src="img/s2.jpg" alt=""></li>
+                            <li><img src="img/s3.jpg" alt=""></li>
+                            <li><img src="img/s4.jpg" alt=""></li>
+                            <li><img src="img/s5.jpg" alt=""></li>
+                        </ul>
+                        <ul class="tab">
+                            <li class="on">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <script>
+            let aSpan = document.querySelectorAll("#wrap>ul>li>span"),
+                aPic = document.querySelectorAll("#wrap .picture"),
+                sLen = aSpan.length,
+                index = 0,
+                aJpg=[
+                    aCarJpg=document.querySelectorAll("#wrap .car .picture .jpg li"),
+                    aFoodJpg = document.querySelectorAll("#wrap .food .picture .jpg li"),
+                    aBeautyJpg = document.querySelectorAll("#wrap .beauty .picture .jpg li")
+                ],
+                aTab=[
+                    aCarTab = document.querySelectorAll("#wrap .car .picture .tab li"),
+                    aFoodTab = document.querySelectorAll("#wrap .food .picture .tab li"),
+                    aBeautyTab = document.querySelectorAll("#wrap .beauty .picture .tab li")
+                ],
+                aLen=[
+                    cLen=aJpg[0].length,        //两种取值方式都行
+                    fLen=aFoodJpg.length,
+                    bLen=aBeautyJpg.length,
+                ],
+                aIndex=[
+                    cIndex=0,
+                    fIndex=0,
+                    bIndex=0
+                ];
+
+            //给对象循环添加事件，以大选卡可选3次为入口
+            for(let i=0;i<sLen;i++){
+                aSpan[i].onmouseenter = function () {
+                    fSpan(i);
+                }
+                //循环添加小选项卡事件
+                for(let j=0;j<aLen[i];j++){
+                    aTab[i][j].onmouseenter = function () {
+                        fTab(i,j);
+                    }
+                }
+            }
+
+            //定义大选项卡切换事件
+            function fSpan(i) {
+                //清除显示
+                aSpan[index].className = '';
+                aPic[index].className = 'picture';
+                index = i;
+                //两边显示
+                aSpan[index].className = 'on';
+                aPic[index].className = 'picture show';
+
+                //tab清零
+                fClear(i);
+            }
+
+            //定义循环tab选项卡选择事件函数
+            function fTab(i,j) {
+                aJpg[i][aIndex[i]].className = '';
+                aTab[i][aIndex[i]].className = '';
+                aIndex[i] = j;
+                aJpg[i][aIndex[i]].className = 'show';
+                aTab[i][aIndex[i]].className = 'on';
+            }
+            //定义切换大选择卡时，tab清零事件
+            function fClear(i) {
+                aJpg[i][aIndex[i]].className='';
+                aTab[i][aIndex[i]].className='';
+                aIndex[i]=0;
+                aJpg[i][0].className='show';
+                aTab[i][0].className='on';
+            }
+            /*
+            for(let i=0;i<aLen[0];i++){
+                aTab[0][i].onmouseenter = function () {
+                    aJpg[0][aIndex[0]].className = '';
+                    aTab[0][aIndex[0]].className = '';
+                    aIndex[0] = i;
+                    aJpg[0][aIndex[0]].className = 'show';
+                    aTab[0][aIndex[0]].className = 'on';
+                }
+            }
+            for(let i=0;i<aLen[1];i++){
+                aTab[1][i].onmouseenter = function () {
+                    aJpg[1][aIndex[1]].className = '';
+                    aTab[1][aIndex[1]].className = '';
+                    aIndex[1] = i;
+                    aJpg[1][aIndex[1]].className = 'show';
+                    aTab[1][aIndex[1]].className = 'on';
+                }
+            }
+            for(let i=0;i<aLen[2];i++){
+                aTab[2][i].onmouseenter = function () {
+                    aJpg[2][aIndex[2]].className = '';
+                    aTab[2][aIndex[2]].className = '';
+                    aIndex[2] = i;
+                    aJpg[2][aIndex[2]].className = 'show';
+                    aTab[2][aIndex[2]].className = 'on';
+                }
+            }
+            */
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

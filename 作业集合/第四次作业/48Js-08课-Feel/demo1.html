@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap button{
+                width: 50px;
+                height: 30px;
+                background-color: #000;
+                color: #fff;
+            }
+            #wrap p{
+                font-size: 14px;
+                text-indent: 2em;
+            }
+            #wrap img{
+                margin-left: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <button id="btn1">+</button>
+            <button id="btn2">-</button>
+            <p>张昕宇和梁红都是北京人，环球探险旅行家。曾经白手起家，身家千万，随后许下诺言：用10年的时间，走遍世界。</p>
+            <img src="images/1.jpg" height="225" width="300" alt="图片">
+            <p>“侣行”夫妇被大家所熟知是因为他们环游世界的事例，但让大家心生崇拜的却是因为他们在环游世界的过程中所展现出来的独特价值观：是侣
+                行，不是旅游;是冒险，不是享受;是挑战自我，不是放松身心。张昕宇、梁红两人为了完成“侣行”，大胆选择了走出去，用自己的脚步丈量
+                世界，二人于2008年踏上环球探险的旅程，至今足迹遍布全球100多个国家;除此之外，“侣行”夫妇不局限于眼前的既得利益，而是着眼未来，
+                更多地关注生命的意义，对于本季侣行的意义更是直言，“除了环球飞行，我们也希望去看看世界各种极端环境下，普通人都是如何活着的。
+                ”而“侣行”夫妇在侣行过程中从不走“寻常路”，正如梁红在节目中说的“老张选的路从来都是最难走的”。们经历过在世界最寒冷的村庄——奥
+                伊米亚康露营，感受零下52度的极寒;还在“天堂之门”马鲁姆火山进行190度垂降，这些都让观众从侣行中感受到了大自然的力量。
+            </p>
+
+        </div>
+        
+        <script>
+            let oBtn = document.getElementById("btn1"),
+                oBtn1 = document.getElementById("btn2"),
+                oP =document.querySelectorAll("#wrap p");
+            let sum = "14";
+            oBtn.onclick=function(){
+                    sum++;
+                if( sum<20 ){
+                    oP[0].style.fontSize = sum+"px";
+                    oP[1].style.fontSize = sum+"px";
+                }
+            }
+            oBtn1.onclick=function(){
+                sum--;
+                if( sum >=12){
+                    oP[0].style.fontSize = sum+"px";
+                    oP[1].style.fontSize = sum+"px";
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

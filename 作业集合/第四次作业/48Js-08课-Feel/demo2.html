@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 450px;
+                margin: 50px auto;
+            }
+            #wrap #img{
+                width: 450px;
+                height: 250px;
+            }
+            #wrap #img img{
+                width: 100%;
+                height: 100%;
+            }
+            #wrap #img .dec{
+                position: absolute;
+                top: -66px;
+                bottom: 0;
+                width: 50px;
+                height: 30px;
+                margin: auto;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                font-size: 25px;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap #img .left{
+                left: 0;
+            }
+            #wrap #img .right{
+                right: 0;
+            }
+            #wrap #img #top{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+            }
+            #wrap #img .list li{
+                display: none;
+                position: absolute;
+                left: 0;
+                width: 450px;
+                height: 220px;
+            }
+            /*显示第一张图片*/
+            #wrap #img .list li.appear{
+                display: block;
+            }
+            #wrap #img .list li p{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background-color: rgba(0,0,0,.5);
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+            }
+            #wrap .btn{
+                width: 200px;
+                margin: auto;
+            }
+            #wrap .btn button{
+                width: 90px;
+                height: 30px;
+                background-color: #ccc;
+            }
+            #wrap .btn button.active{
+                background-color: red;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="img">
+                <ul class="list">
+                    <li class="appear"><img src="images/2.jpg" height="220" width="558" alt="LOL"><p>英雄联盟</p></li>
+                    <li><img src="images/3.jpg" height="220" width="372" alt="LOL"><p>风女</p></li>
+                    <li><img src="images/4.jpg" height="250" width="423" alt="LOL"><p>小炮</p></li>
+                    <li><img src="images/5.jpg" height="220" width="352" alt="LOL"><p>猪妹</p></li>
+                    <li><img src="images/6.jpg" height="220" width="352" alt="LOL"><p>剑姬</p></li>
+                </ul>
+                <p class="left dec"> < </p>
+                <p class="right dec"> > </p>
+                <p id="top"><span>1</span>/5</p>
+            </div>
+            <div class="btn">
+                <button class="active">单边模式</button>
+                <button>循环模式</button>
+            </div>
+        </div>
+        <script>
+            let aP = document.getElementsByClassName("dec"),
+                aImg = document.querySelectorAll("#wrap #img .list li"),
+                oTop = document.querySelectorAll("#wrap #img #top span"),
+                oBtn = document.querySelectorAll("#wrap .btn button"),
+                oLeft = aP[0],
+                oRight = aP[1],
+                length = aImg.length,//长度 ，总的img总数
+                oLoop = true,
+                index =0;//定义一个变量名，让js知道我们当前是显示的哪一张
+            console.log(aP);
+
+            //    左按钮的点击事件
+            oLeft.onclick = function () {
+                aImg[index].className="";//将现在li的class名去掉
+                index--;//因为是左边的按钮，所以每次点击都要切换到下一个图片，对应的序号自减 1
+                if( index<0 ){
+                    if( oLoop ){
+                        index=0;
+                    }else{
+                        index=length-1;
+                    }
+                }
+                aImg[index].className="appear";//给下一个li添加class名
+                oTop[0].innerHTML = index+1;
+            }
+            //    右按钮的点击事件
+            oRight.onclick = function () {
+                aImg[index].className="";//将现在li的class名去掉
+                index++;//因为是右边的按钮，所以每次点击都要切换到下一个图片，对应的序号自增 1
+                if( index>length-1 ){
+                    if( oLoop ){
+                        index=length-1;
+                    }else {
+                        index=0;
+                    }
+                }
+                aImg[index].className="appear";//给下一个li添加class名
+                oTop[0].innerHTML = index+1;
+            }
+            oBtn[0].onclick = function () {
+                oBtn[0].className = "active";
+                oBtn[1].className = "";
+            }
+            oBtn[1].onclick = function () {
+                oLoop = false;
+                oBtn[1].className = "active";
+                oBtn[0].className = "";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

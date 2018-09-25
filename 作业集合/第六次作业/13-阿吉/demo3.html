@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        .clearfix{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .fl-l{
+            float:left;
+        }
+        #wrap{
+            width:300px;
+            height:150px;
+            margin:50px auto;
+        }
+        #wrap .wrap-list{
+            display:inline-block;
+            width:70px;
+            vertical-align:top;
+        }
+        #wrap .wrap-list li{
+            background-color: #000;
+            margin-bottom:5px;
+            color:#fff;
+            font-size:12px;
+            text-align:center;
+            line-height:25px;
+            cursor:pointer;
+        }
+        #wrap .wrap-list li.on{
+            background-color: red;
+        }
+        #wrap .wrap-content{
+            position: relative;
+            display:inline-block;
+            height:100%;
+            width:225px;
+        }
+        #wrap .wrap-imgs{
+            display:none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height:100%;
+            width:100%;
+        }
+        #wrap .wrap-content ul.on{
+            display: block;
+        }
+        #wrap .wrap-imgs li{
+            position: absolute;
+            display: none;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+        }
+        #wrap .wrap-imgs li.on{
+            display: block;
+        }
+        #wrap .wrap-imgs li img{
+            width:100%;
+            height:100%;
+        }
+        #wrap .wrap-icon{
+            display:none;
+            position: absolute;
+            left:10px;
+            top:120px;
+        }
+        #wrap .wrap-icon li{
+            display:inline-block;
+            width:20px;
+            background-color: #000;
+            color:#fff;
+            font-size: 12px;
+            text-align: center;
+            line-height:20px;
+            cursor: pointer;
+        }
+        #wrap .wrap-icon li.on{
+            background-color:red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul class='wrap-list'>
+            <li class='on'>第一组</li>
+            <li>第二组</li>
+            <li>第三组</li>
+        </ul>
+        <div class='wrap-content'>
+            <ul class='wrap-imgs on'>
+                <li class='on'><img src="images/11.jpg" alt=""></li>
+                <li><img src="images/12.jpg" alt=""></li>
+                <li><img src="images/13.jpg" alt=""></li>
+                <li><img src="images/14.jpg" alt=""></li>
+            </ul>
+            <ul class="wrap-icon on">
+                <li class='on'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+            <ul class='wrap-imgs'>
+                <li class='on'><img src="images/21.jpg" alt=""></li>
+                <li><img src="images/22.jpg" alt=""></li>
+                <li><img src="images/23.jpg" alt=""></li>
+                <li><img src="images/24.jpg" alt=""></li>
+                <li><img src="images/25.jpg" alt=""></li>
+            </ul>
+            <ul class="wrap-icon">
+                <li class='on'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+            <ul class='wrap-imgs'>
+                <li class='on'><img src="images/31.jpg" alt=""></li>
+                <li><img src="images/32.jpg" alt=""></li>
+                <li><img src="images/33.jpg" alt=""></li>
+                <li><img src="images/34.jpg" alt=""></li>
+            </ul>
+            <ul class="wrap-icon">
+                <li class='on'>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        function WrapIconLiClick(){ //点击WrapIconLi 按钮函数
+            let aWrapImgsLi = document.querySelectorAll(".wrap-imgs.on li"),
+                aWrapIconLi = document.querySelectorAll(".wrap-icon.on li");
+            for (let j = 0, len = aWrapIconLi.length; j < len; j++) {
+                aWrapIconLi[j].onclick = function () {
+                    let oWrapIconLi = document.querySelector(".wrap-icon.on li.on");
+                    let oWrapImgLi = document.querySelector(".wrap-imgs.on li.on");
+                    if (this !== oWrapIconLi) {  //如果不相等才运行
+                        this.className = 'on';
+                        oWrapIconLi.className = '';
+                        aWrapImgsLi[j].className = 'on';
+                        oWrapImgLi.className = '';
+                    }
+                }
+            }
+        }
+
+        let aWrapListLi=document.querySelectorAll(".wrap-list li"),
+            aWrapImgs = document.querySelectorAll(".wrap-imgs"),
+            aWrapIcon = document.querySelectorAll(".wrap-icon");
+
+
+        for(let i=0,len=aWrapListLi.length;i<len;i++){
+            
+            aWrapListLi[i].onclick=function(){//第一组、 第二组、第三组点击
+                let oWrapListLi = document.querySelector(".wrap-list .on"),
+                    oWrapImgs=document.querySelector(".wrap-imgs.on"),
+                    oWrapIcon=document.querySelector(".wrap-icon.on");
+                if (this !== oWrapListLi) {  //点击了不同的按钮
+                    oWrapListLi.className = '';
+                    this.className = 'on';  //自己改变
+                    oWrapImgs.className='wrap-imgs'; //原来的on去掉
+                    oWrapIcon.className='wrap-icon';
+                    aWrapImgs[i].className='wrap-imgs on';  //加上on
+                    aWrapIcon[i].className='wrap-icon on';
+                }
+                WrapIconLiClick();//点击WrapIconLi 按钮函数
+            } 
+                
+        }
+
+
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>02文字缩放-慕梅</title>
+    <style>
+            *{margin:0;padding:0;}
+            #wrap{
+                width:600px;
+                margin:50px auto;
+            }
+            span{
+                display:inline-block;
+                padding:8px 15px;
+                margin:5px;
+                background-color: #000;
+                color:#fff;
+                cursor:pointer;
+            }
+            #content{
+                font-size:16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span>+</span><span>-</span>
+            <div id="content">
+                <p>由中国科学院国家天文台、紫金山天文台主办的天文国际论坛9月15日在江苏闭幕，我国科学家也带来了天文领域取得的最新进展。“中国天眼”FAST望远镜的运行观测情况、“悟空”号的最新研究成果成为了中外天文学家关注的热点。
+                </p>
+                <img src="images/01.jpg" width="400">
+                <p>500米口径球面射电望远镜——FAST坐落在贵州平塘，2016年9月建成启用，其接收面积相当于30个足球场大小，是目前世界最大最灵敏的单口径射电望远镜。
+                </p>
+            </div>           
+        </div>
+        <script>
+            let aSpan = document.getElementsByTagName("span"),
+                oCon = document.getElementById("content"),
+                i = 16;
+            aSpan[0].onclick = function(){
+                if(i<=26){
+                    i += 2;
+                    oCon.style.fontSize = i+'px';
+                }
+            }
+            aSpan[1].onclick = function(){
+                if(i>=12){
+                    i -= 2;
+                    oCon.style.fontSize = i+'px';
+                }
+            }
+    </script>
+</body>

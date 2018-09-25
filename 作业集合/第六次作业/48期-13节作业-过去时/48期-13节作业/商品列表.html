@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:800px;
+                height:400px;
+                margin:50px auto 0;
+            }
+            #wrap table{
+                width:100%;
+
+            }
+            #wrap table thead{
+                background-color:pink;
+            }
+            #wrap table thead tr th{
+                width:25%;
+
+            }
+            #wrap table tbody tr{
+                height:90px;
+            }
+            #wrap table tbody img{
+                width:86px;
+            }
+            #wrap table tbody .number{
+                width:100px;
+                height:25px;
+                border:.2px solid black;
+                text-align:center;
+                margin:auto;
+            }
+            #wrap table tbody .number  div{
+                width:25px;
+                height:24px;
+                border:.3px solid black;
+                background-color:lightblue;
+                cursor:pointer;
+            }
+            #wrap table tbody .number .jian{
+                float:left;
+            }
+            #wrap table tbody .number .jia{
+                float:right;
+            }
+            #wrap table tfoot{
+                background-color:orangered;
+            }
+            #wrap table tfoot span{
+                color:yellowgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>商品</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>小计</th>
+                    </tr>
+                </thead>
+                <tbody id="tb">
+                    <tr>
+                        <th><img src="images/shop1.jpg" alt=""> </th>
+                        <th>8</th>
+                        <th >
+                            <div class="number">
+                                <div class="jian">-</div>
+                                <span>0</span>
+                                <div class="jia">+</div>
+                            </div>
+                        </th>
+                        <th class="sub">0</th>
+                    </tr>
+                    <tr>
+                        <th><img src="images/shop2.jpg" alt=""> </th>
+                        <th>10</th>
+                        <th >
+                            <div class="number">
+                                <div class="jian">-</div>
+                                <span>0</span>
+                                <div class="jia">+</div>
+                            </div>
+                        </th>
+                        <th class="sub">0</th>
+                    </tr>
+                    <tr>
+                        <th><img src="images/shop3.jpg" alt=""> </th>
+                        <th>12.5</th>
+                        <th >
+                            <div class="number">
+                                <div class="jian">-</div>
+                                <span>0</span>
+                                <div class="jia">+</div>
+                            </div>
+                        </th>
+                        <th class="sub">0</th>
+                    </tr>
+                    <tr>
+                        <th><img src="images/shop4.jpg" alt=""> </th>
+                        <th>23</th>
+                        <th >
+                            <div class="number">
+                                <div class="jian">-</div>
+                                <span>0</span>
+                                <div class="jia">+</div>
+                            </div>
+                        </th>
+                        <th class="sub">0</th>
+                    </tr>
+                </tbody>
+                <tfoot id="tf">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>已选中商品: <span class="znumber">0</span> 个</th>
+                        <th>合计费用: <span class="total">0</span> ￥</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <script>
+            let oTb = document.getElementById('tb'),
+                oNum = oTb.querySelectorAll('.number'),
+                oPx = oTb.querySelectorAll('.number .jian'),
+                oPj = oTb.querySelectorAll('.number .jia'),
+                oSpan = oTb.querySelectorAll('.number span'),
+                oSub = document.querySelectorAll('#tb .sub'),
+                oZnum = document.querySelector('#wrap .znumber'),
+                oTot = document.querySelector('#wrap .total')
+                //xxx = oNum.length
+             //console.log(oNum[1])
+
+
+            let x=8,
+                y=10,
+                z=12.5,
+                w=23,
+                i=0,
+                u=0,
+                o=0,
+                p=0;
+
+
+            for(let c=0 ; c<4 ; c++) {
+                console.log(oSpan[0])
+                oNum[c] = function(){
+                    oPj[c].onclick = function () {
+                        if(c===0){
+                            oSpan[c].innerHTML = i++
+                            oSub[c].innerHTML = x*i
+                        }else if(c===1){
+                            oSpan[c].innerHTML = u++
+                            oSub[c].innerHTML = y*u
+                        }else if(c===2){
+                            oSpan[c].innerHTML = o++
+                            oSub[c].innerHTML = z*o
+                        }else if(c===3){
+                            oSpan[c].innerHTML = p++
+                            oSub[c].innerHTML = w*p
+                        }
+                        oZnum.innerHTML = i+u+o+p
+                        oTot.innerHTML = x*i+y*u+z*o+w*p
+
+                    }
+                    oPx[c].onclick = function () {
+                        if(c===0){
+                            oSpan[c].innerHTML = i--
+                            oSub[c].innerHTML = x*i
+                        }else if(c===1){
+                            oSpan[c].innerHTML = u--
+                            oSub[c].innerHTML = y*u
+                        }else if(c===2){
+                            oSpan[c].innerHTML = o--
+                            oSub[c].innerHTML = z*o
+                        }else if(c===3){
+                            oSpan[c].innerHTML = p--
+                            oSub[c].innerHTML = w*p
+                        }
+                        oZnum.innerHTML = i+u+o+p
+                        oTot.innerHTML = oSub.innerHTML
+                    }
+                    // oZnum.innerHTML = i
+                    // oTot.innerHTML = oSub.innerHTML
+                }()
+
+            }
+            // oZnum.innerHTML = i
+            // oTot.innerHTML = oSub.innerHTML
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

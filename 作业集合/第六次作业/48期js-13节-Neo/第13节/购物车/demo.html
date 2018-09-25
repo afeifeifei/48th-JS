@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 1000px;
+                height: 515px;
+                margin: 20px auto;
+            }
+            #wrap .header{
+                width: 100%;
+                height: 455px;
+                border: 2px solid #000000;
+            }
+            #wrap .header .title ul{
+                height: 50px;
+            }
+            #wrap .header .title ul li{
+                float: left;
+                width: 248px;
+                height: 50px;
+                background-color: #cc3366;
+                border: 1px solid #993300;
+                text-align: center;
+                line-height: 50px;
+            }
+            #wrap .header .list li{
+                width: 100%;
+                height: 100px;
+                border-bottom: 1px solid #993300;
+            }
+            #wrap .header .list li:last-child{
+                border: none;
+            }
+            #wrap .header .list li>div{
+                float: left;
+                width: 248px;
+                height: 100%;
+                border-right: 2px  solid #993300;
+                text-align: center;
+            }
+            #wrap .header .list li :last-child{
+                border: none;
+            }
+            #wrap .header .list li .img img{
+                width: 75px;
+                margin-top: 10px;
+            }
+            #wrap .header .list li div.fp p{
+                width: 100%;
+                height: 100%;
+                line-height: 100px;
+            }
+            #wrap .header .list li .num div{
+                width: 110px;
+                height: 30px;
+                margin-top: 33px;
+                margin-left: 65px;
+                border: 1px solid #dddddd;
+
+            }
+            #wrap .header .list li .num div span{
+                float: left;
+                width: 30px;
+                height: 30px;
+                background-color: #dddddd;
+                line-height: 30px;
+                cursor: pointer;
+            }
+            #wrap .header .list li .num div p{
+                float: left;
+                width: 50px;
+                height: 30px;
+                line-height: 30px;
+            }
+            #wrap .header .list li div.sp p{
+                width: 100%;
+                height: 100%;
+                line-height: 100px;
+            }
+            #wrap .footer{
+                width: 100%;
+                height: 50px;
+                margin-top: 10px;
+                background-color: #cc3366;
+            }
+            #wrap .footer p{
+                float: left;
+                width: 130px;
+                height: 50px;
+                line-height: 50px;
+            }
+            #wrap .footer p:first-child{
+                margin-left: 519px;
+            }
+            #wrap .footer p:last-child{
+                margin-left: 140px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="header">
+                <div class="title">
+                    <ul>
+                        <li>商品</li>
+                        <li>单价</li>
+                        <li>数量</li>
+                        <li>小计</li>
+                    </ul>
+                </div>
+                <ul class="list">
+                    <li>
+                        <div class="img"><img src="img/shop1.jpg" alt=""></div>
+                        <div class="fp"><p>8</p></div>
+                        <div class="num">
+                            <div>
+                                <span>-</span>
+                                <p>0</p>
+                                <span>+</span>
+                            </div>
+                        </div>
+                        <div class="sp"><p>0</p></div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="img/shop2.jpg" alt=""></div>
+                        <div class="fp"><p>10</p></div>
+                        <div class="num">
+                            <div>
+                                <span>-</span>
+                                <p>0</p>
+                                <span>+</span>
+                            </div>
+                        </div>
+                        <div class="sp"><p>0</p></div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="img/shop3.jpg" alt=""></div>
+                        <div class="fp"><p>12.5</p></div>
+                        <div class="num">
+                            <div>
+                                <span>-</span>
+                                <p>0</p>
+                                <span>+</span>
+                            </div>
+                        </div>
+                        <div class="sp"><p>0</p></div>
+                    </li>
+                    <li>
+                        <div class="img"><img src="img/shop1.jpg" alt=""></div>
+                        <div class="fp"><p>23</p></div>
+                        <div class="num">
+                            <div>
+                                <span>-</span>
+                                <p>0</p>
+                                <span>+</span>
+                            </div>
+                        </div>
+                        <div class="sp"><p>0</p></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p>已选中商品: <span>0</span> 个 </p>
+                <p>合计费用： <span>0</span> ￥</p>
+            </div>
+        </div>
+
+        
+        <script>
+            let aSpanMinu=document.querySelectorAll(".header .list .num div :first-child"),
+                aSpanAdd=document.querySelectorAll(".header .list .num div :last-child"),
+                aChange=document.querySelectorAll(".header .list .num div :nth-child(2)"),
+                aSp=document.querySelectorAll(".header .list .sp p"),
+                oSpanSum=document.querySelectorAll(".footer p:first-child span")[0],
+                oSpanMoney=document.querySelectorAll(".footer p:last-child span")[0]
+            ;
+            let len=aSpanMinu.length,
+                sum=0,
+                osum=0
+            ;
+            for(let i=0;i<len;i++){
+                let x=0;
+                aChange[i].i=0;
+                //点击减少按钮
+                aSpanMinu[i].onclick=function(){
+                    osum=0;
+                    if(x>0){
+                        x--;
+                        sum--;
+                    }else{
+                        x=0;
+                    }
+                    if(sum<0){
+                        sum=0
+                    }
+                    aChange[i].i=x;
+                    aChange[i].innerHTML=x;
+                    switch (i) {
+                        case 0:
+                            aSp[0].innerHTML=x*8;
+                            break;
+                        case 1:
+                            aSp[1].innerHTML=x*10;
+                            break;
+                        case 2:
+                            aSp[2].innerHTML=x*12.5;
+                            break;
+                        case 3:
+                            aSp[3].innerHTML=x*23;
+                            break;
+                    }
+                    for(let j=0;j<len;j++){
+                        aSp[j].xx=Number(aSp[j].innerHTML);
+                        osum+=aSp[j].xx;
+                    }
+                    oSpanSum.innerHTML=sum;
+                    oSpanMoney.innerHTML=osum;
+                }
+                //点击增加按钮
+                aSpanAdd[i].onclick=function(){
+                    osum=0;
+                    x++;
+                    sum++;
+                    aChange[i].innerHTML=x;
+                    switch (i) {
+                        case 0:
+                            aSp[0].innerHTML=x*8;
+                            break;
+                        case 1:
+                            aSp[1].innerHTML=x*10;
+                            break;
+                        case 2:
+                            aSp[2].innerHTML=x*12.5;
+                            break;
+                        case 3:
+                            aSp[3].innerHTML=x*23;
+                            break;
+                    }
+                    for(let j=0;j<len;j++){
+                        aSp[j].xx=Number(aSp[j].innerHTML);
+                        osum+=aSp[j].xx;
+                    }
+                    oSpanSum.innerHTML=sum;
+                    oSpanMoney.innerHTML=osum;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #box{
+                position:relative;
+                width: 500px;
+                height: 400px;
+                background-color: pink;
+                margin:50px auto 0;
+            }
+            #box ul{
+                position:absolute;
+                width: 500px;
+                height:400px;
+            }
+            #box ul li{
+                display:none;
+
+            }
+            #box ul li.show{
+                display: block;
+            }
+            #box ul li img{
+                width:500px;
+                height: 400px;
+            }
+            #box .top{
+                position:absolute;
+                top:0;
+                width: 500px;
+                line-height:20px;
+                text-align: center;
+                background-color:rgba(0,255,255,0.8);
+                font-size:0;
+                z-index: 1;
+            }
+            #box .top span{
+                font-size:16px;
+            }
+            #box .banner{
+                position:absolute;
+                width:100%;
+                line-height:20px;
+                top:200px;
+            }
+            #box .banner #left{
+                position:absolute;
+                width:30px;
+                line-height:30px;
+                background-color:#ccc;
+                text-align: center;
+                cursor: pointer;
+            }
+            #box .banner #right{
+                position:absolute;
+                width:30px;
+                line-height:30px;
+                right:0;
+                background-color:#ccc;
+                text-align: center;
+                cursor: pointer;
+            }
+            #box .bottom{
+                position:absolute;
+                width: 500px;
+                line-height: 20px;
+                bottom:0;
+                background-color:rgba(0,255,255,0.8);
+                margin:10px auto 0;
+                text-align:center;
+            }
+            .loop{
+                width: 500px;
+                line-height: 30px;
+                margin:0 auto;
+                text-align: center;
+            }
+            .loop .bg{
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div class="top">
+                <span class="imgnum">1</span>
+                <span>/5</span>
+            </div>
+            <ul>
+                <li class="show"><a href="#"><img src="images/01.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/02.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/03.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/04.jpg" alt=""></a></li>
+                <li><a href="#"><img src="images/05.jpg" alt=""></a></li>
+            </ul>
+            <div class="banner">
+                <span id="left"> < </span>
+                <span id="right"> > </span>
+            </div>
+            <div class="bottom">
+                <span>描述一</span>
+            </div>
+        </div>
+        <div class="loop">
+            <button class="bg">正常</button>
+            <button>循环</button>
+        </div>
+        <script>
+            let oImgnum = document.querySelector('#box .top .imgnum');
+            let oBtn = document.querySelectorAll('.banner span');
+            let oLi = document.querySelectorAll('#box ul li');
+            let length = oLi.length;
+            let index = 0;
+            let arr = ['描述一','描述二','描述三','描述四','描述五'];
+            let odes = document.querySelector('#box .bottom span');
+            let oloop = document.querySelectorAll('.loop button');
+            let bool=true;
+            console.log(oloop);
+           
+            //点击左按钮
+            //图片滚动
+                oBtn[0].onclick = function () {
+                    oLi[index].className = '';
+                    if(bool){
+                    if (index > 0) {
+                        index--;
+                        //图片编号递减
+                        oImgnum.innerHTML = index + 1;
+                        //描述内容
+                        odes.innerHTML = arr[index];
+                    }
+                    else {
+                        index = 0;
+                        //图片编号递减
+                        oImgnum.innerHTML = 1;
+                        //描述内容
+                        odes.innerHTML = arr[0];
+                    }
+                    }
+                    //bool(false)
+                    else{
+                        if (index > 0) {
+                            index--;
+                            //图片编号递减
+                            oImgnum.innerHTML = index + 1;
+                            //描述内容
+                            odes.innerHTML = arr[index];
+                        }
+                        else {
+                            index = length-1;
+                            //图片编号递减
+                            oImgnum.innerHTML = index+1;
+                            //描述内容
+                            odes.innerHTML = arr[index];
+                        }
+                    }
+                    oLi[index].className = 'show';
+                }
+            //点击右按钮
+            //图片滚动
+                oBtn[Number(bool)].onclick = function () {
+                    oLi[index].className = '';
+                    if(bool) {
+                        if (index < length - 1) {
+                            index++;
+                            //图片编号递增
+                            oImgnum.innerHTML = index + 1;
+                            //描述内容
+                            odes.innerHTML = arr[index];
+                        } else {
+                            index = length - 1;
+                            //图片编号递增
+                            oImgnum.innerHTML = length;
+                            //描述内容
+                            odes.innerHTML = arr[length - 1];
+                        }
+                    }
+                    //bool(false)
+                    else{
+                        if (index < length - 1) {
+                            index++;
+                            //图片编号递增
+                            oImgnum.innerHTML = index + 1;
+                            //描述内容
+                            odes.innerHTML = arr[index];
+                        } else {
+                            index = 0;
+                            //图片编号递增
+                            oImgnum.innerHTML = index+1;
+                            //描述内容
+                            odes.innerHTML = arr[index];
+                        }
+                    }
+                    oLi[index].className = 'show';
+
+
+                }
+            
+            //正常和循环切换
+            oloop[0].onclick = function () {
+                oloop[0].className='bg';
+                oloop[1].className='';
+                bool=true;
+            }
+            oloop[1].onclick = function () {
+                oloop[0].className='';
+                oloop[1].className='bg';
+                bool=false;
+            }
+              
+
+            
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

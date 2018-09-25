@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0;padding:0;list-style: none;}
+	#wrap {width: 600px;
+    border: 1px solid #ccc;
+    margin: 50px auto;
+    position: relative;
+    height: 375px;}
+	#wrap ul li{position: absolute;display: none;}
+	#wrap ul li img{width: 600px;}
+	.left,.right{width:50px;height:50px;background: #999;color:#fff;position: absolute;font-size:24px;text-align: center;line-height: 50px;text-decoration: none;top:50%;margin:-25px 0 0 0;}
+	.right{right:0;}
+	.top,.bottom{width:100%;height: 30px;background: rgba(0,0,0,0.3);position: absolute;text-align: center;color: #fff;line-height: 30px;}
+	.top{top:0;}
+	.bottom{bottom:0;}
+	#btn{text-align: center}
+	#btn button{padding:10px;background: #eee;cursor: pointer;}
+	#btn button.on{background: red;color:#fff;}
+</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<ul>
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+		</ul>
+		<p class="top">eee</p>
+		<p class="bottom">eee</p>
+		<a href="javascript:;" class="left">&lt</a>
+		<a href="javascript:;" class="right">&gt</a>
+	</div>
+	<div id="btn">
+		<button class="on">正常模式</button>
+		<button>循环模式</button>
+	</div>
+	<script>
+		let btn = document.querySelectorAll("#btn button");
+		let Array = ["第一张","第二张","第三张","第四张","第五张"];
+		let bool = true;
+		btn[0].onclick = function(){
+			this.className = 'on';
+			btn[1].className = '';
+			bool = true;
+		};
+		btn[1].onclick = function(){
+			this.className = 'on';
+			btn[0].className = '';
+			bool = false;
+		}
+		let Ali = document.querySelectorAll("#wrap ul li");
+		let a =0;
+		Ali[a].style.display='block';
+		let left = document.getElementsByClassName('left')[0];
+		let right = document.getElementsByClassName('right')[0];
+		let top1 = document.getElementsByClassName('top')[0];
+		let bottom = document.getElementsByClassName('bottom')[0];
+		right.onclick=function(){
+			Ali[a].style.display='none';
+			a++;
+			if(bool){
+				if(a>4){
+					a=4;
+				}
+			}else{
+				if(a>4){
+					a=0;
+				}
+			}
+			
+			Ali[a].style.display='block';
+			bottom.innerHTML= Array[a];
+			top1.innerHTML=a+1+'/'+5;
+			
+		}
+		left.onclick=function(){
+			Ali[a].style.display='none';
+			a--;
+			
+			if(bool){
+				if(a<0){
+					a=0;
+				}
+			}else{
+				if(a<0){
+					a=4;
+				}
+			}
+			Ali[a].style.display='block';
+			bottom.innerHTML= Array[a];
+			top1.innerHTML=a+1+'/'+5;
+		}
+		
+	</script>
+</body>
+</html>

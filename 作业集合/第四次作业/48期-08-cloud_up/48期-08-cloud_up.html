@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是js第48期第8课的作业-图片切换、文字大小、乘法表</title>
+</head>
+<style type="text/css">
+    body{font-family: "Microsoft YaHei",serif;}
+    body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+    ol,ul,li{margin:0;padding:0;list-style:none;}
+    img{border:none;}
+
+    #container
+    {
+        width:500px;
+        height:450px;
+        user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+    .center
+    {
+        margin:80px auto 0;
+    }
+    #pictureBox
+    {
+        position: relative;
+        width:500px;
+        height:320px;
+    }
+    #pictureBox ul
+    {
+        width:100%;
+        height:100%;
+    }
+    #pictureBox ul li
+    {
+        display:none;
+        position: absolute;
+        width: 100%;
+        height:100%;
+    }
+    #pictureBox ul li img
+    {
+        width:500px;
+        height:320px;
+    }
+    #pictureBox ul li.show
+    {
+        display: block;
+    }
+    p.dec
+    {
+        position:absolute;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        color:#fff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+        background:rgba(0,0,0,.5);
+    }
+    p.decTop
+    {
+        top:0;
+    }
+    p.decBottom
+    {
+        bottom:0;
+    }
+    #btnTurn div
+    {
+        position: absolute;
+        top:50%;
+        width:40px;
+        height:40px;
+        margin-top: -20px;
+        line-height: 40px;
+        color:#fff;
+        font-weight: bolder;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        background-color: rgba(0,0,0,.5);
+    }
+    #btnTurn .left{
+        left: 0;
+    }
+    #btnTurn .right{
+        right: 0;
+    }
+    div#tab,div#setFontSize{
+        width: 100%;
+        height: 30px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    div#tab p,div#setFontSize p
+    {
+        display: inline-block;
+        width:100px;
+        height:30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        background: #999;
+    }
+    div#tab p.active
+    {
+        background: #f63;
+    }
+    .increase,.decrease
+    {
+        font-size: 14px;
+        background: #bbb !important;
+    }
+    div#multiplication p
+    {
+        margin:10px;
+    }
+    #multiplication span
+    {
+        display: inline-block;
+        margin:0 10px;
+        width:80px;
+        text-align: center;
+        border: 1px solid #000;
+    }
+</style>
+<script type="text/javascript">
+    window.onload=function() {
+        let imgList = document.querySelectorAll("#pictureBox li"),
+            dec = document.getElementsByClassName("dec"),
+            btnLeft = document.getElementsByClassName("left"),
+            btnRight = document.getElementsByClassName("right"),
+            btnTab = document.getElementById("tab"),
+            btnSetSize = document.querySelectorAll("#setFontSize p"),
+            length = imgList.length,
+            index = 0,
+            tabIndex = 0,
+            isCircle = false,
+            dir = true,
+            size = 14;
+
+        //初始化
+        dec[0].innerHTML = index + 1 + "/" + length;
+        dec[1].innerHTML = imgList[index].firstChild.title;
+
+        btnRight[0].onclick = function () {
+            changeImg(dir);
+        };
+        btnLeft[0].onclick = function () {
+            changeImg(!dir);
+        };
+
+        function changeImg(dir) {
+            imgList[index].className = "";//1.隐藏当前图片
+            //2.(1)判断切换方向 (2)判断是否为循环模式 (3)判断是否到达临界值
+            if (dir) {
+                index++;
+                index = isCircle ? index > length - 1 ? 0 : index : index > length - 1 ? length - 1 : index;
+            }
+            else {
+                index--;
+                index = isCircle ? index < 0 ? length - 1 : index : index < 0 ? 0 : index;
+            }
+            //3.显示新索引下的图片及信息
+            imgList[index].className = "show";
+            dec[0].innerHTML = index + 1 + "/" + length;
+            dec[1].innerHTML = imgList[index].firstChild.title;
+        }
+
+        //为tab按钮添加切换功能，并保存状态
+        [].forEach.call(btnTab.children, function (item, index) {
+            item.onclick = function () {
+                isCircle = index > 0;
+                btnTab.children[tabIndex].classList.remove("active");
+                this.classList.add("active");
+                tabIndex = index;
+            };
+        });
+
+        //添加字体放大缩小功能
+        btnSetSize[0].onclick = function () {
+            size += 5;
+            btnSetSize[0].style.fontSize = size + "px";
+            btnSetSize[1].style.fontSize = size + "px";
+        };
+        btnSetSize[1].onclick = function () {
+            size -= 5;
+            size = size < 5 ? 5 : size;
+            btnSetSize[0].style.fontSize = size + "px";
+            btnSetSize[1].style.fontSize = size + "px";
+        };
+
+        //99乘法表
+        let text = "";
+        let multiplication = document.getElementById("multiplication");
+        for (let i = 1; i < 10; i++) {
+            text += "<p>";
+            for (let j = 1; j < i + 1; j++) {
+                text += "<span>" + i + "*" + j + "=" + i * j + "</span>";
+            }
+            text += "</p>"
+        }
+        multiplication.innerHTML = text;
+    };
+</script>
+<body>
+<div id="container" class = "center">
+    <!--图片区域-->
+    <div id="pictureBox">
+        <ul>
+            <li class="show"><img src="img/s1-Fnatic.jpg " title="冠军专属皮肤-S1_Fnatic" alt=""></li>
+            <li><img src="img/s2-TPA.jpeg" title="冠军专属皮肤-S2_台北TPA" alt=""></li>
+            <li><img src="img/s3-SKT-T1.jpg" title="冠军专属皮肤-S3_SKT1"   alt=""></li>
+            <li><img src="img/s4-SSW.jpg" title="冠军专属皮肤-S4_SSW"  alt=""></li>
+            <li><img src="img/s5-SKT-T1.jpg" title="冠军专属皮肤-S5_SKT1"  alt=""></li>
+        </ul>
+        <!-- 图片信息 -->
+        <p class="dec decTop"></p>
+        <p class="dec decBottom" style="font-size: 14px;"></p>
+        <!-- 切换按钮 -->
+        <div id="btnTurn">
+            <div class = "left"> < </div>
+            <div class = "right"> > </div>
+        </div>
+    </div>
+    <!-- 切换类型 -->
+    <div id="tab">
+        <p class="active">单边切换</p>
+        <p>循环切换</p>
+    </div>
+    <!-- 改变文字大小 -->
+    <div id="setFontSize">
+        <p class = "increase"> + </p>
+        <p class = "decrease"> - </p>
+    </div>
+</div>
+<!-- 乘法表 -->
+<div id="multiplication"></div>
+</body>
+</html>

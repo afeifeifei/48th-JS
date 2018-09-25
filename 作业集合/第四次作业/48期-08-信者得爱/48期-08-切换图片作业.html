@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            i,em{font-style:normal;}
+            a{text-decoration:none;}
+            button{margin:0;padding:0;}
+            #wrap{
+                position:relative;
+                width:650px;
+                height:400px;
+                margin:50px auto;
+                border:1px solid red;
+                /*background:url("images/01.jpg");*/
+                background-size:cover;
+            }
+            #wrap .pic li img{
+                width:650px;
+                height:400px;
+            }
+            #wrap .pic li{
+                display:none; /*将每个li先隐藏起来*/
+                position:absolute; /*通过使用绝对定位，使得每个li都重叠在一起*/
+                top:0;
+                left:0;
+            }
+            #wrap .pic li.active{
+                display:block; /*在js中，通过下标,给点击时获取的li加display:block;的active类名*/
+            }
+            #wrap p{
+                position:absolute;
+                width:650px;
+                height:25px;
+                color:#fff;
+                text-align:center;
+                line-height: 25px;
+                background-color:rgba(0,0,0,.5);
+            }
+            #wrap .top{
+                top: 0;
+            }
+            #wrap .down{
+                bottom:0;
+            }
+            #wrap div{
+                position:absolute;
+                top:50%;
+                width:35px;
+                height:30px;
+                margin-top:-15px;
+                color:#fff;
+                font-size:20px;
+                text-align:center;
+                background-color: rgba(255,255,255,.3);
+            }
+            #wrap .prev{
+                left:0;
+            }
+            #wrap .next{
+                right:0;
+            }
+            #btn{
+                text-align:center;
+            }
+            #btn button{
+                width:100px;
+                height:32px;
+                margin:0 20px;
+                color:#fff;
+                background-color: #000;
+            }
+            #btn button.active{/*用js，给点击时获取的button标签添加active类名*/
+                background-color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="pic">
+                <li class="active"><img src="images/01.jpg" alt="#"></li>
+                <li><img src="images/02.jpg" alt="#"></li>
+                <li><img src="images/03.jpg" alt="#"></li>
+                <li><img src="images/04.jpg" alt="#"></li>
+                <li><img src="images/05.jpg" alt="#"></li>
+            </ul>
+            <p class="top">1/5</p>
+            <p class="down">美景1</p>
+            <div class="prev"> < </div>
+            <div class="next"> > </div>
+        </div>
+        <div id="btn">
+            <button class="active">单边模式</button>
+            <button>循环模式</button>
+        </div>
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                aLi = oWrap.getElementsByTagName("li"),
+                ap = oWrap.getElementsByTagName("p"),
+                oPrev = oWrap.getElementsByClassName("prev")[0],
+                oNext = oWrap.getElementsByClassName("next")[0],
+                aBtn = document.getElementsByTagName("button"),
+                bool = true, //默认为单边模式
+                length = aLi.length,//得到li的个数
+                nowIndex = 0, //默认为true,默认为单边模式
+                prevIndex = 0,
+                aText =["美景1","美景2","美景3","美景4","美景5"]; //使用和li相同的下标来获取相应的数组里的值
+
+            oPrev.onclick = function(){
+                prevIndex = nowIndex;
+                nowIndex --;
+                if(nowIndex < 0){
+                    bool ? nowIndex = 0 : nowIndex = 4;//用bool判断和使用单边或循环模式
+                }
+                change();//执行共同使用的代码的函数
+            }
+            oNext.onclick = function(){
+                prevIndex =  nowIndex; //用prevIndex来存上一个li，好把这个li的active类名去掉，赋值给当前的li
+                nowIndex ++;
+                if(nowIndex > length-1){
+                    bool ? nowIndex = 4 : nowIndex = 0;
+                }
+                change();//执行共同使用的代码的函数
+            }
+
+            aBtn[0].onclick = function(){
+                bool = true;
+                this.className = "active"; //这个this指的是aBtn[0]
+                aBtn[1].className = "";
+            }
+            aBtn[1].onclick = function(){//这个this指的是aBtn[1]
+                bool = false;
+                this.className = "active";
+                aBtn[0].className = "";
+            }
+            function change(){ //创建一个有名函数，将共同使用的代码放在一起
+                ap[0].innerHTML = nowIndex + 1 +"/5";
+                ap[1].innerHTML = aText[nowIndex];
+                aLi[prevIndex].className = "";//把上一个li的active类名去掉
+                aLi[nowIndex].className = "active"; //给当前的li添加active类名
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

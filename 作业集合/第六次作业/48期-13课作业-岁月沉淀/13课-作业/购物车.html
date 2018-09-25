@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车界面</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #wrap{
+            width: 1000px;
+            margin: 50px auto;
+        }
+        #box{
+            width: 1000px;
+            height: 500px;
+
+        }
+        #box table{
+            width: 100%;
+            border: 1px solid #a2435a;
+            border-collapse: collapse;
+            color: #FFF;
+        }
+        #box table .tit td{
+            height: 60px;
+            color: #fff;
+        }
+        #box table td{
+            width: 25%;
+            height: 95px;
+            text-align: center;
+            color: #000;
+        }
+        #box table td img{
+            height: 80px;
+            vertical-align: middle;
+        }
+        #box .tit{
+            background-color: #c36;
+            height: 50px;
+            text-align: center;
+        }
+        #box tr td .reduce, #box tr td .push{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #ccc;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #box tr td .val{
+            display: inline-block;
+            width: 45px;
+            height: 28px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-right: none;
+            vertical-align: middle;
+            outline: none;
+        }
+        #box .count{
+            width: 1000px;
+            height: 50px;
+            line-height: 50px;
+            background: #c36;
+            text-align: right;
+        }
+        #box .count p{
+            display: inline-block;
+            width: 230px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+        #box .count p span{
+            display: inline-grid;
+            max-width: 98px;
+            color:yellow;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box">
+            <table border="1">
+                <tbody>
+                    <tr class="tit">
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>总价</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop1.jpg" alt=""></td>
+                        <td class="alone">8</td>
+                        <td><span class="reduce">-</span><input class="val" type="text" value="0"><span class="push">+</span></td>
+                        <td class="t-price">0</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop2.jpg" alt=""></td>
+                        <td class="alone">15</td>
+                        <td><span class="reduce">-</span><input class="val" type="text" value="0"><span class="push">+</span></td>
+                        <td class="t-price">0</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop3.jpg" alt=""></td>
+                        <td class="alone">22.5</td>
+                        <td><span class="reduce">-</span><input class="val" type="text" value="0"><span class="push">+</span></td>
+                        <td class="t-price">0</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop4.jpg" alt=""></td>
+                        <td class="alone">18</td>
+                        <td><span class="reduce">-</span><input class="val" type="text" value="0"><span class="push">+</span></td>
+                        <td class="t-price">0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="count">
+                <p>已选中商品：<span>0</span> 个</p>
+                <p>合计费用：<span>0</span> ￥</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let oBox = document.getElementById('box'),
+            aLone = oBox.querySelectorAll("tr .alone"),         //获取商品单价
+            aReduce = oBox.querySelectorAll("td .reduce"),       //获取按钮（减）
+            oAdd = oBox.querySelectorAll("td .push"),            //获取按钮（加）
+            aNum = oBox.getElementsByClassName("val"),           //获取每个数量的值
+            Tprice = oBox.getElementsByClassName("t-price"),     //获取单个商品的总价
+            oSTotal = oBox.querySelectorAll(".count p span"),    //用作底部统计
+            len =  oAdd.length;
+            //index = 0;          //用于控制商品总数
+
+        for(let i=0;i<len;i++){
+
+            oAdd[i].onclick = function(){   //加
+                aNum[i].value ++ ;          //数量加
+                count(i);                   //合计费用
+            };
+            aReduce[i].onclick = function(){//减
+                aNum[i].value -- ;
+                index = Math.max(aNum[i].value,0);  //限定最小值，取最大值
+                aNum[i].value = Math.max(aNum[i].value,0);  //限定最小值，取最大值
+                count(i);//合计费用
+            };
+
+            //当框内键入内容时检测
+            aNum[i].onkeyup = function(e){
+
+                if(/^[0-9]?[0-9]*$/.test(this.value)){
+                    count(i);
+                    e.returnValue=false;
+                }else {
+                    this.value = 0
+                }
+
+            }
+        }
+        function count(i) {
+            let x = 0;
+            let y = 0;
+            Tprice[i].innerHTML = aNum[i].value*(aLone[i].innerHTML-0);//先计算 单个商品的总价
+            for(let j=0;j<len;j++){         //再将四个价格数量相加
+               y += aNum[j].value*1;
+               x += Tprice[j].innerHTML * 1
+            }
+            oSTotal[0].innerHTML = y;       //总共已选中商品
+            oSTotal[1].innerHTML = x;       //合计费用
+        }
+
+
+    </script>
+</body>
+</html>

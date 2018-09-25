@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+	<html lang="zh-Hans-cn">
+		<head>
+		<meta charset="utf-8"><!--国际编码格式-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content=""><!--网页描述-->
+		<meta name="keywords" content=""><!--网页关键字-->
+		<title>点击轮播</title><!--网页标题-->
+		<style>
+			body{
+            	font-family: "Microsoft YaHei",serif;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{
+            	margin:0;
+            }
+            ol,ul,li{
+            	margin:0;
+	            padding:0;
+	            list-style:none;
+            }
+            .wrap{
+            	position: relative;
+            	width:550px;
+            	height:300px;
+            	margin:90px auto 0;
+            	background-color:skyblue;
+            	background-repeat: no-repeat;
+            }
+            .wrap>p.top{
+            	position: absolute;
+            	top:0;
+            	left:0;
+            	z-index:1;
+            	width:100%;
+            	line-height: 24px;
+            	background-color: rgba(0,0,0,.3);
+            	color:#fff;
+            	text-align: center;  				
+            }
+            .wrap>p.bottom{
+            	position: absolute;
+            	top:275px;
+            	left:0;
+            	z-index:1;
+            	width:100%;
+            	line-height: 24px;
+            	background-color: rgba(0,0,0,.3);
+            	color:#fff;
+            	text-align: center;  		
+            }
+            .wrap>span{
+            	position:absolute;
+            	top:135px;
+            	width:30px;
+            	line-height:30px;
+            	background-color: rgba(0,0,0,.3);
+            	color:#ccc;
+            	font-size:30px;
+            	text-align: center;
+            	cursor: pointer;
+
+            }
+             .wrap>span.right{
+             	right:0;
+             }
+             .wrap+div{
+             	width:550px;
+             	margin:auto;
+             }
+             .wrap+div>button{
+             	width:70px;
+             	height:30px;
+             	margin-top:20px;
+             	background-color:skyblue;
+             	border:1px solid #666;
+             	color:#fff;
+             }
+             .wrap+div>button.normal{
+             	margin-left: 190px;
+             }
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<p class="top">1/4</p>
+			<img src="images/zjh.jpg" width= "550" height="300" class="Img">
+			<p class="bottom">大扎吼，我是渣渣辉！</p>
+			<span class="left">&lt</span>
+			<span class="right">&gt</span>
+		</div>
+		<div>
+			<button class="normal">正常模式</button>
+			<button class="loop">循环模式</button>
+		</div>
+		<script>
+			let oWrap = document.getElementsByClassName("wrap"),
+				oImag = document.getElementsByClassName("Img"),
+				oTop = document.getElementsByClassName("top"),
+				oBottom = document.getElementsByClassName("bottom"),
+				oLeft = document.getElementsByClassName("left"),
+				oRight = document.getElementsByClassName("right"),
+				oNormal = document.getElementsByClassName("normal"),
+				oLoop =  document.getElementsByClassName("loop"),				
+				oStart = ["1/4","2/4","3/4","4/4"],
+				oEnd = ["大扎吼，我是渣渣辉!","我系森红雷","我系古添落","我系秦咬春"],
+				oBg = ["images/zjh.jpg","images/shl.jpg","images/gtl.jpg","images/cxc.jpg"],//将背景图片存储起来
+				num = 0,//序列数
+				onOff = true;//正常模式与循环模式开关
+			oNormal[0].style.backgroundColor ="red";
+			console.log(oBg);
+			oNormal[0].onclick = function(){
+				onOff=true;//true为正常模式
+				oNormal[0].style.backgroundColor ="red";
+				oLoop[0].style.backgroundColor ="";
+			};
+			oLoop[0].onclick = function(){
+				onOff=false;//false为循环模式
+				oNormal[0].style.backgroundColor ="";
+				oLoop[0].style.backgroundColor ="red";
+			};
+			oLeft[0].onclick = function(){
+				num --;
+				if(num<0){
+					if(onOff){
+						num=0;
+					}else{
+						num=3;
+					};
+				}; 
+				oImag[0].src = oBg[num];
+                oTop[0].innerHTML = oStart[num];
+                oBottom[0].innerHTML = oEnd[num];
+			};
+			oRight[0].onclick = function(){
+				num ++;
+				if(num>3){
+					if(onOff){
+						num=3;
+					}else{
+						num=0;
+					};
+				};
+				oImag[0].src = oBg[num];
+                oTop[0].innerHTML = oStart[num];
+                oBottom[0].innerHTML = oEnd[num];
+			};
+		</script>
+	</body>
+</html>

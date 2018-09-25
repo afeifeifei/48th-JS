@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .btn{
+            padding-left:30px;
+        }
+        span{
+            display: inline-block;
+            width:50px;
+            height:50px;
+            margin:10px;
+            font-size:32px;
+            font-weight: normal;
+            line-height:50px;
+            text-align: center;
+            border-radius:20%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        span:hover{
+            color:red;
+        }
+        .wrap{
+            width:100%;
+        }
+        .con-wrap{
+            float: left;
+            width: 600px;
+            margin:20px 50px;
+        }
+        .img{
+            float:left;
+            width: 300px;
+            height: 260px;
+        }
+        .img img{
+            width:100%;
+            height:100%;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear:both;
+        }
+        .con-wrap-sed{
+            width:1260px;
+            margin:0 auto;  
+        }
+        p{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class='btn'>
+        <span class="add">+</span>
+        <span class="dele">-</span>
+   </div>
+   <div class="wrap clearfix">
+        <div class="con-wrap">
+            <p class="con">
+                    三月，醉一场青春的流年。慢步在三月的春光里，走走停停，看花开嫣然，看春雨绵绵，感受春风拂面，春天，就是青春的流年。青春，是人生中最美的风景。青春，是一场花开的遇见；青春，是一场痛并快乐着的旅行；青春，是一场轰轰烈烈的比赛；青春，是一场鲜衣奴马的争荣岁月；青春，是一场风花雪月的光阴。
+            </p>
+            <p class="con">青春往事，多么甜蜜；青春岁月，多么靓丽；青春流年，如火如荼。青春里，我们向着梦想前进。跌倒过，伤心过，快乐过，痛苦过，孤独过，彷徨过，迷茫过。总是，在悠悠的岁月中徘徊；总是，在如春的生命中成长；总是，在季节的交替中感悟人生四季的美妙与韵律；总是，在多愁善感中体悟青春的美好与无奈。</p>
+            
+        </div>
+        <div class="img"><img src="imgs/1.jpg" alt=""></div>    
+   </div>
+   <div class="con-wrap-sed">
+        <p class="con">　三月的鲜花，一树树，一束束，一簇簇，而青春，就是像三月的鲜花一样美丽迷人，生机盎然，姹紫嫣红，生机勃勃。三月，是青春里最美最温暖的风景。三月的美，就像青春的美，充满活力，充满生机，充满昂扬的斗志。三月的美，就像青春的花季，在那里我们可以感受青春的跳动与感动，感受青春的曼妙与奇妙；感受青春的悸动与心跳。</p>
+         <img src="imgs/2.jpg" alt="">
+        <p class="con">青春，如三月的春光，安暖向阳。在美丽的青春年华，我们手牵手，肩并肩，跨过岁月山河，跨过锦瑟流年，跨过天涯海角，在三月的春光里沐浴金色的光泽。三月的春光，让青春的我们看到希望，看到自己有一颗年轻跳动的心，看到蓝天白云，看到明媚的灿烂。三月的春光，温暖无比，就像我们的青春，有着长辈的呵护，有着老师的循循教导，它们就像春光，照耀着我们年轻的心。</p>
+        <p class="con">青春，如三月的春雨，我们在春雨中得到滋润。春雨，淅淅沥沥，纷纷扬扬，打在青春的雨季，打在我们心里，打在我们的生活里，打在我们的生命中，打在我们的灵魂深处。一场春雨，滋润着我们的青春流年，让我们快乐成长，让我们如沐春雨，让我们感受亲恩。三月的春雨，就像我们的父母，用他们的爱心，滋润着我们幼小不安的心灵。</p>
+    </div>
+   <script>
+        let add = document.getElementsByClassName("add")[0];
+        let dele = document.getElementsByClassName("dele")[0];
+        let fons = document.getElementsByTagName("p");
+        count=14;
+        add.onclick = function(){
+            for (let i = 0; i < fons.length; i++) {
+                fons[i].style.fontSize=count + 1 +"px"; 
+                if(count>=22){
+                    count=22;
+                }
+            }
+           count++;
+        }
+        dele.onclick = function(){
+            for (let i = 0; i < fons.length; i++) {
+                fons[i].style.fontSize=count -1 + "px";
+                if(count<=12){
+                    count=12;
+                }
+            }    
+            count--;
+        }
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>05发表评论-慕梅</title>
+    <style>
+        body,ul,li{margin:0;padding:0;}
+        li{
+            list-style-type:none;
+            padding-left:20px;
+        }
+        div{
+            width:400px; 
+            margin:20px auto;           
+        }
+        textarea{
+            width:400px;
+            height:200px;
+            font-size:18px;
+        }
+        #submit{
+            width:60px; 
+            float:right;
+            cursor:pointer;       
+        }
+        #list{
+            margin-top:50px;
+        }
+        #list li{
+            font-size:18px;
+           line-height:30px;
+           margin-top:10px;
+            border-bottom:1px solid #000;
+        }        
+    </style>
+</head>
+<body>
+    <div>
+        <textarea id="text"></textarea>
+        <input type="button" id="submit" value="提交">
+       <ul id="list"> 
+           <!--li>test</li--> 
+       </ul>
+    </div>
+    <script>
+       let oBut=document.getElementById("submit"),
+           oText=document.getElementById("text"),
+           oList=document.getElementById("list");
+       oBut.onclick=function(){
+           oList.innerHTML +="<li>"+oText.value+"</li>";
+           oText.value="";
+       }
+    </script>
+</body>

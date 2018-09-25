@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="font_849307_uuutbyq8s2/iconfont.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+        ol,ul,li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            border: none;
+        }
+        #wrap{
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #wrap p,#wrap div{
+            float: left;
+        }
+        #wrap .xing{
+            width: 100px;
+            margin: 0 20px;
+        }
+        #wrap .xing i{
+            width: 19px;
+            height: 19px;
+            font-size: 19px;
+            cursor: pointer;
+            margin: -3px;
+        }
+        #wrap .inne{
+            width: 100px;
+            height: 50px;
+            border: 1px solid darkblue;
+            font-size: 13px;
+        }
+        #wrap .in{
+            display: none;
+            width: 100px;
+            height: 50px;
+            border: 1px solid darkblue;
+            font-size: 13px;
+        }
+        #orange{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p>星级打分:</p>
+        <div class="xing">
+            <i class="iconfont icon-start"></i>
+            <i class="iconfont icon-start"></i>
+            <i class="iconfont icon-start"></i>
+            <i class="iconfont icon-start"></i>
+            <i class="iconfont icon-start"></i>
+        </div>
+        <div class="inne">请输入意见或建议</div>
+        <div class="in"></div>
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap"),
+            aI = document.querySelectorAll("#wrap .xing i"),
+            oInne = document.getElementsByClassName("inne"),
+            oIn = document.getElementsByClassName("in");
+        let len = aI.length,
+            index = 0,
+            ap = [
+                "不满意",
+                "有点差",
+                "一般",
+                "还行",
+                "满意"
+            ];
+        function enter(i) {
+            oIn[0].style.display = "none";
+            oInne[0].style.display = "block";
+            for (let j = 0; j <= i; j++) {
+                aI[j].id = "orange";
+                for (index = 0;index<len;index++){
+                    aI[index].style.color = "";
+                }
+            }
+        }
+        function leave(i) {
+            for (let j = 0; j <= i; j++) {
+                aI[j].id = "";
+            }
+        }
+        function iner(i) {
+            oInne[0].innerHTML = ap[i];
+        }
+        function inerr(h) {
+            oIn[0].style.display = "block";
+            oInne[0].style.display = "none";
+            oIn[0].innerHTML = ap[h];
+        }
+        function inerout(i) {
+            oInne[0].innerHTML = "请输入意见或建议";
+        }
+        function click(h) {
+            for (let x = 0; x <= h; x++) {
+                aI[x].style.color = "orange";
+                index = h;
+            }
+        }
+        for (let i=0;i<len;i++){
+            for (let h=0;h<len;h++){
+                aI[h].onclick = function () {
+                    click(h);
+                    inerr(h);
+                };
+            }
+            aI[i].onmouseenter = function () {
+                enter(i);
+                iner(i);
+            };
+            aI[i].onmouseleave = function () {
+                leave(i);
+                inerout(i);
+            };
+            // oXing[0].onmouseleave = function () {
+            //     inerout(i);
+            // }
+        }
+    </script>
+</body>
+</html>

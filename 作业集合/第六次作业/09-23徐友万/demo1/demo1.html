@@ -1,0 +1,99 @@
+<!doctype html><!-- 页面头部声明-->
+<html>
+<head>
+    <meta charset='UTF-8'><!-- 万国码-->
+    <meta name='Keywords' content=''><!-- 搜索该页面所使用的关键词-->
+    <meta name='Description' content=''><!-- 页面描述信息-->
+    <title>Document</title><!-- 网页的标题-->
+    <link rel='stylesheet' type='text/css' href='css/demo1.css'>
+</head>
+<body>
+    <div class='wrap clearfix'>
+        <div class='star-comment'>
+            <span>星级评分</span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class='star-counter'>
+            <p>提示：请认真给当前文章打分</p>
+        </div>
+    </div>
+    <script>
+        let sList = document.querySelectorAll('.wrap .star-comment>ul>li'),
+            oComment = document.querySelector('.wrap .star-counter>p');
+        let nowIndex = -1;
+        //鼠标移入事件
+        function mouseEn(i) {
+            oComment.innerHTML = comment(i);
+            while(i >= 0){
+                sList[i--].className = 'show';
+            }
+        }
+
+        //鼠标移出事件
+        function mouseOut(i) {
+            while(i >= 0){
+                if(sList[i].isClick){
+                    break;
+                }
+                sList[i--].className = '';
+            }
+            if(nowIndex === -1){
+                oComment.innerHTML = '提示：请认真给当前文章打分';
+            }else{
+                oComment.innerHTML = comment(nowIndex);
+            }
+        }
+
+        //清除所有样式
+        function clearAll() {
+            let n = 0;
+            while(n < sList.length){
+                sList[n].isClick = false;
+                sList[n++].className = '';
+            }
+        }
+
+        //鼠标点击事件
+        function mouseClick(i) {
+            nowIndex = i;
+            clearAll();
+            while(i >= 0){
+                sList[i].isClick = true;
+                sList[i--].className = 'show';
+            }
+        }
+
+        //评语变换函数
+        function comment(i) {
+            let x = '';
+            switch (i) {
+                case 0: x = '差';break;
+                case 1: x = '较差';break;
+                case 2: x = '一般';break;
+                case 3: x = '较好';break;
+                case 4: x = '好';break;
+            }
+            return x;
+        }
+
+        for (let i = 0; i < sList.length; i++) {
+            sList[i].isClick = false;
+            sList[i].onmouseover = function () {
+                mouseEn(i);
+            }
+            sList[i].onmouseleave = function () {
+                mouseOut(i);
+            }
+            sList[i].onclick = function () {
+                mouseClick(i);
+            }
+        }
+    </script>
+</body>
+</html>

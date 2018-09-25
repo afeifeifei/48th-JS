@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul,ol{
+		padding:0;
+		list-style:none;	
+    }
+	body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dt,dd{
+		margin:0;
+	}
+    .wrap{
+        width:690px;
+        margin:20px auto;
+        /* border:1px solid black; */
+    }
+    .head ul{
+        background-color:#DE4869;
+        color:white;
+        /* text-align:center; */
+        line-height:40px;
+        font-size:0;
+    }
+    .head ul li{
+        display:inline-block;
+        padding:5px 60px;
+        /* margin-left:-5px; */
+        font-size:16px;
+    }
+    .head ul li:nth-child(2){
+        margin-left:24px;
+    }
+    .head ul li:nth-child(3),
+    .head ul li:nth-child(4){
+        margin-left:10px;
+    }
+    
+    .goods ul li:nth-child(1) .bac{
+        background:url("images/shop1.jpg") center/90px 90px no-repeat;
+    }
+    .goods ul li:nth-child(2) .bac{
+        background:url("images/shop2.jpg") center/90px 90px no-repeat;
+    }
+    .goods ul li:nth-child(3) .bac{
+        background:url("images/shop3.jpg") center/90px 90px no-repeat;
+    }
+    .goods ul li:nth-child(4) .bac{
+        background:url("images/shop4.jpg") center/90px 90px no-repeat;
+    }
+    .wrap .goods ul{
+        margin-bottom:20px;
+        border:1px solid black;
+        font-size:0;
+
+    }
+    /* .wrap .head ul li:nth-child(4){
+        margin-left:-10px;
+    } */
+    .wrap .goods li{
+        display:inline-block;
+        height:90px;
+        border-bottom:1px solid black;
+        font-size:0;
+    }
+    .wrap .goods li div{
+        display:inline-block;
+        width:150px;
+        height:100%;
+        padding-left:13px;
+        /* margin-left:10px; */
+        text-align:center;
+        line-height:90px;
+        font-size:16px;
+        vertical-align: middle;
+    }
+    .wrap .goods .num{
+        font-size:0;
+        text-align:center;
+    }
+    .wrap .goods .num input{
+        width:35px;
+        height:35px;
+        padding:0;
+        border:0;
+        color:black;
+        line-height:35px;
+        font-size:18px;
+        outline:none;
+        vertical-align: middle;
+    }
+    .wrap .goods .num span{
+        display:inline-block;
+        width:60px;
+        height:40px;
+        line-height:40px;
+        font-size:16px;
+        
+        vertical-align: middle;
+    }
+    .total{
+        width:100%;
+        height:40px;
+        background-color:#DE4869;
+        line-height:40px;
+        font-size:0;
+        color:white;
+    }
+    .total p{
+        display:inline-block;
+        font-size:16px;
+    }
+    .total .number{
+        margin:0 55px 0 320px;
+    }
+
+    .total span{
+        margin-left:6px;
+        font-size:18px;
+        color:yellow;
+        letter-spacing:2px;
+        
+    }
+
+</style>
+<body>
+    <div class="wrap">
+        <div class="head">
+            <ul>
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+            </ul>
+        </div>
+        <div class="goods">
+            <ul>
+                <li>
+                    <div class="bac"></div>
+                    <div>8</div>
+                    <div class="num">
+                        <input class="btn1" type="button" value="-">
+                        <span>0</span>
+                        <input class="btn2" type="button" value="+">
+                    </div>
+                    <div class="count">0</div>
+                </li>
+                <li>
+                    <div class="bac"></div>
+                    <div>7</div>
+                    <div class="num">
+                        <input class="btn1" type="button" value="-">
+                        <span>0</span>
+                        <input class="btn2" type="button" value="+">
+                    </div>
+                    <div class="count">0</div>
+                </li>
+                <li>
+                    <div class="bac"></div>
+                    <div>10</div>
+                    <div class="num">
+                        <input class="btn1" type="button" value="-">
+                        <span>0</span>
+                        <input class="btn2" type="button" value="+">
+                    </div>
+                    <div class="count">0</div>
+                </li>
+                <li>
+                    <div class="bac"></div>
+                    <div>16.5</div>
+                    <div class="num">
+                        <input class="btn1" type="button" value="-">
+                        <span>0</span>
+                        <input class="btn2" type="button" value="+">
+                    </div>
+                    <div class="count">0</div>
+                </li>
+            </ul>
+        </div>
+        <div class="total">
+            <p class="number">已选中商品:<span>0</span>个</p>
+            <p class="yuan">合计费用:<span>0</span>元</p>
+        </div>
+    </div>
+    <script>
+        let btn1 = document.getElementsByClassName("btn1"),
+            btn2 = document.getElementsByClassName("btn2"),
+            len = btn1.length,
+            arr = [8,7,10,16.5],
+            arr1 = [0,0,0,0],
+            arr2 = [0,0,0,0],
+            arrlen = arr1.length,
+            Num = document.querySelector(".number span"),
+            Yuan = document.querySelector(".yuan span"),
+            number1 = 0,
+            index = 0;
+            
+            
+
+            
+            
+            
+            for(let i = 0;i < len; i ++){
+                    let count = 0,
+                    countLi = document.getElementsByClassName("count"),
+                    countIn = document.querySelectorAll(".num span");
+                    
+                    btn2[i].onclick = function(){
+                        count ++;
+                        arr1[i] = count;
+                        arr2[i] = count*arr[i]
+                        countLi[i].innerHTML = count*arr[i];
+                        countIn[i].innerHTML = count;
+                        Num.innerHTML = arr1[0]+arr1[1]+arr1[2]+arr1[3];
+                        Yuan.innerHTML =  arr2[0]+arr2[1]+arr2[2]+arr2[3];
+                        
+                    }
+                    btn1[i].onclick = function(){
+                        count --;
+                        if(count < 0){
+                            count = 0;
+                        }
+                        arr1[i] = count;
+                        arr2[i] = count*arr[i]
+                        countLi[i].innerHTML = count*arr[i];
+                        countIn[i].innerHTML = count;
+                        Num.innerHTML = arr1[0]+arr1[1]+arr1[2]+arr1[3];
+                        Yuan.innerHTML =  arr2[0]+arr2[1]+arr2[2]+arr2[3];
+                    }
+
+                }
+
+                
+                    
+
+                   
+
+                    
+            
+            
+            
+
+
+            
+
+
+
+    </script>
+</body>
+</html>

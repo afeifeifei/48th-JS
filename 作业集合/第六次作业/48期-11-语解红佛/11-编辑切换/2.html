@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>星级打分</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a { text-decoration: none; }
+        p{font-size: 14px;}
+        li {list-style: none;}
+        .fl{
+            float: left;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        #wrap {
+            position: relative;
+            width:500px;
+            height:200px;
+            padding-bottom:10px;
+            margin: 20px auto;
+            border:1px solid #ccc;
+            box-shadow: 0 0 5px 5px #ccc;
+        }
+        .star{
+            width:40%;
+            height:50px;
+            margin-top:120px;
+            text-align: center;
+        }
+        .star i{
+            display:inline-block;
+            width: 30px;
+            height: 32px;
+            margin-top:10px;
+            line-height:32px;
+            text-align: center;
+            background: url("images/s.jpg") no-repeat;
+            background-position: -87px -7px;
+            background-size:124px 120px;
+        }
+        .con{
+            width:55%;
+            height:105%;
+            margin-left:20px;
+            line-height: 200px;
+            text-align: center;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="clearfix">
+        <div class="star fl">
+            <i class="icon"></i>
+            <i class="icon"></i>
+            <i class="icon"></i>
+            <i class="icon"></i>
+            <i class="icon"></i>
+        </div>
+        <div class="con fl">
+            <p class="comment">选中五角星进行打分</p>
+        </div>
+    </div>
+    <script>
+        //获取元素
+        let icon = document.getElementsByClassName("icon"),
+            comment = document.getElementsByClassName("comment")[0],
+            star = document.getElementsByClassName("star")[0],
+            leng = icon.length;
+        //评论区中的数组
+        let arr = ["有点差咯","比较一般","还OK啦","推荐","极力推荐"]; 
+        //点击序号记录
+        let count= -1;
+        let move = -1;  
+        //i 鼠标划过事件函数
+        let ienter = function(x){
+            return function(){
+                for (let j = 0; j <leng; j++) {
+                    if(j<=x){ 
+                        icon[j].style.backgroundPositionX="-47px"; 
+                    }else{
+                        icon[j].style.backgroundPositionX="-87px"; 
+                    }
+                }
+                comment.innerHTML = arr[x];
+            }  
+        }
+        //i 鼠标离开事件函数
+        let ileave = function(x){
+            return function(){
+                for (let j = 0; j <=x; j++) {
+                icon[j].style.backgroundPositionX="-87px"; 
+                }
+                //修改评论区中的内容 
+            }  
+             count=x;
+        }
+        //i 鼠标点击事件函数
+        let iclick = function(x){
+            return function(){
+                for (let j = 0; j <=x; j++) {
+                    icon[j].style.backgroundPositionX="-47px"; 
+                }
+                //修改评论区中的内容
+                move = x;
+                comment.innerHTML = arr[move];
+                count =x;
+            }  
+        }
+        //触发
+        for (let i = 0; i < leng; i++) {
+            //鼠标划过触发
+            icon[i].onmouseenter = ienter(i);
+            //鼠标离开触发
+            icon[i].onmouseleave =ileave(i);   
+            //鼠标点击触发
+            icon[i].onclick = iclick(i)
+            }
+        //star盒子的鼠标离开事件
+        star.onmouseleave = function(){
+            for (let k = 0; k <=count; k++) {
+                icon[k].style.backgroundPositionX="-47px";       
+            }
+            comment.innerHTML = arr[move];
+        }
+    </script>
+</body>
+</html>

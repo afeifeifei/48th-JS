@@ -1,0 +1,124 @@
+<!doctype html><!-- 页面头部声明-->
+<html>
+<head>
+    <meta charset='UTF-8'><!-- 万国码-->
+    <meta name='Keywords' content=''><!-- 搜索该页面所使用的关键词-->
+    <meta name='Description' content=''><!-- 页面描述信息-->
+    <title>Document</title><!-- 网页的标题-->
+    <link rel='stylesheet' type='text/css' href='css/demo3.css'>
+</head>
+<body>
+    <div class='wrap clearfix'>
+        <div class='swipper-left'>
+            <ul>
+                <li class='active'><span>法师</span></li>
+                <li><span>射手</span></li>
+                <li><span>战士</span></li>
+            </ul>
+        </div>
+        <div class='swipper-right'>
+            <div class='show'>
+                <div class='swipper-right-items'>
+                    <ul>
+                        <li class='show'><img src='images/1.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/2.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/3.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/4.jpg' width='516' height='300' alt=''></li>
+                    </ul>
+                </div>
+                <div class='swipper-right-btns'>
+                    <ul class='clearfix'>
+                        <li class='active'><span>1</span></li>
+                        <li><span>2</span></li>
+                        <li><span>3</span></li>
+                        <li><span>4</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class='swipper-right-items'>
+                    <ul>
+                        <li><img src='images/5.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/6.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/7.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/8.jpg' width='516' height='300' alt=''></li>
+                    </ul>
+                </div>
+                <div class='swipper-right-btns'>
+                    <ul class='clearfix'>
+                        <li><span>1</span></li>
+                        <li><span>2</span></li>
+                        <li><span>3</span></li>
+                        <li><span>4</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class='swipper-right-items'>
+                    <ul>
+                        <li><img src='images/9.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/10.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/11.jpg' width='516' height='300' alt=''></li>
+                        <li><img src='images/12.jpg' width='516' height='300' alt=''></li>
+                    </ul>
+                </div>
+                <div class='swipper-right-btns'>
+                    <ul class='clearfix'>
+                        <li><span>1</span></li>
+                        <li><span>2</span></li>
+                        <li><span>3</span></li>
+                        <li><span>4</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let leftList = document.querySelectorAll('.wrap .swipper-left ul li'),
+            rightList = document.querySelectorAll('.wrap .swipper-right>div'),
+            iList = document.querySelectorAll('.wrap .swipper-right .swipper-right-items li'),
+            bList = document.querySelectorAll('.wrap .swipper-right .swipper-right-btns li');
+        let lastIndex = 0,
+            bLastIndex = 0;
+        for(let i = 0; i < leftList.length; i ++){
+            leftList[i].index = 0;
+            leftList[i].lastIndex = 0;
+            leftList[i].onmouseover = function () {
+                leftList[lastIndex].className = '';
+                rightList[lastIndex].className = '';
+                leftList[i].className = 'active';
+                rightList[i].className = 'show';
+                //鼠标移入大选项卡时，显示该选项卡中子选项卡上一次被选中的元素
+                bList[leftList[i].index + i * 4].className = 'active';
+                iList[leftList[i].index + i * 4].className = 'show';
+                //保存该选项卡中子选项卡上一次被选中的元素的序号0-11
+                bLastIndex = leftList[i].index + i * 4;
+                lastIndex = i;
+            }
+        }
+        function getIndex(i){
+            if(i < 4){
+                return 0;
+            }else if(i >= 4 && i < 8){
+                return 1;
+            }else if(i >= 8){
+                return 2;
+            }
+        }
+        for(let j = 0; j < iList.length; j ++){
+            bList[j].onmouseover = function () {
+                //清除子选项卡上一次被选中的元素的样式
+                bList[bLastIndex].className = '';
+                iList[bLastIndex].className = '';
+                //添加当前移入的子选项卡中的元素的样式
+                bList[j].className = 'active';
+                iList[j].className = 'show';
+                //保存该子选项卡上一次被选中的元素的序号0-11
+                bLastIndex = j;
+                //保存每个单独选项卡在大选项卡中的当前序号0-3
+                leftList[getIndex(j)].index = j%4;
+            }
+        }
+    </script>
+</body>
+</html>

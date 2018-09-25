@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul li{
+            list-style: none;
+        }
+        #wrap{
+            width: 800px;
+                /* height: 500px;
+                border: 1px solid red; */
+            margin: 50px auto;
+        }
+        #Header, #footer{
+            width: 100%;
+            height: 50px;
+            background-color: rgb(226, 51, 153);
+        }
+        #Header .title li{
+            float: left;
+            width: 199px;
+            height: 100%;
+            line-height: 50px;
+            text-align: center;
+            border-left: 1px solid #ccc;
+        }
+        #content{
+            width: 100%;
+            height:400px;
+            margin-top: 3px;
+            margin-left: 2px;
+            /* border: 1px solid #ddd; */
+        }
+        #content ul li{
+            float: left;
+            width: 198px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        #content ul.list li{
+            border-top: 1px solid #ccc;
+        }
+        #content ul li.count{
+            border-right: 1px solid #ccc;
+        }
+        #content ul li.num span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            vertical-align: middle;
+            line-height: 30px;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        #content ul li.num input{
+            width: 30px;
+            height: 26px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #footer{
+            margin-top:10px ;
+        }
+        #footer p{
+            display: inline-block;
+            line-height: 50px;
+            margin: 0 10px;
+            color: #fff;
+        }
+        #footer p.shuliang{
+            margin-left: 440px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="Header">
+            <ul class="title">
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+            </ul>
+        </div>
+        <div id="content">
+            <ul class="list">
+                <li class="img"><img src="images/shop1.jpg" alt="" width="100" height="100"></li>
+                <li class="danjia">8</li>
+                <li class="num"><span class="add">+</span><input class="val" type="text" value="0"><span class="subtract">-</span></li>
+                <li class="count">0</li>
+            </ul>
+            <ul>
+                <li class="img"><img src="images/shop2.jpg" alt="" width="100" height="100"></li>
+                <li class="danjia">10</li>
+                <li class="num"><span class="add">+</span><input class="val" type="text" value="0"><span class="subtract">-</span></li>
+                <li class="count">0</li>
+            </ul>
+            <ul>
+                <li class="img"><img src="images/shop3.jpg" alt="" width="100" height="100"></li>
+                <li class="danjia">12.5</li>
+                <li class="num"><span class="add">+</span><input class="val" type="text" value="0"><span class="subtract">-</span></li>
+                <li class="count">0</li>
+            </ul>
+            <ul>
+                <li class="img"><img src="images/shop4.jpg" alt="" width="100" height="100"></li>
+                <li class="danjia">25</li>
+                <li class="num"><span class="add">+</span><input class="val" type="text" value="0"><span class="subtract">-</span></li>
+                <li class="count">0</li>
+            </ul>
+        </div>
+        <div id="footer">
+           <p class="shuliang">已选中商品：<span>0</span> &nbsp; 个</p>
+           <p class="allcount">合计费用：<span>0</span> &nbsp;   元</p>
+        </div>
+    </div>
+    <script>
+        let  oDanjia=document.getElementsByClassName("danjia"),
+             oAdd=document.getElementsByClassName("add"),
+             oSubtract=document.getElementsByClassName("subtract"),
+             oVal=document.getElementsByClassName("val"),
+             oCount=document.getElementsByClassName("count"),
+             oShuliang=document.querySelector(".shuliang span"),
+             oAllcount=document.querySelector(".allcount span"),
+             len=oAdd.length;
+             for (let i = 0; i < len; i++) {
+                oAdd[i].onclick=function(){
+                     bool=true;
+                     fun();   
+                }
+                oSubtract[i].onclick=function(){
+                    bool=false;
+                    fun();   
+                }
+                function fun(){
+                    let sum1=0,
+                    sum2=0;
+                    if(bool){
+                        oVal[i].value++;
+                    }
+                    else{
+                        if(oVal[i].value<=0) return;
+                         oVal[i].value--;
+                    }
+                    oCount[i].innerHTML=oDanjia[i].innerHTML*oVal[i].value;
+                    for (let j = 0; j < len; j++) {
+                    sum1+=oVal[j].value*1;
+                    sum2+=oCount[j].innerHTML*1;
+                    oShuliang.innerHTML=sum1;
+                    oAllcount.innerHTML=sum2;
+                        
+                    }
+                }
+
+             }
+    </script>
+</body>
+</html>

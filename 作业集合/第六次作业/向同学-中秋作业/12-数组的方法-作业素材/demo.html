@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	li{
+		list-style: none;
+		color: #fff;
+	}
+	#wrap{
+		position: relative;
+		width: 800px;
+		height: 500px;
+		margin: 50px auto;
+		border: 2px solid #f00;
+	}
+	#wrap .nav{
+		position: absolute;
+		top:0;
+		left: 0;
+	}
+	#wrap .nav li{
+		width: 80px;
+		height: 30px;
+		text-align: center;
+		border-bottom: 1px solid #fff;
+		background-color: orange;
+	}
+	#wrap .nav .active{
+		color: #fff;
+		background-color: #000;
+	}
+	#wrap .list{
+		width: 100%;
+		height: 100%;
+
+	}
+	#wrap .list .item{
+		display: none;
+	}
+	#wrap .list .active{
+		display: block;
+	}
+	#wrap .active .img-list li{
+		display: none;
+		width: 800px;
+		height: 500px;
+	}
+	#wrap .active .img-list .active{
+		display: block;
+	}
+	#wrap .active .img-list img{
+		width: 100%;
+		height: 100%;
+	}
+	#wrap .active .button{
+		position: absolute;
+		right: 30px;
+		bottom: 20px
+	}
+	#wrap .active .button li{
+		display: inline-block;
+		width: 30px;
+		height: 25px;
+		margin: 10px;
+		padding-top: 5px;
+		text-align: center;
+		background-color: orange;
+	}
+	#wrap .active .button .active{
+		background-color: #000;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul class="nav">
+			<li class="active">名车</li>
+			<li>美食</li>
+			<li>女孩</li>
+			<li>游戏</li>
+		</ul>
+		<ul class="list">
+			<li class="item active">
+				<ul class="img-list">
+					<li class="active"><img src="images/cart1.jpg" alt=""></li>
+					<li><img src="images/cart2.jpg" alt=""></li>
+					<li><img src="images/cart3.jpg" alt=""></li>
+					<li><img src="images/cart4.jpg" alt=""></li>
+					<li><img src="images/cart5.jpg" alt=""></li>
+				</ul>
+				<ul class="button">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</li>
+			<li class="item">
+				<ul class="img-list">
+					<li class="active"><img src="images/food1.jpg" alt=""></li>
+					<li><img src="images/food2.jpg" alt=""></li>
+					<li><img src="images/food3.jpg" alt=""></li>
+					<li><img src="images/food4.jpg" alt=""></li>
+					
+				</ul>
+				<ul class="button">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					
+				</ul>
+			</li>
+			<li class="item">
+				<ul class="img-list">
+					<li class="active"><img src="images/girl1.jpg" alt=""></li>
+					<li><img src="images/girl2.jpg" alt=""></li>
+					<li><img src="images/girl3.jpg" alt=""></li>
+					<li><img src="images/girl4.jpg" alt=""></li>
+					<li><img src="images/girl5.jpg" alt=""></li>
+				</ul>
+				<ul class="button">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</li>
+			<li class="item">
+				<ul class="img-list">
+					<li class="active"><img src="images/game1.jpg" alt=""></li>
+					<li><img src="images/game2.jpg" alt=""></li>
+					<li><img src="images/game3.jpg" alt=""></li>
+					<li><img src="images/game4.jpg" alt=""></li>
+					<li><img src="images/game5.jpg" alt=""></li>
+				</ul>
+				<ul class="button">
+					<li class="active">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+   <script>
+   	(function(){
+   		let oWrap = document.getElementById("wrap"),
+   			aNav = oWrap.querySelectorAll(".nav li"),//获取mav类名下的所有li
+   			aItem = oWrap.querySelectorAll(".list .item"),
+   			tabLen = aNav.length;
+   			index = 0;//下标
+   		for(let i=0;i<tabLen;i++){
+   			aNav[i].onmouseenter = function(){
+   				aNav[index].classList.remove("active");
+   				aNav[i].classList.add("active");
+   				aItem[index].classList.remove("active");
+   				aItem[i].classList.add("active");
+   				index = i;//更新上一个显示的下标
+   			};
+   		let aImgLi = aItem[i].querySelectorAll(".img-list li"),
+   			aBtn = aItem[i].querySelectorAll(".button li"),
+   			aBtnLen = aBtn.length,
+   			indexImg = 0;//栏目上一个图片下标
+   		for(let j=0;j<aBtnLen;j++){
+   			aBtn[j].onmouseenter =function(){
+   				aBtn[j].classList.add("active");
+   				aBtn[indexImg].classList.remove("active");
+   				aImgLi[indexImg].classList.remove("active");
+   				aImgLi[j].classList.add("active");
+   				indexImg =j;//跟新删一个图片下标
+
+   				}
+   			}
+
+
+   		}
+
+   	}())
+   </script>
+</body>
+</html>

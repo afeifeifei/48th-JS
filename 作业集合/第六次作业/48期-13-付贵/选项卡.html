@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        *{margin: o;padding: 0;}
+        li{list-style: none;}
+        #wrap{
+            position: relative;
+            width:426px;
+            height: 204px;
+            margin: 50px auto;
+        }
+        #leftlist{
+            width:100px;
+            float: left;
+        }
+        #leftlist ul li{
+            width: 95px;
+            height: 25px;
+            background-color: #000;
+            color: #fff;
+            margin-bottom: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #leftlist ul li.on{
+            background-color: #f60;
+        }
+        #rightimg{
+            float: left;
+            width: 326px;
+            height: 204px;
+        }
+        #rightimg .pic{
+            display: none;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #rightimg .pic.on{
+            display: block;
+        }
+        .pic .img li{
+            display: none;
+            position: absolute;
+        }
+        .pic .img li.on{
+            display: block;
+           
+        }
+        .pic .tab {
+          position: absolute;
+          bottom:-30px;
+          z-index: 2;
+        }
+        .pic .tab li{
+          display: block;
+          float: left;
+          margin-left: 10px;
+          width: 30px;
+          height: 30px;
+          background-color: #000;
+          color: #fff;
+          text-align: center;
+          line-height: 30px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="leftlist">
+            <ul>
+                <li class="on">豪车</li>
+                <li>美味</li>
+                <li>美女风景</li>
+            </ul>
+        </div>
+        <div id="rightimg">
+            <div class="pic on">
+                <ul class="img">
+                    <li class="on"><img src="img/1.jpg" alt=""></li>
+                    <li><img src="img/2.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul class="img">
+                    <li class="on"><img src="img/m1.jpg" alt=""></li>
+                    <li><img src="img/m2.jpg" alt=""></li>
+                    <li><img src="img/m3.jpg" alt=""></li>
+                    <li><img src="img/m4.jpg" alt=""></li>
+                    <li><img src="img/m5.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="pic">
+                <ul class="img">
+                    <li class="on"><img src="img/s1.jpg" alt=""></li>
+                    <li><img src="img/s2.jpg" alt=""></li>
+                    <li><img src="img/s3.jpg" alt=""></li>
+                    <li><img src="img/s4.jpg" alt=""></li>
+                    <li><img src="img/s5.jpg" alt=""></li>
+                </ul>
+                <ul class="tab">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        let oLeftlist=document.querySelectorAll("#leftlist ul li"),
+            oPic=document.getElementsByClassName("pic"),
+            oimg=document.querySelectorAll(".img li"),
+            oTab=document.querySelectorAll(".tab li"),
+            len=oLeftlist.length,
+            index_left=0;
+            for (let i = 0; i <len; i++) {
+                oLeftlist[i].onclick=function(){
+                   let index=i;
+                   if(index===index_left) return;
+                   oLeftlist[index_left].className="";
+                   oPic[index_left].className="pic";
+                   index_left=i;
+                   oLeftlist[index_left].className="on";
+                   oPic[index_left].className="pic on";
+                   fn(i);
+                }
+            }
+            function fn(index){
+                let oPicindex=oPic[index],
+                    len=oTab.length,
+                    index_right=0;
+                for (let i = 0; i < len; i++) {
+                    oTab[i].onclick=function(){
+                        let index=i;
+                        if(index===index_right) return;
+                        oimg[index_right].className="";
+                        oTab[index_right].className="";
+                        index_right=i;
+                        oimg[index_right].className="on";
+                        oTab[index_right].className="on";
+                    }
+                    
+                }
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星级评分</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eef3fa;
+            font-family: Arial;
+        }
+        #box{
+            width: 495px;
+            height:455px;
+            margin: 50px auto;
+            padding:0 20px;
+            background-color: #fff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+
+        }
+        #box .img img{
+            padding: 20px 0 10px;
+        }
+        #box .img p{
+            line-height: 30px;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        #box .img p:nth-child(3){
+            font-size: 18px;
+        }
+        #box .star{
+            position: relative;
+            height: 20px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        #box .star img{
+            position: relative;
+            float: left;
+            padding-right: 5px;
+        }
+        #box .star span{
+            display: inline-block;
+            line-height: 23px;
+            margin-left: 10px;
+            color: #888;
+            vertical-align: top;
+        }
+        #box .price{
+
+            padding-top: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #box .price p:nth-child(1){
+            float: left;
+            line-height: 35px;
+        }
+        #box .price p:nth-child(2){
+            float: right;
+            display: block;
+            width: 110px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #4b986a;
+            color: #fff;
+            font-size: 18px;
+            font-weight: initial;
+            text-align: center;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 30px;
+        }
+        #box .star img.on{
+            top:-27px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="img">
+            <img src="images/Cad.jpg" width="495" height="246">
+            <p>New Orleans roast meat meal</p>
+            <p>新奥尔良烤肉套餐</p>
+        </div>
+        <div class="star">
+            <img src="images/star2.png" alt="">
+            <img src="images/star2.png" alt="">
+            <img src="images/star2.png" alt="">
+            <img src="images/star2.png" alt="">
+            <img src="images/star2.png" alt="">
+            <span class="score">亲,请您给个"五星好评"</span>
+        </div>
+        <div class="price">
+            <p>￥ <span>18.00</span></p>
+            <p>选规格</p>
+        </div>
+    </div>
+
+    <script>
+        let oBox = document.getElementById('box'),
+            oStar = oBox.querySelector(".star"),
+            aImg = oStar.querySelectorAll('img'),          //获取所有星形图
+            oScore = oStar.querySelector(".score"),        //获取当前评分
+            arr= ["亲,请您给个\"五星好评\"","1分","2分","3分","4分","唔~真香"],
+            len=aImg.length,
+            b = -1;
+            for(let i=0;i<len;i++){
+                aImg[i].onmouseenter = function(){
+                    star(i);
+                };
+
+                aImg[i].onclick = function(){       //触发点击事件，保留当前评分
+                    b = i;          //改变b的指向
+                    star(b);
+                };
+            }
+            oStar.onmouseleave = function(){
+                star(b);
+             };
+            function star(n){
+                oScore.innerHTML = arr[n+1];
+                for(let j=0;j<len;j++){
+                    aImg[j].className = "";
+                }
+                for(let j=0;j<=n;j++){
+                    aImg[j].className = "on";
+                }
+
+            }
+    </script>
+</body>
+</html>

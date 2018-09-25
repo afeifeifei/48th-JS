@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        .clearfix{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        
+        #wrap{
+            width:604px;
+            height:340px;
+            margin: 50px auto 0;
+        }
+        #wrap .imgs{
+            position: relative;
+            width:100%;
+            height:298px;
+
+        }
+        #wrap .imgs li{
+            position:absolute;
+            display:none;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+        }
+        #wrap .imgs li.on{
+            display: block;
+        }
+        #wrap .text{
+            height:40px;
+        }
+        #wrap .text li{
+            float:left;
+            width:20%;
+            background-color:#211f26;
+            color:#91b2af;
+            text-align:center;
+            line-height:40px;
+            cursor:pointer;
+
+        }
+        #wrap .text li.on{
+            background-color:#414046;
+            color:#f3c258;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul class='imgs'>
+            <li class='on'><img src="images/11.jpg" alt=""></li>
+            <li><img src="images/12.jpg" alt=""></li>
+            <li><img src="images/13.jpg" alt=""></li>
+            <li><img src="images/14.jpg" alt=""></li>
+            <li><img src="images/15.jpg" alt=""></li>
+        </ul>
+        <ul class='text clearfix'>
+            <li class='on'>叫我星夜的王子</li>
+            <li>新英雄伽罗动画</li>
+            <li>白起技巧详教学</li>
+            <li>减伤英雄盘点</li>
+            <li>开赛季主播赛</li>
+        </ul>
+    </div>
+    <script>
+        let aImg=document.querySelectorAll("#wrap .imgs li"),
+            aText=document.querySelectorAll("#wrap .text li");
+        
+        for(let i=0,len=aText.length;i<len;i++){
+            aText[i].onclick=function(){
+                let oShow=document.querySelector("#wrap .text .on");
+                let oImg=document.querySelector("#wrap .imgs .on")
+                if(oShow!==this){
+                   oShow.className='';
+                   this.className='on';
+                   oImg.className='';
+                   aImg[i].className='on'; 
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

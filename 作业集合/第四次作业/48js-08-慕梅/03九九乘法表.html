@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>03九九乘法表-慕梅</title>
+    <style>
+        *{margin:0;padding:0;}
+        span{
+            display: inline-block;
+             width: 70px;
+            height: 35px;
+            margin:3px;
+            border:1px solid skyblue;
+            text-align: center;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+       let oBox=document.getElementById("box");
+       let i, j;
+       let str="";
+       for(i=1;i<=9;i++) {
+        for(j=1;j<=i;j++){
+            str+="<span>"+i+"*"+j+"="+i*j+"</span>";
+        }
+        str+="<br>"
+      }
+      str+="<hr>"
+      for(i=1;i<=9;i++) {
+        for(j=i;j<=9;j++){
+            str+="<span>"+i+"*"+j+"="+i*j+"</span>";
+        }
+        str+="<br>"
+      }
+      str+="<hr>"
+      for(i=9;i>=1;i--) {
+        for(j=1;j<=i;j++){
+            str+="<span>"+i+"*"+j+"="+i*j+"</span>";
+        }
+        str+="<br>"
+      }
+      str+="<hr>"
+      for(i=9;i>=1;i--) {
+        for(j=i;j<=9;j++){
+            str+="<span>"+i+"*"+j+"="+i*j+"</span>";
+        }
+        str+="<br>"
+      }
+      str+="<hr>"
+      oBox.innerHTML=str;
+    </script>  
+</body>

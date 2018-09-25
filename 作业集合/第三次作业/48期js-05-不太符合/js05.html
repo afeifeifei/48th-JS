@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>表单</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body{
+                background-color:#eee;
+            }
+            .clearfix:after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .cont{
+                width:80%;
+
+                background-color: #fff;
+                margin: 100px auto;
+                padding: 2% 5%;
+            }
+            .cont1{
+            }
+            .cont1 textarea{
+                width: 100%;
+                font-size: 22px;
+            }
+            .cont2{
+                background-color: #fbf5f8;
+            }
+
+            .cont2 li{
+                border-bottom: 1px solid #000;
+                padding: 2%;
+                color: #e81d1d;
+            }
+            .cont2 p{
+                margin: 0;
+                padding: 1% 0;
+                border-bottom: 1px solid #888;
+
+            }
+            .cont2 span{
+
+                color: #5f17ce;
+            }
+            button{
+                width: 100px;
+                border: 0;
+                padding: 1% 0;
+                background-color: #57d2f5;
+                float: right;
+                color: #fff;
+                margin: 0 1%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cont">
+            <div class="cont1">
+                <textarea id="wrap" cols='35' rows='5' placeholder="请输入内容"></textarea>
+            </div>
+            <div  class="cont2">
+                <p class="clearfix">
+                    <span>请点击提交按钮</span>
+                    <button onclick="onck()">提交</button>
+                    <!--<button onclick="onck1()">清空</button>-->
+                </p>
+                <ul id="ul1"></ul>
+            </div>
+        </div>
+    <script>
+        function onck() {
+            var wrapp = document.getElementById("wrap");
+            var ul1 = document.getElementById("ul1");
+            var obj1 = document.createElement('li');
+            if( wrapp.value == "" ){
+                alert("请输入内容")
+            //console.log(wrapp.value);
+            }else {
+                obj1.innerText = wrapp.value;
+                ul1.append(obj1);
+            }
+        }
+        //存在问题 应该如何清除ul下的li而不清除ul
+        // function onck1() {
+        //     var ul1 = document.getElementById("ul1");
+        //     ul1.remove(ul1);
+        //
+        // }
+    </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

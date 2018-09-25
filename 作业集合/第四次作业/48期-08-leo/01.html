@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #box1{
+                height: 300px;
+                margin:10px 20px 0;
+
+            }
+            #box2{
+                height: 300px;
+                margin:10px 20px 0;
+
+            }
+            p{
+                display:inline-block;
+                border:1px solid #ccc;
+                width: 60px;
+                margin:0 10px 10px 0;
+                background-color: pink;
+                line-height: 16px;
+                text-align:center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <script>
+            let oBox1=document.getElementById('box1');
+            let oBox2=document.getElementById('box2');
+            let s='';
+            let f='';
+                for(let i=1 ; i<=9 ; i++){
+                    // console.log(i);
+                    let x='';
+                    for(let a=1 ; a<=i ; a++){
+                        let value=i*a;
+                        x += `<p>${i}*${a}=${value}</p>`;
+                    }
+                    x+=`<br/>`;
+                    s+=x;
+                }
+                    oBox1.innerHTML= s;
+
+                for(let i=9 ; i>=1 ; i--){
+                 //console.log(i);
+                    let x='';
+                for(let a=1 ; a<=i ; a++){
+                    let value=i*a;
+                   x += `<p>${i}*${a}=${value}</p>`;
+                }
+               x +=`<br/>`;
+               f+= x;
+            }
+            oBox2.innerHTML= f;
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

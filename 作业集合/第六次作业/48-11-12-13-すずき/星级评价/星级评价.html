@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+	*{margin: 0;padding: 0;}
+	ul{
+		list-style: none;
+	}
+	#wrap{
+		width: 500px;
+		height: 300px;
+		margin: 50px auto;
+
+	}
+	ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	ul li{
+		float: left;
+		margin-top: 5px;
+		margin-left: 5px;
+	}
+	.stars{
+		display: block;
+		width: 20px;
+		height: 20px;
+		background: url('images/star.png') 0 0 no-repeat;
+	}
+	.on{
+		background-position: 0 -28px;
+	}
+	p{
+		margin-top: 10px;
+		border-bottom: 1px solid #333;
+	}
+</style>
+<body>
+	<div id="wrap">
+		<span>星级评分:</span>
+		<ul>
+			<li><span class="stars"></span></li>
+			<li><span class="stars"></span></li>
+			<li><span class="stars"></span></li>
+			<li><span class="stars"></span></li>
+			<li><span class="stars"></span></li>
+		</ul>
+		<p>请对我们的服务进行评价</p>
+	</div>
+
+</body>
+<script>
+	let oLis = document.getElementsByTagName('li'),
+		oStars = document.getElementsByClassName('stars'),
+		oUl = document.getElementsByTagName('ul')[0],
+		oP = document.getElementsByTagName('p')[0],
+		len = oLis.length,
+		score = -1, // 当score = 0 时 ,在鼠标离开ul时 ,0 <= 0; 执行添加类名on的语句, 会默认显示保留一颗星
+					// score = -1,则执行else语句,都被清空类名on
+		arrP = [
+			"请对我们的服务进行评价",
+			"1分",
+			"2分",
+			"3分",
+			"4分",
+			"5分"
+		];
+	
+
+	for(let i = 0;i<len;i++){
+		oStars[i].onmouseenter = function(){
+			fn(i);
+		}
+		oUl.onmouseleave = function(){
+			fn(score);
+		}
+		oStars[i].onclick = function(){
+			score = i; 
+		}
+	}
+	function fn(x){
+		for(let j = 0; j<len; j++){
+			// if(j<=x){  
+			// 	oStars[j].classList.add('on');
+			// }else{  
+			// 	oStars[j].classList.remove('on');
+			// }
+			oP.innerHTML = arrP[x + 1]; 
+			oStars[j].className =  j<=x ?  "stars on" : "stars";
+		}
+	}
+	oStars[i].onclick = function(){
+		score = i; 
+	}
+
+
+
+</script>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<!--文档类型:html文档(html5标准模式)-->
+<!--注释:是给开发人员看的-->
+<html lang='en'>
+<!--html跟标签 lang意思是翻译成英文-->
+
+<head>
+    <!--网页的头部-->
+    <meta charset='utf-8' />
+    <!--meta是单标签,单标签在后面括号前加/,以表示闭合,charset是设置字符编码的,utf-8是国际编译代码-->
+    <meta name='generator' content='EditPlus®' />
+    <!--generator意思是使用的编译软件,content后面是编译软件名字-->
+    <meta name='author' content='星空' />
+    <!--author这是网站作者的意思-->
+    <meta name='keywords' content='潭州教育48期,阿飞老师,00作业' />
+    <!--网页三要素之一,这是网页的关键词,给搜索引擎搜索你的网页用的,-->
+    <meta name='description' content='梗概,简介,' />
+    <!--网页三要素之一,这是对自己的网页的一些简介.-->
+    <title>Document</title>
+    <!--网页三要素之一,标题,这是在网页最上面的名词-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #bigbox {
+            position: relative;
+            width: 1280px;
+            height: 800px;
+            margin: 20px auto;
+            user-select: none;
+        }
+
+        #bigbox .pic {
+            width: 100%;
+            height: 100%;
+        }
+
+        #bigbox .pic ul {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        #bigbox .pic ul.on {
+            display: block;
+        }
+
+        #bigbox .pic ul li img {
+            display: none;
+            position: absolute;
+        }
+
+        #bigbox .pic ul li img.on {
+            display: block;
+        }
+
+        #bigbox .pic ul li.num {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+        }
+
+        #bigbox .pic ul li.num span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            background-color: rgba(0, 0, 0, .5);
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        #bigbox .pic ul li.num span.on {
+            color: red;
+            background-color: #000;
+        }
+
+        #right {
+            position: absolute;
+            top: 0;
+            left: -65px;
+            width: 5%;
+            height: 100%;
+        }
+
+        #right ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #right ul li {
+            width: 100%;
+            height: 10%;
+            margin-bottom: 10px;
+            background-color: skyblue;
+            font-size: 30px;
+            text-align: center;
+            line-height: 250%;
+            font-weight: bold;
+        }
+
+        #right ul li.on {
+            background-color: rgb(16, 233, 27);
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!--网页的身体,里面的内容是给浏览者观看得到的东西-->
+    <div id="bigbox">
+        <div class="pic">
+            <ul class='on'>
+                <li>
+                    <img class='on' src="./images/2.jpg" alt="">
+                    <img src="./images/4.jpg" alt="">
+                    <img src="./images/1.jpg" alt="">
+                </li>
+                <li class='num'>
+                    <span class="on">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img class="on" src="./images/1.jpg" alt="">
+                    <img src="./images/3.jpg" alt="">
+                </li>
+                <li class='num'>
+                    <span class='on'>1</span>
+                    <span>2</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <img class="on" src="./images/3.jpg" alt="">
+                    <img src="./images/2.jpg" alt="">
+                    <img src="./images/1.jpg" alt="">
+                    <img src="./images/4.jpg" alt="">
+                </li>
+                <li class='num'>
+                    <span class="on">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                </li>
+            </ul>
+        </div>
+        <div id="right">
+            <ul>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        let oRight = document.getElementById('right'),
+            rLi = oRight.getElementsByTagName('li'),
+            oPic = document.getElementsByClassName('pic')[0],
+            picUl = oPic.getElementsByTagName('ul'),
+            len = picUl.length,
+            idx = 0;
+
+        for (let i = 0; i < len; i++) {
+
+            rLi[i].onclick = function () {
+                if (idx !== i) {
+                    rLi[idx].className = '';
+                    picUl[idx].className = ''
+                    rLi[i].className = 'on';
+                    picUl[i].className = 'on'
+                    idx = i
+                }
+
+            }
+            // 这里声明的aimg会根据picUl的第i个不同而获取不同的aimg
+            let aImg = picUl[i].getElementsByTagName('img'),
+                // 这里的aspan也和aimg一样是动态获取的
+                aSpan = picUl[i].getElementsByTagName('span');
+            // 这里是用来标记的,
+            aSpan.num = 0;
+
+            for (let k = 0; k < aSpan.length; k++) {
+                aSpan[k].onclick = function () {
+                    if (aSpan.num !== k) {
+                        aSpan[aSpan.num].className = ''
+                        aImg[aSpan.num].className = ''
+                        aSpan[k].className = 'on'
+                        aImg[k].className = 'on'
+                        aSpan.num = k
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!--这就是网页的基本样式-->

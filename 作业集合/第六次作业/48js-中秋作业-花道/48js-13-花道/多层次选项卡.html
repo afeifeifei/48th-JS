@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 600px;
+                height: 300px;
+                margin: 50px auto;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            #wrap #left{
+                float: left;
+                width: 100px;
+                height: 93px;
+            }
+            #wrap #right{
+                position: relative;
+                float: right;
+                width: 480px;
+                height: 300px;
+                background: pink;
+            }
+            #left #tab li{
+                width: 100%;
+                height: 29px;
+                margin-bottom: 2px;
+                line-height: 29px;
+                text-align: center;
+                background: #000;
+                color: #fff;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            #left #tab li.start{
+                background: orange;
+            }
+
+            #right ul{
+                height: 100%;
+            }
+            #right ul li{
+                float: left;
+                height: 100%;
+            }
+            #right ul li img{
+                width: 480px;
+            }
+            #right ul.hide{
+                display: none;
+            }
+            #right ul.show{
+                display: block;
+            }
+            #right ul li.hide{
+                display: none;
+            }
+            #right ul li.show{
+                display: block;
+            }
+            #right .button{
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+            }
+            #right .button span{
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                margin: 0 10px;
+                background-color: #333;
+                color: #fff;
+                line-height: 28px;
+                text-align: center;
+            }
+            #right .button span.start{
+                background: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="left">
+                <ul id="tab">
+                    <li class="start">前期爆炸</li>
+                    <li>童年回忆</li>
+                    <li>再战20年</li>
+                </ul>
+            </div>
+            <div id="right">
+                <ul class="show">
+                    <li class="show"><img src="image/14.jpg" alt=""></li>
+                    <li class="hide"><img src="image/15.jpg" alt=""></li>
+                    <li class="hide"><img src="image/16.jpg" alt=""></li>
+                    <li class="hide"><img src="image/17.jpg" alt=""></li>
+                </ul>
+                <ul class="hide">
+                    <li class="show"><img src="image/6.jpg" alt=""></li>
+                    <li class="hide"><img src="image/7.jpg" alt=""></li>
+                    <li class="hide"><img src="image/8.jpg" alt=""></li>
+                    <li class="hide"><img src="image/9.jpg" alt=""></li>
+                </ul>
+                <ul class="hide">
+                    <li class="show"><img src="image/10.jpg" alt=""></li>
+                    <li class="hide"><img src="image/11.jpg" alt=""></li>
+                    <li class="hide"><img src="image/12.jpg" alt=""></li>
+                    <li class="hide"><img src="image/13.jpg" alt=""></li>
+                </ul>
+                <div class="button">
+                    <span class="start">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let aTabLi = document.querySelectorAll("#tab li"),
+                aRight = document.querySelectorAll("#right ul"),
+                aImgLi = document.querySelectorAll("#right ul li"),
+                aButton = document.querySelectorAll(".button span"),
+                len = aTabLi.length,
+                lenB = aButton.length,
+                index = 0,
+                indexR = 0;
+
+            function a(x) {
+               for(let j=0;j<lenB;j++){
+                   aButton[j].className = "";
+                   aImgLi[j+index*lenB].className = "hide";
+               }
+               aButton[0].className = "start";
+               aImgLi[index*lenB].className = "show";
+               aTabLi[x].className = "start";
+               aRight[x].className = "show";
+               indexR = 0;
+            }
+            for( let i=0;i<len;i++ ){
+                aTabLi[i].onmouseenter = function () {
+                    aTabLi[index].className = "";
+                    aRight[index].className = "hide";
+                    index = i;
+                    a(i);
+                }
+            }
+
+            for( let i=0;i<lenB;i++ ){
+                aButton[i].onmouseenter = function () {
+                    aButton[indexR].className = "";
+                    aButton[i].className = "start";
+                    aImgLi[indexR+index*lenB].className = "hide";
+                    aImgLi[i+index*lenB].className = "show";
+                    indexR = i;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

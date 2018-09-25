@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	li{list-style: none;}
+	#wrap{
+		position: relative;
+		width: 780px;
+		height: 380px;
+		margin: 20px auto 0;
+		overflow: hidden;
+	}
+	#wrap .img{
+		width: 100%;
+		height: 330px;
+	}
+	#wrap .img li{
+		display: none;
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+	#wrap .img li.active{
+		display: block;
+	}
+	#wrap .txt{
+		width: 100%;
+		height: 50px;
+	}
+	#wrap .txt li{
+		width: 20%;
+		height: 100%;
+		line-height: 50px;
+		text-align: center;
+		float: left;
+		font-size: 14px;
+		color: #eee;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+		background-color: #121112;
+	}
+	#wrap .txt li.active{
+		color: #e9c06c;
+		background-color: #303030;
+	}
+	#wrap div button{
+		position: absolute;
+		top: 50%;
+		margin-top: -25px;
+		width: 50px;
+		height: 50px;
+		border: none;
+		line-height: 50px;
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		color: #fff;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+		background-color: #121112;
+	}
+	#wrap div .left{
+		left: 0;
+	}
+	#wrap div .right{
+		right:0;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul class="img">
+			<li class="active"><a href=""><img src="images/1.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/2.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/3.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/4.jpg" alt=""></a></li>
+			<li><a href=""><img src="images/5.jpg" alt=""></a></li>
+		</ul>
+		<ul class="txt">
+			<li class="active">太空秘宝</li>
+			<li>7周年战斗之夜</li>
+			<li>星海浩瀚无畏杨帆</li>
+			<li>月满中秋嫦娥相伴</li>
+			<li>国服专享手办套装</li>
+		</ul>
+		<div>
+			<button class="left"><</button>
+			<button class="right">></button>
+		</div>
+	</div>
+   <script>
+   		(function(){
+   			let oWrap = document.getElementById("wrap"),
+   				aImg = oWrap.querySelectorAll(".img li"),
+   				aTxt = oWrap.querySelectorAll(".txt li"),
+   				aBtn = oWrap.getElementsByTagName("button"),
+   				len = aImg.length,
+   				index = 0;//记录当前下标
+   				function change(i){
+   					aImg[index].classList.remove('active') ;
+	   				aImg[i].classList.add('active');
+	   				aTxt[index].classList.remove('active') ;
+	   				aTxt[i].classList.add('active');
+	   				index = i;
+   				}	
+   			for(let i=0; i<len; i++){
+   				aTxt[i].onmouseenter =function(){
+   					if(index !== i){
+   						change(i);
+   					}
+   				};  				
+   			}
+   			function remove(){
+   				aImg[index ].classList.remove('active') ;
+   				aTxt[index].classList.remove('active') ;
+   			}
+   			function add(){
+   				aImg[index].classList.add('active');
+		   		aTxt[index].classList.add('active');
+   			}
+   			aBtn[0].onclick = function (){//left按钮
+   				if(index<=0){
+   					remove();
+   					index = len -1 ;
+		   			add();
+   				}else {
+   					remove();
+   					index--;	
+		   			add();
+   				}
+   			}
+
+   			aBtn[1].onclick = function (){//left按钮
+   				if(index>=len -1){
+   					remove();
+   					index = 0 ;
+		   			add();
+   				}else {
+   					remove();
+   					index++;	
+		   			add();
+   				}
+   			}
+   		})();
+   </script>
+</body>
+</html>

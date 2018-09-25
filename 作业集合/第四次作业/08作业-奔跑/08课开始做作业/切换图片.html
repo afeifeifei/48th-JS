@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>奔跑</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #warp{
+                position: relative;
+                width: 500px;
+                height: 400px;
+                margin: 100px auto;
+                background-color: #ffffcc;
+            }
+            #warp .show{
+                position: relative;
+                width: 500px;
+                height: 300px;
+            }
+            #warp p{
+                position: absolute;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+                background-color: rgba(0,0,0,.5);
+                text-align: center;
+                color: #fff;
+            }
+            #warp .p1{
+                top: 0;
+            }
+            #warp .p2{
+                bottom: 100px;
+            }
+            #warp .show img{
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #warp .show .on{
+                display: block;
+            }
+            #warp .clearfix:after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            #warp .btn{
+                width: 200px;
+                margin: 20px auto;
+            }
+            #warp .btn .btn1{
+                width: 70px;
+                height: 50px;
+                margin:0 10px;
+                background-color: greenyellow;
+                border: 3px solid red;
+                text-align: center;
+                line-height: 50px;
+                cursor: pointer;
+            }
+            .f-l{
+                float: left;
+            }
+            #warp .icon .left,#warp .icon .right{
+                position: absolute;
+                top:130px;
+                width: 35px;
+                height: 35px;
+                background-color:rgba(0,0,0,.5);
+                line-height: 30px;
+                text-align: center;
+                font-size: 30px;
+                color: #fff;
+                cursor: pointer;
+            }
+            #warp .icon .left{
+                left: 10px;
+            }
+            #warp .icon .right{
+                right: 10px;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                let oRight=document.getElementsByClassName('right'),
+                    oLeft=document.getElementsByClassName('left'),
+                    oImg=document.getElementsByTagName('img'),
+                    oP=document.getElementsByTagName('p'),
+                    oBtn=document.getElementsByClassName('btn1'),
+                    lo=0,
+                    ro=1,
+                    go=true,
+                    zu=['植物','大战','僵尸','你正常点','好么'],
+                    len=oImg.length;
+
+                oRight[0].onclick=function(){
+                    if( go ){
+                        if (lo!=len-1){
+                            oImg[lo].className='';
+                            lo++;
+                            oImg[lo].className='on';
+                            oP[0].innerHTML=lo+1+'/5';
+                            oP[1].innerHTML=zu[lo];
+                        }
+                    }
+                    else{
+                        if (lo!=len-1){
+                            oImg[lo].className='';
+                            lo++;
+                            oImg[lo].className='on';
+                            oP[0].innerHTML=lo+1+'/5';
+                            oP[1].innerHTML=zu[lo];
+                        }
+                        else{
+                            oImg[lo].className='';
+                            lo=0;
+                            oImg[lo].className='on';
+                            oP[0].innerHTML=lo+1+'/5';
+                            oP[1].innerHTML=zu[lo];
+                        }
+                    }
+                }
+                oLeft[0].onclick=function() {
+                    if( go){
+                        if (lo !==0) {
+                            oImg[lo].className = '';
+                            lo--;
+                            oImg[lo].className = 'on';
+                            oP[0].innerHTML = lo + 1 + '/5';
+                            oP[1].innerHTML = zu[lo];
+                        }
+                    }
+                    else{
+                        if(lo!==0){
+                            oImg[lo].className='';
+                            lo--;
+                            oImg[lo].className='on';
+                            oP[0].innerHTML=lo+1+'/5';
+                            oP[1].innerHTML=zu[lo];
+                        }
+                        else{
+                            oImg[lo].className='';
+                            lo=len-1;
+                            oImg[lo].className='on';
+                            oP[0].innerHTML=lo+1+'/5';
+                            oP[1].innerHTML=zu[lo];
+                        }
+                    }
+                }
+                oBtn[0].onclick=function(){
+                    oBtn[0].style.borderColor='red';
+                    oBtn[1].style.borderColor='transparent';
+                    go=true;
+                    oImg[lo].className='';
+                    lo=0;
+                    oImg[lo].className='on';
+                    oP[0].innerHTML=lo+1+'/5';
+                    oP[1].innerHTML=zu[lo];
+                }
+                oBtn[1].onclick=function(){
+                    oBtn[1].style.borderColor='red';
+                    oBtn[0].style.borderColor='transparent';
+                    go=false;
+                    oImg[lo].className='';
+                    lo=0;
+                    oImg[lo].className='on';
+                    oP[0].innerHTML=lo+1+'/5';
+                    oP[1].innerHTML=zu[lo];
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="warp">
+            <p class="p1">1/5</p>
+            <p class="p2">植物</p>
+            <div class="show ">
+                <img src="images/1.jpg" alt="植物" width="658" height="411" class="on">
+                <img src="images/2.jpg" alt="大战" width="658" height="411">
+                <img src="images/3.jpg" alt="僵尸" width="658" height="411">
+                <img src="images/4.jpg" alt="我很" width="658" height="411">
+                <img src="images/5.jpg" alt="害怕" width="658" height="411">
+            </div>
+            <div class="icon">
+                <div class="left"><</div>
+                <div class="right">></div>
+            </div>
+            <div class="btn clearfix">
+                <div class="btn1 f-l ">
+                    你正常点
+                </div>
+                <div class="btn1  f-l" style="border-color: transparent;">
+                    我就不
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

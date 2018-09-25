@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 970px;
+                height: 500px;
+                margin: 100px auto 0;
+                border: 2px solid #aa8870;
+                border-right: none;
+                -webkit-user-select: none;
+            }
+            #wrap>div{
+                float: left;
+                width: 24.79%;
+                height: 100%;
+                border-right: 2px solid #aa8870;
+            }
+            #wrap>div h3{
+                width: 100%;
+                height: 45px;
+                background-color: #d94466;
+                color: #fff7e2;
+                font-size: 15px;
+                line-height: 45px;
+                text-align: center;
+            }
+            #wrap>div ul li{
+                width: 100%;
+                height: 112px;
+                border-top: 2px solid #aa8870;
+                line-height: 112px;
+                text-align: center;
+            }
+            #wrap>div.number li{
+                position: relative;
+            }
+            #wrap>div.number ul div{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                height: 25px;
+                width: 95px;
+                border: 1px solid #e0e0e0;
+            }
+            #wrap>div.number ul span{
+                float: left;
+                width: 25px;
+                height: 25px;
+                background-color: #dcdcdc;
+                font-weight: bold;
+                line-height: 25px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap>div.number ul span.add{
+                float: right;
+            }
+            #wrap>div.number ul p{
+                float: left;
+                width: 45px;
+                line-height: 25px;
+                text-align: center;
+            }
+            #wrap>div.foot-total{
+                width: 968px;
+                height: 45px;
+                margin-top: 15px;
+                background-color: #d94466;
+                border-right: none;
+                line-height: 45px;
+            }
+            #wrap>div.foot-total p{
+                float: right;
+                padding-right: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="goods">
+                <h3>商品</h3>
+                <ul>
+                    <li>图片</li>
+                    <li>图片</li>
+                    <li>图片</li>
+                    <li>图片</li>
+                </ul>
+            </div>
+            <div class="price">
+                <h3>单价/元</h3>
+                <ul>
+                    <li>8</li>
+                    <li>10</li>
+                    <li>12.5</li>
+                    <li>23</li>
+                </ul>
+            </div>
+            <div class="number">
+                <h3>数量</h3>
+                <ul>
+                    <li><div><span class="sub">-</span><p>0</p><span class="add">+</span></div></li>
+                    <li><div><span class="sub">-</span><p>0</p><span class="add">+</span></div></li>
+                    <li><div><span class="sub">-</span><p>0</p><span class="add">+</span></div></li>
+                    <li><div><span class="sub">-</span><p>0</p><span class="add">+</span></div></li>
+                </ul>
+            </div>
+            <div class="total">
+                <h3>小计</h3>
+                <ul>
+                    <li>0</li>
+                    <li>0</li>
+                    <li>0</li>
+                    <li>0</li>
+                </ul>
+            </div>
+            <div class="foot-total">
+                <p>已选中商品：0个</p>
+                <p>合计费用：0￥</p>
+            </div>
+        </div>
+        
+        <script>
+            let aPrice=document.querySelectorAll("#wrap div.price li"),
+                aSub=document.querySelectorAll("#wrap div.number span.sub"),
+                aAdd=document.querySelectorAll("#wrap div.number span.add"),
+                aNumber=document.querySelectorAll("#wrap div.number p"),
+                aTotal=document.querySelectorAll("#wrap div.total li"),
+                aFoot=document.querySelectorAll("#wrap div.foot-total p");
+
+
+            let count=[0,0,0,0],//存储每个商品的数量
+                price=[8,10,12.5,23], //存储每个商品的单价
+                sum=[0,0,0,0]; //存储每个商品的数量的价格
+
+            //给‘-’ 赋予实际意义
+            function sub(i) {
+                let html="";
+                if(count[i]===0){
+                    count[i]=0;
+                }
+                else{
+                    count[i]--;
+                }
+                html+=count[i];
+                aNumber[i].innerHTML=html;
+            }
+            //给”+“赋予实际意义
+            function add(i) {
+                let html="";
+                count[i]++;
+                html+=count[i];
+                aNumber[i].innerHTML=html;
+            }
+
+
+            function total(i) {
+                let sum=0;
+                let html="";
+                sum=count[i]*price[i];
+                html+=sum;
+                aTotal[i].innerHTML=html;
+            }
+            function lastsum() {
+                sum=0;
+                for(let i=0,len=count.length; i<len; i++){
+                    for(let j=i,lenJ=price.length; i<lenJ; j++){
+                        if(j!=i) break;
+                        sum+=count[i]*price[i];
+                    }
+                }
+                aFoot[0].innerHTML=`合计费用：${sum}￥`;
+            }
+            function amount() {
+                let sum=0;
+                for(let i=0,len=count.length; i<len;i++){
+                    sum+=count[i];
+                }
+                aFoot[1].innerHTML=`已选中商品：${sum}个`
+            }
+            //给"- +"添加点击事件,并且number会有变化
+            for(let i=0,len=aSub.length; i<len; i++){
+                aSub[i].onclick = function () {
+                  sub(i);
+                  total(i);
+                  lastsum();
+                  amount();
+                }
+
+                aAdd[i].onclick = function () {
+                   add(i);
+                   total(i);
+                    lastsum();
+                    amount();
+                }
+
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

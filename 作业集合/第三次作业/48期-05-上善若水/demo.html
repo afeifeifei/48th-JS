@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言</title>
+    <meta name='Keywords' content='关键词，关键字'>
+    <meta name='Description' content='描述信息'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+        #text{
+            width: 300px;
+            height: 200px;
+            margin:100px auto 0;
+            display: block;
+            font-size:30px;
+        }
+        #btn{
+            width: 80px;
+            height:30px;
+            background-color: #ff0036;
+            color:#fff;
+            border:none;
+            outline:none;
+            border-radius:10px;
+            margin:20px auto 0;
+            display: block;
+
+        }
+        #list{
+            margin-top:50px;
+        }
+        #list li{
+            margin:0 auto;
+            border-bottom:1px dashed #000;
+            width:300px;
+            line-height:30px;
+            height:30px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<textarea id="text"></textarea>
+<button id="btn">提交留言</button>
+<ul id="list">
+</ul>
+<script>
+    let btn = document.getElementById("btn");
+    let text = document.getElementById("text");
+    let list = document.getElementById("list");
+
+    btn.onclick = function(){
+        if(text.value===null||text.value===""){
+            alert("留言不能为空哦~");
+        }else{
+            list.innerHTML += "<li>"+text.value+"</li>";
+            text.value="";
+        }
+    }
+</script>
+</body>
+</html>

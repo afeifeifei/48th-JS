@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝结算</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #bigbox {
+            width: 850px;
+            margin: 50px auto;
+            user-select: none;
+        }
+        #box{
+            display: flex;
+            width: 100%;
+            text-align: center;
+            flex: 1;
+        }
+        #box dl {
+            width: 100%;
+        }
+        #box dt {
+            width: 100%;
+            height: 50px;
+            background-color: #d90060;
+            border: 1px solid #d90060;
+            font-size: 20px;
+            color: #fff;
+            line-height: 40px;
+        }
+        img{
+            width: 120px;
+            height: 80px;
+        }
+        #box dd {
+            width: 100%;
+            height: 85px;
+            border: 1px solid #d90060;
+            line-height: 85px;
+        }
+        #box dd input{
+            width: 25%;
+        }
+        #box dd button{
+            width: 30%;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        #cheque{
+            width: 95.5%;
+            height: 50px;
+            margin-top: 10px;
+            padding: 0 20px;
+            background-color: #d90060;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: right;
+            color: #fff;
+        }
+        #cheque > p > span{
+            margin: 0 10px;
+        }
+        #cheque > p > span span{
+            color: yellow;
+        }
+
+        #star ul li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 5px 3px;
+            border-radius: 50%;
+            border: 1px solid red;
+        }
+        #star ul li.on{
+            background-color: red;
+        }
+        #star span{
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            margin-left: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+
+</head>
+<body>
+<div id="bigbox">
+    <div id="box">
+        <dl class='shop'>
+            <dt>商品</dt>
+            <dd><img src="images/shop1.jpg"></dd>
+            <dd><img src="images/shop2.jpg"></dd>
+            <dd><img src="images/shop3.jpg"></dd>
+            <dd><img src="images/shop4.jpg"></dd>
+        </dl>
+        <dl class='price'>
+            <dt>单价</dt>
+            <dd>29</dd>
+            <dd>53</dd>
+            <dd>71</dd>
+            <dd>97</dd>
+        </dl>
+        <dl class='number'>
+            <dt>数量</dt>
+            <dd>
+                <button class='reduce'> - </button>
+                <input type="text" placeholder="0">
+                <button class="add"> + </button>
+            </dd>
+            <dd>
+                <button class='reduce'> - </button>
+                <input type="text" placeholder="0">
+                <button class="add"> + </button>
+            </dd>
+            <dd>
+                <button class='reduce'> - </button>
+                <input type="text" placeholder="0">
+                <button class="add"> + </button>
+            </dd>
+            <dd>
+                <button class='reduce'> - </button>
+                <input type="text" placeholder="0">
+                <button class="add"> + </button>
+            </dd>
+        </dl>
+        <dl class="total">
+            <dt>小计</dt>
+            <dd><span>0</span>元</dd>
+            <dd><span>0</span>元</dd>
+            <dd><span>0</span>元</dd>
+            <dd><span>0</span>元</dd>
+        </dl>
+    </div>
+    <div id="cheque">
+        <p>
+                <span>
+                    已选择商品
+                    <span id='num'>0</span>
+                    个
+                </span>
+                <span>
+                    合计费用￥:
+                    <span id='cost'>0</span>
+                    元
+                </span>
+        </p>
+    </div>
+</div>
+<script>
+    let oDl = document.getElementsByTagName('dl'),
+        aPrice = oDl[1].getElementsByTagName('dd'),
+        aInput = oDl[2].getElementsByTagName('input'),
+        oReduce = document.getElementsByClassName('reduce'),
+        oAdd = document.getElementsByClassName('add'),
+        aTotal = oDl[3].getElementsByTagName('span'),
+        oNum = document.getElementById('num'),
+        oCost = document.getElementById('cost'),
+        oLi = document.getElementsByTagName('li'),
+        oDiv = document.getElementById('star'),
+        len = aInput.length,
+        // mark = true,
+        lent = oLi.length,
+        idx = 0;
+
+    for (let i = 0; i < len; i++) {
+        oReduce[i].onclick = function () {
+            let val = aInput[i].value,
+                pic = aPrice[i].innerText;
+            val <= 0 ? val = 0 : val--
+            aInput[i].value = val
+            aTotal[i].innerText = `${val * pic}`
+            // let num = 0,
+            //     cost = 0;
+            // for (let j = 0; j < len; j++) {
+            // cost += aTotal[j].innerText*1
+            // num += aInput[j].value * 1
+            // }
+            // oNum.innerHTML = num
+            // oCost.innerHTML = cost
+            heji()
+        }
+        oAdd[i].onclick = function () {
+            let val = aInput[i].value,
+                pic = aPrice[i].innerText
+            val++
+            aInput[i].value = val
+            aTotal[i].innerText = `${val * pic}`
+            heji()
+        }
+        aInput[i].oninput = function () {
+            let val = aInput[i].value,
+                pic = aPrice[i].innerText
+            aInput[i].value = val
+            aTotal[i].innerText = `${val * pic}`
+            heji()
+        }
+    }
+
+    // 这是给下面选择了多少商品需要计算的地方
+    function heji() {
+        let num = 0, // 每次调用这个函数的时候 都会让num清0
+            cost = 0; // 每次调用这个函数的时候 都会让cost清0
+        for (let j = 0; j < len; j++) {
+            cost += aTotal[j].innerText * 1 // 在循环里 aTotal[j].innerText对应了不同的值,但是这个值为string类型的,所以*1让他强制变成number类型来运算, 把每项里的值拿来相加
+            num += aInput[j].value * 1    // 意思与上面的一样
+        }
+        oNum.innerHTML = num // 在循环体外再把这个值赋值给相应的地方
+        oCost.innerHTML = cost // 在循环体外再把这个值赋值给相应的地方
+    }
+</script>
+
+</body>
+</html>

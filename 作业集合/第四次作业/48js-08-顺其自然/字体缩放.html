@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0;padding:0;list-style: none;}
+	body{width:1200px;margin:20px auto;font-size:14px;line-height: 30px;}
+	#btn button{padding: 5px;}	
+</style>
+</head>
+
+<body>
+	<div id="btn">
+		<button>+</button>
+		<button>-</button>
+	</div>
+	<div class="wenzi">
+	<p>经历了遍地诗人的二十世纪八十年代后，诗歌退潮，“诗人已死”的表述一度很流行。如今，我们发现诗歌又回来了，从早期的论坛、博客，再到微博、微信、简书等平台，诗歌以其恰当的篇幅、分行的形式成了人们阅读的重要内容。老诗人重出江湖，新的诗人、读者和爱好者层出不穷。</p>
+
+</p>除了形式上的恰当、当代诗歌的积累外，诗歌中传达情绪的及时、精确，诗歌写作门槛的降低乃至消失，以及人们普遍的情感诉求是当下诗歌活跃的重要原因。在诗人杨黎看来还远不只这些，他给出了一个让人震撼而惊喜的观点：互联网给诗歌带来了理想的状态：人人皆诗人，分行即是诗。</p>
+	</div>
+<script>
+	let btn = document.querySelectorAll("#btn button"),
+		wenzi = document.getElementsByClassName('wenzi')[0],
+		i = 14;
+	btn[0].onclick=function(){
+		i++;
+		if(i>20){
+			i=20;
+		}
+		wenzi.style.fontSize=i+'px'
+	}
+	btn[1].onclick=function(){
+		i--;
+		if(i<14){
+			i=14;
+		}
+		wenzi.style.fontSize=i+'px'
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 400px;
+                height: 150px;
+                margin: auto;
+            }
+            #wrap .first,#wrap .star,#wrap .second{
+                float: left;
+            }
+            #wrap .first{
+                width: 60px;
+                margin-top: 50px;
+                font-size: 12px;
+            }
+            #wrap .star li{
+                float: left;
+                width: 20px;
+                height: 20px;
+                margin-top: 48px;
+                background-image: url("img/star.png");
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+            #wrap .star li.on{
+                background-position: bottom;
+            }
+            #wrap .second{
+                width: 120px;
+                height: 70px;
+                border: 2px solid #cccccc;
+                font-size: 12px;
+                margin-left: 10px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p class="first">星级评分:</p>
+            <div class="star">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <p class="second">提示:请认真给当前文章打分</p>
+        </div>
+        
+        <script>
+            let aLi=document.querySelectorAll("#wrap .star ul li"),
+                aP=document.querySelectorAll("#wrap .second")[0]
+            ;
+            let len=aLi.length,
+                bool=true,
+                index=0
+            ;
+            function a(i){
+                switch (i) {
+                    case 0:
+                        aP.innerHTML="很差";
+                        break;
+                    case 1:
+                        aP.innerHTML="较差";
+                        break;
+                    case 2:
+                        aP.innerHTML="还行";
+                        break;
+                    case 3:
+                        aP.innerHTML="推荐";
+                        break;
+                    case 4:
+                        aP.innerHTML="力荐";
+                        break;
+                }
+            }
+            for(let i=0;i<len;i++){
+                aLi[i].onmouseenter=function(){
+                    for(let x=0;x<len;x++){
+                        aLi[x].className="";
+                    }
+                    for(let j=0;j<=i;j++){
+                        aLi[j].className="on";
+                    }
+                    a(i);
+                }
+            }
+
+            for(let i=0;i<len;i++){
+                aLi[i].onmouseleave=function(){
+                    if(bool){
+                        for(let j=0;j<=i;j++){
+                            aLi[j].className="";
+                        }
+                    }else{
+                        for(let j=0;j<=i;j++){
+                            aLi[j].className="";
+                        }
+                        for(let x=0;x<=index;x++){
+                            aLi[x].className="on";
+                        }
+                    }
+                }
+            }
+
+            for(let i=0;i<len;i++){
+                aLi[i].onclick=function(){
+                    for(let j=0;j<=i;j++){
+                        aLi[j].className="on";
+                    }
+                    bool=false;
+                    index=i;
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>轮播图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,div,ul,li,p{
+            margin:0;
+            padding:0;
+        }
+        .wrapper{
+            position: relative;
+            width: 600px;
+            height:400px;
+            margin:50px auto;
+        }
+        .banner{
+            width: 600px;
+            height:400px;
+            margin:50px auto 0;
+            overflow: hidden;
+        }
+        .list:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .list li{
+            float:left;
+            width:600px;
+            height:400px;
+        }
+        .list li img{
+            width:100%;
+            height:100%;
+        }
+        #pre,#next{
+            display:block;
+            position: absolute;
+            top:200px;
+            width: 30px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            background-color:#ccc;
+            font-size:20px;
+            cursor: pointer;
+        }
+        #pre{
+            left:-40px;
+        }
+        #next{
+            right:-40px;
+        }
+        .cont{
+            display:inline-block;
+            width: 160px;
+            height: 30px;
+            margin:20px 60px;
+            line-height:30px;
+            font-size:14px;
+            text-align: center;
+            cursor:default;
+            background:url("imgs/3/c2_tit.png") no-repeat; 
+            background-size: contain;
+        }
+        .checked{
+            color:#fff;
+            background:url("imgs/3/c3s_tit.png") no-repeat; 
+            background-size: contain;
+        }
+        .h-change:hover{
+            color:red;
+        }
+        p{
+          position: absolute;
+          padding: 16px;
+        }
+        .top{
+            top:0;
+            font-size:24px;
+            font-weight: bold;
+            color:#fff;
+        }
+        .bottom{
+            bottom: 0;
+            font-size: 13px;
+            text-indent:280px;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+           <div class="banner ">
+                <ul class="list" style='margin-left:0'>
+                    <!-- style='margin-left:-600px' -->
+                   <li class="wrap-img">
+                           <img src="imgs/3/boy1.jpg" alt="">
+                   </li>
+                   <li class="wrap-img">
+                           <img src="imgs/3/boy2.jpg" alt="">
+                   </li>
+                   <li class="wrap-img">
+                           <img src="imgs/3/boy3.jpg" alt="">
+                   </li>
+                   <li class="wrap-img">
+                           <img src="imgs/3/boy4.jpg" alt="">
+                   </li>
+                   <li class="wrap-img">
+                           <img src="imgs/3/boy5.jpg" alt="">
+                   </li>
+                </ul>
+            </div>
+            <p class="top">tfboys萌新</p>
+            <p class="bottom">1<span>/5</span></p>
+            <span id="pre" class='h-change'> &lt </span>
+            <span id="next" class='h-change'> &gt </span>
+            <span class="cont checked">单次模式</span>
+            <span class="cont">循环模式</span>
+   </div> 
+    <script>
+        let Bpre = document.getElementById("pre");
+        let Bnext = document.getElementById("next");
+        let Olist = document.getElementsByClassName("list")[0]; 
+        let Oli = document.querySelectorAll(".list li");
+        let stl=Oli[0].offsetWidth;
+        let otop =document.getElementsByClassName("top")[0];
+        let obottom=document.getElementsByClassName("bottom")[0];
+        let arr=['tfboys萌新','boys','王俊凯','王 源','易烊千玺'];
+        let move=0;
+        let check = 0;
+        let btn = document.getElementsByClassName("cont");
+        let num=1;
+        Olist.offsetwidth=Oli[0].offsetWidth*Oli.length+"px";
+        move = parseInt(move);
+        for(let i=0;i<=1;i++){
+            btn[i].onclick = function(){
+                btn[check].className = 'cont';
+                btn[i].className = 'cont checked';
+                check = i;
+            }
+        }                  
+        Bnext.onclick = function(){
+            if((move<= 0)  && (move > -(stl * (Oli.length-1)))){     
+                move -=stl;
+                Olist.style.marginLeft = move +'px';
+                num++;
+            }
+            else{
+                if(check===0){
+                    return -1;
+                }else{
+                    Olist.style.marginLeft ='0px';
+                    move =0;
+                    num=1;
+                }   
+            }
+            otop.innerText=arr[num-1];
+            obottom.innerHTML=`${num}
+                        <span>/5</span>
+                        `
+        }
+        Bpre.onclick = function(){
+            if(move){     
+                move +=stl;
+                Olist.style.marginLeft = move +'px';
+                num--;  
+            }
+            else{
+                if(check===0){
+                    return -1;
+                }else{
+                    move =-(stl * (Oli.length-1));
+                    Olist.style.marginLeft = move +'px';
+                    num=Oli.length;
+                }
+            }
+            obottom.innerHTML=`${num}
+                        <span>/5</span>
+                        `
+        }
+        
+    </script>
+</body>
+</html>

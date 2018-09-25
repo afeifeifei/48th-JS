@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <link rel="stylesheet" href="iconfont/iconfont.css">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 330px;
+                height: 70px;
+                margin: 50px auto;
+            }
+            #wrap span{
+                float: left;
+                color: red;
+                font-size: 14px;
+                line-height: 70px;
+            }
+            #wrap ul{
+                float: left;
+                width: 100px;
+                height: 21px;
+                padding: 24px 0;
+            }
+            #wrap ul li{
+                float: left;
+                width: 20px;
+                height: 21px;
+                background-image: url('image/星星-线.png');
+                -webkit-background-size: cover;
+                background-size: cover;
+                color: #ccc;
+            }
+            #wrap p{
+                float: left;
+                width: 125px;
+                height: 70px;
+                margin-left: 25px;
+                border: 1px solid #eee;
+                font-size: 14px;
+            }
+            #wrap ul li.show{
+                background-image: url("image/星星.png");
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <span>星级评分：</span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p>提示：请认真给当前番剧打分</p>
+        </div>
+        
+        <script>
+
+            let aTabLi = document.querySelectorAll("#wrap ul li"),
+                aP = document.querySelector("#wrap p"),
+                len = aTabLi.length,
+                index = -1,
+                aText = [
+                    "很差",
+                    "较差",
+                    "一般",
+                    "推荐",
+                    "力荐"
+                ];
+
+            function a(x) {
+                for (let i=0; i<len; i++){
+                    aTabLi[i].className = "";
+                }
+
+                if (x===-1)return;
+
+                for (let i=0; i<=x; i++){
+                    aTabLi[i].className = "show";
+                    aP.innerHTML = aText[i];
+                }
+
+            }
+            //添加点击事件和鼠标移入移出事件
+            for ( let i=0;i<len;i++ ){
+                aTabLi[i].onclick = function () {
+
+                    a(i);
+                    index = i;//记录评分
+
+                }
+
+                aTabLi[i].onmouseenter = function () {
+
+                    a(i);
+
+                }
+
+                aTabLi[i].onmouseleave = function () {
+
+                    a(index);//重新显示原来的评分
+
+                }
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

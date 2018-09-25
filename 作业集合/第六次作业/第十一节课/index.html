@@ -1,0 +1,159 @@
+<!--声明文档类型为html -->
+<!doctype html>
+<!--根标签 超文本标记语言 -->
+<html> 
+<!--99%是双标签 -->
+<!--头部 不可视化标签-->
+	<head> 
+	<!--utf-8:国际编码 -->
+		<meta charset="UTF-8"> 
+		<!--关键词 关键字 -->
+	    <meta name="Keywords" content=" "> 
+        <!-- 描述网页内容 -->
+		<meta name="Description" content="">
+		<!--网页三要素-->
+		<title>Document</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			#wrap{
+				width: 1000px;
+				user-select: none;
+			}
+			#wrap  ul li{
+				height: 50px;
+				border-bottom: 1px solid #ccc;
+				font-size: 12px;
+				padding-left: 50px;
+			}
+			#wrap ul li p,#wrap ul li input,#wrap ul li div{
+				float: left;
+			}
+			#wrap ul li p{
+				line-height: 50px;
+			}
+			#wrap ul li p.hide{
+				display: none;
+			}
+			#wrap ul li p.show{
+				display: block;
+			}
+			#wrap ul li input{
+				display: none;
+				font-size: 12px;
+				margin-top: 15px;
+			}
+			#wrap ul li input.show{
+				display: block;
+			}
+			#wrap ul li input.hide{
+				display: none;
+			}
+			#wrap ul li div{
+				width: 50px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 12px;
+				text-align: center;
+				cursor: pointer;
+				background: #000;
+				color: #fff;
+				margin: 15px 0 0 20px;
+			}
+			#wrap lu li div.show{
+				display: block;
+			}
+			#wrap ul li div.hide{
+				display: none;
+			}
+		</style>
+	</head>
+	<!--身体:网页的内容.可视化标签-->
+<body>  
+ 	<div id="wrap">
+		<ul>
+			<li>
+				<p>可编辑的内容</p>
+				<input type="text" placeholder="可编辑的文本内容">
+				<div class="modify show">修改</div>
+				<div class="sure hide">确定</div>
+			</li>
+			<li>
+				<p>可编辑的内容</p>
+				<input type="text" placeholder="可编辑的文本内容">
+				<div class="modify show">修改</div>
+				<div class="sure hide">确定</div>
+			</li><li>
+			<p>可编辑的内容</p>
+			<input type="text" placeholder="可编辑的文本内容">
+			<div class="modify show">修改</div>
+			<div class="sure hide">确定</div>
+		</li><li>
+			<p>可编辑的内容</p>
+			<input type="text" placeholder="可编辑的文本内容">
+			<div class="modify show">修改</div>
+			<div class="sure hide">确定</div>
+		</li>
+		</ul>
+	</div>
+	<script>
+		//变量
+		let oP = document.querySelectorAll('#wrap p'),
+		    oInp = document.querySelectorAll('#wrap input'),
+		    oModify = document.querySelectorAll('#wrap .modify'),
+		    oSure = document.querySelectorAll('#wrap .sure');
+
+		 let len = oP.length;
+			for(let i=0;i<len;i++){
+
+			    //修改点击事件
+
+			    oModify[i].onclick = function () {
+
+			        //alert(1);
+			        //修改隐藏 确定显示
+
+			        this.className = 'modify hide';
+
+			        oSure[i].className = ' sure show';
+
+			        //P隐藏
+
+			        oP[i].className = 'hide';
+			        //input 显示
+			        oInp[i].className = 'show';
+                        };
+
+		//确定点击事件
+                        oSure[i].onclick = function () {
+
+		      //点击隐藏 修改显示
+
+		      this.className = 'sure hide' ;
+
+                            oSure[i].className = 'modify show';
+
+                            //P显示
+
+		        oP[i].className = 'show';
+
+		        //input显示
+
+		        oInp[i].className = 'hide';
+		        	oP[i].innerHTML = oInp[i].value;
+
+                        };
+		 }
+	</script>
+	</body>
+</html>
+
+

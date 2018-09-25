@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>潭州乌拉</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        a{text-decoration: none;}
+        #wrap{
+            width:600px;
+            margin:50px 120px;
+        }
+        span{
+            color:brown;
+        }
+        i{
+            color: #999;
+        }
+        p{
+            display: inline-block;
+           
+        }
+        .default-text{
+            width: 187px;
+            height: 80px;
+            border:1px solid #999;
+            margin:0 20px;
+            vertical-align: middle;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+</head>
+<body>
+    <div id="wrap">
+        <span class="title">星级评分:</span>
+        <p class = "pic">
+            <i class="iconfont icon-shoucang1"></i>
+            <i class="iconfont icon-shoucang1"></i>
+            <i class="iconfont icon-shoucang1"></i>
+            <i class="iconfont icon-shoucang1"></i>
+            <i class="iconfont icon-shoucang1"></i>
+        </p>
+        <p class="default-text">提示：请认真给当前文档打分</p>
+    </div>
+        
+    <script>
+        (function(){
+            let oIcon = document.querySelectorAll(".pic i"),
+                oP = document.querySelector(".default-text"),
+                text = ["很差","较差","还行","推荐","力荐"],
+                len = oIcon.length,
+                index = null;
+            
+            for(let i = 0; i < len; i++){
+                oIcon[i].onclick = function(){
+                   enter(i);
+                };
+                oIcon[i].onmouseover = function(){
+                   overIn(i);
+                };
+                oIcon[i].onmouseout = function(){
+                   outWrap();
+                };
+            }
+            //  确定
+            function enter(i){
+                index = i;
+                for(let j = index; j >= 0; j--){
+                    oIcon[j].style.color = "yellow";
+                    oP.innerHTML = text[i];
+                }
+            }
+            //   进入
+            function overIn(i){     
+                for(let j = 0; j <= i; j++){
+                    oIcon[j].style.color = "yellow";
+                    oP.innerText = text[j];
+                }
+            }
+            //  离开
+            function outWrap(){
+                // ！index非真 且index 不等于 零时，
+                if(!index && index !== 0){
+                    index = -1;
+                }
+
+                for(let i = index + 1; i < len; i++){
+                    oIcon[i].style.color = "#999";
+                    if(index !== -1){
+                        oP.innerHTML = text[index];
+                    }else{
+                        oP.innerHTML = "提示：请认真给当前文档打分";
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

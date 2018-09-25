@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 1000px;
+                height: 600px;
+                margin: 50px auto;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            #img{
+                width: 100%;
+                hieght: 100%;
+            }
+            #img ul{
+                 width: 100%;
+                 hieght: 100%;
+            }
+            #img ul li{
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 width: 100%;
+                 hieght: 100%;
+            }
+            #img ul li{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                hieght: 100%;
+            }
+            #img ul li img{
+                width: 100%;
+            }
+            #img ul li.show{
+                display: block;
+            }
+            #tab{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 10%;
+                background-color: #000;
+                background-color: rgba(0,0,0,0.8);
+                color: #fff;
+                text-align: center;
+            }
+            #tab ul{
+                width: 100%;
+                height: 100%;
+            }
+            #tab ul li{
+                float: left;
+                width: 20%;
+                height: 100%;
+                line-height: 60px;
+                cursor: pointer;
+            }
+            #tab ul li.active{
+                color: #c39b5e;
+                background-color: #303030;
+            }
+            .button{
+                position: absolute;
+                top: 40%;
+                width: 60px;
+                height: 80px;
+                background-color: #000;
+                background-color: rgba(0,0,0,0.8);
+                color: #fff;
+                text-align: center;
+                font-size: 40px;
+                line-height: 80px;
+            }
+            #left{
+                left: 0;
+            }
+            #right{
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="img">
+                <ul>
+                    <li class="show"><img src="img/1.jpg" alt=""></li>
+                    <li><img src="img/2.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                    <li><img src="img/5.jpg" alt=""></li>
+                </ul>
+            </div>
+
+            <div id="tab">
+                <ul>
+                    <li class="active">新英雄：沈梦溪</li>
+                    <li>新英雄：伽罗</li>
+                    <li>新皮肤：功夫厨神</li>
+                    <li>新英雄：盾山</li>
+                    <li>新皮肤：星夜王子·白起</li>
+                </ul>
+
+            </div>
+
+            <div id="left" class="button"> < </div>
+            <div id="right" class="button"> > </div>
+        </div>
+        
+        <script>
+
+            let aTabLi = document.querySelectorAll("#tab ul li"),
+                aImgLi = document.querySelectorAll("#img ul li"),
+                oBtnLeft = document.getElementById("left"),
+                oBtnRight = document.getElementById("right"),
+                len = aTabLi.length,
+                index = 0;
+
+            for (let i=0; i<len ; i++){
+                aTabLi[i].onclick = function () {
+
+                    aTabLi[i].className = "active";
+                    aTabLi[index].className = "";
+
+                    aImgLi[i].className = "show";
+                    aImgLi[index].className = "";
+
+                    index = i;
+                }
+            }
+            //切换图片
+            function a(x){
+                aImgLi[index].className = "";
+                aTabLi[index].className = "";
+                if(x===0){
+                    index--;
+                    if (index<0){
+                        index = 4;
+                    }
+
+                }else{
+                    index++;
+                    if (index>4){
+                        index = 0;
+                    }
+                }
+                aImgLi[index].className = "show";
+                aTabLi[index].className = "active";
+            }
+            oBtnLeft.onclick = function () {
+
+                a(0);
+
+            }
+
+            oBtnRight.onclick = function () {
+
+                a(1);
+
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

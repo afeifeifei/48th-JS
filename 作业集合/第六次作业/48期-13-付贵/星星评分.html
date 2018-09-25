@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>星星评分</title>
+    <style>
+            *{margin: 0;padding: 0;}
+            li{list-style: none;}
+            div{
+                width: 265px;
+                margin: 20px auto;
+            }
+            h5{
+                float: left;
+               line-height: 20px;
+            }
+            ul li{
+                float: left;
+                margin: 0 2px;
+            }
+    
+            li span{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url("images/star.png");
+                cursor: pointer;
+            }
+            li span.active{
+                cursor: pointer;
+                background: url("images/star.png") 20px 20px;
+            }
+            
+        </style>
+</head>
+<body>
+    <div>
+        <h5>星级评分:</h5>
+        <ul>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+            <li><span></span></li>
+        </ul>
+      
+    </div>
+    <script>
+        let olist=document.getElementsByTagName("li");
+            oSpan=document.getElementsByTagName("span"),
+            oUl=document.getElementsByTagName("ul")[0],
+            len=olist.length,
+            index=-1;
+            for (let i = 0; i <len; i++) {
+                oSpan[i].onmouseenter=function(){
+                    for (let j = 0; j < len; j++) {
+                        if(j<=i){
+                            oSpan[j].className="active";
+                        }else{
+                            oSpan[j].className="";
+                        }
+                    }
+                }
+                oUl.onmouseleave=function(){
+                    for (let j = 0; j < len; j++) {
+                        if(j<=index){
+                            oSpan[j].className="active";   
+                        }else{
+                            oSpan[j].className="";
+                        }
+                    }
+                }
+                olist[i].onclick=function(){
+                    index=i;
+                }
+            }
+    </script>
+</body>
+</html>

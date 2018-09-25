@@ -1,0 +1,103 @@
+@charset 'utf-8';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrap{
+    width: 600px;
+    margin: 50px auto 0;
+    background-color: pink;
+    font-size: 0;
+}
+
+.wrap .swipper-left{
+    float: left;
+    width: 100px;
+}
+
+.wrap .swipper-left ul li{
+    border: 1px solid #ccc;
+    background-color: #000;
+    font-size: 18px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.wrap .swipper-left ul .active{
+    background-color: #ff6f00;
+}
+
+.wrap .swipper-right{
+    float: right;
+    position: relative;
+    width: 500px;
+}
+
+.wrap .swipper-right>div{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 300px;
+    background-color: red;
+}
+
+.wrap .swipper-right>.show{
+    display: block;
+}
+
+.wrap .swipper-right .swipper-right-items li{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 300px;
+}
+
+.wrap .swipper-right .swipper-right-items .show{
+    display: block;
+}
+
+.wrap .swipper-right .swipper-right-items img{
+    width: 500px;
+    height: 300px;
+}
+
+.wrap .swipper-right .swipper-right-btns ul{
+    position: relative;
+    top: 250px;
+    left: 20px;
+    z-index: 1;
+}
+
+.wrap .swipper-right .swipper-right-btns li{
+    float: left;
+    width: 30px;
+    margin-right: 10px;
+    background-color: #000;
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.wrap .swipper-right .swipper-right-btns .active{
+     background-color: #ff6f00;
+ }

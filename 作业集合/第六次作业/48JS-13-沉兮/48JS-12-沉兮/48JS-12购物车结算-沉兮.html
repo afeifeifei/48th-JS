@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+        body, dl, dd, p, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+        ol, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+            border: none;
+        }
+        #wrap{
+            position: relative;
+            width: 1000px;
+            height: 700px;
+            margin: 60px auto;
+            border: 1px solid darkblue;
+            user-select: none;
+        }
+        #wrap .top{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid burlywood;
+        }
+        #wrap .bottom{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            border-top: 1px solid burlywood;
+            line-height: 50px;
+        }
+        #wrap .bottom p{
+            position: absolute;
+            right: 50px;
+        }
+        #wrap .bottom p.sl{
+            right: 340px;
+        }
+        #wrap .bottom p.tot{
+            right: 170px;
+        }
+        #wrap ul li{
+            position: absolute;
+            width: 100%;
+            height: 200px;
+        }
+        #wrap ul li:nth-child(1){
+            top: 50px;
+        }
+        #wrap ul li:nth-child(2){
+            top: 250px;
+        }
+        #wrap ul li:nth-child(3){
+            top: 450px;
+        }
+        #wrap ul li img{
+            width: 150px;
+            height: 150px;
+            margin: 25px 50px;
+        }
+        #wrap ul li img,#wrap ul li p,#wrap ul li button{
+            float: left;
+        }
+        #wrap ul li p{
+            margin: 90px 150px;
+        }
+        #wrap ul li button{
+            position: absolute;
+            right: 0;
+            top: 90px;
+        }
+        #wrap ul li button.jia{
+            right: 120px;
+        }
+        #wrap ul li button.jian{
+            right: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+         <div class="top">
+             <p></p>
+             <p></p>
+         </div>
+        <ul>
+            <li>
+                <img src="1.png" width="800" height="800">
+                <p>单价 80</p>
+                <p>数量：<span>0</span></p>
+                <button class="jia">+</button>
+                <button class="jian">-</button>
+            </li>
+            <li>
+                <img src="2.jpg" width="800" height="800">
+                <p>单价 120</p>
+                <p>数量：<span>0</span></p>
+                <button class="jia">+</button>
+                <button class="jian">-</button>
+            </li>
+            <li>
+                <img src="3.png" width="800" height="800">
+                <p>单价 90</p>
+                <p>数量：<span>0</span></p>
+                <button class="jia">+</button>
+                <button class="jian">-</button>
+            </li>
+        </ul>
+        <div class="bottom">
+            <p class="sl">数量：<span></span></p>
+            <p class="tot">总计：<span></span></p>
+        </div>
+    </div>
+    <script>
+        let oWrap = document.getElementById("wrap"),
+            aSpan = document.querySelectorAll("#wrap ul li p span"),
+            aBtnJia = document.querySelectorAll("#wrap ul li .jia"),
+            aBtnJian = document.querySelectorAll("#wrap ul li .jian"),
+            oSl = document.querySelector("#wrap .bottom .sl span"),
+            aTot = document.querySelector("#wrap .bottom .tot span");
+        let sum = 0,
+            num = 0;
+        let aSum = [
+            0,
+            0,
+            0
+        ];
+        let dj = [
+            80,
+            120,
+            90
+        ];
+        function jia(a) {
+            aSum[a] = aSum[a]+1;
+            aSpan[a].innerHTML = aSum[a];
+            sum = sum+1;
+            console.log(sum);
+            oSl.innerHTML = sum;
+            num = aSum[0]*dj[0]+aSum[1]*dj[1]+aSum[2]*dj[2];
+            aTot.innerHTML = num;
+        }
+        function jian(b) {
+            aSum[b] = aSum[b]-1;
+            aSpan[b].innerHTML = aSum[b];
+            sum = sum-1;
+            oSl.innerHTML = sum;
+            num = num-dj[b];
+            aTot.innerHTML = num;
+        }
+        for (let x = 0;x<3;x++){
+            aBtnJia[x].onclick = function () {
+                jia(x);
+            };
+            aBtnJian[x].onclick = function () {
+                jian(x);
+            }
+        }
+    </script>
+</body>
+</html>

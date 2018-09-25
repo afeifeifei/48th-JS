@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            div{
+                width: 702px;
+                margin: 20px auto;
+                border: 1px solid #c5c5c5;
+            }
+            #wrap ul{
+                display: inline-block;
+            }
+            ul li{
+                width: 70px;
+                margin: 3px;
+                border: 1px solid blue;
+                line-height: 30px;
+                text-align: center;
+            }
+            #multiplication ul li{
+                display:inline-block;
+            }
+
+
+
+
+            /**-----------------------------------
+            /*table {*/
+                /*border-collapse: collapse;*/
+            /*}*/
+            /*table tr td{*/
+                /*width: 50px;*/
+                /*border: 1px solid blue;*/
+                /*line-height: 30px;*/
+                /*text-align: center;*/
+            /*}*/
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        <div id="multiplication"></div>
+        <!--<table>-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1*1=1</td>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1*2=1</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>2*2=1</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--</table>-->
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                mUtl =document.getElementById("multiplication");
+            for (let x = 1;x<10;x++) {
+                let list='';
+                for (let y = x; y <10; y++) {
+                    let sum = y * x;
+                    list +=`<li>${x}*${y}=${sum}</li>`;
+                }
+                let listUl =`<ul>${list}</ul>`;
+                    //99乘法表一
+                oWrap.innerHTML+=listUl;
+                    //99乘法表二
+                mUtl.innerHTML+=listUl;
+            }
+
+
+            //---------------------------------
+            // for (let x=1;x<=9;x++){
+            //     let list ='';
+            //     for (let y = 1; y <=x; y++) {
+            //         let sum =x*y;
+            //         list +=`<td>${x}*${y}=${sum}</td>`;
+            //     }
+            //     let listTr =`<tr>${list}</tr>`;
+            //     document.getElementsByTagName("table")[0].innerHTML +=listTr;
+            // }
+            // for (let x=1;x<=9;x++){
+            //     let list ='';
+            //     for (let y = x; y <=9; y++) {
+            //         let sum =x*y;
+            //         list +=`<td>${x}*${y}=${sum}</td>`;
+            //     }
+            //     let listTr =`<tr>${list}</tr>`;
+            //     document.getElementsByTagName("table")[0].innerHTML +=listTr;
+            // }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

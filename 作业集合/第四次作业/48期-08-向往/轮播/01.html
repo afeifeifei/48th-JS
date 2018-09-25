@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        li,
+        p {
+            margin:0;
+            padding:0;
+        }
+        li {
+            list-style:none;
+        }
+        .box {
+            width:500px;
+            margin:0 auto;
+        }
+        .img-box {
+            position:relative;
+        }
+        #img-list li {
+            display:none;
+            overflow:hidden;
+            text-align: center;
+            height:400px;
+        }
+        #img-list li img {
+            height:100%;
+            position:relative;
+            left:50%;
+            -moz-transform:translateX(-50%);
+            -ms-transform:translateX(-50%);
+            -webkit-transform:translateX(-50%);
+            -o-transform:translateX(-50%);
+            transform:translateX(-50%);
+        }
+        .img-num,
+        .img-dy {
+            position:absolute;
+            left:0;
+            width:100%;
+            font-size:14px;
+            text-align:center;
+            background:rgba(0, 0, 0, 0.3);
+            color:#fff;
+            z-index: 999;
+            line-height:30px;
+        }
+        .img-num {
+            top:0;
+        }
+        .img-dy {
+            bottom:0;
+        }
+        .btn a {
+            display:inline-block;
+            vertical-align: top;
+            width:100px;
+            height:30px;
+            line-height:30px;
+            border:1px solid #333;
+            text-decoration:none;
+            color:#333;
+            margin:0 6px;
+            font-size:14px;
+            -moz-transition:all .3s;
+            -ms-transition:all .3s;
+            -webkit-transition:all .3s;
+            -o-transition:all .3s;
+            transition:all .3s;
+        }
+        .btn a:hover,
+        .btn a.on {
+            background:#333;
+            color:#fff;
+        }
+        .btn {
+            text-align:center;
+            font-size:0;
+            margin-top:30px;
+        }
+        .prev,
+        .next {
+            position:absolute;
+            top:50%;
+            -moz-transform:translateY(-50%);
+            -ms-transform:translateY(-50%);
+            -webkit-transform:translateY(-50%);
+            -o-transform:translateY(-50%);
+            transform:translateY(-50%);
+            font-size:14px;
+            line-height:50px;
+            width:30px;
+            text-align:center;
+            background:rgba(255,255,255,0.5);
+            cursor: pointer;
+            -moz-transition:all .3s;
+            -ms-transition:all .3s;
+            -webkit-transition:all .3s;
+            -o-transition:all .3s;
+            transition:all .3s;
+            z-index: 999;
+            color:#333;
+        }
+        .prev:hover,
+        .next:hover {
+            background:rgba(255,255,255,0.8);
+        }
+        .prev {
+            left:0;
+        }
+        .next {
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img-box">
+            <ul id="img-list">
+                <li>
+                    <img src="img/01.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/02.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/03.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/04.jpg" alt="">
+                </li>
+                <li>
+                    <img src="img/05.jpg" alt="">
+                </li>
+            </ul>
+            <div class="prev">&lt;</div>
+            <div class="next">&gt;</div>
+            <p class="img-num"></p>
+            <p class="img-dy"></p>
+        </div>
+        <div class="btn">
+            <a href="javascript:;">单次</a>
+            <a href="javascript:;">循环</a>
+        </div>
+    </div>
+    <script>
+        let arr=["第一张图片","第二张图片","第三张图片","第四张图片","第五张图片"];
+        let i=0;
+        let imgBox=document.getElementById("img-list");
+        let imgs=imgBox.getElementsByTagName("li");
+        let num=document.getElementsByClassName("img-num")[0];
+        let dy=document.getElementsByClassName("img-dy")[0];
+        let btn=document.getElementsByClassName("btn")[0];
+        let btns=btn.getElementsByTagName("a");
+        let oprev=document.getElementsByClassName("prev")[0];
+        let onext=document.getElementsByClassName("next")[0];
+        let old=null;
+        let flag=false; 
+        let len=imgs.length;       
+        
+        btns[0].className="on";
+        btns[0].onclick=function(){
+            flag=false;
+            btns[1].className="";
+            this.className="on";
+        }
+        btns[1].onclick=function(){
+            flag=true;
+            this.className="on";
+            btns[0].className="";
+        }
+        function move(){
+            if(old!==null) {
+                imgs[old].style.display="none";
+            }
+            imgs[i].style.display="block";
+            num.innerHTML=i+1+"/"+len;
+            dy.innerHTML=arr[i];
+            old=i;
+        }
+        move();
+        onext.onclick=function(){
+            i++;
+            if(i>=len) {
+                if(flag) {
+                  i=0;  
+                }else {
+                    i=len-1;
+                }
+            }
+            move();
+        }
+        oprev.onclick=function(){
+            i--;
+            if(i<0) {
+                if(flag) {
+                    i=len-1;
+                }else {
+                    i=0;
+                }
+            }
+            move();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="48期-独夫">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 506px;
+                height: 100%;
+                margin: 0 auto;
+            }
+            #wrap #text{
+                width: 500px;
+                height: 100%;
+                margin : 50px auto 0;
+
+            }
+            #wrap #btn{
+                margin-left: 463px;
+            }
+            #wrap #ul{
+                widht: 505px;
+                height: 100%;
+            }
+            #wrap #ul li{
+                padding: 7px 20px;
+                border-bottom: 2px dotted black;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+        <textarea id='text' rows="6" cols="80"></textarea>
+            <button id="btn">提交</button>
+            <ul id="ul"></ul>
+        </div>
+        <script>
+            let btn = document.getElementById('btn');
+            let oText = document.getElementById('text');
+            let oUl = document.getElementById('ul');
+            btn.onclick = function(){
+                oUl.innerHTML += "<li>" + oText.value + '</li>';
+                oText.value = '';
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

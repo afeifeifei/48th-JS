@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display:inline-block;
+            width:80px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            font-size:14px;
+            color:#333;
+            border:1px solid #333;
+            margin:0 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        let box=document.getElementsByClassName("box")[0];
+        let str="";
+        for(let i=1;i<10;i++) {
+            str+="<p>"
+            for(let j=1;j<=i;j++){
+                str+="<span>"+i+"*"+j+"="+i*j+"</span>";
+            }
+            str+="</p>"
+        }
+        str+="<hr/>"
+        box.innerHTML=str;
+    </script>
+</body>
+</html>

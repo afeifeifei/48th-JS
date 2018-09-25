@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            *{
+                margin:0;
+                padding:0;
+                border:0;
+            }
+            #wrap{
+                position:relative;
+                top:80px;
+                margin:auto;
+                width:1250px;
+                height:700px;
+            }
+            #wrap #sheet{
+                width:100%;
+                height:580px;
+                border:1px solid red;
+            }
+            #wrap #sheet tr td img{
+                width:100px;
+                height:100px;
+                vertical-align:middle;
+            }
+            #wrap #sheet .header td{
+                width:310px;
+                height:65px;
+                line-height:65px;
+                text-align:center;
+                font-size:16px;
+                color:white;
+                font-weight:bold;
+                border:1px solid red;
+                background-color:#CB3365;
+            }
+            #wrap #sheet tr td{
+                width:310px;
+                height:125px;
+                line-height:125px;
+                text-align:center;
+                font-size:16px;
+                color:black;
+                font-weight:bold;
+                border:1px solid red;
+            }
+            #wrap #sheet tr td div{
+                width:30px;
+                height:30px;
+                text-align:center;
+                font-size:16px;
+                font-weight:bold;
+                line-height:30px;
+                background-color:#dddddd;
+            }
+            #wrap #sheet tr td .input{
+                display:inline-block;
+                width:80px;
+                height:28px;
+                line-height:28px;
+                text-align:center;
+                border:1px solid #dddddd;
+            }
+            #wrap #sheet div,#wrap #sheet p{
+                display:inline-block;
+            }
+            #footer{
+                margin-top:15px;
+                width:1250px;
+                height:50px;
+                background-color:#CB3365;
+            }
+            #footer p{
+                float:right;
+                margin:0 50px;
+                font-size:16px;
+                color:white;
+                font-weight:bold;
+                line-height:50px;
+            }
+            #footer p span{
+                margin:0 15px;
+                font-size:16px;
+                color:yellow;
+                font-weight:bold;
+                line-height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <table id="sheet">
+                <tr class="header">
+                    <td>商品</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>小计</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="shop1.jpg"/>
+                    </td>
+                    <td>8</td>
+                    <td>
+                        <div class="minus">-</div>
+                        <p class="input">0</p>
+                        <div class="plus">+</div>
+                    </td>
+                    <td>
+                        <p class="sum">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="shop2.jpg"/>
+                    </td>
+                    <td>10</td>
+                    <td>
+                        <div class="minus">-</div>
+                        <p class="input">0</p>
+                        <div class="plus">+</div>
+                    </td>
+                    <td>
+                        <p class="sum">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="shop3.jpg"/>
+                    </td>
+                    <td>12.5</td>
+                    <td>
+                        <div class="minus">-</div>
+                        <p class="input">0</p>
+                        <div class="plus">+</div>
+                    </td>
+                    <td>
+                        <p class="sum">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="shop4.jpg"/>
+                    </td>
+                    <td>23</td>
+                    <td>
+                        <div class="minus">-</div>
+                        <p class="input">0</p>
+                        <div class="plus">+</div>
+                    </td>
+                    <td>
+                        <p class="sum">0</p>
+                    </td>
+                </tr>
+            </table>
+            <div id="footer">
+                <p>合计费用：<span id="_total">0</span>￥</p>
+                <p>已选中商品：<span id="_amount">0</span>个</p>
+            </div>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                oSheet = document.getElementById("sheet"),
+                oMinus = document.getElementsByClassName("minus"),
+                oPlus = document.getElementsByClassName("plus"),
+                oInput = document.getElementsByClassName("input"),
+                oSum = document.getElementsByClassName("sum"),
+                oAmount = document.getElementById("_amount"),
+                oTotal = document.getElementById("_total");
+
+            let price = [8,10,12.5,23];
+            let _input = [0,0,0,0];
+            let _sum = [0,0,0,0];
+
+            let amount = 0;
+            let total = 0;
+            for(let i = 0;i<4;i++){
+                oPlus[i].onclick = function(){
+                    _input[i]++;
+                    _sum[i]+=price[i];
+                    amount++;
+                    total += price[i];
+                    oInput[i].innerText = _input[i];
+                    oSum[i].innerText = _sum[i];
+                    oAmount.innerText = amount;
+                    oTotal.innerText = total;
+                }
+                oMinus[i].onclick = function(){
+                    _input[i]--;
+                    _sum[i]-=price[i];
+                    amount--;
+                    total -= price[i];
+                    oInput[i].innerText = _input[i];
+                    oSum[i].innerText = _sum[i];
+                    oAmount.innerText = amount;
+                    oTotal.innerText = total;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

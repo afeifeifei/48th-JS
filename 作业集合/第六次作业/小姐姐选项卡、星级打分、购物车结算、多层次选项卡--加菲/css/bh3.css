@@ -1,0 +1,118 @@
+
+.tab{
+    display: none;
+    position: absolute;
+    width:100%;
+    height:900px;
+    top:0;
+    left:0;
+}
+#picture .show{
+    display:block;
+}
+.tab0{
+    position: relative;
+    background: url("../images/tab1.jpg") no-repeat;
+    animation:tab0-bg-move 40s infinite linear;
+}
+@keyframes tab0-bg-move{
+    0%{
+        background-position-x:0%;
+    }
+    100%{
+        background-position-x:100%;
+    }
+}
+.tab0 .tab0-pic1{
+    position: absolute;
+    width:400px;
+    height: 700px;
+    background: url("../images/tab1_1.png") no-repeat;
+    bottom:0px;
+    left: 25%;
+}
+.tab0 .tab0-pic2{
+    position: absolute;
+    width:400px;
+    height: 288px;
+    background: url("../images/tab1_2.png") no-repeat;
+    background-size: 400px 288px;
+    top: 200px;
+    left: 57%;
+}
+.tab0 .tab0-pic3{
+    position: absolute;
+    width:422px;
+    height: 146px;
+    background: url("../images/tab1_3.png") no-repeat;
+    background-size: 422px 146px;
+    bottom: 250px;
+    left: 41%;
+}
+.tab1{
+    background: url("../images/tab2.jpg") no-repeat;
+}
+.tab2{
+    background: url("../images/tab3.jpg") no-repeat;
+}
+.tab3{
+    background: url("../images/tab4.jpg") no-repeat;
+}
+.tab4{
+    background: url("../images/tab5.jpg") no-repeat;
+}
+.nav{
+    position: absolute;
+    top:0;
+    left:calc(50% - 380px);
+
+}
+.nav li{
+    display: inline-block;
+    width: 125px;
+    height: 50px;
+    margin: 30px 10px;
+    border: 2px solid #00c3ff;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 47px;
+    text-align: center;
+    background-color: rgba(0,0,0,.25);
+    transform: skew(-10deg);
+}
+.nav li:hover{
+    border-color: #ffae2f;
+}
+.nav li a span{
+    vertical-align: middle;
+}
+.nav li a span text{
+    display: block;
+    color:#ffffff;
+    transform: skew(10deg);
+}
+.nav .active{
+    background-color:#00c3ff;
+}
+.nav .active a span text {
+    color:#000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

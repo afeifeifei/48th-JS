@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .wrap{
+            width:900px;
+            margin:10px 0;
+            border:1px solid red;
+
+        }
+       span{
+           display:inline-block;
+           width: 80px;
+           height: 30px;
+           margin:5px;
+           border:1px solid gray;
+       }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <div class="wrap"></div>
+    <div class="wrap"></div>
+    <div class="wrap"></div> 
+    <script>
+        let wrap = document.getElementsByClassName("wrap");
+        for (let i = 1; i <=9; i++) {
+            for (let j = 1; j <=i; j++) {
+                wrap[0].innerHTML +="<span>"+i+"*"+j+"="+i*j+"</span>"  
+            }
+            wrap[0].innerHTML +="</br>"
+        } 
+        for (let a = 9; a >0; a--) {
+            for (let b= a; b>0; b--) {
+                wrap[1].innerHTML +="<span>"+a+"*"+b+"="+a*b+"</span>"  
+            }
+            wrap[1].innerHTML +="</br>"
+        } 
+        for (let i = 9; i>0; i--) {
+            for (let j = 9; j>=i; j--) {
+                wrap[2].innerHTML +="<span>"+i+"*"+j+"="+i*j+"</span>";  
+               
+            }
+            wrap[2].innerHTML +="</br>";
+        } 
+        for (let i = 1; i <=9; i++) {
+            for (let j = 9; j >=i; j--) {
+                wrap[3].innerHTML +="<span>"+i+"*"+j+"="+i*j+"</span>"  
+            }
+            wrap[3].innerHTML +="</br>"
+        }
+    </script>
+</body>
+</html>

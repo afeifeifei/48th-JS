@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap{
+                position: relative;
+                width: 550px;
+                height: 350px;
+                margin: 50px auto;
+            }
+            #wrap>ul{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100px;
+                background-color: #000;
+            }
+            #wrap>ul>li{
+                width: 100px;
+                margin: 10px 0 10px;
+                color: red;
+                font-size: 14px;
+                font-weight: bolder;
+                line-height: 30px;
+                text-align: center;
+                cursor:pointer;
+            }
+            #wrap>ul>li.show{
+                color: #fff;
+                background-color: cornflowerblue;
+            }
+            #wrap>div,#wrap div ul li{
+                display: none;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 450px;
+                height: 270px;
+            }
+            #wrap div.of{
+                display: block;
+            }
+            #wrap div ul li{
+                left: 0;
+            }
+            #wrap div ul li.on{
+                display: block;
+                background-color: chartreuse;
+                color: #000;
+            }
+            #wrap div ul li img{
+                width: 100%;
+                height: 100%;
+            }
+            #wrap div .tab{
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 220px;
+                height: 30px;
+            }
+            #wrap div .tab ul li{
+                position: relative;
+                left: 0;
+                top: 0;
+                z-index: auto;
+                width: 30px;
+                height: 30px;
+                background-color: #6354ff;
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            #wrap div .tab ul li{
+                display: inline-block;
+            }
+            #wrap div .tab ul li.onn{
+                background-color: chartreuse;
+                color: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="btn">
+                <li class="show">英雄联盟</li>
+                <li>地下城与勇士</li>
+                <li>QQ飞车</li>
+            </ul>
+            <div class="img of">
+                <ul class="imglist_1">
+                    <li class="on"><img src="images/1.jpg" height="330" width="780"/></li>
+                    <li><img src="images/2.jpg" height="330" width="780"/></li>
+                    <li><img src="images/3.jpg" height="330" width="780"/></li>
+                    <li><img src="images/4.jpg" height="330" width="780"/></li>
+                    <li><img src="images/5.jpg" height="330" width="780"/></li>
+                </ul>
+                <div class="tab">
+                    <ul class="list_1">
+                        <li class="onn">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="img">
+                <ul class="imglist_2">
+                    <li class="on"><img src="images/6.jpg" height="270" width="450"/></li>
+                    <li><img src="images/7.jpg" height="270" width="450"/></li>
+                    <li><img src="images/8.jpg" height="270" width="450"/></li>
+                    <li><img src="images/9.jpg" height="270" width="450"/></li>
+                    <li><img src="images/10.jpg" height="270" width="450"/></li>
+                    <li><img src="images/11.jpg" height="270" width="450"/></li>
+                </ul>
+                <div class="tab">
+                    <ul class="list_2">
+                        <li class="onn">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="img">
+                <ul class="imglist_3">
+                    <li class="on"><img src="images/12.jpg" height="253" width="497"/></li>
+                    <li><img src="images/13.jpg" height="253" width="497"/></li>
+                    <li><img src="images/14.jpg" height="253" width="497"/></li>
+                    <li><img src="images/15.jpg" height="253" width="495"/></li>
+                </ul>
+                <div class="tab">
+                    <ul class="list_3">
+                        <li class="onn">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            let aBtn = document.querySelectorAll("#wrap .btn li"),
+                aImg = document.querySelectorAll("#wrap .img"),
+                aTp_1 = document.querySelectorAll("#wrap .img .imglist_1 li"),
+                aTp_2 = document.querySelectorAll("#wrap .img .imglist_2 li"),
+                aTp_3 = document.querySelectorAll("#wrap .img .imglist_3 li"),
+                aTab_1 = document.querySelectorAll("#wrap .img .tab .list_1 li"),
+                aTab_2 = document.querySelectorAll("#wrap .img .tab .list_2 li"),
+                aTab_3 = document.querySelectorAll("#wrap .img .tab .list_3 li"),
+                index = 0,//用来控制左边三个选项
+                sum = 0, //用来控制LOL的五个选项
+                num = 0, //用来控制DNF的六个选项
+                smm = 0; //用来控制飞车的4个选项
+            //给左边三个选项添加点击事件
+            for (let i=0,len =aBtn.length;i<len;i++){
+                aBtn[i].onclick = function () {
+                    if( index == i )return;  //当只有当重复点击当前显示的tab时，不执行下面代码
+                    aBtn[index].className = ""; //清除当前显示的tab样式
+                    aImg[index].className = "img";//清除显示当前的窗口
+                    aBtn[i].className = "show";  //显示当前Tab样式
+                    aImg[i].className = "img of";//显示当前窗口
+                    index = i;
+                }
+            }
+            //给LoL界面的Tab添加点击事件
+            for (let x=0,len_1 =aTab_1.length;x<len_1;x++) {
+                aTab_1[x].onclick = function () {
+                    if( sum == x )return;
+                    aTp_1[sum].className = "";
+                    aTab_1[sum].className = "";
+                    aTp_1[x].className = "on";
+                    aTab_1[x].className = "onn";
+                    sum = x;
+                }
+            }
+            //给DNF界面的Tab添加点击事件
+            for (let j=0,len_2=aTp_2.length;j<len_2;j++) {
+                aTab_2[j].onclick = function () {
+                    if( num == j )return;
+                    aTp_2[num].className = "";
+                    aTab_2[num].className = "";
+                    aTp_2[j].className = "on";
+                    aTab_2[j].className = "onn";
+                    num = j;
+                }
+            }
+            //给飞车界面的Tab添加点击事件
+            for (let y=0,len_3=aTp_3.length;y<len_3;y++) {
+                aTab_3[y].onclick = function () {
+                    if( smm == y )return;
+                    aTp_3[smm].className ="";
+                    aTab_3[smm].className ="";
+                    aTp_3[y].className = "on";
+                    aTab_3[y].className = "onn";
+                    smm = y;
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

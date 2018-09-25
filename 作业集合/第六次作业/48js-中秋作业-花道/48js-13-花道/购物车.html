@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saikikoko</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="Saikikoko">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width: 1000px;
+                height: 520px;
+                margin: 50px auto;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            #wrap ul{
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                width: 100%;
+                height: 455px;
+                border: 1px solid #000;
+                border-bottom: none;
+                border-right: none;
+            }
+            #wrap ul li{
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border: 1px solid #000;
+                border-top: none;
+                border-left: none;
+                text-align: center;
+            }
+            #wrap ul li:first-child{
+                height: 50px;
+                background-color: #c36;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 700;
+            }
+            #wrap ul li:nth-child(n+2){
+                height: calc( (100% - 50px)/4 );
+            }
+            #wrap ul li div{
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                float: left;
+                width: 25%;
+                height: 100%;
+                border-right: 1px solid #000;
+            }
+            #wrap ul li:first-child div{
+                line-height: 50px;
+            }
+            #wrap ul li:nth-child(n+2) div{
+                line-height: 100px;
+            }
+            #wrap ul li div:last-child{
+                border-right: none;
+            }
+            #wrap ul li div img{
+                width: auto;
+                height: 70px;
+                vertical-align: middle;
+            }
+            #wrap ul li div span{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                margin-top: 35px;
+                background-color: #ddd;
+                line-height: 30px;
+                cursor: pointer;
+            }
+            #wrap ul li div span.num{
+                width: 57px;
+                height: 28px;
+                line-height: 28px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-left: none;
+                border-right: none;
+                cursor: default;
+            }
+            #wrap .foot{
+                width: 100%;
+                height: 50px;
+                margin-top: 15px;
+                background-color: #c36;
+            }
+            #wrap .foot p{
+                float: left;
+                width: 250px;
+                height: 100%;
+                color: #fff;
+                line-height: 50px;
+            }
+            #wrap .foot #select{
+                margin-left: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li>
+                    <div>商品</div>
+                    <div>单价</div>
+                    <div>数量</div>
+                    <div>小计</div>
+                </li>
+                <li>
+                    <div><img src="image/1.jpg" alt=""></div>
+                    <div class="price">8699</div>
+                    <div class="number">
+                        <span class="down">-</span><span class="num">0</span><span class="add">+</span>
+                    </div>
+                    <div class="xiaoji">0</div>
+                </li>
+                <li>
+                    <div><img src="image/2.jpg" alt=""></div>
+                    <div class="price">10000</div>
+                    <div class="number">
+                        <span class="down">-</span><span class="num">0</span><span class="add">+</span>
+                    </div>
+                    <div class="xiaoji">0</div>
+                </li>
+                <li>
+                    <div><img src="image/3.jpg" alt=""></div>
+                    <div class="price">3000</div>
+                    <div class="number">
+                        <span class="down">-</span><span class="num">0</span><span class="add">+</span>
+                    </div>
+                    <div class="xiaoji">0</div>
+                </li>
+                <li>
+                    <div><img src="image/5.jpg" alt=""></div>
+                    <div class="price">5880</div>
+                    <div class="number">
+                        <span class="down">-</span><span class="num">0</span><span class="add">+</span>
+                    </div>
+                    <div class="xiaoji">0</div>
+                </li>
+            </ul>
+            <div class="foot"><p id="select">已选中商品：<span>0</span> 个</p><p id="sum">合计费用：<span>0</span> ￥</p></div>
+        </div>
+        
+        <script>
+
+            let aAdd = document.getElementsByClassName("add"),
+                aNum = document.getElementsByClassName("num"),
+                aDown = document.getElementsByClassName("down"),
+                aPrice = document.getElementsByClassName("price"),
+                aXiaoji = document.getElementsByClassName("xiaoji"),
+                oSelect = document.querySelector("#select span"),
+                oSum = document.querySelector("#sum span"),
+                len = aAdd.length;
+
+            function sum(){
+                let x = 0,
+                    y = 0;
+                for (let i=0;i<len;i++){
+                    x += Number(aNum[i].innerHTML);
+                    y += Number(aXiaoji[i].innerHTML);
+                }
+                oSelect.innerHTML = x;
+                oSum.innerHTML = y;
+            }
+
+            for ( let i=0;i<len;i++){
+                aAdd[i].onclick = function () {
+                    aNum[i].innerHTML = Number(aNum[i].innerHTML) + 1;
+                    aXiaoji[i].innerHTML = aPrice[i].innerHTML * aNum[i].innerHTML;
+                    sum();
+                }
+            }
+
+            for ( let i=0;i<len;i++){
+                aDown[i].onclick = function () {
+                    if(aNum[i].innerHTML == 0 )return;
+                    aNum[i].innerHTML = Number(aNum[i].innerHTML) - 1;
+                    aXiaoji[i].innerHTML = aPrice[i].innerHTML * aNum[i].innerHTML;
+                    sum();
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

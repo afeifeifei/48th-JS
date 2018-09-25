@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wrap{
+            position: relative;
+            width: 1000px;
+            height: 500px;
+
+            margin: 50px auto;
+            user-select: none;
+        }
+        #w-top{
+            width: 100%;
+            height:50px;
+            background-color: #f60;
+        }
+        #w-top ul li{
+            float:left;
+            width: 250px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        #w-body ul li{
+            float: left;
+            width: 248px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 15px;
+            border: 1px solid #f60;
+        }
+        #w-body ul li img{
+            padding-top: 10px;
+        }
+        #w-body ul li button{
+            width: 30px;
+        }
+        #w-body ul li input{
+            width: 110px;
+        }
+        #w-body ul li h3{
+            display: inline-block;
+            font-size: 16px;
+            font-weight: normal;
+
+        }
+        
+        #w-bottom{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 48px;
+            background-color: #f60;
+        }
+        #w-bottom p{
+            float: right;
+            width: 220px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            margin-top:12px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!--上部分-->
+        <div id="w-top">
+            <ul>
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小计</li>
+            </ul>
+        </div>
+        <!--身体部分-->
+        <div id="w-body">
+            <ul>
+                <li><img src="images/1.jpg" width="90px" alt=""></li>
+                <li><span>20</span></li>
+                <li>
+                    <button class="rem" value="">-</button>
+                    <input type="text" value="0" >
+                    <button class="add" value="">+</button>
+                </li>
+                <li><h3>0</h3>元</li>
+            </ul>
+            <ul>
+                <li><img src="images/2.jpg" width="90px" alt=""></li>
+                <li><span>30</span></li>
+                <li>
+                    <button class="rem" value="">-</button>
+                    <input type="text" value="0" >
+                    <button class="add" value="">+</button>
+                </li>
+                <li><h3>0</h3>元</li>
+            </ul>
+            <ul>
+                <li><img src="images/3.jpg" width="70px" alt=""></li>
+                <li><span>50</span></li>
+                <li>
+                    <button class="rem" value="">-</button>
+                    <input type="text" value="0" >
+                    <button class="add" value="">+</button>
+                </li>
+                <li><h3>0</h3>元</li>
+            </ul>
+            <ul>
+                <li><img src="images/4.jpg" width="70px" alt=""></li>
+                <li><span>40</span></li>
+                <li>
+                    <button class="rem" value="">-</button>
+                    <input type="text" value="0" >
+                    <button class="add" value="">+</button>
+                </li>
+                <li><h3>0</h3>元</li>
+            </ul>
+        </div>
+        <!--下部分-->
+        <div id="w-bottom">
+            <p>合计费用￥<span>0</span>元</p>
+            <p>已选择商品<span>0</span>个</p>
+        </div>
+    </div>
+    <script>
+        let aJiage = document.getElementsByTagName("span"),//获取商品单价和商品总数量 商品总数量
+            aRem =document.getElementsByClassName("rem"),
+            aAdd = document.getElementsByClassName("add"),
+            aInp = document.getElementsByTagName("input"),//获取input
+            aFy = document.getElementsByTagName("h3"),//获取小计的价格
+            len = aInp.length;
+
+
+       // console.log(aJiage);
+
+        for (let i = 0; i < len; i++){
+            //添加商品事件
+            aAdd[i].onclick = function () {
+                let j = aJiage[i].innerText,
+                    k = aInp[i].value;
+                k++;
+                aInp[i].value = k;
+                aFy[i].innerText = `${ k * j }`;
+                zongji();
+            }
+            //移除商品事件
+            aRem[i].onclick = function () {
+                let j = aJiage[i].innerText,
+                    k = aInp[i].value;
+                    k--;
+                if (k<=0){
+                    k=0;
+                }
+                    aInp[i].value = k;
+                    aFy[i].innerText = `${k * j}`;
+
+                    zongji()
+            }
+
+        }
+            //商品总数量和总价格
+        function zongji() {
+            let j = 0,
+                k = 0;
+            for (let i = 0; i < len; i++){
+                j += aInp[i].value * 1;
+                k += aFy[i].innerText * 1;
+            }
+            aJiage[5].innerHTML = j;
+            aJiage[4].innerHTML = k;
+        }
+
+    </script>
+</body>
+</html>

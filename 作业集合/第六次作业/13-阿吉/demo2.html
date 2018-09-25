@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body {
+            font-family: "Microsoft YaHei", serif;
+        }
+
+        body,
+        dl,
+        dd,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+
+        ol,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+        .clearfix{
+            content:'';
+            display: block;
+            clear:both;
+        }
+
+        #wrap {
+            width: 1000px;
+            height: 520px;
+            margin: 50px auto;
+        }
+
+        #wrap .account {
+            width: 100%;
+            height: 455px;
+            border-collapse: collapse;
+        }
+
+        #wrap .account img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #wrap .account td,
+        #wrap .account th {
+            width: 25%;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        #wrap .account thead tr {
+            height: 50px;
+            background-color: #cd3266;
+            color: #fff;
+        }
+        #wrap .account .account-num{
+            display: inline-block;
+            width:110px;
+            height:30px;
+            border:1px solid #ddd;
+        }
+        #wrap .account .account-num span{
+            float:left;
+            line-height:30px;
+        }
+        #wrap .account .account-num .add,#wrap .account .account-num .reduce{
+            width:30px;
+            height:100%;
+            background-color: #ddd;
+            cursor:pointer;
+            user-select: none;
+        }
+        #wrap .account .account-num .single-num{
+            width:50px;
+            height:100%;
+        }
+
+        #wrap .totle {
+            height: 50px;
+            margin-top: 10px;
+            background-color: #cd3266;
+            color: #fff;
+        }
+
+        #wrap .totle p {
+            display: inline-block;
+            line-height: 50px;
+        }
+
+        #wrap .totle p:nth-child(1) {
+            margin-left: 500px;
+        }
+
+        #wrap .totle p:nth-child(2) {
+            margin-left: 125px;
+        }
+
+        #wrap .totle .totle-num {
+            color: #f8e5a9;
+        }
+
+        #wrap .totle .cssmoney {
+            color: #000;
+            background-color: #b6768b;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <table class='account'>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="images/1.jpg" width='800' height='800' alt=""></td>
+                    <td class='account-money'>111</td>
+                    <td>
+                        <div class='account-num clearfix'>
+                            <span class='reduce'>-</span>
+                            <span class='single-num'>0</span>
+                            <span class='add'>+</span>
+                        </div>
+                    </td>
+                    <td class='single-totle'>0</td>
+                </tr>
+                <tr>
+                    <td><img src="images/2.jpg" width='800' height='800' alt=""></td>
+                    <td class='account-money'>222</td>
+                    <td>
+                        <div class='account-num clearfix'>
+                            <span class='reduce'>-</span>
+                            <span class='single-num'>0</span>
+                            <span class='add'>+</span>
+                        </div>
+                    </td>
+                    <td class='single-totle'>0</td>
+                </tr>
+                <tr>
+                    <td><img src="images/3.jpg" width='800' height='800' alt=""></td>
+                    <td class='account-money'>333</td>
+                    <td>
+                        <div class='account-num clearfix'>
+                            <span class='reduce'>-</span>
+                            <span class='single-num'>0</span>
+                            <span class='add'>+</span>
+                        </div>
+                    </td>
+                    <td class='single-totle'>0</td>
+                </tr>
+                <tr>
+                    <td><img src="images/4.jpg" width='800' height='800' alt=""></td>
+                    <td class='account-money'>444</td>
+                    <td>
+                        <div class='account-num clearfix'>
+                            <span class='reduce'>-</span>
+                            <span class='single-num'>0</span>
+                            <span class='add'>+</span>
+                        </div>
+                    </td>
+                    <td class='single-totle'>0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class='totle'>
+            <p>已选中商品：<span class='totle-num'>0</span>个</p>
+            <p>合计费用：<span class='totle-money cssmoney'>0</span><span class='cssmoney'>￥</span></p>
+        </div>
+    </div>
+
+
+    <script>
+        let aSingleMoney=document.querySelectorAll("#wrap .account .account-money"),
+            aSingleNum=document.querySelectorAll("#wrap .account .single-num"),
+            aReduce=document.querySelectorAll("#wrap .reduce"),
+            aAdd=document.querySelectorAll("#wrap .add"),
+            aSingleTotle=document.querySelectorAll("#wrap .single-totle"),
+            oTotleNum=document.querySelector("#wrap .totle .totle-num"),
+            oTotleMoney=document.querySelector("#wrap .totle .totle-money"),
+            totleMoney=Number(oTotleMoney.innerText),
+            totleNum=Number(oTotleNum.innerText);
+
+        function add(i) {   //增加
+            let singleMoney=Number(aSingleMoney[i].innerText);
+            let singleTotle=Number(aSingleTotle[i].innerText);
+            let singleNum=Number(aSingleNum[i].innerText);
+            
+
+            aSingleTotle[i].innerText=singleTotle+singleMoney; //小计增加
+            aSingleNum[i].innerText=singleNum+1;//数量增加
+            totleNum+=1;
+            oTotleNum.innerText=totleNum;  //总数量
+            totleMoney+=singleMoney;
+            oTotleMoney.innerText=totleMoney; //总计增加
+        }
+
+        function reduce(i){   //减小
+            let singleNum=Number(aSingleNum[i].innerText);
+            if(singleNum>0){
+                let singleMoney=Number(aSingleMoney[i].innerText);
+                let singleTotle=Number(aSingleTotle[i].innerText);
+          
+                aSingleTotle[i].innerText=singleTotle-singleMoney; //小计增加
+                aSingleNum[i].innerText=singleNum-1;//数量增加
+                totleNum-=1;
+                oTotleNum.innerText=totleNum;  //总数量
+                totleMoney-=singleMoney;
+                oTotleMoney.innerText=totleMoney; //总计增加 
+            }
+        }
+        
+        for(let i=0,len=aAdd.length;i<len;i++){
+            aAdd[i].onclick=function(){    
+                add(i);   
+            }
+            aReduce[i].onclick=function(){
+                reduce(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

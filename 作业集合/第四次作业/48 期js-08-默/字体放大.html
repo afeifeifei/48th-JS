@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang"en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css"> 
+		p{ 
+			font-size: 14px;
+		}
+	</style>
+</head>
+    <body>
+ 			<h3>2武器分类编辑</h3>
+   <h4>“大规模杀伤性武器”一词最早出现于1937年，但是今天的大规模杀伤性武器一般只指以下三种（总称为NBC）：</h4>
+
+<h5>核武器</h5> 
+<button id="btn1">增加</button>   
+<button id="btn2">减小</button>
+	<div id="dv1">
+		<p>核武器的出现，是20世纪40年代前后科学技术重大发展的结果。1939年初，德国化学家O.哈恩和物理化学家F.斯特拉斯曼发表了铀原子核裂变现象的论文。几个星期内，许多国家的科学家验证了这一发现，并进一步提出有可能创造这种裂变反应自持进行的条件，从而开辟了利用这一新能源为人类创造财富的广阔前景。但是，同历史上许多科学技术新发现一样，核能的开发也被首先用于军事目的，即制造威力巨大的原子弹，其进程受到当时社会与政治条件的影响和制约。从1939年起，由于法西斯德国扩大侵略战争，欧洲许多国家开展科研工作日益困难。同年9月初，丹麦物理学家N.H.D.玻尔和他的合作者J.A.惠勒从理论上阐述了核裂变反应过程，并指出能引起这一反应的最好元素是同位素铀235。正当这一有指导意义的研究成果发表时，英、法两国向德国宣战。</p>
+
+		<p>1940年夏，德军占领法国。法国物理学家J.-F.约里奥-居里领导的一部分科学家被迫移居国外。英国曾制订计划进行这一领域的研究，但由于战争影响，人力物力短缺，后来也只能采取与美国合作的办法，派出以物理学家J.查德威克为首的科学家小组，赴美国参加由理论物理学家J.R.奥本海默领导的原子弹研制工作。</p>
+
+
+		<p>美国对日本投下的两颗原子弹，是以带降落伞的核航弹形式，用飞机作为运载工具的。以后，随着武器技术的发展，已形成多种核武器系统，包括弹道核导弹、巡航核导弹、防空核导弹、反导弹核导弹、反潜核火箭、深水核炸弹、核航弹、核炮弹、核地雷等。其中，配有多弹头的弹道核导弹，以及各种发射方式的巡航核导弹，是美、苏两国装备的主要核武器。</p>
+	</div>
+    </body>
+    <script>
+      let btn1=document.getElementById("btn1");
+      let btn2=document.getElementById("btn2");
+     	// let p1=document.getElementById("p1");
+      let pobjs=document.getElementById("dv1").getElementsByTagName("p");
+      let pfontsize=14;
+    		btn1.onclick=function(){ 
+    			for(let i=0;i<pobjs.length;i++){ 
+    			pobjs[i].style.fontSize=(++pfontsize)+"px";
+    			}
+    		};
+    		btn2.onclick=function(){ 
+    			for(let i=0;i<pobjs.length;i++){ 
+    			pobjs[i].style.fontSize=(--pfontsize)+"px";
+    			}
+    		};
+    
+     		
+    </script>
+      
+
+ </html>
+
+
+
+
+
+
+
+
+

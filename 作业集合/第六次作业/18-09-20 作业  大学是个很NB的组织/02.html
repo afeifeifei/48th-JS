@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评价</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+        }
+        #wrap{
+            position: relative;
+            width: 300px;
+            height: 500px;
+            margin: 30px auto;
+        }
+        #wrap ul li{
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin:15px 0 0 10px;
+            border: 1px solid red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        #wrap ul li.bgc{
+            background-color: red;
+        }
+        #wrap .box{
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 50px;
+            font-size: 16px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid red;
+        }
+        #wrap .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="box show">差评</div>
+        <div class="box">一般</div>
+        <div class="box">满意</div>
+        <div class="box">很满意</div>
+        <div class="box">非常满意</div>
+    </div>
+    <script>
+        let aLi = document.getElementsByTagName("li"),
+            aBox = document.getElementsByClassName("box"),
+            j =0,
+            len = aLi.length;
+
+            for (let i = 0 ; i < len; i++) {
+                aLi[i].onmouseenter = function () {
+                    if (i>=j){
+                        for (let k = i; k>=0; k--)
+                            aLi[k].className = "bgc";
+
+                    }
+                    aBox[i].className = "box show";
+                }
+                aLi[i].onmouseout = function () {
+                    if (i>j){
+                        for (let k = i; k>=0; k--)
+                            aLi[k].className = "";
+
+                    }
+                    aBox[i].className = "box";
+                }
+                aLi[i].onclick = function () {
+                    for (let z = 0; z < len; z++) {
+                        aLi[z].className = "";
+                    }
+                    for (let k = i; k >= 0; k--) {
+                        aLi[k].className = "bgc";
+
+                    }
+                    aBox[i].className = "box show";
+
+                    j=i;
+                }
+
+            }
+
+
+    </script>
+</body>
+</html>

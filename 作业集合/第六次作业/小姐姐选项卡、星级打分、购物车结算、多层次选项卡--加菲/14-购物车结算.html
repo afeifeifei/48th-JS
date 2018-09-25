@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <link rel='stylesheet' href='css/public.css'>
+        <style>
+            #wrap table{
+                width: 1000px;
+                height: 450px;
+                margin: 50px auto 0;
+                border-collapse: collapse;
+            }
+            #wrap table thead td{
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                vertical-align: middle;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: bold;
+                border-spacing: 0px;
+                border: 1px solid #8c000e;
+                background: #cb3365;
+            }
+            #wrap table tbody tr td{
+                width: 250px;
+                height: 100px;
+                /*line-height: 100px;*/
+                text-align: center;
+                border: 1px solid #8c000e;
+                font-size:16px;
+            }
+            #wrap table tbody tr td img{
+                height: 70px;
+                vertical-align: middle;
+            }
+            #wrap table tbody tr td div{
+                width: 115px;
+                height: 30px;
+                margin: 0 auto;
+            }
+            #wrap table tbody tr td .num{
+                display: block;
+                float: left;
+                width: 50px;
+                height: 28px;
+                line-height: 28px;
+                border: 1px solid #dddddd;
+                vertical-align: middle;
+                color: red;
+                font-size: 14px;
+            }
+            #wrap table tbody tr td .add,#wrap table tbody tr td .minus{
+                display: block;
+                float: left;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                vertical-align: middle;
+                background-color: #dddddd;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            #wrap .hj{
+                width: 1000px;
+                height: 50px;
+                margin: 10px  auto;
+                line-height: 50px;
+                text-align: right;
+                vertical-align: middle;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: bold;
+                border-spacing: 0px;
+                background: #cb3365;
+            }
+            #wrap .hj p{
+                display: inline-block;
+                width: 250px;
+                text-align: left;
+            }
+            #wrap .hj p span{
+                color:yellow;
+                padding: 0 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>小计</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/shop1.jpg" alt=""></td>
+                        <td><span class="unit-pric">8</span></td>
+                        <td>
+                            <div>
+                                <span class="minus">-</span>
+                                <span class="num">0</span>
+                                <span class="add">+</span>
+                            </div>
+                        </td>
+                        <td><span class="total-price">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop2.jpg" alt=""></td>
+                        <td><span class="unit-pric">10</span></td>
+                        <td>
+                            <div>
+                                <span class="minus">-</span>
+                                <span class="num">0</span>
+                                <span class="add">+</span>
+                            </div>
+                        </td>
+                        <td><span class="total-price">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop3.jpg" alt=""></td>
+                        <td><span class="unit-pric">12.5</span></td>
+                        <td>
+                            <div>
+                                <span class="minus">-</span>
+                                <span class="num">0</span>
+                                <span class="add">+</span>
+                            </div>
+                        </td>
+                        <td><span class="total-price">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/shop4.jpg" alt=""></td>
+                        <td><span class="unit-pric">23</span></td>
+                        <td>
+                            <div>
+                                <span class="minus">-</span>
+                                <span class="num">0</span>
+                                <span class="add">+</span>
+                            </div>
+                        </td>
+                        <td><span class="total-price">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="hj">
+                <p>已选中商品:<span id="hj-num">0</span>个</p>
+                <p>合计费用:<span id="hj-price">0</span>￥</p>
+            </div>
+        </div>
+        
+        <script>
+            let aMinus=document.querySelectorAll("#wrap table tbody tr td .minus"),
+                aAdd=document.querySelectorAll("#wrap table tbody tr td .add"),
+                aNum=document.querySelectorAll("#wrap table tbody tr td .num"),
+                aPrice=document.querySelectorAll("#wrap table tbody tr td .unit-pric"),
+                aTotal=document.querySelectorAll("#wrap table tbody tr td .total-price"),
+                oHjNum=document.getElementById("hj-num"),
+                oHjPrice=document.getElementById("hj-price");
+            for (let i = 0, length = aMinus.length; i < length; i++) {
+                aMinus[i].onclick=function () {
+                    return minus(i);
+                }
+                aAdd[i].onclick=function () {
+                    return add(i);
+                }
+            }
+            //减法
+            function minus(i) {
+                if (Number(aNum[i].innerHTML)>0){
+                    aNum[i].innerHTML = Number(aNum[i].innerHTML) - 1;
+                    sumHj();
+                }
+            }
+            //加法
+            function add(i) {
+                aNum[i].innerHTML = Number(aNum[i].innerHTML) + 1;
+                sumHj(i);
+            }
+            //计算合计
+            function sumHj(i) {
+                aTotal[i].innerHTML = Number(aPrice[i].innerHTML) * Number(aNum[i].innerHTML);
+                let sumNum=0;
+                for (let j = 0, length = aNum.length; j < length; j++) {
+                    sumNum += Number(aNum[j].innerHTML);
+                }
+                oHjNum.innerHTML=sumNum.toString();
+                let sumPrice=0;
+                for (let j = 0, length = aTotal.length; j < length; j++) {
+                    sumPrice += Number(aTotal[j].innerHTML);
+                }
+                oHjPrice.innerHTML=sumPrice.toString();
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>选项卡</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                 position:relative;
+                width:700px;
+                height:380px;
+                margin:50px auto 0;
+                -webkit-user-select:none;
+            }
+            #img{
+                position:relative;
+                width:100%;
+                height:330px;
+            }
+            img{
+                width:100%;
+                height:100%;
+            }
+            #img ul{
+                width:100%;
+                height:100%;
+            }
+            #img ul a{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+            #img ul li{
+                display:none;
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+            }
+            #img ul li.show{
+                display:block;
+            }
+            #tab{
+                width:100%;
+                height:50px;
+            }
+            #tab ul{
+                width:100%;
+                height:100%;
+            }
+             #tab li{
+                float:left;
+                width:20%;
+                height:50px;
+                line-height:50px;
+                text-align:center;
+                background-color:#000;
+                color:#eee;
+                cursor:pointer;
+            }
+            #tab li.active{
+               background-color:#999;
+               color:#f00; 
+            }
+            #btn div{
+                 position:absolute;
+                 top:50%;
+                 width:30px;
+                 height:30px;
+                 line-height:30px;
+                 text-align:center;
+                 font-size:16px;
+                 font-weight:bolder;
+                 color:#fff;
+                 background-color:rgba(0,0,0,.8);
+                 cursor:pointer;
+            }
+            #btn .left{
+                left:0;
+            }
+            #btn .right{
+                right:0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--图片部分-->
+            <div id="img">
+                <ul>
+                    <li class="show"><a href="#"><img src="images/1.jpeg"></a></li>
+                    <li><a href="#"><img src="images/2.jpeg"></a></li>
+                    <li><a href="#"><img src="images/3.jpeg"></a></li>
+                    <li><a href="#"><img src="images/4.jpeg"></a></li>
+                    <li><a href="#"><img src="images/5.jpeg"></a></li>
+                </ul>
+            </div>
+
+            <div id="tab">
+                <ul>
+                    <li class="active">开黑吗</li>
+                    <li>我是</li>
+                    <li>开黑吗</li>
+                    <li>我是</li>
+                    <li>开黑吗</li>
+                </ul>
+            </div>
+            <div id="btn">
+                <div class="left"><</div>
+                <div class="right">></div>
+            </div>
+        </div>
+        
+        <script>
+
+        let aImg =document.querySelectorAll("#img ul li"),
+            aTab =document.querySelectorAll("#tab ul li"),
+            len =aTab.length,
+            goudan = 0, //定义变量以显示当前的某张图片
+            aBtn = document.querySelectorAll("#btn div")
+            ;
+
+            //给Tab对应的li添加点击事件
+            for(let i=0; i<len; i++){
+                aTab[i].onclick = function(){
+                    if(goudan !== i ){
+                        aTab[goudan].className ="";
+                        aImg[goudan].className =""; //当先显示的Tab样式清除
+
+                        //被点击的Tab样式添加
+                        aTab[i].className ="active";
+                        aImg[i].className ="show";
+
+                        //当前显示的图片序号更改
+                        goudan =i;
+                    }
+                
+                };
+     
+            }
+
+            //左边点击按钮事件
+            aBtn[0].onclick = function(){
+                aImg[goudan].className = "";
+
+                goudan --;
+                if(goudan < 0 ){
+                    goudan = 0;
+                }
+
+                aImg[goudan].className = "show";
+            };
+
+            //右边点击按钮事件
+            aBtn[1].onclick = function(){
+                aImg[goudan].className = "";
+
+                goudan ++;
+                if(goudan > len-1 ){
+                    goudan = len-1;
+                }
+
+                aImg[goudan].className = "show";
+            };
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

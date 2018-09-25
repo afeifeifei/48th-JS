@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>彬哥</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            ul li{
+                float:left;
+                width: 50px;
+                height: 50px;
+                margin: 10px;
+                background-color:pink;
+            }
+        </style>
+        <script>
+            window.onload=function(){
+                let oBtn=document.getElementById('btn'),
+                    oUl=document.getElementsByTagName('ul'),
+                    ro='';
+                oBtn.onclick=function(){
+                    for(let i=0;i<10;i++){
+                        ro+='<li></li>';
+                    }
+                    oUl[0].innerHTML=ro;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="warp">
+            <input type="submit" value="生出10个div" id="btn">
+            <ul>
+            </ul>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

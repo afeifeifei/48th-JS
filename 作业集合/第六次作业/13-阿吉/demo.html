@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="tfj">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+        #wrap{
+            width:400px;
+            margin:50px auto;
+            line-height:100px;
+        }
+        #wrap span{
+            font-size:14px;
+            color:#d48275;
+            user-select: none;
+        }
+        #wrap .star{
+            display: inline-block;
+            width:100px;
+            height:18.4px;
+            background-image:url('images/bg.png');
+            background-repeat:no-repeat;
+            background-size:100px;
+        }
+        #wrap .star:after{
+            content:'';
+            display:block;
+            clear:both;
+        }
+        #wrap .star li{
+            float:left;
+            width:20%;
+            height:100%;
+        }
+
+        /* #wrap ul.nostar{
+            background-position: 0 0;
+        } 
+        #wrap ul.onestar{
+            background-position: 0 -18.4px;
+        } 
+        #wrap ul.twostar{
+            background-position: 0 -36.8px;
+        } 
+        #wrap ul.threestar{
+            background-position: 0 -55.2px;
+        } 
+        #wrap ul.fourstar{
+            background-position: 0 -73.6px;
+        } 
+        #wrap ul.fivestar{
+            background-position: 0 -92px;
+        }  */
+        #wrap .explain{
+            height:50px;
+            width:100px;
+            vertical-align: middle;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <span>星级评分:</span>
+        <ul class='star fivestar'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <textarea class='explain'>提示 请打分</textarea>
+    </div>
+    <script>
+        let aLi =document.querySelectorAll("#wrap .star li"),
+            oUl=document.querySelector("#wrap .star"),
+            oTextarea=document.querySelector('#wrap .explain'),
+            arrayExp=['极差','较差','还不错','较好','推荐'],
+            intPositonY='0';
+        
+        for(let i=0,len=aLi.length;i<len;i++){
+            
+            aLi[i].onmouseenter=function(){
+                oUl.style.backgroundPositionY=`${-(i+1)*18.4}px`;
+            }
+            aLi[i].onmouseout=function(){
+                oUl.style.backgroundPositionY=intPositonY;
+                
+            }
+            aLi[i].onclick=function(){
+                intPositonY=`${-(i+1)*18.4}px`;
+                oTextarea.value=arrayExp[i];
+            }
+            
+        }
+        
+        
+        
+        
+    </script>
+</body>
+</html>

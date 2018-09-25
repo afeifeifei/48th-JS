@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>静态轮播图</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州学员-牛海龙-ID:尔boy">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;
+            background-image: url("images/1.png"),url("images/2.png");
+            background-repeat:no-repeat;
+            background-position:0 -10px,830px 0;
+                background-size:38%;
+            }
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        #wrap{
+            position:relative;
+            width:800px;
+            height:450px;
+            margin:50px auto 0;
+        }
+        #wrap #imgcontent{
+                position:relative;
+                width:800px;
+                height:450px;
+                box-shadow:0 0 15px #000;
+            }
+        #wrap #imgcontent .num{
+            position:absolute;
+            display:inline-block;
+            bottom:0;
+            left:0;
+            right:0;
+            margin:auto;
+            width:70px;
+            height:30px;
+            color:red;
+            text-align:center;
+            z-index:12;
+        }
+        #wrap #imgcontent .num span{
+            display:inline-block;
+            width:10px;
+            height:30px;
+        }
+        #wrap #imgcontent .num p{
+            display:inline-block;
+            width:20px;
+            height:30px;
+        }
+        #wrap #imgcontent img{
+            display:none;
+            position:absolute;
+            left:0;
+            top:0;
+            width:800px;
+            height:450px;
+        }
+        #wrap #imgcontent img:first-child{
+            display:block;
+        }
+        #wrap #imgcontent #on{
+            display:block;
+        }
+        #wrap .chickleft{
+            position:absolute;
+            left:0;
+            top:0;
+            bottom:0;
+            margin:auto;
+            width:16px;
+            height:30px;
+            z-index:12;
+        }
+        #wrap .chickright{
+            position:absolute;
+            right:0;
+            top:0;
+            bottom:0;
+            margin:auto;
+            width:16px;
+            height:30px;
+            z-index:12;
+        }
+        #wrap .bom{
+            width:800px;
+            height:50px;
+            margin-top:10px;
+            /*background-color:green;*/
+            text-align:center;
+        }
+         #wrap .bom button{
+             display:inline-block;
+             width:100px;
+             height:50px;
+             background-color:#fff;
+             font-size:12px;
+             line-height:50px;
+             box-shadow:0 0 8px #000;
+         }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="imgcontent">
+                <img src="images/1.jpg" width="1920" height="1080" alt="">
+                <img src="images/2.jpg" width="1920" height="1080" alt="">
+                <img src="images/3.jpg" width="1920" height="1080" alt="">
+                <img src="images/4.jpg" width="1920" height="1080" alt="">
+                <img src="images/5.jpg" width="1920" height="1080" alt="">
+                <div class="num">
+                    <span id="becomenum">1</span>
+                    <p>/5</p>
+                </div>
+            </div>
+            <div class="chickleft btn">
+                <img src="images/arrow1.png " width="16" height="30" alt="">
+            </div>
+            <div class="chickright btn">
+                <img src="images/arrow2.png " width="16" height="30" alt="">
+            </div>
+            <div class="bom">
+                <button id="order">不可逆轮播</button>
+                <button id="loop">可逆轮播</button>
+            </div>
+        </div>
+        <script>
+                let
+                    oBtn = document.getElementsByClassName(" btn "),
+                    oImg = document.querySelectorAll("#wrap #imgcontent img"),
+                    oNum = document.getElementById("becomenum"),
+                    oRder =document.getElementById("order"),
+                    oLoop =document.getElementById ("loop");
+                    i = 0 , flag = true;
+                oRder.onclick = function(){
+                    flag = true;
+                }
+                oLoop.onclick = function(){
+                    flag = false;
+                }
+
+                oBtn[1].onclick = function (){
+                    if(i<oImg.length-1){
+                        oImg[i].id = "";
+                        oImg[i+1].id = "on";
+                        i++;
+                    }else{
+                        if (flag){
+                            alert("点不动啦！");
+                        }else {
+                            oImg[i].id = "";
+                            oImg[0].id = "on";
+                            i = 0;
+                        }
+                    }
+                    oNum.innerHTML = i+1 ;
+                }
+                oBtn[0].onclick = function (){
+                    if(i>0){
+                        oImg[i-1].id = "on";
+                        oImg[i].id = "";
+                        oNum.innerHTML = i;//问题：
+                        i--;
+                    }else{
+                        if(flag){
+                            alert("点不动啦！");
+                        }else if(i =="0"){
+                            oImg[0].id = "";
+                            oImg[oImg.length-1].id = "on";
+                            i = oImg.length-1;
+                        }
+                    }
+                    oNum.innerHTml = oImg.length+1;
+                }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

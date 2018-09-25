@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #box{
+                width:500px;
+                margin:50px auto 0;
+                border:1px solid #ccc;
+            }
+            input{
+                width:50px;
+                height:20px;
+
+            }
+            p{
+                font-size:16px;
+            }
+            img{
+                width:500px;
+                height:400px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <input type="button" id="big" value="+">
+            <input type="button" id="small" value="-">
+            <p>强台风“山竹”来袭！预计其将于今日（16日）下午到晚间，以强台风级或超强台风级在广东珠海到湛江一带沿海登陆，登陆后将继续向西偏北方向移动，强度逐渐减弱。</p>
+            <img src="images/01.jpg">
+        </div>
+        
+        <script>
+            let  oBig=document.getElementById('big');
+            let  oSmall=document.getElementById('small');
+            let  oP=document.getElementsByTagName('p');
+            let  font_size=16;
+
+            oBig.onclick=function(){
+                if( font_size<=25 ){
+                    font_size++;
+                    oP[0].style.fontSize = font_size+'px';
+                }
+            }
+            oSmall.onclick=function(){
+                if( font_size>=15 ){
+                    font_size--;
+                    oP[0].style.fontSize = font_size+'px';
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

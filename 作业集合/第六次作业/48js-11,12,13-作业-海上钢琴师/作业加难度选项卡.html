@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>作业加难度选项卡</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul{
+			list-style: none;
+		}
+		#box{
+			width: 510px;
+			height: 500px;
+			margin:50px auto;
+			user-select: none;
+		}
+		#box ul.left{
+			float: left;
+		}
+		#box ul.left li{
+			width: 100px;
+			height:40px;
+			line-height: 40px;
+			font-size: 20px;
+			background-color: #eee;
+			text-align: center;
+			margin:40px 10px 5px 0;
+			cursor: pointer;
+			border-radius:20px;
+		}
+		#box ul.left li.show{
+			background-color: #c9ffbf;
+		}
+		
+		#box ul.right li{
+			display: none;
+		}
+		
+		
+		#box div{
+			display: none;
+			float: right;
+		}
+		#box div.on{
+			display: block;
+		}
+
+		#box ul.img li{
+			display: none;
+			float: right;
+			width: 400px;
+			height: 300px;
+			line-height: 200px;
+			text-align: center;
+			font-size: 50px;
+			background-image: linear-gradient(to top, #d5dee7 0%, #ffafbd 0%, #c9ffbf 100%);
+			border-radius:25px;
+		}
+		#box ul.img li.show{
+			display: block;
+		}
+
+		#box ul.num{
+			float: left;
+			margin-top: -40px;
+		}
+
+		#box ul.num li{
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			margin-left:20px;
+			text-align: center;
+			border-radius: 50%;
+			background-color: #00CCFF;
+			opacity: .3;
+			cursor: pointer;
+		}
+		#box ul.num li.show{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul class="left">
+			<li class="show">选项卡1</li>
+			<li>选项卡2</li>
+			<li>选项卡3</li>
+		</ul>
+		
+		<div class="on">
+			<ul class="img">
+				<li class="show">图片1-1</li>
+				<li>图片1-2</li>
+				<li>图片1-3</li>
+			</ul>
+			<ul class="num">
+				<li class="show">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+				
+		<div>
+			<ul class="img">
+				<li class="show">图片2-1</li>
+				<li>图片2-2</li>
+				<li>图片2-3</li>
+				<li>图片2-4</li>
+			</ul>
+			<ul class="num">
+				<li class="show">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>	
+			
+		<div>
+			<ul class="img">
+				<li class="show">图片3-1</li>
+				<li>图片3-2</li>
+				<li>图片3-3</li>
+				<li>图片3-4</li>
+				<li>图片3-5</li>
+			</ul>
+			<ul class="num">
+				<li class="show">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>	
+					
+	</div>
+    <script type="text/javascript">
+    	let oBox=document.getElementById("box"),
+    		aLeftList=document.getElementsByClassName('left')[0].getElementsByTagName("li"),
+    		aDiv=oBox.getElementsByTagName("div"),
+    		num1=0;
+    	
+		function change(){
+			//利用多态获取的优势
+			let oDiv=oBox.getElementsByClassName("on")[0],
+	    		aImgList=oDiv.getElementsByClassName("img")[0].getElementsByTagName("li"),
+	    		aNumList=oDiv.getElementsByClassName("num")[0].getElementsByTagName("li"),
+	    		//当每次调用change()函数时候，都会重置num2的值为0；
+    			num2=0;
+
+			for (let i = 0,len=aNumList.length; i < len; i++) {
+				//初始化样式，让每次调用change()函数的时候，都是以最初始样式展示
+	 			aNumList[i].className="";
+		 		aImgList[i].className="";
+		 		aNumList[0].className="show";
+				aImgList[0].className="show";
+	 			aNumList[i].onclick=function(){
+	 				if(num2!==i){
+	 					aNumList[num2].className="";
+		 				aImgList[num2].className="";
+		 				num2=i;
+		 				aNumList[num2].className="show";
+		 				aImgList[num2].className="show";
+	 				}
+	 			}
+	 		}
+    	}
+
+    	change();
+
+    	//左侧更换右侧显示内容
+    	for (let i = 0,len=aLeftList.length; i<len; i++) {
+    		aLeftList[i].onclick=function(){
+    			if(num1!==i){
+    				aLeftList[num1].className="";
+	    			aDiv[num1].className="";
+	    			num1=i;
+	    			aLeftList[num1].className="show";
+	    			aDiv[num1].className="on";
+	    			change();
+    			}
+    		}
+    	}
+
+    
+    	
+
+    </script>
+</body>
+</html>

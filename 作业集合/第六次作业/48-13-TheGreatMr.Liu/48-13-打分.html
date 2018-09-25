@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="LY">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            #wrap{
+                width:500px;
+                margin:50px auto;
+            }
+            #wrap.clearfix:after{
+                content:"";
+                display: block;
+                clear: both;
+            }
+            #wrap h3{
+                float: left;
+                font-size: 14px;
+                margin-top:30px;
+                margin-right: 20px;
+                color:#ff0036;
+            }
+            #wrap ul{
+                float: left;
+                width:100px;
+                margin-top:30px;
+                margin-right: 20px;
+            }
+            #wrap ul li{
+                float: left;
+                width:19px;
+                height:19px;
+                background-image: url("images/star.png");
+            }
+            #wrap ul li.on{
+                background-position: 0 -67%;
+            }
+            #wrap p{
+                float: left;
+                width:150px;
+                height:80px;
+                border:1px solid #000;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" class="clear">
+            <h3>星级评分:</h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <p>提示：请认真给当前文章打分</p>
+        </div>
+        
+        <script>
+            let oWrap = document.getElementById("wrap"),
+                aLi = oWrap.querySelectorAll("ul li"),
+                oP = oWrap.getElementsByTagName("p")[0],
+                len = aLi.length,
+                aText=["很差","较差","还行","推荐","力荐"],
+                t=-1;
+            for (let i = 0;i<len;i++ ){
+                aLi[i].onmouseenter = function () {
+                    oP.innerHTML = aText[i];
+                    if (t>i) {
+                        for (let j = i+1; j <= t; j++) {
+                            aLi[j].className = "";
+                        }
+                    }else{
+                        for (let j = 0; j <= i; j++) {
+                            aLi[j].className = "on";
+                        }
+                    }
+                }
+                aLi[i].onmouseleave = function () {
+                    if (t===-1){
+                        oP.innerHTML = "提示：请认真给当前文章打分";
+                    }else{
+                        oP.innerHTML = aText[t];
+                    }
+                    if (t<i){
+                        for (let j=t+1;j<=i;j++){
+                            aLi[j].className = "";
+                        }
+                    }
+                    for (let j=i;j<=t;j++){
+                        aLi[j].className = "on";
+                    }
+                }
+                aLi[i].onclick = function () {
+                    t = i;
+                    for (let j=0;j<=i;j++){
+                        aLi[j].className = "on";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

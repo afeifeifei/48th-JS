@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 425px;
+            height: 200px;
+            margin: 50px auto;
+            box-shadow: 0 0 2px 2px #aaa;
+        }
+        #box .left{
+            float: left;
+            width: 100px;
+            height: 100%;
+        }
+        #box .left ul,#box .right ul{
+            position: relative;
+            height:200px;
+            list-style: none;
+        }
+        #box .left ul li{
+            width: 100%;
+            height: 49px;
+            line-height: 49px;
+            background-color: #363636;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            border-bottom: 1px solid #35495e;
+            cursor: pointer;
+        }
+        #box .right{
+            float: right;
+            width:325px;
+            height: 100%;
+        }
+        #box .right ul li{
+            display: none;
+            position: absolute;
+            height: 100%;
+        }
+        #box .right ul li.on{
+            display:block;
+        }
+        #box .right ul .ol{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            text-align: right;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,.7);
+            cursor: pointer;
+        }
+        #box .right ul .ol span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 5px;
+            text-align: center;
+            background-color: #ddd;
+        }
+        #box .right ul .ol .active,#box .left ul li.active{
+            background-color: #937d80;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+        <div id="box">
+            <div class="left">
+                <ul>
+                    <li class="active">家用电器</li>
+                    <li>手机通讯</li>
+                    <li>电脑数码</li>
+                    <li>食品百货</li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <li class="on">
+                        <img src="images/a.jpg" width="325" height="200">
+                        <div class="ol"> </div>
+                    </li>
+                    <li>
+                        <img src="images/b.jpg" width="325" height="200">
+                        <div class="ol"> </div>
+                    </li>
+                    <li>
+                        <img src="images/c.jpg" width="325" height="200">
+                        <div class="ol"> </div>
+                    </li>
+                    <li>
+                        <img src="images/d.jpg" width="325" height="200">
+                        <div class="ol"> </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            let oBox = document.getElementById('box'),
+                Zli = oBox.querySelectorAll('.left ul li'),//获取左边的选项卡
+                Rli = oBox.querySelectorAll('.right ul li'),//获取左边的图片列表
+                Rol = oBox.querySelectorAll('.right ul li .ol'),
+                len=Zli.length,
+                index = 0;
+
+            let arrImg = [
+                ['images/a.jpg','images/b.jpg','images/c.jpg','images/d.jpg'],
+                ['images/b.jpg','images/1.jpg','images/2.jpg'],
+                ['images/c.jpg','images/a.jpg','images/b.jpg','images/3.jpg'],
+                ['images/d.jpg','images/a.jpg']
+            ];
+
+            for(let i=0;i<len;i++){
+                Zli[i].onmouseenter = function(){
+                    //左边
+                    Zli[index].className = "";      //去掉上一个的选项卡的class
+                    Zli[i].className = "active";    //选中当前的选项卡
+
+                    //右边的切换
+                    Rli[index].className = "";      //隐藏上一张
+                    Rli[i].className = "on";        // 显示当前选中的图片
+
+                    index = i;
+                };
+                change(i);
+            }
+            function change(i) {
+
+                let Div = Rli[i].getElementsByClassName('ol')[0];
+                let oSpan = Div.getElementsByTagName('span');
+                for(let j=0;j<arrImg[i].length;j++){
+                    Rol[i].innerHTML += `<span>${j+1}</span>`;//生成底部序号
+                }
+                let x = 0;
+                let RImg = Rli[i].getElementsByTagName('img')[0]; //获取每个img标签
+                for(let j=0;j<arrImg[i].length;j++){
+                    oSpan[0].className = "active";
+                    oSpan[j].onmouseenter = function(){
+                        oSpan[x].className = "";    //去掉上一个序号class
+                        oSpan[j].className = "active"; // 显示当前序号的添加class
+                        x = j;
+                        RImg.src = arrImg[i][j];      //
+                        console.log(RImg.src )
+                    };
+                }
+            }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+@charset 'UTF-8';
+
+body,h1,h2,h3,h4,h5,h6,p,dd{
+	margin:0;
+}
+ul,ol,dl{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+img{
+	border:none;
+	vertical-align:middle;
+}
+a{
+	text-decoration:none;
+	outline:none;
+	color:inherit;
+}
+input,button{
+	border:none;
+	outline:none;
+}
+body{
+	font:12px/1.5 'Microsoft Yahei',sans-serif;/*sans-serif 是手机默认字体*/
+}
+
+.iconfont{
+	color:inherit;
+}
+
+/********** float *************/
+.fl-l{
+	float:left;
+}
+.fl-r{
+	float:right;
+}
+.clearfix:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+
+/*********** position ***************/
+.pos-r{
+	position:relative;
+}
+.pos-a{
+	position:absolute;
+}
+.pos-f{
+	position:fixed;
+}

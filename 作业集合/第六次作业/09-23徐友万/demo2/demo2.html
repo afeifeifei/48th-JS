@@ -1,0 +1,87 @@
+<!doctype html><!-- 页面头部声明-->
+<html>
+<head>
+    <meta charset='UTF-8'><!-- 万国码-->
+    <meta name='Keywords' content=''><!-- 搜索该页面所使用的关键词-->
+    <meta name='Description' content=''><!-- 页面描述信息-->
+    <title>Document</title><!-- 网页的标题-->
+    <link rel='stylesheet' type='text/css' href='css/demo2.css'>
+</head>
+<body>
+    <div class='contain'>
+        <div class='contain-top'>
+            <ul class='clearfix'>
+                <li><span>商品</span></li>
+                <li><span>单价</span></li>
+                <li><span>数量</span></li>
+                <li><span>小计</span></li>
+            </ul>
+        </div>
+        <div class='contain-middle'>
+            <ul>
+                <li class='clearfix'>
+                    <div class='li-item'><img src='images/1.jpg' width='170' height='169' alt=''></div>
+                    <div class='li-item'><span>10</span></div>
+                    <div class='li-item'><i>-</i><span>0</span><i>+</i></div>
+                    <div class='li-item'><span>0</span></div>
+                </li>
+                <li class='clearfix'>
+                    <div class='li-item'><img src='images/2.jpg' width='170' height='169' alt=''></div>
+                    <div class='li-item'><span>15</span></div>
+                    <div class='li-item'><i>-</i><span>0</span><i>+</i></div>
+                    <div class='li-item'><span>0</span></div>
+                </li>
+                <li class='clearfix'>
+                    <div class='li-item'><img src='images/3.jpg' width='170' height='169' alt=''></div>
+                    <div class='li-item'><span>20</span></div>
+                    <div class='li-item'><i>-</i><span>0</span><i>+</i></div>
+                    <div class='li-item'><span>0</span></div>
+                </li>
+                <li class='clearfix'>
+                    <div class='li-item'><img src='images/4.jpg' width='170' height='169' alt=''></div>
+                    <div class='li-item'><span>25</span></div>
+                    <div class='li-item'><i>-</i><span>0</span><i>+</i></div>
+                    <div class='li-item'><span>0</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class='contain-bottom clearfix'>
+            <p>合计费用：<span>0</span>￥</p>
+            <p>已选中商品：<span>0</span>个</p>
+        </div>
+    </div>
+    <script>
+        let dList = document.querySelectorAll('.contain .contain-middle li>:nth-child(2) span'),
+            sList = document.querySelectorAll('.contain .contain-middle li>:nth-child(3) span'),
+            xList = document.querySelectorAll('.contain .contain-middle li>:nth-child(4) span'),
+            incList = document.querySelectorAll('.contain .contain-middle li>:nth-child(3)>:nth-child(3)'),
+            decList = document.querySelectorAll('.contain .contain-middle li>:nth-child(3)>:nth-child(1)'),
+            oAllCounter = document.querySelector('.contain .contain-bottom>:nth-child(2) span'),
+            oAllMoney = document.querySelector('.contain .contain-bottom>:nth-child(1) span');
+        function allMoney() {
+            let sum = 0;
+            for (let i = 0; i < dList.length; i++){
+                sum += sList[i].innerHTML * dList[i].innerHTML;
+            }
+            return sum;
+        }
+        for (let i = 0; i < dList.length; i++){
+            incList[i].onclick = function () {
+                sList[i].innerHTML ++;
+                oAllCounter.innerHTML ++;
+                xList[i].innerHTML = sList[i].innerHTML * dList[i].innerHTML;
+                oAllMoney.innerHTML = allMoney();
+            }
+            decList[i].onclick = function () {
+                if(sList[i].innerHTML == 0){
+                    return;
+                }
+                sList[i].innerHTML --;
+                oAllCounter.innerHTML --;
+                xList[i].innerHTML = sList[i].innerHTML * dList[i].innerHTML;
+                oAllMoney.innerHTML = allMoney();
+            }
+        }
+    </script>
+</body>
+</html>

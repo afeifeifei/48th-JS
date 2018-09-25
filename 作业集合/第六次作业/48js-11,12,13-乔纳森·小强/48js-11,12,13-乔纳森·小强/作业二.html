@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Anthor" content="阿飞老师" />
+        <title>购物车</title>
+        <style>
+            *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;-webkit-user-select:none;}
+            li{ list-style-type: none;}
+            
+            #wrap{
+                width:1000px;
+                margin:50px auto 0;
+                /*outline:1px solid #f00;*/
+            }
+            #wrap .title{
+                width:100%;
+                height:50px;
+            }
+            #wrap .title li{
+                float:left;
+                width:248px;
+                height:100%;
+                background-color:#bc4166;
+                border-width:0 1px;
+                border-style:solid;
+                border-color:#f00;
+                text-align:center;
+                line-height:50px;
+                color:#fff;
+            }
+            #wrap .content{
+                width:100%;
+                overflow:hidden;
+            }
+            #wrap .content ul{
+                float:left;
+                width:250px;
+                height:400px;
+            }
+            #wrap .content ul li{
+                width:248px;
+                height:98px;
+                border:1px solid #f00;
+                text-align:center;
+                line-height:98px;
+            }
+            #wrap .content .img li{
+                padding-top:14px;
+                height:84px;
+            }
+            #wrap .content .img img{
+                display:block;
+                height:70px;
+                margin:0 auto;
+            }
+            #wrap .cal>li{
+                position:relative;
+            }
+            #wrap .cal>li .btn{
+                position:absolute;
+                top:0;
+                left:0;
+                bottom:0;
+                right:0;
+                width:110px;
+                height:30px;
+                margin:auto;
+            }
+            #wrap .cal>li .btn div{
+                float:left;
+                line-height:30px;
+            }
+            #wrap .cal>li .btn div:nth-child(1),#wrap .cal>li .btn div:nth-child(3){
+                width:30px;
+                height:30px;
+                background-color:#ddd;
+                cursor:pointer;
+            }
+            #wrap .cal>li .btn div:nth-child(2){
+                width:46px;
+                height:26px;
+                background-color:#fff;
+                border:2px solid #ddd;
+            }
+            #wrap .bottom{
+                width:100%;
+                height:50px;
+                margin-top:10px;
+                background-color:#bc4166;
+                line-height:50px;
+            }
+            #wrap .bottom div{
+                float:right;
+                margin-right:150px;
+                color:#fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="title">
+                <li>商品</li>
+                <li>单价</li>
+                <li>数量</li>
+                <li>小记</li>
+            </ul>
+            <div class="content">
+                <ul class="img">
+                    <li><img src="./images/shop1.jpeg"></li>
+                    <li><img src="./images/shop2.jpeg"></li>
+                    <li><img src="./images/shop3.jpeg"></li>
+                    <li><img src="./images/shop4.jpeg"></li>
+                </ul>
+                <ul class="price">
+                    <li>8</li>
+                    <li>10</li>
+                    <li>12.5</li>
+                    <li>23</li>
+                </ul>
+                <ul class="cal">
+                    <li>
+                        <div class="btn">
+                            <div class="jian">-</div>
+                            <div class="ling">0</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn">
+                            <div class="jian">-</div>
+                            <div class="ling">0</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn">
+                            <div class="jian">-</div>
+                            <div class="ling">0</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn">
+                            <div class="jian">-</div>
+                            <div class="ling">0</div>
+                            <div class="jia">+</div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="zon">
+                    <li>0</li>
+                    <li>0</li>
+                    <li>0</li>
+                    <li>0</li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <div class="afo">合计费用: <span>0</span> ￥</div>
+                <div class="pro">已选中商品: <span>0</span> 个</div>
+            </div>
+        </div>
+        <script>
+
+         //获取元素
+         let aJian = document.querySelectorAll("#wrap .content .jian"),
+             aLing = document.querySelectorAll("#wrap .content .ling"),
+             aJia = document.querySelectorAll("#wrap .content .jia"),
+             aPrice = document.querySelectorAll("#wrap .content .price li"),
+             aZon = document.querySelectorAll("#wrap .zon li"),
+             aSpan = document.querySelectorAll("#wrap .bottom span"),
+             len = aJia.length
+         ;
+         for(let i=0; i<len; i++){
+            //给每一个减号按钮添加一个点击事件
+            aJian[i].onclick =function(){
+                return jian(i);
+            }
+            //给每一个加号按钮添加一个点击事件
+            aJia[i].onclick =function(){
+                return jia(i);
+            }
+         }
+         //减法
+         function jian( i ){
+            if(Number(aLing[i].innerHTML)>0){
+                aLing[i].innerHTML = Number(aLing[i].innerHTML) - 1;
+                sumHj();
+            }
+         }
+         //加号
+         function jia( i ){
+            aLing[i].innerHTML = Number(aLing[i].innerHTML) + 1;
+            sumHj(i);
+         }
+         //计算合计
+         function sumHj( i ){
+            aZon[i].innerHTML = Number(aLing[i].innerHTML)*Number(aPrice[i].innerHTML);
+            let sumNum =0;
+            for(let j =0; j<len; j++){
+                sumNum +=Number(aLing[j].innerHTML);
+            }
+            aSpan[1].innerHTML =sumNum.toString();
+            let sumPrice =0;
+            for(let j =0; j<len; j++){
+                sumPrice +=Number(aZon[j].innerHTML);
+            }
+            aSpan[0].innerHTML =sumPrice.toString();
+         }
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

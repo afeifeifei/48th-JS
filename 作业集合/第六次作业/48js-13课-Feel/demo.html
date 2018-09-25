@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style-type:none;}
+            img{border:none;}
+            #wrap{
+                width: 350px;
+                margin: 10px auto;
+            }
+            #wrap p{
+                float: left;
+                margin-top: 40px;
+                color: red;
+                font-size: 14px;
+            }
+            #wrap ul{
+                float: left;
+                width: 110px;
+                margin-top: 40px;
+            }
+
+            #wrap ul li{
+                float: left;
+                width: 20px;
+                height: 20px;
+
+                background:url("images/star.png") no-repeat;
+                cursor: pointer;
+            }
+            #wrap ul li.show{
+                background-position: 0 -28px;
+            }
+            #wrap textarea{
+                float: left;
+                width: 120px;
+                height: 50px;
+                margin-left: 10px;
+                margin-top: 20px;
+                resize: none;
+                outline: none;
+
+            }
+            .clearfix:after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" class="clearfix">
+            <p>星级评分：</p>
+            <ul>
+                <li ></li>
+                <li ></li>
+                <li ></li>
+                <li ></li>
+                <li ></li>
+            </ul>
+            <textarea>提示:请给当前文章打分</textarea>
+        </div>
+        
+        <script>
+            let aLi = document.querySelectorAll("#wrap ul li"),
+                oUl = document.querySelector("#wrap ul"),
+                len = aLi.length,
+                showIndex= -1,
+                oTextArea = document.getElementsByTagName("textarea")[0],
+                aTxt = ["提示：请认真给当前文章打分","很差","较差","还行","推荐","力荐"];
+            //鼠标移出时，清除星数
+            oUl.onmouseleave = function () {
+                oTextArea.value = aTxt[showIndex+1];
+                for (let j = 0; j < len; j++) {
+                    aLi[j].className = "";
+                }
+                for (let j = 0; j <= showIndex; j++) {
+                    aLi[j].className = "show";
+                }
+
+            }
+            for (let i = 0; i < len; i++) {
+                aLi[i].onclick = function () {
+                    showIndex = i; //点击出现对应的最终评分
+
+                }
+                //鼠标移入时显示对应的星数
+                aLi[i].onmouseenter = function () {
+                    // len = i;
+                    for (let j = 0; j <= i; j++) {
+                        aLi[j].className = "show";
+                    }
+                    oTextArea.value = aTxt[i+1];
+                }
+            }
+            // oUl.onmouseleave = function () {
+            //     change( showIndex );
+            // };
+            // for (let i = 0; i < len; i++) {
+            //     aLi[i].onclick = function () {
+            //         showIndex = i;//点击之后，让最终评分变为当前序号
+            //     };
+            //     aLi[i].onmouseenter = function () {
+            //         //var index = this.afei;
+            //         change( i );
+            //     };
+            // }
+            // function change( x ) {
+            //     oTextArea.value = aTxt[x+1];
+            //     for (let j = 0; j < len; j++) {
+            //         aLi[j].className = "";
+            //     }
+            //     for ( let j = 0; j <= x; j++) {
+            //         aLi[j].className = "on";
+            //     }
+            // }
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

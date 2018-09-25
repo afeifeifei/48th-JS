@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>向同学</title>
+<style>
+	*{margin: 0;padding: 0;}
+	li{list-style: none;}
+	#wrap{
+		width: 300px;
+		margin: 20px auto;
+		overflow: hidden;
+	}
+	#wrap ul li{
+		width: 35px;
+		height: 30px;
+		float:left;
+		background:url('images/1.png') no-repeat;
+	}
+	#wrap ul li.active{
+		background:url('images/2.png') no-repeat;
+	}
+	#wrap i{
+		
+		width: 100px;
+		height: 100%;
+		margin-left: 10px;
+		padding: 0 5px;
+		float: left;
+		font-style: normal;
+		border: 1px solid;
+	}
+	#wrap i.active{
+		display: none;
+	}
+	#wrap p{
+		width: 100px;
+		height: 100%;
+		margin-left: 10px;
+		padding: 0 5px;
+		float: left;
+		border: 1px solid;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<i>请给阿飞打星</i>
+		<p></p>
+		
+	</div>
+   <script>
+   		(function(){
+   			let aLi = document.querySelectorAll("#wrap ul li"),
+   				aP = document.getElementsByTagName("p")[0],
+   				oI = document.getElementsByTagName("i")[0],
+   				index = 0,
+   				str =["较差","一般","还可以","很好","完美"],
+   				len = aLi.length;
+
+   			for(let i=0; i<len; i++){
+   				aLi[i].onmouseenter =function(){//鼠标移入
+   				
+	   				//console.log(i);
+	   				for(let j=i;j>=0;j--){
+	   					aLi[j].classList.add("active");
+		   				oI.classList.add("active");
+	   				}
+	   				
+	   				aP.innerHTML = str[i];
+	   					
+	   			} 
+   				
+
+   				aLi[i].onmouseleave =function(){//鼠标移出
+   					//console.log(i);
+	   				for(let j=i;j>=0;j--){
+	   					aLi[j].classList.remove("active");
+		   				oI.classList.remove("active");
+	   				}
+	   				aP.innerHTML = "";
+   				}
+
+   				aLi[i].onclick =function(){//鼠标点击
+   					for(let z=0; z<len; z++){
+   						aLi[z].classList.remove("active");
+		   				oI.classList.remove("active");
+
+   					}
+   					//aP.innerHTML = "";
+
+   					for(let j=i;j>=0;j--){
+	   					aLi[j].classList.add("active");
+		   				oI.classList.add("active");
+	   				}
+	   				aP.innerHTML = str[i];
+	   				console.log(i)
+   				}
+   				
+   			}
+   		})()
+   </script>
+</body>
+</html>

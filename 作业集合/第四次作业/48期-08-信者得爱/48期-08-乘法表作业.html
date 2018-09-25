@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--suppress ALL -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            /*li:after{*/
+                /*content:"";*/
+                /*display:block;*/
+                /*clear:both;*/
+            /*}*/
+            li{
+                overflow:hidden; /*也可以清除浮动*/
+            }
+            #wrap .list p{
+                float:left;
+                width:100px;
+                height:35px;
+                margin:3px;
+                border:1px solid #000;
+                text-align:center;
+                line-height:35px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <!--<li>-->
+                    <!--<p></p>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        
+        <script>
+                let oList = document.getElementsByClassName("list")[0],
+                    str = "";
+
+                //第一个乘法表
+                for(let i = 1; i < 10; i++){
+                    let str1 = "";
+                    for(let j = 1; j <= i; j++){
+                        str1 += "<p>"+ i + "*" + j + "=" + i*j + "</p>"; //p代表每个单元格，控制列数
+                    }
+                    str += "<li>" + str1 + "</li>"; //li控制行数
+                };
+                str += "<hr/>"
+                // oList.innerHTML = str;
+
+                //第二个乘法表
+                for(let i = 1; i <= 9; i++){
+                    let str1 = "";
+                    for(let j = i; j <= 9; j++){
+                        str1 += "<p>"+ i + "*" + j + "=" + i*j + "</p>";
+                    }
+                    str += "<li>" + str1 + "</li>";
+                };
+                // str += "</hr>"
+                oList.innerHTML = str;
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

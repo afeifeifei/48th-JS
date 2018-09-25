@@ -1,0 +1,117 @@
+<!--声明文档类型为html -->
+<!doctype html>
+<!--根标签 超文本标记语言 -->
+<html>
+<!--99%是双标签 -->
+<!--头部 不可视化标签-->
+<head>
+    <!--utf-8:国际编码 -->
+    <meta charset="UTF-8">
+    <!--关键词 关键字 -->
+    <meta name="Keywords" content=" ">
+    <!-- 描述网页内容 -->
+    <meta name="Description" content="">
+    <!--网页三要素-->
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #wrap{
+            width: 400px;
+            height: 80px;
+            line-height: 80px;
+            margin: 50px auto;
+            font-size: 12px;
+        }
+        #wrap span{
+            float: left;
+            color: goldenrod;;
+        }
+        #wrap ul{
+            float: left;
+            width: 100px;
+            height: 20px;
+            margin-top: 27px;
+        }
+        #wrap ul li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-image: url("images/star.png");
+            cursor: pointer;
+        }
+        #wrap ul li.on{
+            background-position: 0px -27px;
+        }
+        #wrap p{
+            float: right;
+            width: 245px;
+            height: 70px;
+            line-height: 20px;
+            border: 1px dotted #808080;
+        }
+    </style>
+</head>
+<!--身体:网页的内容.可视化标签-->
+<body>
+    <div id="wrap">
+        <span>文章评分:</span>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p>温馨提示:请您认真阅读文章,阅读完有奖励!</p>
+    </div>
+    <script>
+        var oLi = document.querySelectorAll('#wrap ul li'),
+              oP = document.querySelector('#wrap p'),
+              oUl = document.querySelector('#wrap ul');
+
+        var length = oLi.length;
+
+        //评分
+        var showIndex = -1;
+
+        var pText = ['温馨提示:满意10分;不满意9分; 非常满意1分'];
+        oUl.onmouseleave = function () {
+            change(showIndex);
+        };
+
+        for(var i = 0;i < length;i++){
+            oLi[i].afei = i;
+            oLi[i].onclick = function () {
+
+             //点击之后,让最终评分为当前序号
+                showIndex = this.afei;
+            };
+
+            oLi[i].onmouseenter = function () {
+                change(this.afei);
+            };
+        }
+function change(x) {
+    oP.innerHTML = pText[x+1];
+    for (var j = 0;j < length; j++){
+        oLi[j].className = '';
+    }
+    for (j = 0;j <= x; j++){
+        oLi[j].className = 'on';
+    }
+}
+
+    </script>
+</body>
+</html>
+
+
