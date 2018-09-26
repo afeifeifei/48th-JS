@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin:0; padding:0; font-family:"Microsoft yahei",serif;}
+        li{ list-style-type: none;}
+        table{
+            width: 1000px;
+            border-collapse: collapse;
+            border-color: #930;
+            margin: 50px auto 0;
+            user-select: none;
+        }
+        table tr td{
+            width: 250px;
+            height: 100px;
+            text-align: center;
+        }
+        table tr.title td{
+            height: 50px;
+            background: #c36;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        table tr td img{
+            display: block;
+            width: auto;
+            height: 70px;
+            margin: 0 auto;
+        }
+        table tr td.number span{
+            display: inline-block;
+            font-size: 12px;
+            text-align: center;
+        }
+        table tr td.number span.down,table tr td.number span.add{
+            width: 30px;
+            height: 30px;
+            background: #ddd;
+            line-height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        table tr td.number span.num{
+            width: 50px;
+            height: 28px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            line-height: 28px;
+            color: #c36;
+        }
+        .box{
+            width: 1000px;
+            height: 50px;
+            background: #c36;
+            margin: 10px auto;
+        }
+        .box p{
+            float: right;
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .box p span{
+            color: #f4e5a9;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead></thead>
+        <tbody>
+            <tr class="title">
+                <td>商品</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>小计</td>
+            </tr>
+            <tr class="goods">
+                <td><img src="img/shop1.jpg" alt=""></td>
+                <td class="danjia">8</td>
+                <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+                <td class="price">0</td>
+            </tr>
+            <tr class="goods">
+                <td><img src="img/shop2.jpg" alt=""></td>
+                <td class="danjia">10</td>
+                <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+                <td class="price">0</td>
+            </tr>
+            <tr class="goods">
+                <td><img src="img/shop3.jpg" alt=""></td>
+                <td class="danjia">12.5</td>
+                <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+                <td class="price">0</td>
+            </tr>
+            <tr class="goods">
+                <td><img src="img/shop4.jpg" alt=""></td>
+                <td class="danjia">23</td>
+                <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+                <td class="price">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="box">
+        <p class="totalPrice">合计费用： <span>0</span> ￥</p>
+        <p class="totalNum">已选中商品： <span>0</span> 个</p>
+    </div>
+    <script>
+
+        (function(){
+
+            //模拟一个存储各种关键值的数据，而不是每次通过innerHTML获取
+            let data = [
+                {
+                    id : 0,
+                    danjia : 8,
+                    num : 0
+                },
+                {
+                    id : 1,
+                    danjia : 10,
+                    num : 0
+                },
+                {
+                    id : 2,
+                    danjia :12.5,
+                    num : 0
+                },
+                {
+                    id : 3,
+                    danjia : 23,
+                    num : 0
+                }
+            ];
+
+            let aAdd = document.querySelectorAll(".goods .add"),
+                aDown = document.querySelectorAll(".goods .down"),
+                aNum = document.querySelectorAll(".goods .num"),
+                aPrice = document.querySelectorAll(".goods .price"),
+                oTotalPrice = document.querySelector(".box .totalPrice span"),
+                oTotalNum = document.querySelector(".box .totalNum span")
+            ;
+
+            let len = aAdd.length;
+
+            //页面的变化
+            function change(i){
+                //数量栏目里面显示出新的数量
+                aNum[i].innerHTML = data[i].num;
+
+                //小计栏目显示出新的小计价格
+                aPrice[i].innerHTML = data[i].num * data[i].danjia;
+
+                //总价格与总数量的更新
+                let sum = 0,p = 0;
+                for(let i=0;i<len;i++){
+                    sum += data[i].num;
+                    p += data[i].num * data[i].danjia;
+                }
+                oTotalNum.innerHTML = sum+'';
+                oTotalPrice.innerHTML = p+'';
+            }
+
+            for(let i=0;i<len;i++){
+                // + 按钮
+                aAdd[i].onclick = function(){
+                    //先提一点 -- 先拿出要操作的那个数据
+                    //let thisData = data[i];
+                    //数据的变化
+                    data[i].num ++;
+                    change(i);
+                };
+
+                // - 按钮
+                aDown[i].onclick = function(){
+                    //数量的变化
+                    data[i].num --;
+                    if(data[i].num<0)data[i].num=0;
+                    change(i);
+                };
+            }
+
+
+
+
+        })();
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
