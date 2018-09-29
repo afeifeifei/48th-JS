@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width: 430px;
+                height: 204px;
+                margin: 50px auto;
+                user-select: none;
+            }
+            #wrap .leftTab{
+                float: left;
+                width: 100px;
+                height: 100%;
+            }
+            #wrap .leftTab li{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color: #000;
+                color: #fff;
+                font-size: 12px;
+                margin-bottom: 1px;
+                cursor: pointer;
+            }
+            #wrap .leftTab li.on{
+                background-color: #f60;
+            }
+            #wrap .content{
+                position: relative;
+                float: right;
+                width: 326px;
+                height: 204px;
+            }
+            #wrap .content .right{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .content .right.on{
+                display: block;
+            }
+            #wrap .content .right ul.img{
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .content .right ul.img li{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .content .right ul.img li.on{
+                display: block;
+            }
+            #wrap .content .right ul.tab{
+                position: absolute;
+                bottom: 5px;
+                left: 10px;
+                width: 100%;
+                height: 30px;
+            }
+            #wrap .content .right ul.tab li{
+                float: left;
+                width: 30px;
+                height: 30px;
+                background-color: #000;
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+                font-size: 12px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            #wrap .content .right ul.tab li.on{
+                background-color: #f60;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--左侧tab按钮-->
+            <div class="leftTab">
+                <ul>
+                    <li class="on">豪车</li>
+                    <li>美味</li>
+                    <li>美女风景</li>
+                </ul>
+            </div>
+
+            <!--右侧三个显示内容区-->
+            <div class="content">
+                <!--豪车-->
+                <div class="right on">
+                    <ul class="img">
+                        <li class="on"><img src="img/1.jpg" alt=""></li>
+                        <li><img src="img/2.jpg" alt=""></li>
+                        <li><img src="img/3.jpg" alt=""></li>
+                        <li><img src="img/4.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+                <!--美味-->
+                <div class="right">
+                    <ul class="img">
+                        <li class="on"><img src="img/m1.jpg" alt=""></li>
+                        <li><img src="img/m2.jpg" alt=""></li>
+                        <li><img src="img/m3.jpg" alt=""></li>
+                        <li><img src="img/m4.jpg" alt=""></li>
+                        <li><img src="img/m5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+                <!--美女风景-->
+                <div class="right">
+                    <ul class="img">
+                        <li class="on"><img src="img/s1.jpg" alt=""></li>
+                        <li><img src="img/s2.jpg" alt=""></li>
+                        <li><img src="img/s3.jpg" alt=""></li>
+                        <li><img src="img/s4.jpg" alt=""></li>
+                        <li><img src="img/s5.jpg" alt=""></li>
+                    </ul>
+                    <ul class="tab">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+
+            (function(){
+
+                let aLeftTab = document.querySelectorAll("#wrap .leftTab li"),
+                    aRightContent = document.querySelectorAll("#wrap .content .right"),
+                    aImg = document.querySelectorAll("#wrap .right .img"),
+                    aTab = document.querySelectorAll("#wrap .right .tab"),
+                    index = 0,//用来辨别左右大的选项卡对应的显示序号
+                    len=aLeftTab.length
+                ;
+
+                //左侧tab 控制 右侧content 的显示
+                function leftTab(i){
+                    aLeftTab[i].onclick = function(){
+                        if(index === i)return;
+                        aLeftTab[index].className = "";
+                        aRightContent[index].className = "right";
+                        index = i;
+                        aLeftTab[index].className = "on";
+                        aRightContent[index].className = "right on";
+                    };
+                }
+
+                //右侧的每一块都初始添加tab控制img的事件
+                function rightTab(i){
+                    let aImgLi = aImg[i].querySelectorAll("li"),
+                        aTabLi = aTab[i].querySelectorAll("li"),
+                        len1 = aImgLi.length,
+                        index1 = 0
+                    ;
+                    for(let j=0;j<len1;j++){
+                        aTabLi[j].onclick = function(){
+                            if(j === index1)return;
+                            aTabLi[index1].className = "";
+                            aImgLi[index1].className = "";
+                            index1 = j;
+                            aTabLi[index1].className = "on";
+                            aImgLi[index1].className = "on";
+                        };
+                    }
+                }
+
+
+                //左侧tab控制右侧内容的显示
+                for(let i=0;i<len;i++){
+                    leftTab(i);
+                    rightTab(i);
+                }
+
+
+
+                /*//因为初始如果不点击左侧，那么右侧就没有事件，我们需要自执行一次给右侧赋予一个初始的事件
+                addRightEvent(0);
+                addRightEvent(1);
+                addRightEvent(2);
+
+                //单列出来
+                function addRightEvent(i){
+                    //通过点击左侧选项卡，获取到右侧对应的img信息和tab信息
+                    let aImgLi = aImg[i].querySelectorAll("li"),
+                        aTabLi = aTab[i].querySelectorAll("li"),
+                        len1 = aImgLi.length,
+                        index1 = 0
+                    ;
+                    for(let j=0;j<len1;j++){
+                        aTabLi[j].onclick = function(){
+                            if(j === index1)return;
+                            aTabLi[index1].className = "";
+                            aImgLi[index1].className = "";
+                            index1 = j;
+                            aTabLi[index1].className = "on";
+                            aImgLi[index1].className = "on";
+                        };
+                    }
+                }*/
+
+
+
+
+
+            })();
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

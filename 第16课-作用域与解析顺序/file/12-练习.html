@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            fn();
+            alert(a);
+            var a = 10;
+            alert(a);
+            function fn(){
+                a = 1;
+            }
+
+            /*
+            1.定义
+                var a
+                function fn(){…}
+            2.执行
+                21: fn();  ========> 新的作用域
+                                            1.定义：
+                                            2.执行：
+                    a = 1      <---------     a = 1;
+                22: alert(a);  //1
+                23: a = 10;
+                24: alert(a);  //10
+             */
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

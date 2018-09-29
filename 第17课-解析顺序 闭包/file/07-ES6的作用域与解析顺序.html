@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            ES6
+                let const function
+             */
+
+            /*let a = 10;
+            let b = 10;*/
+
+
+            //只能先let再使用，let不会被提前解析
+            /*let a = 10;
+            alert(a);*/
+
+            /*let a = 20;
+            function b(){
+                //暂时性死区 -- 只要在作用域里面let过变量，那就不允许提前使用
+                alert(a); //报错
+                let a = 30;
+            }
+
+            b();*/
+
+            //let的作用域是 { }
+
+            /*if(true){
+                let a = 10;
+            }
+            console.log(a);//报错*/
+
+            /*{
+                let a = 50;
+                let b = 40;
+            }
+            console.log(b);//报错*/
+
+
+
+            //const g = 10; //不允许被重新赋值的常量
+            //g = 80;//报错
+
+            /*//这种允许
+            const g = [];
+            g[0] = 10;
+            console.log(g);*/
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            每执行到一个新的作用域，按照这个规则去解析：
+
+                第一步：定义
+                    找出当前作用域里面所有的var和function定义的变量名，
+                    此时var的变量，还不会被赋值，仅仅是初始值undefined
+                    此时function出的函数，就已经是有一个完整的函数了，可以直接使用
+
+                第二步：执行
+                    从上到下执行
+            */
+
+
+
+            alert(b);
+            function b(){}
+            /*
+            1.定义
+                function b(){}
+            2.执行
+                alert(b); //函数块
+            */
+
+
+
+
+            //alert( x );
+            //var x = 10;
+            /*
+            1.定义：
+                var x;
+            2.执行
+                alert( x );  //undefined
+                x = 10;
+             */
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
