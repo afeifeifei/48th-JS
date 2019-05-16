@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            欢迎访问本站！您上次访问本站的时间为：2018-11-10，20:50:20
+        </div>
+        
+        <script>
+            //封装的cookie
+            let Cookie = {
+                //设置
+                set(mJson,day){
+                    let date = new Date( new Date().getTime() + day*24*60*60*1000 ).toUTCString();
+                    Object.entries(mJson).forEach(([key,value])=>{
+                        document.cookie = `${key}=${value};expires=${date}`;
+                    });
+                },
+                //获取
+                get(key){
+                    new RegExp("(^|\\s)"+key+"=([^;]+)(;|$)").test(document.cookie);
+                    return RegExp.$2;
+                },
+                //删除
+                remove(key){
+                    Cookie.set({[key]:""},-1);
+                }
+            };
+
+            (function(){
+                let oWrap = document.getElementById("wrap");
+                let lastTime = Cookie.get("lastTime");
+                let date = new Date().getTime();
+                function showText(lastTime){
+                    if( lastTime ){
+                        let date = new Date(lastTime-0);
+                        return ` 欢迎访问本站！您上次访问本站的时间为：${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}，${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+                    }else{
+                        return `欢迎访问本站！您是第一次访问本站哟(＾Ｕ＾)ノ~ＹＯ`;
+                    }
+                }
+                oWrap.innerText = showText(lastTime);
+                Cookie.set({lastTime:date},9999);
+            })();
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

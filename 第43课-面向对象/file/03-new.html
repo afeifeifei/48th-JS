@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            var afei = new Teacher("阿飞",18,1234);
+            var zhuque = new Teacher("朱雀",20,2222);
+            var wula = new Teacher("乌拉",21,3333);
+            var xinai = new Teacher("心艾",40,5555);
+
+            /*console.log(afei);
+            wula.showID();*/
+            console.log(afei.showID === zhuque.showID);
+
+            //构造函数 / 类
+            function Teacher(name,age,id){
+                this.name = name;
+                this.age = age;
+                this.id = id;
+                this.showID = function(){
+                    alert( this.id );
+                };
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

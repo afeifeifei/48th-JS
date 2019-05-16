@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            | 或者
+
+            字符集
+            []
+                [0-9]
+                [a-z]
+                [A-Z]
+                [\u4e00-\u9fa5] 匹配所有汉字
+
+                一个字符集只匹配一个字符，所有内部是或者的含义
+                ^ 如果出现在字符集的第一位，那么整个字符集是除了的意思
+             */
+
+            /*let a = /abc|edf/g;
+            let s = "edfabcgggedfbbbabc";*/
+           /* let a = /(阿飞|朱雀)老师/g;
+            let s = "朱雀老师真帅。阿飞老师"
+            console.log(s.match(a));*/
+
+           //let a = /(1|2|3|4|5|6|7){5}/;
+           //let a = /[1-7]{5}/;
+
+            /*let reg = /[2-B]/g;
+            let str = "23456789:;C<=>?@AB";*/
+
+            /*let reg = /[阿-飞]/g;
+            let str = "非面";
+            console.log(str.match(reg));
+
+
+            let a = "阿".charCodeAt(0),
+                b = "飞".charCodeAt(0);
+            for(let i=a;i<=b;i++){
+                document.write(String.fromCharCode(i));
+            }*/
+
+            //字符集的或者功能那个
+            /*let reg = /[abc0-9]/g;
+            let str = "abc753";
+            console.log(str.match(reg));*/
+
+            // /[a-zA-Z0-9]Good/
+
+           /* let reg = /[^abc]/g;
+            let str = "abc753阿飞";
+            console.log(str.match(reg));*/
+
+            let reg = /[\-{}?*\\/+()\[\]\-]/g;
+            let str = "abc753阿飞";
+            console.log(str.match(reg));
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

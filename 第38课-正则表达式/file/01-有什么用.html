@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            正则表达式
+                对象
+                配合一些api来验证字符串
+             */
+
+            let a = "456阿飞789朱雀12"; //["456","789","12"]
+            let b = "h789y456y123"; //["789","456","123"]
+            let c = "gf456fgdfg65fdg6fdg5f1dg5df5gf";
+
+            console.log(fn(a));
+            console.log(fn(b));
+            console.log(fn(c));
+
+            function fn(str){
+                return str.match(/\d+/g);
+            }
+
+            /*function fn(str){
+                let len = str.length;
+                let s = "";
+                let arr = [];
+                for(let i=0;i<len;i++){
+                    let n = str.charAt(i);
+                    if( !isNaN(n) ){
+                        s += n;
+                    }else{
+                        s && arr.push(s);
+                        s = "";
+                    }
+                }
+                s && arr.push(s);
+                return arr;
+            }*/
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

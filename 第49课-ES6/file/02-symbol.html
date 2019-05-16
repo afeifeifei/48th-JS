@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            //console.log(Symbol() === Symbol());
+            let obj = {
+                name : "阿飞",
+                age : "18"
+            };
+
+            /*let n = Symbol();
+            obj[n] = "朱雀";
+            console.log(obj[n]);*/
+            /*obj[Symbol()] = "心艾";
+            console.log(obj);*/
+
+            /*let n = Symbol();
+            obj[n] = "朱雀";
+
+            n = Symbol();
+            obj[n] = "心艾";
+
+            */
+            //console.log(obj[n]);
+            //console.log(Object.entries(obj));
+            /*for (let nElement of Object.values(obj)) {
+                console.log(nElement);
+            }*/
+
+            /*console.log(Symbol("a"));
+            console.log(Symbol("a"));
+            console.log(Symbol("a")===Symbol("a"));*/
+            /*console.log(Symbol.for("a"));
+            console.log(Symbol.for("a"));
+            console.log(Symbol.for("a")===Symbol.for("a"));
+
+            obj[Symbol.for("name")] = "朱雀";
+
+            console.log(obj);
+            console.log(obj[Symbol.for("name")]);*/
+
+            obj[Symbol()] = "朱雀";
+            obj[Symbol()] = "心艾";
+            let symbolArr = Object.getOwnPropertySymbols(obj);
+            console.log( obj[symbolArr[0]] );
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

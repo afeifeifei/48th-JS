@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            \ 转义符号
+             */
+
+            /*let str = "阿飞\"g\\gghh\nhh\rhh\tjjj";
+            alert(str);*/
+
+
+            //转义符号将有特殊意义的字符变成没有特殊意义
+            /*let str = "/"
+            let a = /\//;
+            console.log( a.test(str) );*/
+
+            /*
+            转义符号配合一些字母使用，有非常独特的意思
+                \s 各种空格
+                \S 非空格
+
+                \d 数字
+                \D 非数字
+
+                \w 数字，字母，下划线
+                \W
+
+                \b 起始 结束 空格 以及除了\w之外所有内容都是独立部分
+                \B
+             */
+
+            /*let a = /\s/;
+            let s = "456";*/
+
+            /*let a = /\d\d/;
+            let s = "ffff79pppp";*/
+
+            /*let a = /\w/;
+            let s = "+.啊9";*/
+
+            let a = /\bafei\b/;
+            let s = "afei_ is handsome";
+            /*let a = /\b飞\b/;
+            let s = " 飞 老师";*/
+
+            console.log(a.test(s));
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

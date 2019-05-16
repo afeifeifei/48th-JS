@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*let x = 5;
+
+            function fn(x,y=x){
+                console.log(x);
+                console.log(y);
+            }
+
+            fn(1);*/
+
+            //let arr = ["阿飞","风屿","小浪","海文"];
+            /*let obj = {
+                name : "阿飞",
+                age : 18,
+                sex : "男",
+                marry : true
+            }
+
+            /!*console.log(Object.keys(arr));
+            console.log(Object.values(arr));
+            console.log(Object.entries(arr));*!/
+
+            /!*
+            for of可以遍历所有可迭代的数据
+            通常个entries一起使用可以非常便利的遍历对象
+             *!/
+
+            for (let [key,value] of Object.entries(obj)){
+                console.log(key);
+                console.log(value);
+            }*/
+
+            /*let {x,y,...z} = {x:1,y:2,a:3,b:4};
+
+            console.log(x);
+            console.log(y);
+            console.log(z);*/
+            let x = {
+                aa : 1,
+                bb : 2
+            };
+            let y = {
+                cc : 3,
+                dd : 4
+            };
+
+            let z = {...x,...y};
+            z.aa = 10;
+            console.log(z);
+            console.log(x);
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

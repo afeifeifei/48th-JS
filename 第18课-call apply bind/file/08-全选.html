@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select: none}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            label{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div>
+                <input type="checkbox" id="box1" checked><label for="box1">朱雀</label>
+                <input type="checkbox" id="box2"><label for="box2">心艾</label>
+                <input type="checkbox" id="box3"><label for="box3">茜茜</label>
+                <input type="checkbox" id="box4"><label for="box4">发发</label>
+                <input type="checkbox" id="box5"><label for="box5">七七</label>
+                <input type="checkbox" id="box6"><label for="box6">婷婷</label>
+            </div>
+            <br><br><br><br><br><br><br><br>
+            <input type="checkbox" id="box7"><label for="box7">全选</label>
+        </div>
+        
+        <script>
+
+            /*
+
+            在原生的表单元素input等里面，checked/disabled
+            在js里面是以布尔值的形式体现的
+
+             */
+
+            let aInp = document.querySelectorAll("#wrap div input");
+            let oBtn = document.getElementById("box7");
+            let len = aInp.length;
+
+            //console.log(  aInp[1].checked  );
+            //aInp[3].checked = true;
+
+            let num = 1;
+
+            oBtn.onchange = function(){
+                //console.log("我的状态发生了改变！");
+                if( this.checked ){
+                    //假设为真，前面所有全为真
+                    for(let i=0;i<len;i++){
+                        aInp[i].checked = true;
+                    }
+                }
+            }
+
+            for(let i=0;i<len;i++){
+                aInp[i].onchange = function(){
+                    if( this.checked ){
+                        num ++;
+                    }else{
+                        num --;
+                    }
+                    oBtn.checked = num===len;
+                };
+            }
+
+            /*
+            let bool = true;
+            for(let j=0;j<len;j++){
+                if( !aInp[j].checked ){
+                    bool = false;
+                    break;
+                }
+            }
+
+            oBtn.checked = bool;
+             */
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

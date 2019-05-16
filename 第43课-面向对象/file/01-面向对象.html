@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            /*
+            oop
+
+            封装 继承 多态
+             */
+
+            /*var afei = {
+                name : "阿飞",
+                age : 18,
+                id : 1234,
+                showID : function(){
+                    alert( this.id );
+                }
+            };
+
+            var zhuque = {
+                name : "阿飞",
+                age : 20,
+                id : 2222,
+                showID : function(){
+                    alert( this.id );
+                }
+            };
+
+            var wula = {
+                name : "乌拉",
+                age : 21,
+                id : 3333,
+                showID : function(){
+                    alert( this.id );
+                }
+            };
+
+            var xinai = {
+                name : "心艾",
+                age : 40,
+                id : 5555,
+                showID : function(){
+                    alert( this.id );
+                }
+            };*/
+
+            var afei = teacher("阿飞",18,1234);
+            var zhuque = teacher("朱雀",20,2222);
+            var wula = teacher("乌拉",21,3333);
+            var xinai = teacher("心艾",40,5555);
+
+            //console.log(afei);
+            //wula.showID();
+
+            console.log( zhuque.showID === xinai.showID ); //false
+
+            function teacher(name,age,id){
+                var o = {};
+
+                o.name = name;
+                o.age = age;
+                o.id = id;
+                o.showID = function(){
+                    alert( this.id );
+                };
+
+                return o;
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

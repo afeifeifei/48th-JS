@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            如果不给cookie设置过期时间，那么浏览器关闭之后，cookie就清除了
+
+            在存储本地cookie肯定是需要设置一个过期时间的，
+                expires=未来某一刻的时间戳.toUTCString()
+             */
+
+            //let date = new Date(2018,10,9,22,0,0);
+            let date = new Date(new Date().getTime() + 7*24*60*60*1000);
+
+            document.cookie = "goudan=afei;expires="+date.toUTCString();
+            document.cookie = "pwd=123456;";
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

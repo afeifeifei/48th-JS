@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="潭州教育-阿飞老师">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;user-select:none;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+    <script>
+
+        /*
+        当访问对象的属性的时候，先从自身找，自身没有，才进入原型里面去找，原型找不到去原型的原型里面找，直到Object.prototype为止
+         */
+
+        function Fn(){
+            //this.x = 10;
+        }
+        //Fn.prototype.x = 20;
+        //Fn.prototype.constructor === Fn;
+
+        Object.prototype.x = 30;
+
+        var goudan = new Fn();
+
+        console.log(goudan.x);
+
+        //console.log(Fn.prototype.__proto__ === Object.prototype);
+
+        console.log(Object.prototype);
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

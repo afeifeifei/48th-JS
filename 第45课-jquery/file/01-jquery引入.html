@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <b></b>
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            /*
+            兼容IE678的
+            1.x.x
+
+            不兼容IE678
+            2.x.x
+            3.x.x
+             */
+
+            //let $ = 1;
+
+            //console.log(jQuery);
+            console.log($);
+
+            /*(function($){
+                console.log($);
+            })(jQuery);*/
+
+            //console.log( $() );
+
+            /*
+            参数：
+                函数 -- 当dom节点加载完成之后，再执行这个函数里面的代码
+                选择器字符串 -- 返回对应的jq对象
+                节点对象/节点集合 -- 返回对应的jq对象
+
+
+            jQ对象  jS对象/DOM对象
+            JQ -> JS  [序号] / .get(序号)
+            JS -> JQ  $(js对象)
+             */
+
+            $(function(){
+
+                //console.log( $("#wrap p") );
+
+                //$("#wrap p")[1].innerHTML = "<b>加粗文字</b>";
+
+                //$("#wrap p").html("<b>阿飞老师</b>");
+
+                //$("#wrap p")[1].html("<b>加粗文字</b>");//不允许使用
+
+                //$("#wrap p").innerHTML = "<b>加粗文字</b>";//不允许使用
+
+                //console.log( $("#wrap p").get(2) );
+
+                /*let aP = document.querySelectorAll("#wrap p");
+
+                let $p = $(aP);*/
+
+                let aP = document.querySelector("#wrap b");
+
+                let $p = $(aP);
+                console.log($p);
+
+            });
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

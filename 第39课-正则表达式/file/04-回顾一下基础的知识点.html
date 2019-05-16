@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            /*
+            定义
+            转义
+            修饰词igm
+            量词{} *+?
+            子项()
+            字符集[]
+            | ^ $ .
+             */
+
+            let reg = {
+                //qq:5~10，只能是数字，第一位不是0
+                qq : /^[1-9]\d{4,9}$/,
+                //用户名：6~18，数字字母_，必须要字母开头
+                user : /^[a-z]\w{5,17}$/i,
+                //密码：6~18，数字字母_所有符号
+                pwd : /^[\w\-\]\\<>,.?/+*=)([{}:;"'&^%$#@!`~|]{6,18}$/,
+                //手机号：
+                tel : /^1[3-9]\d{9}$/,
+                //邮箱：
+                mail : /^[a-z1-9_]\w{0,17}@[0-9a-z]{2,}(\.[a-z]{2,4}){1,2}$/i,
+                //身份证:
+                IDCard : /^[1-9]\d{5}(18|19|20)\d{2}(((0[13578]|1[02])(0[1-9]|[12][0-9])|3[01])|((0[469]|11)(0[1-9]|[12][0-9])|30)|(02(0[1-9]|[12][0-9])))\d{3}[0-9x]$/i
+            };
+
+            /*let a = reg.qq;
+            let s = "3045282682";*/
+            /*let a = reg.mail;
+            let s = "ggghh555@163.com";*/
+            let a = reg.IDCard;
+            let s = "445321201802030750";
+            console.log( a.test(s) );
+
+
+            // /((0[13578]|1[02])(0[1-9]|[12][0-9])|3[01])|((0[469]|11)(0[1-9]|[12][0-9])|30)|(02(0[1-9]|[12][0-9]))/
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

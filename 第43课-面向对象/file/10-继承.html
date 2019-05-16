@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            继承
+             */
+
+
+            //父类
+            function A(n,a){
+                this.name = n;
+                this.age = a;
+            }
+            A.prototype.getName = function(){
+                return this.name;
+            };
+
+            //子类
+            function B(n,a,i){
+                //继承原来的私有属性
+                A.call(this,n,a);
+                //新增的私有属性
+                this.id = i;
+            }
+            //继承原型
+            function Fn(){};
+            Fn.prototype = A.prototype;
+            B.prototype = new Fn();
+            //新增原型
+            B.prototype.constructor = B;
+            B.prototype.xx = 10;
+
+
+
+
+
+            var afei = new A("阿飞",18);
+            var zhuque = new A("朱雀",20);
+
+            var xinai = new B("心艾",20,5555);
+
+            console.log(afei);
+            console.log(zhuque);
+            console.log(xinai);
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

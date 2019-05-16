@@ -1,0 +1,287 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="keywords" content="关键词">
+    <meta name="description" content="描述">
+    <meta name="author" content="潭州教育-阿飞老师">
+    <style>
+        body{font-family: "Microsoft YaHei",serif;user-select:none;}
+        body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+        ol,ul,li{margin:0;padding:0;list-style:none;}
+        img{border:none;}
+
+        #wrap,#wrap1{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid pink;
+            margin: 50px auto;
+        }
+        #wrap .con,#wrap1 .con{
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 300px;
+            height: 270px;
+        }
+        #wrap .con li,#wrap1 .con li{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 270px;
+        }
+        #wrap .con li.active,#wrap1 .con li.active{
+            display: block;
+        }
+        #wrap .tab,#wrap1 .tab{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+        }
+        #wrap .tab li,#wrap1 .tab li{
+            float: left;
+            width: 99px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            border-right: 1px solid #fff;
+            background-color: pink;
+            color: #fff;
+            cursor: pointer;
+        }
+        #wrap .tab li.active,#wrap1 .tab li.active{
+            background-color: #f60;
+        }
+        #goudan{
+            position: relative;
+            width: 780px;
+            height: 380px;
+            margin: 50px auto 0;
+            user-select: none;
+        }
+        #goudan .img{
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 330px;
+        }
+        #goudan .img ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #goudan .img li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        #goudan .img li.active{
+            opacity: 1;
+            z-index:2;
+        }
+        #goudan .tab{
+            overflow: hidden;
+            width: 100%;
+            height: 50px;
+        }
+        #goudan .tab ul{
+            width: 200%;
+            height: 100%;
+        }
+        #goudan .tab li{
+            float: left;
+            width: 10%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #000;
+            font-size: 12px;
+            color: #eee;
+            cursor: pointer;
+        }
+
+        #goudan .tab li.active{
+            background-color: #303030;
+            color: #e9c06c;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="con">
+            <ul>
+                <li class="active" style="background-color: red">A内容</li>
+                <li style="background-color: gold">B内容</li>
+                <li style="background-color: darkcyan">C内容</li>
+            </ul>
+        </div>
+        <div class="tab">
+            <ul>
+                <li class="active">A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrap1">
+        <div class="con">
+            <ul>
+                <li class="active" style="background-color: red">A内容</li>
+                <li style="background-color: gold">B内容</li>
+                <li style="background-color: darkcyan">C内容</li>
+            </ul>
+        </div>
+        <div class="tab">
+            <ul>
+                <li class="active">A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+        </div>
+    </div>
+    <div id="goudan">
+        <!--图片部分对应的布局-->
+        <div class="img">
+            <ul>
+                <li class="active"><a href=""><img src="img/1.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/2.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/3.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/4.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/5.jpg" alt=""></a></li>
+            </ul>
+        </div>
+
+        <!--按钮部分对应的布局-->
+        <div class="tab">
+            <ul>
+                <li class="active">开黑吗</li>
+                <li>我亚索贼6</li>
+                <li>只要我E的够快</li>
+                <li>队友的问号</li>
+                <li>就跟不上我</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+        (function(){
+            //基础的Tab类
+            function Tab(param){
+                this.conEle = param.conEle;
+                this.tabEle = param.tabEle;
+                this.conClass = param.conClass || "active";
+                this.tabClass = param.tabClass || "active";
+
+                this.length = this.tabEle.length;
+                this.index = 0;
+
+                this.addClick();
+            }
+            Tab.prototype = {
+                constructor : Tab,
+                //tab添加点击事件
+                addClick : function(){
+                    for(var i=0;i<this.length;i++){
+                        (function(i){
+                            this.tabEle[i].onclick = function(){
+                                this.change(i);
+                            }.bind(this);
+                        }).call(this,i);
+                    }
+                },
+                //变化函数
+                change : function(i){
+                    if( this.index === i )return;
+                    this.conEle[this.index].classList.remove(this.conClass);
+                    this.tabEle[this.index].classList.remove(this.tabClass);
+                    this.index = i;
+                    this.conEle[this.index].classList.add(this.conClass);
+                    this.tabEle[this.index].classList.add(this.tabClass);
+                }
+            };
+
+            //继承自Tab，新增自动轮播功能
+            function TabAuto(param){
+                Tab.call(this,param);
+
+                this.wrap = param.wrap;
+                this.timer = null;
+                this.autoplay();
+                this.addTimer();
+            }
+            function Fn(){}
+            Fn.prototype = Tab.prototype;
+            TabAuto.prototype = new Fn();
+            TabAuto.prototype.constructor = TabAuto;
+            TabAuto.prototype.autoplay = function(){
+                this.timer = setInterval(function(){
+                    var i = this.index;
+                    i ++;
+                    i %= this.length;
+                    this.change( i );
+                }.bind(this),2000);
+            };
+            TabAuto.prototype.addTimer = function(){
+                this.wrap.onmouseenter = function(){
+                    clearInterval(this.timer);
+                }.bind(this);
+                this.wrap.onmouseleave = function(){
+                    this.autoplay();
+                }.bind(this);
+            };
+
+
+
+
+
+
+            //实例测试
+            new Tab({
+                conEle : document.querySelectorAll("#wrap .con li"),
+                tabEle : document.querySelectorAll("#wrap .tab li")
+            });
+
+            new Tab({
+                conEle : document.querySelectorAll("#wrap1 .con li"),
+                tabEle : document.querySelectorAll("#wrap1 .tab li")
+            });
+
+            new TabAuto({
+                conEle : document.querySelectorAll("#goudan .img li"),
+                tabEle : document.querySelectorAll("#goudan .tab li"),
+                wrap : document.getElementById("goudan")
+            });
+
+        })();
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

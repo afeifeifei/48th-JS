@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                position: relative;
+                width: 780px;
+                height: 380px;
+                margin: 50px auto 0;
+                user-select: none;
+            }
+            #img{
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 330px;
+            }
+            #img ul{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 10000%;
+                height: 100%;
+                transition: left .3s;
+            }
+            #img li{
+                float: left;
+                width: 1%;
+                height: 100%;
+            }
+            #tab{
+                overflow: hidden;
+                width: 100%;
+                height: 50px;
+            }
+            #tab ul{
+                width: 200%;
+                height: 100%;
+            }
+            #tab li{
+                float: left;
+                width: 10%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                background-color: #000;
+                font-size: 12px;
+                color: #eee;
+                cursor: pointer;
+            }
+
+            #tab li.active{
+                background-color: #303030;
+                color: #e9c06c;
+            }
+
+            #arrow div{
+                position: absolute;
+                top: 50%;
+                width: 40px;
+                height: 60px;
+                margin-top: -30px;
+                line-height: 60px;
+                text-align: center;
+                font-size: 12px;
+                background-color: #000;
+                color: #fff;
+                cursor: pointer;
+            }
+            #arrow div.left{
+                left: 0;
+            }
+            #arrow div.right{
+                right:0;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <!--图片部分对应的布局-->
+            <div id="img">
+                <ul>
+                    <li class="show"><a href=""><img src="img/1.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/2.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/3.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/4.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/5.jpg" alt=""></a></li>
+                </ul>
+            </div>
+
+            <!--按钮部分对应的布局-->
+            <div id="tab">
+                <ul>
+                    <li class="active">开黑吗</li>
+                    <li>我亚索贼6</li>
+                    <li>只要我E的够快</li>
+                    <li>队友的问号</li>
+                    <li>就跟不上我</li>
+                </ul>
+            </div>
+
+
+        </div>
+        
+        <script>
+
+            (function(){
+
+                //定义变量
+                let oWrap = document.getElementById("wrap"),
+                    aTabLi = document.querySelectorAll("#tab ul li"),
+                    oUl = document.querySelector("#img ul"),
+                    lastIndex = 0,
+                    len = aTabLi.length,
+                    timer = null
+                ;
+
+                //添加tab的点击事件
+                [...aTabLi].forEach((dom,index)=>{
+                    dom.onclick = function(){
+                        if(index === lastIndex)return;
+
+                        aTabLi[lastIndex].classList.remove("active");
+                        lastIndex = index;
+                        aTabLi[lastIndex].classList.add("active");
+
+                        oUl.style.left = "-"+lastIndex*100+"%";
+                    };
+                });
+
+                //定时器
+                function fn(){
+                    aTabLi[lastIndex].classList.remove("active");
+                    lastIndex ++;
+                    lastIndex %= len;
+                    aTabLi[lastIndex].classList.add("active");
+                    oUl.style.left = "-"+lastIndex*100+"%";
+                }
+                timer = setInterval( fn , 3000 );
+
+                //停止/重开 定时器
+                oWrap.onmouseenter = function(){
+                    clearInterval(timer);
+                };
+                oWrap.onmouseleave = function(){
+                    timer = setInterval( fn , 2000 );
+                };
+
+
+            })();
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

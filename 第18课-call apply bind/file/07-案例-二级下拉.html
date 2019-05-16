@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width: 200px;
+                margin: 50px 0 0 100px;
+                border:1px solid #999;
+                user-select: none;
+            }
+            #wrap .title{
+                width: 100%;
+                height: 30px;
+                font-size: 16px;
+                line-height: 30px;
+                text-indent: 5px;
+                background: pink;
+                color: #fff;
+                cursor: pointer;
+                border-bottom: 1px dashed #eee;
+            }
+            #wrap .list{
+                display: none;
+            }
+            #wrap .list.show{
+                display: block;
+            }
+            #wrap .list li{
+                width: 100%;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                border-bottom: 1px dashed #eee;
+                text-indent: 20px;
+                cursor: pointer;
+            }
+            #wrap .list li:hover{
+                background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="friend">
+                <p class="title">同事</p>
+                <ul class="list">
+                    <li>朱雀</li>
+                    <li>心艾</li>
+                    <li>茜茜</li>
+                    <li>发发</li>
+                </ul>
+            </div>
+            <div class="friend">
+                <p class="title">好友</p>
+                <ul class="list">
+                    <li>狗蛋</li>
+                    <li>大锤</li>
+                    <li>王二</li>
+                </ul>
+            </div>
+            <div class="friend">
+                <p class="title">VIP学员</p>
+                <ul class="list">
+                    <li>阿吉</li>
+                    <li>5050</li>
+                    <li>海逝</li>
+                    <li>奔跑</li>
+                    <li>明天</li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+
+            let aDiv = document.querySelectorAll("#wrap .title"),
+                aList = document.querySelectorAll("#wrap .list");
+            let len = aDiv.length;
+
+            for(let i=0;i<len;i++){
+                aDiv[i].onclick = function(){
+                    aList[i].classList.toggle("show");
+                };
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

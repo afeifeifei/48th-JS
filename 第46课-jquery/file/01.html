@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+
+        <!--<form action="xxxx.php" method="get">
+            <input type="text" name="user">
+            <select name="" id="">
+
+            </select>
+            <input type="submit">
+        </form>-->
+
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            /*$.ajax({
+                type : "GET",
+                url : "test",
+                data : {},  //你传输给别人的数据
+                dataType : "json",
+                success : function(msg){
+                    console.log(msg);
+                }
+            });*/
+
+            $.get("test" ,function(msg){
+                console.log(msg);
+            } );
+
+            //$.post("test",{},function(){})
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

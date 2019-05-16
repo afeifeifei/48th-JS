@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+        
+        <script>
+
+            (function(){
+                function $(s){
+                    return new Init(s);
+                }
+
+                class Init{
+                    constructor(s){
+                        let domArr = [...document.querySelectorAll(s)];
+                        domArr.forEach((ele,index)=>{
+                            this[index] = ele;
+                        });
+                        this.length = domArr.length;
+                    }
+                    each(fn){
+                        for(let i=0;i<this.length;i++){
+                            fn.call(this[i] , i);
+                        }
+                    }
+                    html(str){
+                        this.each(function(){
+                            this.innerHTML = str;
+                        });
+                        return this;
+                    }
+                    css(attr,value){
+                        this.each(function(){
+                            this.style[attr] = value;
+                        });
+                        return this;
+                    }
+                };
+
+                window.$ = window.jQuery = $;
+            })();
+
+            console.log($);
+            console.log($("#wrap p"));
+           /* $("#wrap p").html(123456);
+            $("#wrap p").css("color" , "red");*/
+            $("#wrap p").html(123456).css("color" , "red");
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

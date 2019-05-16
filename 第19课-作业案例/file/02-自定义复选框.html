@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            
+            #wrap{
+                width: 300px;
+                padding-top: 20px;
+                margin: 50px auto;
+                border: 1px solid #bbb;
+                border-radius: 15px;
+                user-select: none;
+            }
+            #wrap ul.list li{
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                font-size: 14px;
+                background: url("img/ckbg1.jpg") no-repeat 20px center;
+                text-indent: 70px;
+                cursor: pointer;
+                color: #fff;
+            }
+            #wrap ul.list li.click{
+                background-image: url("img/ckbg2.jpg");
+                text-indent: 50px;
+            }
+            #wrap .btn{
+                overflow: hidden;
+                width: 100%;
+                height: 50px;
+            }
+            #wrap .btn p{
+                float: left;
+                line-height: 50px;
+                margin-left: 50px ;
+                background: url("img/ckbg1.jpg") no-repeat 0 center;
+                text-indent: 23px;
+                font-size:14px;
+                cursor: pointer;
+            }
+            #wrap .btn p.click{
+                background-image: url("img/ckbg2.jpg");
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul class="list">
+                <!--<li>项目一</li>
+                <li>项目二</li>-->
+            </ul>
+            <div class="btn">
+                <p class="all">全选</p>
+                <p class="fan" style="background-image: none">反选</p>
+            </div>
+        </div>
+        
+        <script>
+
+            (function(data){
+                let oUl = document.querySelector("#wrap .list");
+                let aLi = oUl.getElementsByTagName("li");
+                let oAll = document.querySelector("#wrap .btn .all");
+                let oFan = document.querySelector("#wrap .btn .fan");
+                let len = data.length;
+                let num = 0;
+
+                //num发生变化后必须要做的事
+                function ifFullNum(){
+                    oAll.classList[num===len?"add":"remove"]("click");
+                }
+
+                //通过数据生成HTML结构
+                (function(){
+                    let html = "";
+                    let color = ["#222" , "#555" , "#888", "#bbb"];
+                    let colorLen = color.length;
+                    for(let i=0;i<len;i++){
+                        html += `<li style="background-color:${color[i%colorLen]}">${data[i].TXT}</li>`;
+                    }
+                    oUl.innerHTML = html;
+                })();
+
+                //给Li添加点击事件
+                (function(){
+                    for(let i=0;i<len;i++){
+                        aLi[i].onclick = function(){
+                            //切换选中状态
+                            this.classList.toggle("click");
+
+                            //判断当前元素是否拥有 click 名字
+                            if( this.classList.contains("click") ){
+                                num ++;
+                            }else{
+                                num --;
+                            }
+
+                            //num变了，必须执行它
+                            ifFullNum();
+                        };
+                    }
+                })();
+
+                //全选 反选
+                (function(){
+                    //全选的点击
+                    oAll.onclick = function(){
+                        this.classList.toggle("click");
+                        //判断被点击之后的选中状态
+                        let bool = this.classList.contains("click");
+                        let attr = bool?"add":"remove";
+                        for(let i=0;i<len;i++){
+                            aLi[i].classList[attr]("click");
+                        }
+                        num = bool?len:0;
+                    };
+                    //反选的点击
+                    oFan.onclick = function(){
+                        for (let i = 0; i < len; i++) {
+                            aLi[i].classList.toggle("click");
+                        }
+                        num = len - num;
+                        ifFullNum();
+                    };
+                })();
+
+
+
+            })(
+                //假设这个数据是后台给的数据
+                [
+                    {
+                        TXT : "朱雀"
+                        //在每一项可能还有其他数据，这个案例我们用不到就先不写了
+                    },
+                    {
+                        TXT : "心艾"
+                    },
+                    {
+                        TXT : "发发"
+                    },
+                    {
+                        TXT : "七七"
+                    },
+                    {
+                        TXT : "岚岚"
+                    },
+                    {
+                        TXT : "艾米"
+                    },
+                    {
+                        TXT : "丫丫"
+                    },
+                    {
+                        TXT : "风屿"
+                    }
+                ]
+            );
+
+
+            /*if( num === len ){
+                        oAll.classList.add("click");
+                    }else{
+                        oAll.classList.remove("click");
+                    }*/
+
+            /*if( this.classList.contains("click") ){
+
+                for(let i=0;i<len;i++){
+                    aLi[i].classList.add("click");
+                }
+
+                num = len;
+
+            }else{
+
+                for(let i=0;i<len;i++){
+                    aLi[i].classList.remove("click");
+                }
+
+                num = 0;
+            }*/
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

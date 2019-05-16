@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            //let a = /abc/;
+            //console.log(typeof a);
+            //let a = new RegExp("abc"); //需要字符串实参
+
+            /*
+            .test()
+            正则.test(字符串)
+            匹配成功返回 true，否则返回false
+             */
+
+            //let a = /abc/;
+            //console.log(   a.test("阿飞a bc朱雀")  );
+
+            let s = "风屿";
+            //let a = /s/; //这种定义方式，是没有办法根据变量来制定正则的
+            let a = new RegExp( s );
+
+            console.log(   a.test("阿飞abc朱雀风屿")  );
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

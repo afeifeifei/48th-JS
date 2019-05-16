@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                position: absolute;
+                top:100px;
+                left: 80px;
+                margin-top:30px;
+                margin-left:20px;
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+            }
+            #wrap p {
+                position: absolute;
+                top: 50px;
+                left: 30px;
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                margin-top: 5px;
+                margin-left: 3px;
+            }
+        </style>
+    </head>
+    <body style="height: 2000px">
+        <div id="wrap">
+            <p></p>
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            let $wrap = $("#wrap"),
+                $p = $("#wrap p");
+
+            /*console.log($wrap.offset());
+            console.log($wrap.position());
+
+            console.log($p.offset());
+            console.log($p.position());*/
+
+            $wrap.offset({
+                top : 500,
+                left : 400
+            });
+
+            //$wrap.offset().left
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap ul li{
+                float: left;
+                margin-right: 1px;
+                width: 100px;
+                height: 30px;
+                background-color: pink;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            $("#wrap ul li").hover(function(){
+                $(this).stop().animate({
+                    height : 300
+                },1000);
+            },function(){
+                $(this).stop().animate({
+                    height : 30
+                },1000);
+            });
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

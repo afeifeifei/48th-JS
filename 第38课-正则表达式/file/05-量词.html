@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            量词 { }
+                {n} n个
+                {n,m} n~m包含n也包含m
+                {n,} n~无穷大 包含n
+
+            几个特殊量词有专属的符号代替
+                {1,}  +
+                {0,}  *
+                {0,1} ?
+
+            默认贪婪，
+            量词后面加 ? 就成了惰性
+             */
+
+            /*let a = /阿\d{11}/g;
+            let s = '阿飞15575127515阿飞15478963578';*/
+
+            /*let a = /\d{2,5}?/;
+            let s = "456789";*/
+            /*let a = /\d{3,}/;
+            let s = "456785645518个91205525159"*/
+
+            let a = /\d?/g;
+            let s = "gh777sdg45dfsdf8sdf465";
+
+            console.log(s.match(a));
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            #wrap{
+                width: 1080px;
+                height: 350px;
+                margin: 50px auto;
+            }
+
+            #wrap .nav{
+                position: relative;
+                width: 100%;
+                height: 40px;
+                background-color: #f5f5f5;
+                line-height: 40px;
+                font-size: 14px;
+            }
+            #wrap .nav p{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 130px;
+                height: 40px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+            }
+            #wrap .nav ul{
+                box-sizing: border-box;
+                width: 100%;
+                padding-left: 200px;
+            }
+            #wrap .nav ul li{
+                position: relative;
+                float: left;
+                margin-right: 32px;
+                cursor: pointer;
+                transition: color .3s;
+            }
+            #wrap .nav ul li:hover{
+                color: #db3a45;
+            }
+            #wrap .nav ul li::after{
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                content: "";
+                width: 0%;
+                height: 2px;
+                margin: auto;
+                background-color: #db3a45;
+                transition: width .3s;
+            }
+            #wrap .nav ul li.active::after{
+                width: 100%;
+            }
+            #wrap .content{
+                width: 100%;
+                height: 255px;
+                margin-top: 20px;
+            }
+            #wrap .content>ul{
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .content>ul li.first{
+                display: none;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap .content>ul li.first.show{
+                display: block;
+            }
+            #wrap .content>ul li.first ul{
+                width: 150%;
+            }
+            #wrap .content>ul li.first ul li{
+                float: left;
+                width: 340px;
+                height: 255px;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="nav">
+                <p class="title">独家精品策划</p>
+                <ul>
+                    <li class="active">全部</li>
+                    <li>列表一6666</li>
+                    <li>列表二5254</li>
+                    <li>列表三000</li>
+                    <li>列表四333</li>
+                </ul>
+            </div>
+            
+            <div class="content">
+                <ul>
+                    <li class="first show">
+                        <ul>
+                            <!--<li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>-->
+                        </ul>
+                    </li>
+                    <li class="first">
+                        <ul>
+                            <!--<li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>-->
+                        </ul>
+                    </li>
+                    <li class="first">
+                        <ul>
+                            <!--<li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>-->
+                        </ul>
+                    </li>
+                    <li class="first">
+                        <ul>
+                            <!--<li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>-->
+                        </ul>
+                    </li>
+                    <li class="first">
+                        <ul>
+                            <!--<li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>
+                            <li class="second"><img src="img/1.jpg" alt=""></li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+
+            (function(data){
+
+                let aNavLi = document.querySelectorAll("#wrap .nav ul li");
+                let secondUl = document.querySelectorAll("#wrap .first ul");
+                let aFirstLi;
+                let index = 0;
+
+                //生成content的内容
+                for (let i = 0; i < data.length; i++) {
+                    let thisData = data[i];
+                    let {type,id,src} = thisData;
+                    secondUl[type+1].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                    if(i<3){
+                        secondUl[0].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                    }
+                }
+
+                //tab选项卡咯
+                aFirstLi = document.querySelectorAll("#wrap .first");
+                for(let i=0,len=aNavLi.length;i<len;i++){
+                    aNavLi[i].onmouseenter = function(){
+                        aNavLi[index].classList.remove("active");
+                        aFirstLi[index].classList.remove("show");
+
+                        index = i ;
+
+                        aNavLi[index].classList.add("active");
+                        aFirstLi[index].classList.add("show");
+                    };
+                }
+
+
+
+            })(
+                //模拟数据
+                [
+                    {
+                        id : 0,
+                        src : "img/1.jpg",
+                        type : 1
+                    },
+                    {
+                        id : 1,
+                        src : "img/2.jpg",
+                        type : 0
+                    },
+                    {
+                        id : 0,
+                        src : "img/3.jpg",
+                        type : 3
+                    },
+                    {
+                        id : 2,
+                        src : "img/4.jpg",
+                        type : 3
+                    },
+                    {
+                        id : 3,
+                        src : "img/5.jpg",
+                        type : 3
+                    },
+                    {
+                        id : 4,
+                        src : "img/6.jpg",
+                        type : 2
+                    },
+                    {
+                        id : 5,
+                        src : "img/7.jpg",
+                        type : 2
+                    },
+                    {
+                        id : 6,
+                        src : "img/8.jpg",
+                        type : 1
+                    },
+                    {
+                        id : 7,
+                        src : "img/9.jpg",
+                        type : 1
+                    },
+                    {
+                        id : 8,
+                        src : "img/10.jpg",
+                        type : 0
+                    },
+                    {
+                        id : 9,
+                        src : "img/11.jpg",
+                        type : 0
+                    },
+                    {
+                        id : 10,
+                        src : "img/12.jpg",
+                        type : 2
+                    }
+                ]
+            );
+
+            /*
+                    let type = thisData.type;
+                    let id = thisData.id;
+                    let src = thisData.src;
+                    */
+                /*
+                假设type并不是有规律的数字
+                switch(type){
+                        case "类别01":
+                            secondUl[1].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                            break;
+                        case "类别02":
+                            secondUl[2].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                            break;
+                        case "类别03":
+                            secondUl[3].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                            break;
+                        case "类别04":
+                            secondUl[4].innerHTML += `<li class="second"><img src="${src}"></li>`;
+                            break;
+                    }*/
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

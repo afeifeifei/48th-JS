@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            body{
+                background-color: pink;
+            }
+            #side .main{
+                position: fixed;
+                right: -35px;
+                top: 0;
+                width: 35px;
+                height: 100%;
+                background-color: #000;
+                transition: right .5s;
+            }
+            #side .main:hover{
+                right:0;
+            }
+            #side .main ul li{
+                position: relative;
+                width: 35px;
+                height: 35px;
+                margin: 5px 0;
+                cursor: pointer;
+            }
+            #side .main ul li i{
+                display: block;
+                width: 35px;
+                height: 35px;
+            }
+            #side .main ul li.first{
+                margin: 150px 0 100px;
+            }
+            #side .main ul li .title{
+                visibility: hidden;
+                position: absolute;
+                right:100px;
+                top: 0;
+                width: 90px;
+                height: 35px;
+                background-color: #494949;
+                text-align: center;
+                line-height: 35px;
+                font-size: 12px;
+                color: #fff;
+                transition: right .5s,opacity .5s;
+                opacity:0;
+            }
+            #side .main ul li:hover .title{
+                visibility: visible;
+                right:35px;
+                opacity:1;
+            }
+            #side .main ul li:hover{
+                background-color: #f00;
+            }
+            #side .main ul li .title::after{
+                position: absolute;
+                right: -14px;
+                top: 11px;
+                content: "";
+                width: 0;
+                height: 0;
+                border: 7px solid transparent;
+                border-left-color: #494949;
+            }
+            #side .car{
+                position: fixed;
+                z-index:1;
+                right: 0;
+                top: 186px;
+                width: 35px;
+                height: 98px;
+                background-color: #000;
+                color:#fff;
+                font-size: 13px;
+                cursor: pointer;
+            }
+            #side .car:hover{
+                background-color: #f00;
+            }
+            #side .car i{
+                display: block;
+                width: 35px;
+                height: 35px;
+                background-image: url("img/mbar-tab-logo-cart-nologin-1x.png");
+            }
+            #side .car:hover i{
+                background-image: url("img/mbar-tab-logo-cart-1x.png");
+            }
+            #side .car p{
+                position: absolute;
+                top: 0px;
+                left: 0;
+                width: 20px;
+                margin-left: 7px;
+                padding-top: 37px;
+                padding-bottom: 10px;
+                text-align: center;
+                border:none;
+            }
+            #side .car:hover p{
+                top:-1px;
+                border-top:1px solid #444;
+                border-bottom:1px solid #444;
+            }
+
+            #side .car:hover ~ .main{
+                right:0;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="side">
+            <div class="car">
+                <i></i>
+                <p>购物车</p>
+            </div>
+            <div class="main">
+                <ul>
+                    <li class="first">
+                        <i style="background-image: url('img/tab-logo-prof-1x.png')"></i>
+                        <div class="title">会员权益</div>
+                    </li>
+                    <li>
+                        <i style="background-image: url('img/mbar-tab-logo-asset-1x.png')"></i>
+                        <div class="title">我的资金</div>
+                    </li>
+                    <li>
+                        <i style="background-image: url('img/3.png')"></i>
+                        <div class="title">我的收藏</div>
+                    </li>
+                    <li>
+                        <i style="background-image: url('img/4.png')"></i>
+                        <div class="title">我看过的</div>
+                    </li>
+                    <li>
+                        <i style="background-image: url('img/5.png')"></i>
+                        <div class="title">我要充值</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            //let set = new Set("阿飞");
+            //let set = new Set([1,2,3]);
+
+            /*let set = new Set("阿飞老师阿飞老师朱雀");
+            set.add("心艾");
+            console.log(set);*/
+
+            /*let arr = [1,2,4,5,6,1,2,4,2,3];
+
+            let s = new Set(arr);
+            console.log(s);
+            console.log( [...s] );*/
+
+            /*let map = new Map();
+
+            /!*let key = "name";
+            let value = "阿飞";
+            map.set(key,value);*!/
+            let a = {goudan:"狗蛋"};
+            let b = "朱雀";
+            map.set(a,b);
+
+            console.log(map.get(a));
+
+            console.log(map);*/
+
+            class Person{
+                constructor(n){
+                    this.name = n;
+                }
+            }
+
+            let a = new Person("阿飞");
+            let b = new Person("朱雀");
+
+            let arr = [123,456];
+
+            let map = new Map()
+                .set(a,arr[0])
+                .set(b,arr[1]);
+
+            console.log(map.get(a));
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

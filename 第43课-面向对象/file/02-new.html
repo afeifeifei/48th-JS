@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;user-select:none;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+
+            /*
+            new Date()
+            new Image()
+            new XMLHttpRequest()
+            new RegExp()
+            new Array()
+
+            new 关键词 后面紧跟一个 函数
+                通过new执行函数对函数的影响：
+                    ①：函数内部生成一个全新的对象，函数的this指向这个对象
+                    ②：函数默认返回上述对象
+             */
+
+            function fn(){
+                this.x = 10;
+                //console.log(this);
+            }
+
+            //console.log( fn() );
+            console.log(new fn());
+
+            //new fn();
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

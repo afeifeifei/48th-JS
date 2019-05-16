@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="潭州教育-阿飞老师">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <p>11</p>
+            <p>22</p>
+            <p>33</p>
+        </div>
+        
+        <script>
+
+            /*var oW = document.getElementById("wrap");
+
+            var children = oW.children;
+
+            console.log(oW.firstChild);
+            console.log(oW.firstElementChild);
+            console.log(oW.children[0]);*/
+
+            var aChild = document.getElementById("wrap").children;
+
+            var p1 = aChild[0];
+            var p2 = aChild[1];
+            var p3 = aChild[2];
+
+
+            /*console.log(p1.nextElementSibling);
+            console.log(p2.nextElementSibling);
+            console.log(p3.nextElementSibling);*/
+
+            console.log(getnextSibling(p1));
+            console.log(getnextSibling(p2));
+            console.log(getnextSibling(p3));
+
+            function getnextSibling(ele){
+                if( ele.nextElementSibling !== undefined ){
+                    return ele.nextElementSibling;
+                }else{
+                    return ele.nextSibling;
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
